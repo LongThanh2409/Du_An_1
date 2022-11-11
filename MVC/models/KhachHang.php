@@ -1,0 +1,36 @@
+<?php
+
+function login(){
+
+
+if (isset($_POST['dangnhap'])) {
+   
+    $sql = "SELECT * FROM khach_hang";
+    $user = getData($sql, FETCH_ALL);
+    foreach ($user as $value) {
+        if (isset($_POST['dangnhap'])) {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            // $password = password_hash($password, PASSWORD_DEFAULT);
+
+            // kiểm tra
+            if ($username == $value['username'] && $password == $value['password'] && $value['level'] == 1) {
+                $_SESSION['admin'] = $value['username'];
+                // header('location:');
+            } else if ($username == $value['username'] && $password == $value['password'] && $value['level'] == 2) {
+                
+                $_SESSION['username'] = $value['username'];
+               
+             
+                header('location:index.php?url=ds_san_pham');
+            } else {
+                $erorr = "Tài khoản mật khẩu không đúng";
+            }
+        } else {
+            $erorr = 'Tài khoản mật khẩu không đúng';
+        }                   
+    }
+    
+}
+}
+?>

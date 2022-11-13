@@ -53,6 +53,11 @@ switch($url){
                 logins();
                
                  break;
+                 case 'logout':
+            
+                  logouts();
+                 
+                   break;
      }
     
  

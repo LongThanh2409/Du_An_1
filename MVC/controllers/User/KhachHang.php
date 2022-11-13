@@ -21,4 +21,10 @@ function logins()
     include('views/User/tai_khoan/login.php');
    
 }
+function logouts(){
+  
+   include('views/User/tai_khoan/logout.php');
+   logout();
+   
+}
 ?>

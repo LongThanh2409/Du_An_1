@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 function headers()
 { ?>
     <!DOCTYPE html>
@@ -61,7 +62,14 @@ function headers()
 
                     </ul>
                 </div>
-                <div class=" col-md-5 themed-grid-col">
+               
+               
+                <?php
+                if(!isset( $_SESSION['username'])){
+                
+                    
+                    echo '
+                    <div class=" col-md-5 themed-grid-col">
                     <div class="search-button">
                         <div class="search">
                             <input type="search" name="search" id="" placeholder="Tìm Kiếm">
@@ -72,10 +80,28 @@ function headers()
                         </div>
                     </div>
                 </div>
+                    ';
+                }
+                else{
+                    $confim =("'Có chắc là muốn đăng xuất'");
+                    echo '
+                   
+                    <div class=" col-md-5 themed-grid-col">
+                  
+                    <div class="button-logout">
+                    <button onclick="return confirm('.$confim.')"  name="dang_xuat">  <a href="index.php?url=logout"  >Logout</a></button> 
+
+                  
+                </div>
+            </div>
+                    ';
+                }
+                ?>
                
             </div>
+         
             <div class="hello-username fixed top-5 right-1">
-                    <marquee class="text-right"  width="150px" direction="left" height="50px">
+                    <marquee class="text-right"  width="160px" direction="left" height="50px">
                         <h3 class="" style="color: #000;">  <?php
 
 

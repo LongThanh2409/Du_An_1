@@ -153,7 +153,21 @@
     font-weight: 800;
 }
 
+.button-logout a{
+    padding: 10px 10px;
+    margin: 0 25px;
+    background-color: red;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    line-height: 86px;
+}
+.button-logout a:hover{
 
+    color: #fff;
+
+}
 .slider {
     position: relative;
     margin-top: 87px;
@@ -187,7 +201,9 @@
 }
 .item-img img{
     width: 100%;
+    
 }
+
 .one .products{
     transition-duration: 0.5s;
 }

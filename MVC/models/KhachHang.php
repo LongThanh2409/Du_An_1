@@ -16,7 +16,7 @@ if (isset($_POST['dangnhap'])) {
             // kiểm tra
             if ($username == $value['username'] && $password == $value['password'] && $value['level'] == 1) {
                 $_SESSION['admin'] = $value['username'];
-                // header('location:');
+                header('location:index2.php?url=ds_loai_xe');
             } else if ($username == $value['username'] && $password == $value['password'] && $value['level'] == 2) {
                 
                 $_SESSION['username'] = $value['username'];
@@ -32,5 +32,22 @@ if (isset($_POST['dangnhap'])) {
     }
     
 }
+}
+function logout(){
+    
+       
+    
+     
+        if(isset($_SESSION['username'])){
+           unset($_SESSION['username']);
+       }
+       if(isset($_SESSION['admin'])){
+           unset($_SESSION['admin']);
+       }
+       header('location:index.php?url=ds_san_pham');
+   
+     
+   
+    
 }
 ?>

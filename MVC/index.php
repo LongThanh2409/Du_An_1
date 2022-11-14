@@ -58,6 +58,10 @@ switch($url){
                   logouts();
                  
                    break;
+                   case 'dang_ky':
+
+                    require_once "./views/User/tai_khoan/dangky.php";
+                   break;
      }
     
  

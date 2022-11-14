@@ -97,7 +97,7 @@
             <td><?= $value['ten_xe'] ?> </td>
             <td><?= $value['don_gia'] ?></td>
             <td><?= $value['ma_loai'] ?></td>
-            <td><?= $value['hinh'] ?></td>
+            <td> <img width="20%" src="<?= $value['hinh'] ?>" alt=""></td>
             <td><?= $value['thong_tin'] ?></td>
             <td><?= $value['giam_gia'] ?></td>
             <td><?= $value['so_km'] ?></td>

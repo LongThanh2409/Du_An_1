@@ -62,18 +62,22 @@ function headers()
 
                     </ul>
                 </div>
-               
-               
+
+
+
                 <?php
-                if(!isset( $_SESSION['username'])){
-                
-                    
+                if (!isset($_SESSION['username'])) {
+
+
                     echo '
                     <div class=" col-md-5 themed-grid-col">
                     <div class="search-button">
-                        <div class="search">
-                            <input type="search" name="search" id="" placeholder="Tìm Kiếm">
-                        </div>
+                    <form action="index.php?url=tim_Kiem" method="get">
+                    <div class="search">
+                                 <input type="text" name="key" id="" placeholder="Tìm Kiếm">
+                                 <button > Tìm Kiếm</button>
+                             </div>
+                    </form>
                         <div class="button-login">
                             <a href="index.php?url=login">Login / Register</a>
 
@@ -81,35 +85,41 @@ function headers()
                     </div>
                 </div>
                     ';
-                }
-                else{
-                    $confim =("'Có chắc là muốn đăng xuất'");
+                } else {
+                    $confim = ("'Có chắc là muốn đăng xuất'");
                     echo '
                    
                     <div class=" col-md-5 themed-grid-col">
-                  
-                    <div class="button-logout">
-                    <button onclick="return confirm('.$confim.')"  name="dang_xuat">  <a href="index.php?url=logout"  >Logout</a></button> 
+                    <div class="search-button">
+                    <form action="index.php?url=tim_Kiem" method="get">
+                    <div class="search">
+                                 <input type="text" name="key" id="" placeholder="Tìm Kiếm">
+                                 <button > Tìm Kiếm</button>
+                             </div>
+                    </form>
 
-                  
+                    <div class="button-logout">
+                    <button onclick="return confirm(' . $confim . ')"  name="dang_xuat">  <a href="index.php?url=logout"  >Logout</a></button> 
+
+                  </div>
                 </div>
             </div>
                     ';
                 }
                 ?>
-               
+
             </div>
-         
+
             <div class="hello-username fixed top-5 right-1">
-                    <marquee class="text-right"  width="160px" direction="left" height="50px">
-                        <h3 class="" style="color: #000;">  <?php
+                <marquee class="text-right" width="160px" direction="left" height="50px">
+                    <h3 class="" style="color: #000;"> <?php
 
 
-                                echo isset($_SESSION['username']) ? 'Hello'.' '.  $_SESSION['username'] : "" ?>
-                        </h3>
-                    </marquee>
+                                                        echo isset($_SESSION['username']) ? 'Hello' . ' ' .  $_SESSION['username'] : "" ?>
+                    </h3>
+                </marquee>
 
-                </div>
+            </div>
         </div>
     </body>
 

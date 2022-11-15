@@ -8,10 +8,19 @@ function layDS3SanPham()
     return $list_sp;
 }
 // out all sp
-function layDSSanPham()
+function layDSSanPham($key)
 {
-    $sql = "SELECT * FROM xe ";
-    $list_sp = getData($sql, FETCH_ALL);
+    if(isset($_GET['key'])&&($_GET['key']!="")){
+        $sql = "SELECT * FROM xe WHERE ten_xe like '%$key%'";
+        $list_sp = getData($sql, FETCH_ALL);
+    }
+   
+    else{
+        $sql = "SELECT * FROM xe";
+        $list_sp = getData($sql, FETCH_ALL);
+    
+    }
+   
     return $list_sp;
 }
 // sanpham chi tiết
@@ -45,4 +54,20 @@ function layKhungGio()
     $ds_gio = getData($sql, FETCH_ALL);
     return $ds_gio;
 }
+// tim san phâm
+// function timKiemSanPham($key){
+//     if(isset($_GET['key'])&&($_GET['key']!="")){
+//         $sql = "SELECT * FROM xe WHERE ten_xe like '%$key%'";
+//         $timKiem = getData($sql, FETCH_ALL);
+//     }
+   
+//     else{
+//         $sql = "SELECT * FROM xe";
+//         $timKiem = getData($sql, FETCH_ALL);
+    
+//     }
+   
+   
+//     return $timKiem;
+// }
 ?>

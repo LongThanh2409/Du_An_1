@@ -2,7 +2,8 @@
 require './models/SanPham.php';
 function hienThiSanPham()
 {
-    $ds_sp_xe = layDSSanPham();
+    $ds_sp_xe = layDSSanPham($_GET['key']);
+  
     $ds3_sp_xe = layDS3SanPham();
     include('views/User/san_pham/danh_sach.php');
    
@@ -34,4 +35,9 @@ function hienThiKhungGio()
     include('views/User/san_pham/danh_sach_gio.php');
    
 }
+// function timKiemSanPhams(){
+    
+//     $ds_sp_xe = timKiemSanPham($_GET['key']);
+//     include ('views/User/san_pham/danh_sach.php');
+// }
 ?>

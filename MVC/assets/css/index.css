@@ -137,11 +137,20 @@
 }
 
 .search-button .search input{
-    width: 250px;
+    width: 300px;
     height: 40px;
     border-radius: 5px;
     padding-left: 16px;
     border: 1px solid gainsboro;
+}
+.search-button .search >button{
+    width: 100px;
+    height: 40px;
+    background-color: red;
+    border-radius: 5px;
+  line-height: 40px;
+    text-decoration: none;
+    font-weight: 800;
 }
 .search-button .button-login a{
     padding: 10px 10px;

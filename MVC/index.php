@@ -17,9 +17,7 @@ switch($url){
       headers();
       require "./views/User/menu/about.php";
       break;
-      case 'ds_san_pham':
-        headers();
-        break;
+     
 }
 
      switch($url){
@@ -28,13 +26,15 @@ switch($url){
         require "./views/banner_slider.php";
         hienThiSanPham();
        
-       
+        
         break;
         case 'ds_san_pham':
           headers();
           require "./views/banner_slider.php";
           hienThiSanPham();
+          
           break;
+          
           case 'sp_chi_tiet':
             headers();
             require "./views/banner_slider.php";

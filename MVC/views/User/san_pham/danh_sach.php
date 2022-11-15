@@ -76,11 +76,17 @@
      ?>
      <div class="one my-15 grid gird-cols-1 gap-2  md:grid-cols-2 lg:grid-cols-4">
         <?php 
-        foreach($ds_sp_xe as $key => $value){
+      
+        if(isset($ds_sp_xe)){
+
+           
+        foreach($ds_sp_xe as $key => $value) {
+           
             extract($value);
             $img_path = 'assets/images/';
             $img = $img_path.$hinh;
             $link_sp_ct = 'index.php?url=sp_chi_tiet&ma_xe='.$ma_xe;
+           
             echo '
             <div class="products mt-10 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]" >
          
@@ -110,6 +116,10 @@
                        </div>
             ';
         }
+    }
+    else{
+        echo 'Xin lỗi';
+    }
         ?>
     </div>
 </body>

@@ -2,8 +2,8 @@
 require './models/SanPham.php';
 function hienThiSanPham()
 {
-    $ds_sp_xe = layDSSanPham($_GET['key']);
-  
+    
+    $ds_sp_xe = layDSSanPham();
     $ds3_sp_xe = layDS3SanPham();
     include('views/User/san_pham/danh_sach.php');
    

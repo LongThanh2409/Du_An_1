@@ -8,14 +8,16 @@ function layDS3SanPham()
     return $list_sp;
 }
 // out all sp
-function layDSSanPham($key)
+function layDSSanPham()
 {
     if(isset($_GET['key'])&&($_GET['key']!="")){
+        $key =$_GET['key'];
         $sql = "SELECT * FROM xe WHERE ten_xe like '%$key%'";
         $list_sp = getData($sql, FETCH_ALL);
     }
    
     else{
+        $key ="";
         $sql = "SELECT * FROM xe";
         $list_sp = getData($sql, FETCH_ALL);
     

@@ -14,12 +14,15 @@ function themMoiKhungGio()
 {
     if (isset($_POST['btn_them'])) {
         $khung_gio = $_POST['khung_gio'];    
+        if($khung_gio !=''){                
         $sql = "INSERT INTO  khung_gio( khung_gio) VALUES ( '$khung_gio')";       
         $conn = getConnect();
         $statement = $conn->prepare($sql);
         $statement->execute();
+        header('Location:index2.php?url=ds_khung_gio');
+        }
     }
-}
+    }
 function xoaKhungGio()
 {
     $ma_gio = $_GET['ma_gio'];

@@ -1,3 +1,24 @@
+<?php
+  if (isset($_POST['btn_them'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+    $level = $_POST['level'];
+   if(!$username){
+     $username_err = 'CHƯA NHẬP';
+   }
+   if(!$password){
+    $password_err = 'CHƯA NHẬP';
+   }
+   if(!$email){
+    $email_err = 'CHƯA NHẬP';
+   }
+   if(!$level){
+    $level_err  = 'CHƯA NHẬP';
+   }
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -90,15 +111,27 @@
             <h3 class="h3">MÃ KH</h3>
             <p class="text1">AUTO</p>
             <h3 class="h3">USERNAME</h3>
-            <input type="text" name="username" class="username">
+            <input type="text" name="username" class="username" value = '<?= isset($username) ? $username : ''?>'>
+            <p style="color: red;">
+        <?php echo isset($username_err) ?  $username_err : ''; ?>
+     </p>
             <h3 class="h3">PASSWORD</h3>
-            <input type="text" name="password" class="password">
+            <input type="text" name="password" class="password" value = '<?= isset($password) ? $password : ''?>'>
+            <p style="color: red;">
+        <?php echo isset($password_err) ?  $password_err : ''; ?>
+     </p>
           </div>
           <div class="right">
             <h3 class="h3">EMAIL</h3>
-            <input type="email" name="email" class="email">
+            <input type="email" name="email" class="email" value = '<?= isset($email) ? $email : ''?>'>
+            <p style="color: red;">
+        <?php echo isset($email_err) ?  $email_err : ''; ?>
+     </p>
             <h3 class="h3">LEVEL</h3>
-            <input type="text" name="level" class="level">
+            <input type="text" name="level" class="level" value = '<?= isset($level) ? $level : ''?>'>
+            <p style="color: red;">
+        <?php echo isset($level_err) ?  $level_err : ''; ?>
+     </p>
           </div>
           </div>
           <div class="btn">

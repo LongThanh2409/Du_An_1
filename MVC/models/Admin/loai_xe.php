@@ -15,11 +15,15 @@ function themMoiLoaiXe()
     if (isset($_POST['btn_them'])) {
         $ten_loai = $_POST['ten_loai'];
         $hinh_logo = 'assets/images/' . $_FILES['hinh_logo']['name'];
-        $sql = "INSERT INTO  loai_xe(ten_loai , hinh_logo) VALUES ('$ten_loai' , '$hinh_logo')";       
-        $conn = getConnect();
-        $statement = $conn->prepare($sql);
-        $statement->execute();
-        move_uploaded_file($_FILES["hinh_logo"]["tmp_name"], 'assets/images/' . $_FILES["hinh_logo"]["name"]);
+        if($ten_loai != '' && $_FILES['hinh_logo']['name'] != '' ){
+            $sql = "INSERT INTO  loai_xe(ten_loai , hinh_logo) VALUES ('$ten_loai' , '$hinh_logo')";       
+            $conn = getConnect();
+            $statement = $conn->prepare($sql);
+            $statement->execute();
+            move_uploaded_file($_FILES["hinh_logo"]["tmp_name"], 'assets/images/' . $_FILES["hinh_logo"]["name"]);
+            header('Location:index2.php?url=ds_loai_xe');
+        }
+     
     }
 }
 function xoaLoaiXe()

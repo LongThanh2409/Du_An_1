@@ -24,11 +24,15 @@ function themMoiXe()
         $slots = $_POST['slots'];
         $dong_co = $_POST['dong_co'];
       $ma_gio = $_POST['ma_gio'];
+      if($ten_xe != '' && $don_gia != '' && $ma_loai != '' &&  $_FILES['hinh']['name'] != '' && $thong_tin !='' && $giam_gia != '' && $so_km != '' && $xuat_xu != '' && $slots != '' && $dong_co != '' && $ma_gio !=''){
         $sql = "INSERT INTO  xe(ten_xe,don_gia,ma_loai,hinh,thong_tin,giam_gia,so_km,xuat_xu,slots,dong_co,ma_gio) VALUES ('$ten_xe','$don_gia','$ma_loai','$hinh','$thong_tin','$giam_gia','$so_km','$xuat_xu','$slots','$dong_co','$ma_gio')";       
         $conn = getConnect();
         $statement = $conn->prepare($sql);
         $statement->execute();
         move_uploaded_file($_FILES["hinh"]["tmp_name"], 'assets/images/' . $_FILES["hinh"]["name"]);
+        header('Location:index2.php?url=ds_xe');
+      }
+       
     }
 }
 function suaXe(){

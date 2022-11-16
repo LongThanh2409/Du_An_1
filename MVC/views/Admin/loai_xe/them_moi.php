@@ -1,3 +1,15 @@
+<?php
+  if (isset($_POST['btn_them'])) {
+    $ten_loai = $_POST['ten_loai'];
+    $hinh_logo =  $_FILES['hinh_logo'];
+  if(!$ten_loai){
+    $ten_loai_err='CHƯA NHẬP';
+  }
+  if(!$hinh_logo['name'] ){
+    $hinh_logo_err = 'CHƯA NHẬP';
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -87,11 +99,17 @@
         <h3 class="h3">MÃ LOẠI</h3>
         <p class="text1">AUTO</p>
         <h3 class="h3">TÊN LOẠI</h3>
-        <input type="text" name="ten_loai" class="ten_loai">
+        <input type="text" name="ten_loai" class="ten_loai" value = '<?= isset($ten_loai) ? $ten_loai : ''?>'>
+        <p style="color: red;">
+        <?php echo isset($ten_loai_err) ?  $ten_loai_err : ''; ?>
+     </p>
         <h3 class="h3">HÌNH ẢNH </h3>
          <div class="text1">
           <input type="file" name="hinh_logo" class="hinh_logo" >
          </div>
+         <p style="color: red;">
+        <?php echo isset($hinh_logo_err) ?  $hinh_logo_err : ''; ?>
+     </p>
         <div class="btn">
             <button name="btn_them" class="btn_them1">THÊM MỚI</button>      
             <a href="index2.php?url=ds_loai_xe" class="ds">DANH SÁCH</a>

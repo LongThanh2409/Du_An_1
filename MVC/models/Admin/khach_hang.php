@@ -16,11 +16,14 @@ function themMoiKH(){
         $password = $_POST['password'];
         $email = $_POST['email'];
         $level = $_POST['level'];
-        $sql = "INSERT INTO  khach_hang(username,password,email,level) VALUES ('$username' , '$password','$email' , '$level')";       
-        $conn = getConnect();
-        $statement = $conn->prepare($sql);
-        $statement->execute();
-     
+        if($username != '' && $password != '' && $email != '' && $level != ''){
+            $sql = "INSERT INTO  khach_hang(username,password,email,level) VALUES ('$username' , '$password','$email' , '$level')";       
+            $conn = getConnect();
+            $statement = $conn->prepare($sql);
+            $statement->execute();
+            header('Location:index2.php?url=ds_khach_hang');
+        }
+      
     }
 }
 function suaKH(){

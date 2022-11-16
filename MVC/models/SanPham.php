@@ -16,6 +16,7 @@ function layDSSanPham()
         $list_sp = getData($sql, FETCH_ALL);
     }
    
+    
     else{
         $key ="";
         $sql = "SELECT * FROM xe";

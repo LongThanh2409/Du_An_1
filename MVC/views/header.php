@@ -57,7 +57,8 @@ function headers()
                     <ul class="nav">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="index.php?url=about">About</a></li>
-                        <li><a href="">Torn</a></li>
+                        <li><a href="">Khung giờ</a>
+                    </li>
                         <li><a href="">Contact</a></li>
 
                     </ul>

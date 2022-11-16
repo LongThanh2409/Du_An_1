@@ -65,8 +65,9 @@ switch($url){
      }
     
  
-    
+    require_once "views/footer.php";
      ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

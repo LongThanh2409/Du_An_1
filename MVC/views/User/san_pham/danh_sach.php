@@ -13,6 +13,9 @@
 <?php
       hienThiKhungGio();
      ?>
+     <div class="header-3sp text-center">
+        <h1>3 sản phẩm mới nhất</h1>
+     </div>
     <div class="one mt-11 mx-20 grid lg:grid-cols-3 gap-5">
         <?php 
         foreach($ds3_sp_xe as $key => $value){
@@ -77,7 +80,7 @@
      <div class="one my-15 grid gird-cols-1 gap-2  md:grid-cols-2 lg:grid-cols-4">
         <?php 
       
-        if(isset($ds_sp_xe)){
+        if(count($ds_sp_xe)!=""){
 
            
         foreach($ds_sp_xe as $key => $value) {
@@ -118,9 +121,19 @@
         }
     }
     else{
-        echo 'Xin lỗi';
+        $tb_sp ='Không có sản phẩm cần tìm';
+       echo '
+       <script>
+       alert("'.$tb_sp.'");
+       </script>
+       ';
     }
         ?>
     </div>
 </body>
+
+   <script>
+   
+   </script>
+
 </html>

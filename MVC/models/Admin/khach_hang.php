@@ -40,3 +40,12 @@ function suaKH(){
         header('Location:index2.php?url=ds_khach_hang');
     }
 }
+function xoaKhachHang()
+{
+    $ma_kh = $_GET['ma_kh'];
+    $sql = "DELETE FROM khach_hang WHERE ma_kh=$ma_kh";
+    $conn = getConnect();
+    $statement = $conn->prepare($sql);
+    $statement->execute();
+    header('Location:index2.php?url=ds_khach_hang');
+}

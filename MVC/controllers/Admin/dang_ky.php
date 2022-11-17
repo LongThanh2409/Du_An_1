@@ -4,3 +4,7 @@ function hienThiDangKy() {
     $dk = layDSDK();
     include('views/Admin/dang_ky/danh_sach.php');
 }
+function formSuaDangKy(){
+    suaDangKy();
+    include('views/Admin/dang_ky/danh_sach.php');
+ }

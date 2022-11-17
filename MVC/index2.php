@@ -65,8 +65,13 @@ switch ($url) {
             xoaDSKG();
             break;    
     case 'ds_dang_ky':
+        
         hienThiDangKy();
-        break;        
+        
+        break;     
+    case 'sua_dang_ky' :
+        formSuaDangKy();
+        break;       
 
 
     default:

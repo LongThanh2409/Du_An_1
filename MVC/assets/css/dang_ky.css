@@ -144,3 +144,18 @@ table{
     height: 60px;
 
 }
+.btn_edit{
+    width: 70px;
+    height: 40px;
+    border: none;
+    background-color: blue;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+.btn_edit a{
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+   
+}

@@ -48,6 +48,7 @@ function logout(){
    
     
 }
+<<<<<<< HEAD
 
 function dkxemxe(){
     // $ma_xe=$_GET['ma_xe'];
@@ -80,10 +81,8 @@ function dkxemxe(){
     //     $sql->bindParam(':khung_gio', $khunggio);
 
     //     $sql->bindParam(':ma_xe', $ma_xe);
+=======
+>>>>>>> ccde2adb29b72209a9b3fb6d443f41e29be6bb94
 
 
-    //     $sql->execute();
-    //     }
-    // }
-}
 ?>

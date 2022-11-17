@@ -49,3 +49,20 @@ function xoaKhachHang()
     $statement->execute();
     header('Location:index2.php?url=ds_khach_hang');
 }
+function dkxemxe(){
+    if(isset($_POST['dat_lich'])){
+        $ma_xe=$_POST['ma_xe'];
+        $ten_khach_hang=$_POST['ten_khach_hang'];
+        $email=$_POST['email'];
+        $dia_chi=$_POST['dia_chi'];
+        $khung_gio=$_POST['khung_gio'];
+       
+            $sql = "INSERT INTO `dat_lich` (`ma_dat`, `ten_khach_hang`) VALUES (NULL, 'long')";
+            $conn = getConnect();
+            $statement = $conn->prepare($sql);
+            $statement->execute();
+            $sucss = 'Tạo Thành Công';
+    
+        echo   $ten_khach_hang;
+    }
+}

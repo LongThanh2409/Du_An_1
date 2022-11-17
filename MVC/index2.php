@@ -72,6 +72,10 @@ switch ($url) {
     case 'sua_dang_ky' :
         formSuaDangKy();
         break;       
+        case'dangkyxemxe':
+            dangkyxem();
+            // require_once "./views/User/dangkyxemxe/dkxemxe.php ";
+              break;
 
 
     default:

@@ -58,6 +58,10 @@ switch($url){
               case 'dang_ky':
                     require_once "./views/User/tai_khoan/dangky.php";
                    break;
+                   case'dangkyxemxe':
+                    dangkyxem();
+                    // require_once "./views/User/dangkyxemxe/dkxemxe.php ";
+                      break;
       
 
      }

@@ -48,41 +48,20 @@ function logout(){
    
     
 }
-<<<<<<< HEAD
 
-function dkxemxe(){
-    // $ma_xe=$_GET['ma_xe'];
-    // if(isset($_POST['datlich'])){
-    //     $ma_xe=$_POST['ma_xe'];
-    //     $tenkhachhang=$_POST['username'];
-    //     $email=$_POST['email'];
-    //     $diachi=$_POST['diachi'];
-    //     $khunggio=$_POST['khunggio'];
-    //     $error=[];
-    //     if($tenkhachhang=''){
-    //         $error['tenkhachhang']="Tên khách hàng không được để trống";
-    //     }
-    //     if($email=' '){
-    //         $error['email']="Email không được để trống";
-    //     }
-    //     if($diachi=' '){
-    //         $error['diachi']="Địa chỉ không được để trống";
-    //     }
-    //     if(!$error) {
-    //         // $sql = "INSERT INTO dat_lich(tenkhachhang, email, diachi, khung_gio, ma_xe) VALUES ($tenkhachhang,$email,$diachi,$khunggio,$ma_xe)";
-    //         // $conn = getConnect();
-    //         // $statement = $conn->prepare($sql);
-    //         // $statement->execute();
-    //         // $sucss = 'Tạo Thành Công';
-    //         $sql = $conn->prepare('INSERT INTO dat_lich( tenkhachhang, email, diachi, khung_gio, ma_xe) VALUES (:tenkhachhang, :email, :diachi,  :khunggio,:ma_xe)');
-    //     $sql->bindParam(':tenkhachhang', $tenkhachhang);
-    //     $sql->bindParam(':diachi', $diachi);
-    //     $sql->bindParam(':email', $email);
-    //     $sql->bindParam(':khung_gio', $khunggio);
-
-    //     $sql->bindParam(':ma_xe', $ma_xe);
-=======
->>>>>>> ccde2adb29b72209a9b3fb6d443f41e29be6bb94
-
-
+function dkxemxe()
+{
+    if (isset($_POST['dat_btn'])) {
+        $ma_xe = $_POST['ma_xe'];
+        $ten_khach_hang = $_POST['ten_khach_hang'];
+        $email = $_POST['email'];
+        $dia_chi = $_POST['dia_chi'];
+        $ma_gio = $_POST['ma_gio'];
+      
+        $sql = "INSERT INTO  dat_lich(ten_khach_hang,email,dia_chi,ma_gio, ma_xe) VALUES ('$ten_khach_hang' , '$email','$dia_chi' , '$ma_gio', '$ma_xe')";
+        getData($sql, FETCH_ALL);
+        echo   $ten_khach_hang;
+        echo   $sql;
+    }
+}
 ?>

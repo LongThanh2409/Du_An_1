@@ -42,11 +42,24 @@ function laySanPhamTheoDM($ma_loai)
     return $sp_dms;
 }
 // lấy sản phẩm theo khung giờ
-function laySanPhamTheoGio($ma_gio)
+function laySanPhamTheoGio()
 {
-    $sql = "SELECT * FROM  xe where 1 AND ma_gio= $ma_gio";
+    if(isset($_GET['ma_gio'])&&($_GET['ma_gio']!="")){
+        $ma_gio =$_GET['ma_gio'];
+        $sql = "SELECT * FROM  xe where 1 AND ma_gio= $ma_gio";
+        $sp_gio = getData($sql, FETCH_ALL);
+    }
+   
+    
+    else{
+        $key ="";
+        $sql = "SELECT * FROM xe";
+        $sp_gio = getData($sql, FETCH_ALL);
+    
+    }
   
-    $sp_gio = getData($sql, FETCH_ALL);
+  
+    
     return $sp_gio;
 }
 // danh_sách_gio

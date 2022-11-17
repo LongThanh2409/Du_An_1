@@ -26,5 +26,12 @@ function logouts(){
    logout();
    
 }
+function dangkyxem(){
+   $sp_gio = laySanPhamTheoGio();
+   $ds_kg = layKhungGio(); 
+   $ds_sp = layDSSanPham(); 
+   dkxemxe();
+   include('views/User/dangkyxemxe/dkxemxe.php');
+ }
 
 ?>

@@ -62,4 +62,41 @@ function themMoiKhachHang()
         $statement->execute();
     }
 }
+function dkxemxe(){
+    // $ma_xe=$_GET['ma_xe'];
+    // if(isset($_POST['datlich'])){
+    //     $ma_xe=$_POST['ma_xe'];
+    //     $tenkhachhang=$_POST['username'];
+    //     $email=$_POST['email'];
+    //     $diachi=$_POST['diachi'];
+    //     $khunggio=$_POST['khunggio'];
+    //     $error=[];
+    //     if($tenkhachhang=''){
+    //         $error['tenkhachhang']="Tên khách hàng không được để trống";
+    //     }
+    //     if($email=' '){
+    //         $error['email']="Email không được để trống";
+    //     }
+    //     if($diachi=' '){
+    //         $error['diachi']="Địa chỉ không được để trống";
+    //     }
+    //     if(!$error) {
+    //         // $sql = "INSERT INTO dat_lich(tenkhachhang, email, diachi, khung_gio, ma_xe) VALUES ($tenkhachhang,$email,$diachi,$khunggio,$ma_xe)";
+    //         // $conn = getConnect();
+    //         // $statement = $conn->prepare($sql);
+    //         // $statement->execute();
+    //         // $sucss = 'Tạo Thành Công';
+    //         $sql = $conn->prepare('INSERT INTO dat_lich( tenkhachhang, email, diachi, khung_gio, ma_xe) VALUES (:tenkhachhang, :email, :diachi,  :khunggio,:ma_xe)');
+    //     $sql->bindParam(':tenkhachhang', $tenkhachhang);
+    //     $sql->bindParam(':diachi', $diachi);
+    //     $sql->bindParam(':email', $email);
+    //     $sql->bindParam(':khung_gio', $khunggio);
+
+    //     $sql->bindParam(':ma_xe', $ma_xe);
+
+
+    //     $sql->execute();
+    //     }
+    // }
+}
 ?>

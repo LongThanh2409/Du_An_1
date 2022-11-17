@@ -48,6 +48,9 @@ switch ($url) {
     case 'sua_khach_hang':
         formSuaKH();
         break;    
+        case 'xoa_khach_hang':
+            xoaDSKH();
+            break;   
 // KHUNG GIỜ
     case  'ds_khung_gio':
         hienThiKhungGio();
@@ -62,8 +65,13 @@ switch ($url) {
             xoaDSKG();
             break;    
     case 'ds_dang_ky':
+        
         hienThiDangKy();
-        break;        
+        
+        break;     
+    case 'sua_dang_ky' :
+        formSuaDangKy();
+        break;       
 
 
     default:

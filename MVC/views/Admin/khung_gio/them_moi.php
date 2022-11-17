@@ -1,3 +1,13 @@
+<?php
+  if (isset($_POST['btn_them'])) {
+    $khung_gio = $_POST['khung_gio'];
+   
+  if(!$khung_gio){
+    $khung_gio_err='CHƯA NHẬP';
+  }
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -88,7 +98,9 @@
         <p class="text1">AUTO</p>
         <h3 class="h3">KHUNG GIỜ</h3>
         <input type="text" name="khung_gio" class="ten_loai">
-      
+        <p style="color:red ;">
+        <?php echo isset($khung_gio_err) ?  $khung_gio_err : ''; ?>
+     </p>
         <div class="btn">
             <button name="btn_them" class="btn_them1">THÊM MỚI</button>      
             <a href="index2.php?url=ds_khung_gio" class="ds">DANH SÁCH</a>

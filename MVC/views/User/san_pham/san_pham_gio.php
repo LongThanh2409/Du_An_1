@@ -24,7 +24,7 @@
         else{
            
           
-            echo ' <h1 class=" mt-96">Xin lôi </h1>';
+            echo ' <h1 class=" mt-16">Xin lỗi khung giờ này chưa có xe để đặt </h1>';
          }
         
          ?>

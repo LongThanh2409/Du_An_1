@@ -24,11 +24,9 @@ if (isset($_POST['dangnhap'])) {
              
                 header('location:index.php?url=ds_san_pham');
             } else {
-                $erorr = "Tài khoản mật khẩu không đúng";
+                $_SESSION['error'] = "Tài khoản mật khẩu không đúng";
             }
-        } else {
-            $erorr = 'Tài khoản mật khẩu không đúng';
-        }                   
+        }             
     }
     
 }

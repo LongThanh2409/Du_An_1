@@ -98,10 +98,10 @@
             <td><?= $value['email'] ?></td>
             <td>
               <button class="btn_edit">
-                <a class="edit" href="?url=sua_khach_hang&ma_kh=<?php echo $value['ma_kh'] ?>">Sửa</a>
+                <a class="edit" href="index2.php?url=sua_khach_hang&ma_kh=<?php echo $value['ma_kh'] ?>">Sửa</a>
               </button>
               <button class="btn_delete">
-                <a class="delete" href="">Xóa</a>
+              <a class="delete" href="index2.php?url=xoa_khach_hang&ma_kh=<?php echo $value['ma_kh'] ?>" onclick="return confirm('bạn có muốn xóa')">Xóa</a>
               </button>
             </td>
           </tr>

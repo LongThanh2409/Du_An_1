@@ -86,14 +86,26 @@
         <table style="max-width: 1140px; width: 100%;" >
         <tr class="tr1">
           <td class="td1">MÃ ĐẶT</td>
-          <td class="td2">MÃ KHÁCH HÀNG</td>
-         <td> MÃ XE</td>
+          <td class="td2">TÊN KHÁCH HÀNG  </td>
+         <td> EMAIL</td>
+         <td>ĐỊA CHỈ </td>
+         <td>MÃ GIỜ</td>
+         <td>MÃ XE</td>
+         <td>TRẠNG THÁI</td>
         </tr>
         <?php foreach ($dk as $key => $value) : ?>
           <tr class="tr2">
             <td class=""> <?= $value['ma_dat'] ?> </td>
-            <td><?= $value['ma_kh'] ?> </td>
+            <td><?= $value['ten_khach_hang'] ?> </td>
+            <td><?= $value['email'] ?> </td>
+            <td><?= $value['dia_chi'] ?> </td>
+            <td><?= $value['ma_gio'] ?> </td>
             <td><?= $value['ma_xe'] ?> </td>
+            <td><?= $value['trang_thai'] ?> </td>
+           <td> <button class="btn_edit">
+                <a class="edit" href="index2.php?url=sua_dang_ky&ma_dat=<?php echo $value['ma_dat'] ?>"   onclick="return confirm('Chắc chắn duyệt')">Duyệt</a>
+              </button>
+              </td> 
            <?php endforeach ?> 
       </div>
     </div>

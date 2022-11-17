@@ -89,10 +89,10 @@
             <td><img width="10%" src="<?= $value['hinh_logo'] ?>" alt=""></td>
             <td>
               <button class="btn_edit">
-                <a class="edit" href="?url=sua_loai_xe&ma_loai=<?php echo $value['ma_loai'] ?>">Sửa</a>
+                <a class="edit" href="index2.php?url=sua_loai_xe&ma_loai=<?php echo $value['ma_loai'] ?>">Sửa</a>
               </button>
               <button class="btn_delete">
-                <a class="delete" href="?url=xoa_loai_xe&ma_loai=<?php echo $value['ma_loai'] ?>" onclick="return confirm('bạn có muốn xóa')">Xóa</a>
+                <a class="delete" href="index2.php?url=xoa_loai_xe&ma_loai=<?php echo $value['ma_loai'] ?>" onclick="return confirm('bạn có muốn xóa')">Xóa</a>
               </button>
             </td>
           </tr>

@@ -89,10 +89,10 @@
           
             <td>
               <button class="btn_edit">
-                <a class="edit" href="?url=sua_khung_gio&ma_gio=<?php echo $value['ma_gio'] ?>">Sửa</a>
+                <a class="edit" href="index2.php?url=sua_khung_gio&ma_gio=<?php echo $value['ma_gio'] ?>">Sửa</a>
               </button>
               <button class="btn_delete">
-                <a class="delete" href="?url=xoa_khung_gio&ma_gio=<?php echo $value['ma_gio'] ?>" onclick="return confirm('bạn có muốn xóa')">Xóa</a>
+                <a class="delete" href="index2.php?url=xoa_khung_gio&ma_gio=<?php echo $value['ma_gio'] ?>" onclick="return confirm('bạn có muốn xóa')">Xóa</a>
               </button>
             </td>
           </tr>

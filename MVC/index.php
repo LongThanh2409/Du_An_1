@@ -51,21 +51,21 @@ switch($url){
               case 'login':
             
                 logins();
-               
+                  // require_once "./views/User/dangkyxemxe/dkxemxe.php";
+              //  dangkyxem();
                  break;
-                 case 'logout':
-            
+              case 'logout':
                   logouts();
-                 
                    break;
-                   case 'dang_ky':
-
+              case 'dang_ky':
                     require_once "./views/User/tai_khoan/dangky.php";
                    break;
+              case'dangkyxemxe':
+                // dangkyxem():
+                  //  require_once "./views/User/dangkyxemxe/dkxemxe.php";
+                break;
+
      }
-    
- 
-    
      ?>
 <!DOCTYPE html>
 <html lang="en">

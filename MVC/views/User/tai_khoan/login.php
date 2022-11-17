@@ -141,7 +141,7 @@
                
                 </div>
                 <div>
-                    <?php echo isset($erorr) ? $erorr : "" ?>
+                <?php echo isset($erorr) ? $erorr : "" ?>
                 </div>
 
                 <section>

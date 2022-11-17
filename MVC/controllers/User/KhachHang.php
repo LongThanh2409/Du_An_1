@@ -17,7 +17,6 @@ require './models/KhachHang.php';
 function logins()
 {
    login();
-   
     include('views/User/tai_khoan/login.php');
    
 }
@@ -26,5 +25,9 @@ function logouts(){
    include('views/User/tai_khoan/logout.php');
    logout();
    
+}
+function dangkyxem(){
+   dkxemxe();
+   include('views/User/dangkyxemxe/dkxemxe.php');
 }
 ?>

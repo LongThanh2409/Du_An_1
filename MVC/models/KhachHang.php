@@ -48,18 +48,7 @@ function logout(){
    
     
 }
-function themMoiKhachHang()
-{
-    if (isset($_POST['btn_luu'])) {
-        $password = $_POST['password'];
-        $email = $_POST['email'];
-        $username = $_POST['username'];  
-        $sql = "INSERT INTO  khach_hang(username,password,email) VALUES ('$username','$password','$email')";
-        $conn = getConnect();
-        $statement = $conn->prepare($sql);
-        $statement->execute();
-    }
-}
+
 function dkxemxe(){
     // $ma_xe=$_GET['ma_xe'];
     // if(isset($_POST['datlich'])){

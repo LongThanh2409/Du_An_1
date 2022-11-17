@@ -26,8 +26,5 @@ function logouts(){
    logout();
    
 }
-function dangkyxem(){
-   dkxemxe();
-   include('views/User/dangkyxemxe/dkxemxe.php');
-}
+
 ?>

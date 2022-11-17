@@ -1,5 +1,5 @@
 <?php
-// require_once "models/db.php";
+require_once "models/db.php";
 
 
 require('./controllers/User/SanPham.php');
@@ -24,7 +24,6 @@ switch($url){
       case '/':
         headers();
         require "./views/banner_slider.php";
-       
         hienThiSanPham();
        
         
@@ -52,8 +51,6 @@ switch($url){
               case 'login':
             
                 logins();
-                  // require_once "./views/User/dangkyxemxe/dkxemxe.php";
-              //  dangkyxem();
                  break;
               case 'logout':
                   logouts();
@@ -61,10 +58,7 @@ switch($url){
               case 'dang_ky':
                     require_once "./views/User/tai_khoan/dangky.php";
                    break;
-              case'dangkyxemxe':
-                // dangkyxem():
-                  //  require_once "./views/User/dangkyxemxe/dkxemxe.php";
-                break;
+      
 
      }
     require_once "views/footer.php";
@@ -80,7 +74,6 @@ switch($url){
   <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    
 </head>
 <body>
   

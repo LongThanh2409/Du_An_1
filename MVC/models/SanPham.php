@@ -1,5 +1,5 @@
 <?php
-require "db.php";
+
 // out 3 sản phẩm
 function layDS3SanPham()
 {

@@ -19,3 +19,7 @@ function xoaDSKH()
    xoaKhachHang();
    include('views/Admin/khach_hang/danh_sach.php');
  }
+ function dangkyxem(){
+  dkxemxe();
+  include('views/User/dangkyxemxe/dkxemxe.php');
+}

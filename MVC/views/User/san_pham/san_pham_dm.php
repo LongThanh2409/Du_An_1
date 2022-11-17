@@ -9,8 +9,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-<div class="mt-96 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-2" >
+<div>
+    <?php
+         foreach($sp_dm as $key => $value){
+            extract($value);
+            $all = count($sp_dm);
+           
+         }
+         if($all>0){
+            echo '
+            <h1 class=" mt-24">Số sản phẩm của danh mục này là '.$all.' Sản Phẩm </h1>
+            ';
+         }
+        else{
+           
+          
+            echo ' <h1 class=" mt-16">Xin lỗi danh mục này chưa có xe <br> <a href="index.php" >quay lại <a/> </h1>';
+         }
+        
+         ?>
+    </div>
+<div class="mt-42 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-2" >
         <?php
+        
          foreach($sp_dm as $key => $value){
             extract($value);
             $img_path = 'assets/images/';
@@ -46,6 +67,8 @@
                        </div>
             ';
          }
+      
+      
         ?>
      </div>
   

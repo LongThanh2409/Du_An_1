@@ -24,6 +24,7 @@ switch($url){
       case '/':
         headers();
         require "./views/banner_slider.php";
+       
         hienThiSanPham();
        
         
@@ -78,6 +79,7 @@ switch($url){
   <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    
 </head>
 <body>
   

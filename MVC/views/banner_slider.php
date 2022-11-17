@@ -55,7 +55,9 @@
   
        
 </body>
-<script src="./assets/js/backtop.js"></script>
+
 <script src="./assets/js/index.js"></script>
+
+<script src="./assets/js/backtop.js"></script>
 <!-- <script src="./assets/js/zoom_img.js"></script> -->
 </html>

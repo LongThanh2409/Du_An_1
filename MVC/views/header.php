@@ -58,8 +58,8 @@ function headers()
                         <li><a href="index.php">Home</a></li>
                         <li><a href="index.php?url=about">About</a></li>
                         <li><a href="">Khung giờ</a>
-                    </li>
-                        <li><a href="">Contact</a></li>
+                        </li>
+                        <li onclick="scrollWin()"id="dm"><a href="#">Loại Xe</a></li>
 
                     </ul>
                 </div>
@@ -123,7 +123,13 @@ function headers()
             </div>
         </div>
     </body>
-
+    
+    <script>
+function scrollWin() {
+  window.scrollTo(0, 2300);
+}
+</script>
+  
     </html>
 <?php } ?>
 

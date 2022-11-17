@@ -4,7 +4,7 @@ function hienThiDanhMuc()
 {
     $dm_loai_xe = layDSDanhMuc();
    
-    include('views/User/san_pham/danh_sach_dm.php');
+    include('views/User/danh_muc/danh_sach_dm.php');
    
 }
 ?>

@@ -50,14 +50,14 @@ function headers()
             <div class="row mb-3 grid lg:grid-cols-4 text-center">
                 <div class="col-md-2 themed-grid-col">
                     <div class="logo">
-                        <img src="./assets/images/logo.png" alt="">
+                        <img src="./assets/images/img_logo_heder/logo.png" alt="">
                     </div>
                 </div>
                 <div class="col-md-5 themed-grid-col">
                     <ul class="nav">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="index.php?url=about">About</a></li>
-                        <li><a href="">Khung giờ</a>
+                        <li class=""><a href="index.php?url=dangkyxemxe">Đặt Lịch</a>
                         </li>
                         <li onclick="scrollWin()"id="dm"><a href="#">Loại Xe</a></li>
 

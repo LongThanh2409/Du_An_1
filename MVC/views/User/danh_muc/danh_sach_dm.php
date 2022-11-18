@@ -13,13 +13,12 @@
         <?php
          foreach($dm_loai_xe as $key => $value){
             extract($value);
-            $img_path = 'assets/images/img_logo/';
-            $img_logo = $img_path.$hinh_logo;
+         
             $link ='index.php?url=san_pham_dm&ma_loai='.$ma_loai;
             echo '
             <div>
             <div>
-            <a href="'.$link.'"> <img src="'.$img_logo.'" alt="">  </a>
+            <a href="'.$link.'"> <img src="'.$hinh_logo.'" alt="">  </a>
             <p>'.$ten_loai.' </p>
              </div>
              </div>

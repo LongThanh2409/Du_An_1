@@ -1,12 +1,12 @@
 <?php
-  if (isset($_POST['btn_them'])) {
-    $khung_gio = $_POST['khung_gio'];
+//   if (isset($_POST['btn_them'])) {
+//     $khung_gio = $_POST['khung_gio'];
    
-  if(!$khung_gio){
-    $khung_gio_err='CHƯA NHẬP';
-  }
+//   if(!$khung_gio){
+//     $khung_gio_err='CHƯA NHẬP';
+//   }
 
-}
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +34,7 @@
     <div class="container">
     <div class="header">
       <div class="logo">
-          <img src="assets/images/logo.png" alt="" >
+          <img src="./assets/images/img_logo_heder/logo.png" alt="" >
         </div>
         <div class="menu">
         <a class="menu_home" href="index2.php">

@@ -159,7 +159,7 @@
             height: 100vh;
             object-fit: cover;
             object-position: center;
-            /* background-image: url('https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?cs=srgb&dl=pexels-mike-b-120049.jpg&fm=jpg'); */
+            background-image: url('assets/images/banner-image-1.jpg');
             background-size: 100% 100%;
             background-repeat: no-repeat;
             opacity: background-image 0.1;
@@ -177,6 +177,8 @@
 
         button {
             width: 10rem;
+            background-color: #61428f;
+            height: 40px;
         }
 
         label {
@@ -195,7 +197,7 @@
                 <div id="sucss">
                     <h2><b><?php echo isset($sucss) ? $sucss : "" ?></b> </h2>
                 </div>
-                <h1>Sign Up</h1>
+                <h1>Đăng Ký Xem Xe</h1>
                 <div>
                     <label>Ten_khach_hang:</label>
                     <input type="text" name="ten_khach_hang" placeholder=" ">
@@ -244,8 +246,8 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <button name="dat_btn">Register</button>
-                <footer>Already a member? <a href="index.php?url=login">Login here</a></footer>
+                <button name="dat_btn">Đặt Ngay</button>
+                <footer><a href="index.php?url=ds_san_pham">Trang chủ</a></footer>
             </form>
         </main>
     </div>

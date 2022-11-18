@@ -18,22 +18,23 @@
     .gio{
         border: 3px solid gainsboro;
         margin-top: 0;
-        margin-left: 160px;
+        margin-left: 300px;
+        background-color: #fff;
     }
     .gio a{
         text-decoration: none;
-        color: #fff;
+        color: #000;
         font-weight: 500;
     }
     .headersa{
         cursor: pointer;
-        margin: 10px auto;
+        margin: 10px;
     }
 </style>
 <body>
 
-<div class="headersa w-44 ">
-<div class="gio bg-black p-2 hidden absolute h-36 w-28 mt-8  overflow-y-scroll grid grid-cols-1 grid-flow-row  gap-1 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
+<div class="headersa w-96 ">
+<div class="gio  p-2 hidden absolute h-36 w-96 mt-8  overflow-y-scroll grid grid-cols-1 grid-flow-row  gap-1 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
         <?php
          foreach($ds_gio as $key => $value){
             extract($value);
@@ -53,7 +54,7 @@
         ?>
      </div>
     
-        <h2>Khung giờ</h2>
+     <h2 class="ml-20 mt-4">&#10148; Khung giờ</h2>
     </div>
 </body>
 </html>

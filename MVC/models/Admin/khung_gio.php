@@ -20,6 +20,8 @@ function themMoiKhungGio()
         $statement = $conn->prepare($sql);
         $statement->execute();
         header('Location:index2.php?url=ds_khung_gio');
+        }else{
+            $khung_gio_err = 'NHẬP LẠI';
         }
     }
     }

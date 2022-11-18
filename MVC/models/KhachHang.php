@@ -42,7 +42,7 @@ function logout(){
        if(isset($_SESSION['admin'])){
            unset($_SESSION['admin']);
        }
-       header('location:index.php?url=ds_san_pham');
+       header('location:index.php');
    
      
    

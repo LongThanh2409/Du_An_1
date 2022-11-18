@@ -16,7 +16,7 @@ function themMoiXe()
         $ten_xe = $_POST['ten_xe'];
         $don_gia = $_POST['don_gia'];
        $ma_loai = $_POST['ma_loai'];
-        $hinh = 'assets/images/' . $_FILES['hinh']['name'];
+        $hinh = 'assets/images/img_data/' . $_FILES['hinh']['name'];
         $thong_tin = $_POST['thong_tin'];
         $giam_gia = $_POST['giam_gia'];
         $so_km = $_POST['so_km'];
@@ -29,7 +29,7 @@ function themMoiXe()
         $conn = getConnect();
         $statement = $conn->prepare($sql);
         $statement->execute();
-        move_uploaded_file($_FILES["hinh"]["tmp_name"], 'assets/images/' . $_FILES["hinh"]["name"]);
+        move_uploaded_file($_FILES["hinh"]["tmp_name"], 'assets/images/img_data/' . $_FILES["hinh"]["name"]);
         header('Location:index2.php?url=ds_xe');
       }
        
@@ -40,7 +40,7 @@ function suaXe(){
         $ten_xe = $_POST['ten_xe'];
         $don_gia = $_POST['don_gia'];
        $ma_loai = $_POST['ma_loai'];
-        $hinh = 'assets/images/' . $_FILES['hinh']['name'];
+        $hinh = 'assets/images/img_data/' . $_FILES['hinh']['name'];
         $thong_tin = $_POST['thong_tin'];
         $giam_gia = $_POST['giam_gia'];
         $so_km = $_POST['so_km'];
@@ -54,7 +54,7 @@ function suaXe(){
         $conn = getConnect();
         $statement = $conn->prepare($sql);
         $statement->execute();
-        move_uploaded_file($_FILES["hinh"]["tmp_name"], 'assets/images/' . $_FILES["hinh"]["name"]);
+        move_uploaded_file($_FILES["hinh"]["tmp_name"], 'assets/images/img_data/' . $_FILES["hinh"]["name"]);
        
     }
 }

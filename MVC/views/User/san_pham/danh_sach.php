@@ -16,18 +16,17 @@
      <div class="header-3sp text-center">
         <h1>3 sản phẩm mới nhất</h1>
      </div>
-    <div class="one mt-11 mx-20 grid lg:grid-cols-3 gap-5">
+    <div class="one mt-14 mx-20 grid lg:grid-cols-3 gap-5">
         <?php 
         foreach($ds3_sp_xe as $key => $value){
             extract($value);
-            $img_path = 'assets/images/';
-            $img = $img_path.$hinh;
+           
             $link_sp_ct = 'index.php?url=sp_chi_tiet&ma_xe='.$ma_xe;
             echo '
             <div class="products shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]" >
            
             <div class="m-auto item-img ">
-            <a href="'.$link_sp_ct.'"> <img src="'.$img.'" alt="">  </a>
+            <a href="'.$link_sp_ct.'"> <img src="'.$hinh.'" alt="">  </a>
                       </div>
                       <div class="text text-left ml-10 mt-3"> 
                       <h1>' . $ten_xe . '</h1>
@@ -77,7 +76,7 @@
      <?php
       hienThiDanhMuc();
      ?>
-     <div class="one my-15 grid gird-cols-1 gap-2  md:grid-cols-2 lg:grid-cols-4">
+     <div class="one my-19 grid gird-cols-1 gap-2  md:grid-cols-2 lg:grid-cols-4">
         <?php 
       
         if(count($ds_sp_xe)!=""){
@@ -86,15 +85,14 @@
         foreach($ds_sp_xe as $key => $value) {
            
             extract($value);
-            $img_path = 'assets/images/';
-            $img = $img_path.$hinh;
+         
             $link_sp_ct = 'index.php?url=sp_chi_tiet&ma_xe='.$ma_xe;
            
             echo '
             <div class="products mt-10 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]" >
          
             <div class="m-auto item-img ">
-            <a href="'.$link_sp_ct.'"> <img src="'.$img.'" alt="">  </a>
+            <a href="'.$link_sp_ct.'"> <img src="'.$hinh.'" alt="">  </a>
                       </div>
                       <div class="text text-left ml-10 mt-3"> 
                       <h1>' . $ten_xe . '</h1>

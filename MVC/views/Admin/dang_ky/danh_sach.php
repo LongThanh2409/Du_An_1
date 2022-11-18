@@ -24,7 +24,7 @@
     <div class="container">
     <div class="header">
       <div class="logo">
-        <img src="assets/images/logo.png" alt="">
+        <img src="./assets/images/img_logo_heder/logo.png" alt="">
       </div>
       <div class="menu">
         <a class="menu_home" href="index2.php">

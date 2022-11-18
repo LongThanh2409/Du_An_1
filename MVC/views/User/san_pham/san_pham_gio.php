@@ -33,8 +33,7 @@
         <?php
          foreach($sp_gio as $key => $value){
             extract($value);
-            $img_path = 'assets/images/';
-            $img = $img_path.$hinh;
+            
             $link_sp_ct = 'index.php?url=sp_chi_tiet&ma_xe='.$ma_xe;
             
             echo '
@@ -43,7 +42,7 @@
             <div class=" one products mt-10 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]" >
          
             <div class="m-auto item-img ">
-            <a href="'.$link_sp_ct .'"> <img src="'.$img.'" alt="">  </a>
+            <a href="'.$link_sp_ct .'"> <img src="'.$hinh.'" alt="">  </a>
                       </div>
                       <div class="text text-left ml-10 mt-3"> 
                       <h1>' . $ten_xe . '</h1>

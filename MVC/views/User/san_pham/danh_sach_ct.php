@@ -16,17 +16,14 @@
             extract($sp);
             // $img_path = 'assets/images/img_logo/';
             // $img_logo = $img_path.$hinh_logo;
-            $img_path = 'assets/images/';
-            $img = $img_path.$hinh;
+       
             echo '
             <div class="one products  mt-10 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]" >
          
-            <div onclick="zoomImg()" class="m-auto item-img ">
-          <img id="myBTN" src="'.$img.'" alt="" >  
-          <div onclick="defautf()">
-         
+            <div " class="m-auto item-img ">
+          <img id="myBTN" src="'.$hinh.'" alt="" >  
+          
                       </div>
-</div>
                       <div class="text text-left ml-10 mt-3"> 
                       <h1>' . $ten_xe . '</h1>
                          <i>' . 'Giảm ' . $giam_gia . '%' . '</i> <br>

@@ -1,12 +1,12 @@
 <?php
-//   if (isset($_POST['btn_them'])) {
-//     $khung_gio = $_POST['khung_gio'];
+   if (isset($_POST['btn_them'])) {
+     $khung_gio = $_POST['khung_gio'];
    
-//   if(!$khung_gio){
-//     $khung_gio_err='CHƯA NHẬP';
-//   }
+   if(!$khung_gio){
+     $khung_gio_err='CHƯA NHẬP';
+   }
 
-// }
+ }
 ?>
 <!DOCTYPE html>
 <html lang="en">

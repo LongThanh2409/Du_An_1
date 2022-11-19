@@ -159,3 +159,16 @@ table{
     font-size: 20px;
    
 }
+.btn_delete a{
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+.btn_delete{
+    width: 70px;
+    height: 40px;
+    border: none;
+    background-color: red;
+      border-radius: 10px;
+}

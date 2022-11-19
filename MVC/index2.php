@@ -64,15 +64,16 @@ switch ($url) {
     case 'xoa_khung_gio':
             xoaDSKG();
             break;    
-    case 'ds_dang_ky':
-        
-        hienThiDangKy();
-        
+//DANG_KY            
+    case 'ds_dang_ky':     
+        hienThiDangKy();       
         break;     
     case 'sua_dang_ky' :
         formSuaDangKy();
         break;       
-       
+    case 'xoa_dang_ky' :
+        xoaDSDK();
+        break;
 
 
     default:

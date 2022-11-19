@@ -105,6 +105,9 @@
            <td> <button class="btn_edit">
                 <a class="edit" href="index2.php?url=sua_dang_ky&ma_dat=<?php echo $value['ma_dat'] ?>"   onclick="return confirm('Chắc chắn duyệt')">Duyệt</a>
               </button>
+              <button class="btn_delete">
+                <a class="delete" href="index2.php?url=xoa_dang_ky&ma_dat=<?php echo $value['ma_dat'] ?>" onclick="return confirm('Hãy kiểm tra trạng thái , bạn có chắc muốn xóa. ')">Xóa</a>
+              </button>
               </td> 
            <?php endforeach ?> 
       </div>

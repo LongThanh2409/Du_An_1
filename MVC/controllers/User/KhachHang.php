@@ -27,10 +27,12 @@ function logouts(){
    
 }
 function dangkyxem(){
-   $sp_gio = laySanPhamTheoGio();
-   $ds_kg = layKhungGio(); 
-   $ds_sp = layDSSanPham(); 
+
+   $sp = lay1SanPham($_GET['ma_xe']);
+   $one_gio = lay1KhungGio($_GET['ma_gio']);
+   $kh = layDSKhachHang();
    dkxemxe();
+ 
    include('views/User/dangkyxemxe/dkxemxe.php');
  }
 

@@ -37,7 +37,7 @@ switch($url){
           
           case 'sp_chi_tiet':
             headers();
-            require "./views/banner_slider.php";
+           
             hienThi1SanPham();
             break;
             case 'san_pham_dm':
@@ -59,6 +59,7 @@ switch($url){
                     require_once "./views/User/tai_khoan/dangky.php";
                    break;
                    case'dangkyxemxe':
+                   
                     dangkyxem();
                     // require_once "./views/User/dangkyxemxe/dkxemxe.php ";
                       break;

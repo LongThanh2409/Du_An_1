@@ -26,6 +26,25 @@ function layDSSanPham()
    
     return $list_sp;
 }
+function lay3SanPhamCungLoai()
+{
+    if(isset($_GET['ma_xe'])&&($_GET['ma_xe']!="")){
+        $ma_xe =$_GET['ma_xe'];
+        $ma_loai =$_GET['loai'];
+        $sql = "SELECT * FROM xe WHERE 1 AND ma_xe <> $ma_xe AND ma_loai = $ma_loai ";
+        $list_sp = getData($sql, FETCH_ALL);
+    }
+   
+    
+    else{
+        $ma_xe ="";
+        $sql = "SELECT * FROM xe";
+        $list_sp = getData($sql, FETCH_ALL);
+    
+    }
+   
+    return $list_sp;
+}
 // sanpham chi tiết
 function lay1SanPham($ma_xe)
 {
@@ -51,12 +70,7 @@ function laySanPhamTheoGio()
     }
    
     
-    else{
-        $key ="";
-        $sql = "SELECT * FROM xe";
-        $sp_gio = getData($sql, FETCH_ALL);
-    
-    }
+
   
   
     
@@ -70,6 +84,8 @@ function layKhungGio()
     $ds_gio = getData($sql, FETCH_ALL);
     return $ds_gio;
 }
+
+
 // tim san phâm
 // function timKiemSanPham($key){
 //     if(isset($_GET['key'])&&($_GET['key']!="")){

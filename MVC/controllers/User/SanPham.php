@@ -10,8 +10,10 @@ function hienThiSanPham()
 }
 function hienThi1SanPham()
 {
+    $dm_loai_xe = layDSDanhMuc();
+    $ds_sp_xe_cl = lay3SanPhamCungLoai();
     $sp = lay1SanPham($_GET['ma_xe']);
-   
+  
     include('views/User/san_pham/danh_sach_ct.php');
    
 }
@@ -33,6 +35,7 @@ function hienThiKhungGio()
 {
     $ds_gio = layKhungGio();
     include('views/User/san_pham/danh_sach_gio.php');
+   
    
 }
 // function timKiemSanPhams(){

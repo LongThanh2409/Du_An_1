@@ -1,6 +1,6 @@
 <?php
 
-// session_start();
+
 
 // $query2 = "select * from khach_hang";
 // // $item = getData($query2, FETCH_ALL);
@@ -184,6 +184,12 @@
         label {
             text-align: left;
         }
+        #myDiv input{
+            height: 40px;
+            padding-left: 10px;
+            font-weight: 500;
+            font-size: 20px;
+        }
     </style>
 </head>
 
@@ -193,13 +199,15 @@
 
     <div style="display:none;" id="myDiv" class="animate-bottom">
         <main>
+
             <form action="" method="post">
+             
                 <div id="sucss">
-                    <h2><b><?php echo isset($sucss) ? $sucss : "" ?></b> </h2>
+                 
                 </div>
                 <h1>Đăng Ký Xem Xe</h1>
                 <div>
-                    <label>Ten_khach_hang:</label>
+                    <label>Tên Khách Hàng:</label>
                     <input type="text" name="ten_khach_hang" placeholder=" ">
                     <b><?php echo isset($error['ten_khach_hang']) ? $error['ten_khach_hang'] : "" ?></b>
                 </div>
@@ -214,39 +222,29 @@
                     <b><?php echo isset($error['email']) ? $error['email'] : "" ?></b>
                 </div>
                 <div>
-                    <label>dia_chi:</label>
+                    <label>Địa Chỉ:</label>
                     <input type="text" name="dia_chi" class="show1">
                     <b><?php echo isset($error['dia_chi']) ? $error['dia_chi'] : "" ?></b>
                 </div>
                 <div>
                     <label>Khung Giờ:</label>
-                    <select id="" name="ma_gio">
-                        <option value="">Chọn</option>
-                        <?php foreach ($ds_kg as $value) : ?>
-                            <option value="<?php echo $value['ma_gio'] ?>">
-                            <?php 
-                          
-                            echo'
-                            <a  href="">
-                             '.$value['khung_gio'].'
-                             </a>
-                            '; 
-                            ?>
-                        </option>
-                        <?php endforeach; ?>
-                    </select>
+                    <input type="text" name="" id="" value="<?= $one_gio['khung_gio'] ?>">
                     <b><?php echo isset($error['khung_gio']) ? $error['khung_gio'] : "" ?></b>
                 </div>
                 <div>
-                    <label>Xe:</label>
-                    <select id="" name="ma_xe">
-                        <option value="">Chọn</option>
-                        <?php foreach ($sp_gio as $value) : ?>
-                            <option value="<?php echo isset($_POST['ma_gio'])? $value['ma_xe']:"" ?>"><?php echo $value['ten_xe']; ?></option>
-                        <?php endforeach; ?>
-                    </select>
+                    <label>Tên Xe:</label>
+                  
+                        
+                    
+                          <input type="text" name="" id="" value="<?= $sp['ten_xe'] ?>">
+                        
+                    
                 </div>
+                
+               
                 <button name="dat_btn">Đặt Ngay</button>
+                <b><?=  isset($_SESSION['dang_ky'])?$_SESSION['dang_ky']:"" ?></b>
+             
                 <footer><a href="index.php?url=ds_san_pham">Trang chủ</a></footer>
             </form>
         </main>

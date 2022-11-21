@@ -8,4 +8,5 @@ function layDSDanhMuc()
     $list_dm = getData($sql, FETCH_ALL);
     return $list_dm;
 }
+
 ?>

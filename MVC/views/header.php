@@ -53,7 +53,7 @@ function headers()
                         <img src="./assets/images/img_logo_heder/logo.png" alt="">
                     </div>
                 </div>
-                <div class="col-md-5 themed-grid-col">
+                <div class="col-md-4 themed-grid-col">
                     <ul class="nav">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="index.php?url=about">About</a></li>
@@ -71,7 +71,7 @@ function headers()
 
 
                     echo '
-                    <div class=" col-md-5 themed-grid-col">
+                    <div class=" col-md-6 themed-grid-col">
                     <div class="search-button">
                     <form action="index.php?url=tim_Kiem" method="get">
                     <div class="search">

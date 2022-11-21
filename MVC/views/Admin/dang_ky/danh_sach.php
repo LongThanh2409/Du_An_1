@@ -91,6 +91,7 @@
          <td>ĐỊA CHỈ </td>
          <td>MÃ GIỜ</td>
          <td>MÃ XE</td>
+         <td>MÃ KH </td>
          <td>TRẠNG THÁI</td>
         </tr>
         <?php foreach ($dk as $key => $value) : ?>
@@ -101,9 +102,13 @@
             <td><?= $value['dia_chi'] ?> </td>
             <td><?= $value['ma_gio'] ?> </td>
             <td><?= $value['ma_xe'] ?> </td>
+            <td><?= $value['ma_kh'] ?> </td>
             <td><?= $value['trang_thai'] ?> </td>
            <td> <button class="btn_edit">
                 <a class="edit" href="index2.php?url=sua_dang_ky&ma_dat=<?php echo $value['ma_dat'] ?>"   onclick="return confirm('Chắc chắn duyệt')">Duyệt</a>
+              </button>
+              <button class="btn_delete">
+                <a class="delete" href="index2.php?url=xoa_dang_ky&ma_dat=<?php echo $value['ma_dat'] ?>" onclick="return confirm('Hãy kiểm tra trạng thái , bạn có chắc muốn xóa. ')">Xóa</a>
               </button>
               </td> 
            <?php endforeach ?> 

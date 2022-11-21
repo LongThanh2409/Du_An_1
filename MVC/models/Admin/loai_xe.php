@@ -41,7 +41,7 @@ function suaLoaiXe()
         $ma_loai = $_GET['ma_loai'];
         $ten_loai = $_POST['ten_loai'];
         $hinh_logo = 'assets/images/img_logo/' . $_FILES['hinh_logo']['name'];
-        $sql = "UPDATE loai_xe SET ten_loai='$ten_loai',hinh_logo='$hinh_logo' WHERE  ma_loai  =$ma_loai";
+        $sql = "UPDATE loai_xe SET  ten_loai='$ten_loai',hinh_logo='$hinh_logo' WHERE  ma_loai  =$ma_loai";
         $conn = getConnect();
         $statement = $conn->prepare($sql);
         $statement->execute();

@@ -18,3 +18,20 @@ function suaDangKy()
         header('Location:index2.php?url=ds_dang_ky');
   
 }
+function xoaDangKy()
+{  
+    $ma_dat = $_GET['ma_dat'];   
+        $sql = "DELETE FROM dat_lich WHERE ma_dat=$ma_dat ";
+        $conn = getConnect();
+        $statement = $conn->prepare($sql);
+        $statement->execute();
+        header('Location:index2.php?url=ds_dang_ky');
+      }
+        
+      
+
+  
+ 
+
+
+

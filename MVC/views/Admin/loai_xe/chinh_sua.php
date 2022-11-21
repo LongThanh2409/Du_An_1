@@ -93,7 +93,7 @@
          <div class="text1">
          <img width="10%" src="<?= $sua['hinh_logo'] ?>" alt="">
          <input type="hidden" name="hinh_logo"  value="<?= $user['hinh_logo'] ?>">
-          <input type="file" name="hinh_logo" class="hinh_logo">
+          <input type="file" name="hinh_logo" class="hinh_logo" >
          </div>
         
         <div class="btn">

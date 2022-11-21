@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -85,7 +86,7 @@
         </div>
         <form action="" method="post" enctype="multipart/form-data">
           <div class="form_con">
-          <div class="left">
+          <div class="one">
           <h3 class="h3">MÃ XE</h3>
         <p class="text1">AUTO</p>
         <h3 class="h3">TÊN XE</h3>
@@ -103,10 +104,9 @@
          <div class="text1">
           <input type="file" name="hinh" class="hinh" value="<?= $sua['hinh'] ?>">
          </div>
-         <h3 class="h3">THÔNG TIN</h3>
-         <input type="text" name="thong_tin" class="thong_tin" value="<?= $sua['thong_tin'] ?>">
+        
           </div>
-          <div class="right">
+          <div class="two">
             <h3 class="h3">GIẢM GIÁ</h3>
             <input type="text" name="giam_gia" class="giam_gia" value="<?= $sua['giam_gia'] ?>">
             <h3 class="h3">SỐ KM</h3>
@@ -115,8 +115,6 @@
             <input type="text" name="xuat_xu" class="xuat_xu" value="<?= $sua['xuat_xu'] ?>">
             <h3 class="h3">SLOTS</h3>
             <input type="text" name="slots" class="slots" value="<?= $sua['slots'] ?>">
-            <h3 class="h3">ĐỘNG CƠ</h3>
-            <input type="text" name="dong_co" class="dong_co" value="<?= $sua['dong_co'] ?>">
           <h3 class="h3">KHUNG GIỜ</h3>
             <select id="" name="ma_gio" >
                     <option  value="<?= $sua['ma_gio'] ?>">Chọn</option>
@@ -124,6 +122,26 @@
                     <option value="<?php echo $value['ma_gio'] ?>"><?php echo $value['khung_gio']; ?></option>
                     <?php endforeach; ?>
                 </select>   
+          </div>
+          <div class="three">
+        
+          <h3 class="h3">THÔNG TIN</h3>
+         <input type="text" name="thong_tin" class="thong_tin" value="<?= $sua['thong_tin'] ?>">
+
+     <h3 class="h3">ĐỘNG CƠ</h3>
+            <input type="text" name="dong_co" class="dong_co" value="<?= $sua['dong_co'] ?>">
+            <h3 class="h3">HÌNH PHỤ 1 </h3>
+         <div class="text1">
+          <input type="file" name="hinh1" class="hinh" value="<?= $sua['hinh1'] ?>">
+         </div>
+         <h3 class="h3">HÌNH PHỤ 2 </h3>
+         <div class="text1">
+          <input type="file" name="hinh2" class="hinh" value="<?= $sua['hinh2'] ?>">
+         </div>
+         <h3 class="h3">HÌNH PHỤ 3 </h3>
+         <div class="text1">
+          <input type="file" name="hinh3" class="hinh" value="<?= $sua['hinh3'] ?>">
+         </div>
           </div>
           </div>
        

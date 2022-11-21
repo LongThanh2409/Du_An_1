@@ -4,6 +4,9 @@
     $don_gia = $_POST['don_gia'];
    $ma_loai = $_POST['ma_loai'];
     $hinh =  $_FILES['hinh'];
+    $hinh1 =  $_FILES['hinh1'];
+    $hinh2 =  $_FILES['hinh2'];
+    $hinh3 =  $_FILES['hinh3'];
     $thong_tin = $_POST['thong_tin'];
     $giam_gia = $_POST['giam_gia'];
     $so_km = $_POST['so_km'];
@@ -22,6 +25,15 @@
    }
    if(!$hinh['name']){
     $hinh_err = 'CHƯA NHẬP';
+   }
+   if(!$hinh1['name']){
+    $hinh1_err = 'CHƯA NHẬP';
+   }
+   if(!$hinh2['name']){
+    $hinh2_err = 'CHƯA NHẬP';
+   }
+   if(!$hinh3['name']){
+    $hinh3_err = 'CHƯA NHẬP';
    }
    if(!$thong_tin){
     $thong_tin_err ='CHƯA NHẬP';
@@ -135,7 +147,7 @@
         </div>
         <form action="" method="post" enctype="multipart/form-data">
           <div class="form_con">
-          <div class="left">
+          <div class="one">
           <h3 class="h3">MÃ XE</h3>
         <p class="text1">AUTO</p>
         <h3 class="h3">TÊN XE</h3>
@@ -164,14 +176,9 @@
          </div>
          <p style="color: red;">
         <?php echo isset($hinh_err) ?  $hinh_err : ''; ?>
-     </p>
-         <h3 class="h3">THÔNG TIN</h3>
-         <input type="text" name="thong_tin" class="thong_tin" value = '<?= isset($thong_tin) ? $thong_tin : ''?>'>
-         <p style="color: red;">
-        <?php echo isset($thong_tin_err) ?  $thong_tin_err : ''; ?>
-     </p>
+    
           </div>
-          <div class="right">
+          <div class="two">
             <h3 class="h3">GIẢM GIÁ</h3>
             <input type="text" name="giam_gia" class="giam_gia" value = '<?= isset($giam_gia) ? $giam_gia : ''?>'>
             <p style="color: red;">
@@ -191,12 +198,7 @@
             <input type="text" name="slots" class="slots" value = '<?= isset($slots) ? $slots : ''?>'>
             <p style="color: red;">
         <?php echo isset($slots_err) ?  $slots_err : ''; ?>
-     </p>
-            <h3 class="h3">ĐỘNG CƠ</h3>
-            <input type="text" name="dong_co" class="dong_co" value = '<?= isset($dong_co) ? $dong_co : ''?>'>
-            <p style="color: red;">
-        <?php echo isset($dong_co_err) ?  $dong_co_err: ''; ?>
-     </p>
+
           <h3 class="h3">KHUNG GIỜ</h3>
             <select id="" name="ma_gio" >
                     <option value="">Chọn</option>
@@ -207,6 +209,38 @@
                 <p style="color: red;">
         <?php echo isset($ma_gio_err) ?  $ma_gio_err : ''; ?>
      </p>
+          </div>
+          <div class="three">
+          </p>
+         <h3 class="h3">THÔNG TIN</h3>
+         <input type="text" name="thong_tin" class="thong_tin" value = '<?= isset($thong_tin) ? $thong_tin : ''?>'>
+         <p style="color: red;">
+        <?php echo isset($thong_tin_err) ?  $thong_tin_err : ''; ?>
+     </p>
+     </p>
+            <h3 class="h3">ĐỘNG CƠ</h3>
+            <input type="text" name="dong_co" class="dong_co" value = '<?= isset($dong_co) ? $dong_co : ''?>'>
+            <p style="color: red;">
+        <?php echo isset($dong_co_err) ?  $dong_co_err: ''; ?>
+     </p>
+     <h3 class="h3">HÌNH PHỤ 1 </h3>
+         <div class="text1">
+          <input type="file" name="hinh1" class="hinh" >
+         </div>
+         <p style="color: red;">
+        <?php echo isset($hinh1_err) ?  $hinh1_err : ''; ?>
+        <h3 class="h3">HÌNH PHỤ 2 </h3>
+         <div class="text1">
+          <input type="file" name="hinh2" class="hinh" >
+         </div>
+         <p style="color: red;">
+        <?php echo isset($hinh2_err) ?  $hinh2_err : ''; ?>
+        <h3 class="h3">HÌNH PHỤ 3 </h3>
+         <div class="text1">
+          <input type="file" name="hinh3" class="hinh" >
+         </div>
+         <p style="color: red;">
+        <?php echo isset($hinh3_err) ?  $hinh3_err : ''; ?>
           </div>
           </div>
         <div class="btn">

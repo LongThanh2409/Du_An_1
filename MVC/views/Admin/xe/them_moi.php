@@ -13,7 +13,7 @@
     $xuat_xu = $_POST['xuat_xu'];
     $slots = $_POST['slots'];
     $dong_co = $_POST['dong_co'];
-  $ma_gio = $_POST['ma_gio'];
+
    if(!$ten_xe){
     $ten_xe_err = 'CHƯA NHẬP';
    }
@@ -53,202 +53,301 @@
    if(!$dong_co){
     $dong_co_err = 'CHƯA NHẬP';
    }
-   if(!$ma_gio){
-    $ma_gio_err = 'CHƯA NHẬP';
-   }
+
 }
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/css/them_moi_xe.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body>
-    <div class="container">
-    <div class="header">
-      <div class="logo">
-          <img src="./assets/images/img_logo_heder/logo.png" alt="" >
-        </div>
-        <div class="menu">
-        <a class="menu_home" href="index2.php">
-          <i class="fa-sharp fa-solid fa-house"></i> <span>HOME</span>
-        </a>
-        <br />
-        <div class="menu_home1">
-          <a class="menu_type" href="index2.php?url=ds_loai_xe"><i class="fa-solid fa-pencil"></i><span>LOẠI XE</span> </a>
-          <div class="submenu">
-            <a href="index2.php?url=them_loai_xe" class="btn_them"><i class="fa-solid fa-plus"></i> THÊM MỚI</a>
-            <a href="index2.php?url=ds_loai_xe" class="btn_ds"><i class="fa-solid fa-book"></i>DANH SÁCH</a>
-          </div>
-        </div>
-        <br />
-        <div class="menu_home1">
-          <a class="menu_car" href="index2.php?url=ds_xe"><i class="fa-solid fa-car"></i>XE</a>
-          <div class="submenu">
-            <a href="index2.php?url=them_xe"><i class="fa-solid fa-plus"></i> THÊM MỚI</a>
-            <a href="index2.php?url=ds_xe"><i class="fa-solid fa-book"></i>DANH SÁCH</a>
-          </div>
-        </div>
-        <br />
-        <div class="menu_home1">
-          <a class="menu_people" href="index2.php?url=ds_khach_hang"><i class="fa-sharp fa-solid fa-person"></i><span>KHÁCH HÀNG</span> </a>
-          <div class="submenu">
-            <a href="index2.php?url=them_khach_hang"><i class="fa-solid fa-plus"></i> THÊM MỚI</a>
-            <a href="index2.php?url=ds_khach_hang"><i class="fa-solid fa-book"></i>DANH SÁCH</a>
-          </div>
-        </div>
-        <br>
-        <div class="menu_home1">
-          <a class="menu_time" href="index2.php?url=ds_khung_gio"><i class="fa-solid fa-clock"></i><span>KHUNG GIỜ</span> </a>
-          <div class="submenu">
-            <a href="index2.php?url=them_khung_gio"><i class="fa-solid fa-plus"></i> THÊM MỚI</a>
-            <a href="index2.php?url=ds_khung_gio"><i class="fa-solid fa-book"></i>DANH SÁCH</a>
-          </div>
-        </div>
-        <br />
-        <a class="menu_view" href="index2.php?url=ds_dang_ky"><i class="fa-solid fa-bookmark"></i><span>ĐĂNG KÝ XEM XE</span> </a><br />
-      </div>
-      </div>
-      <div class="main_content">
-        <div class="banner">
-          <span class="text">>> THÊM MỚI XE</span>
-         <a href="index.php?url=logout"  onclick="return confirm('Bạn có chắc là muốn đăng xuất')" class="log_out"  >   <i class="fa-solid fa-user"></i></a>
-         <div class="hello">
-          <marquee class="text-right" width="150px" direction="left" height="50px">
-            <h3 class="" style="color: #FFF;"> <?php
+<html dir="ltr" lang="en">
 
-                                                session_start();
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+  <title>Matrix Template - The Ultimate Multipurpose admin template</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
+  <link href="dist/css/style.min.css" rel="stylesheet">
+</head>
 
-                                                echo isset($_SESSION['admin']) ? 'Hello' . ' ' .  $_SESSION['admin'] : "";
-                                                if(!isset($_SESSION['admin'])){
-                                                  header('location:index.php?url=login');
-                                                }
-                                                ?>
-            </h3>
-          </marquee>
+<body>
+  <div class="preloader">
+    <div class="lds-ripple">
+      <div class="lds-pos"></div>
+      <div class="lds-pos"></div>
+    </div>
+  </div>
+  <div id="main-wrapper">
+    <header class="topbar" data-navbarbg="skin5">
+      <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+        <div class="navbar-header" data-logobg="skin5">
+          <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+          <a class="navbar-brand" href="index2.php">
+            <b class="logo-icon p-l-10">
+              <img src="assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+            </b>
+            <span class="logo-text">
+              <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" />
+
+            </span>
+          </a>
+
+          <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
         </div>
+
+        <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+
+          <ul class="navbar-nav float-left mr-auto">
+            <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
+
+          </ul>
+
+          <ul class="navbar-nav float-right">
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="index.php?url=logout" onclick="return confirm('Bạn có chắc là muốn đăng xuất')" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+
+            </li>
+
+          </ul>
         </div>
-        <form action="" method="post" enctype="multipart/form-data">
-          <div class="form_con">
-          <div class="one">
-          <h3 class="h3">MÃ XE</h3>
-        <p class="text1">AUTO</p>
-        <h3 class="h3">TÊN XE</h3>
-        <input type="text" name="ten_xe" class="ten_xe" value = '<?= isset($ten_xe) ? $ten_xe : ''?>'>
-        <p style="color: red;">
+      </nav>
+    </header>
+
+    <aside class="left-sidebar" data-sidebarbg="skin5">
+
+      <div class="scroll-sidebar">
+
+        <nav class="sidebar-nav">
+          <ul id="sidebarnav" class="p-t-30">
+            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index2.php" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">HOME</span></a></li>
+
+            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">LOẠI XE </span></a>
+              <ul aria-expanded="false" class="collapse  first-level">
+                <li class="sidebar-item"><a href="index2.php?url=ds_loai_xe" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">DANH SÁCH </span></a></li>
+                <li class="sidebar-item"><a href="index2.php?url=them_loai_xe" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> THÊM MỚI </span></a></li>
+              </ul>
+            </li>
+            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">KHÁCH HÀNG </span></a>
+              <ul aria-expanded="false" class="collapse  first-level">
+                <li class="sidebar-item"><a href="index2.php?url=them_khach_hang" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu"> THÊM MỚI </span></a></li>
+                <li class="sidebar-item"><a href="index2.php?url=ds_khach_hang" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> DANH SÁCH </span></a></li>
+              </ul>
+            </li>
+            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-car"></i><span class="hide-menu">XE </span></a>
+              <ul aria-expanded="false" class="collapse  first-level">
+                <li class="sidebar-item"><a href="index2.php?url=them_xe" class="sidebar-link"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu"> THÊM MỚI </span></a></li>
+                <li class="sidebar-item"><a href="index2.php?url=ds_xe" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i><span class="hide-menu"> DANH SÁCH</span></a></li>
+
+              </ul>
+            </li>
+            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index2.php?url=ds_dang_ky" aria-expanded="false"><i class="mdi mdi-calendar-check"></i><span class="hide-menu">ĐẶT LỊCH</span></a></li>
+
+
+            </li>
+
+          </ul>
+        </nav>
+
+      </div>
+
+    </aside>
+
+    <div class="page-wrapper">
+
+      <div class="page-breadcrumb">
+        <div class="row">
+          <div class="col-12 d-flex no-block align-items-center">
+            <h4 class="page-title">HOME</h4>
+
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+                <div class="r" >
+                    <div class="col-md-6" style="margin: auto;"> 
+                        <div class="card">
+                            <form class="form-horizontal"  method="POST" enctype="multipart/form-data">
+                                <div class="card-body">
+                          
+                                    <div class="form-group row">
+                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Mã Xe</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="fname" placeholder="Auto" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Tên Xe</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Xe" name="ten_xe"  value = '<?= isset($ten_xe) ? $ten_xe : ''?>'>
+                                            <span style="color: red;">
         <?php echo isset($ten_xe_err) ?  $ten_xe_err : ''; ?>
-     </p>
-        <h3 class="h3">ĐƠN GIÁ</h3>
-        <input type="text" name="don_gia" class="don_gia" value = '<?= isset($don_gia) ? $don_gia : ''?>'>
-        <p style="color: red;">
+     </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Đơn Giá</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control"  placeholder="Nhập Đơn Giá" name="don_gia"  value = '<?= isset($don_gia) ? $don_gia : ''?>'>
+                                            <span style="color: red;">
         <?php echo isset($don_gia_err) ?  $don_gia_err : ''; ?>
-     </p>
-        <h3 class="h3">MÃ LOẠI</h3>
-        <select id="" name="ma_loai" >
+     </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Thông Tin</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control"  placeholder="Nhập Thông Tin" name="thong_tin"  value = '<?= isset($thong_tin) ? $thong_tin : ''?>'>
+                                            <span style="color: red;">
+        <?php echo isset($thong_tin_err) ?  $thong_tin_err : ''; ?>
+     </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Giảm Giá</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control"  placeholder="Nhập Giảm Giá" name="giam_gia"  value = '<?= isset($giam_gia) ? $giam_gia : ''?>'>
+                                            <span style="color: red;">
+        <?php echo isset($giam_gia_err) ?  $giam_gia_err : ''; ?>
+     </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Số KM</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control"  placeholder="Nhập Số KM" name="so_km"  value = '<?= isset($so_km) ? $so_km : ''?>'>
+                                            <span style="color: red;">
+        <?php echo isset($so_km_err) ?  $so_km_err : ''; ?>
+     </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Xuất Xứ</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control"  placeholder="Nhập Xuất Xứ" name="xuat_xu"  value = '<?= isset($xuat_xu) ? $xuat_xu : ''?>'>
+                                            <span style="color: red;">
+        <?php echo isset($xuat_xu_err) ?  $xuat_xu_err : ''; ?>
+     </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Slots</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control"  placeholder="Nhập Slots" name="slots"  value = '<?= isset($slots) ? $slots : ''?>'>
+                                            <span style="color: red;">
+        <?php echo isset($slots_err) ?  $slots_err : ''; ?>
+     </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Động Cơ</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control"  placeholder="Nhập Động Cơ" name="dong_co"  value = '<?= isset($dong_co) ? $dong_co : ''?>'>
+                                            <span style="color: red;">
+        <?php echo isset($dong_co_err) ?  $dong_co_err : ''; ?>
+     </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Mã Loại</label>
+                                        <div class="col-sm-9">
+                                        <select id="" name="ma_loai" class="form-control" >
                     <option value="">Chọn</option>
                     <?php foreach ($ds_lx as $value) : ?>
                     <option value="<?php echo $value['ma_loai'] ?>"><?php echo $value['ten_loai']; ?></option>
                     <?php endforeach; ?>
                 </select>
-                <p style="color: red;">
+                                            <span style="color: red;">
         <?php echo isset($ma_loai_err) ?  $ma_loai_err : ''; ?>
-     </p>
-        <h3 class="h3">HÌNH ẢNH </h3>
-         <div class="text1">
-          <input type="file" name="hinh" class="hinh" >
-         </div>
-         <p style="color: red;">
+     </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Hình Chính</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" class="form-control"  name="hinh">
+                                            <span style="color: red;">
         <?php echo isset($hinh_err) ?  $hinh_err : ''; ?>
-    
-          </div>
-          <div class="two">
-            <h3 class="h3">GIẢM GIÁ</h3>
-            <input type="text" name="giam_gia" class="giam_gia" value = '<?= isset($giam_gia) ? $giam_gia : ''?>'>
-            <p style="color: red;">
-        <?php echo isset($giam_gia_err) ?  $giam_gia_err: ''; ?>
-     </p>
-            <h3 class="h3">SỐ KM</h3>
-            <input type="text" name="so_km" class="so_km" value = '<?= isset($so_km) ? $so_km : ''?>'>
-            <p style="color: red;">
-        <?php echo isset($so_km_err) ?  $so_km_err : ''; ?>
-     </p>
-            <h3 class="h3">XUẤT XỨ</h3>
-            <input type="text" name="xuat_xu" class="xuat_xu" value = '<?= isset($so_km) ? $so_km : ''?>'>
-            <p style="color: red;">
-        <?php echo isset($xuat_xu_err) ?  $xuat_xu_err : ''; ?>
-     </p>
-            <h3 class="h3">SLOTS</h3>
-            <input type="text" name="slots" class="slots" value = '<?= isset($slots) ? $slots : ''?>'>
-            <p style="color: red;">
-        <?php echo isset($slots_err) ?  $slots_err : ''; ?>
-
-          <h3 class="h3">KHUNG GIỜ</h3>
-            <select id="" name="ma_gio" >
-                    <option value="">Chọn</option>
-                    <?php foreach ($ds_kg as $value) : ?>
-<option value="<?php echo $value['ma_gio'] ?>"><?php echo $value['khung_gio']; ?></option>
-                    <?php endforeach; ?>
-                </select>   
-                <p style="color: red;">
-        <?php echo isset($ma_gio_err) ?  $ma_gio_err : ''; ?>
-     </p>
-          </div>
-          <div class="three">
-          </p>
-         <h3 class="h3">THÔNG TIN</h3>
-         <input type="text" name="thong_tin" class="thong_tin" value = '<?= isset($thong_tin) ? $thong_tin : ''?>'>
-         <p style="color: red;">
-        <?php echo isset($thong_tin_err) ?  $thong_tin_err : ''; ?>
-     </p>
-     </p>
-            <h3 class="h3">ĐỘNG CƠ</h3>
-            <input type="text" name="dong_co" class="dong_co" value = '<?= isset($dong_co) ? $dong_co : ''?>'>
-            <p style="color: red;">
-        <?php echo isset($dong_co_err) ?  $dong_co_err: ''; ?>
-     </p>
-     <h3 class="h3">HÌNH PHỤ 1 </h3>
-         <div class="text1">
-          <input type="file" name="hinh1" class="hinh" >
-         </div>
-         <p style="color: red;">
+     </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Hình Phụ 1</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" class="form-control"  name="hinh1">
+                                            <span style="color: red;">
         <?php echo isset($hinh1_err) ?  $hinh1_err : ''; ?>
-        <h3 class="h3">HÌNH PHỤ 2 </h3>
-         <div class="text1">
-          <input type="file" name="hinh2" class="hinh" >
-         </div>
-         <p style="color: red;">
+     </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Hình Phụ 2</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" class="form-control"  name="hinh2">
+                                            <span style="color: red;">
         <?php echo isset($hinh2_err) ?  $hinh2_err : ''; ?>
-        <h3 class="h3">HÌNH PHỤ 3 </h3>
-         <div class="text1">
-          <input type="file" name="hinh3" class="hinh" >
-         </div>
-         <p style="color: red;">
+     </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Hình Phụ 3</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" class="form-control"  name="hinh3">
+                                            <span style="color: red;">
         <?php echo isset($hinh3_err) ?  $hinh3_err : ''; ?>
-          </div>
-          </div>
-        <div class="btn">
-            <button name="btn_them" class="btn_them1">THÊM MỚI</button>      
-            <a href="index2.php?url=ds_xe" class="ds">DANH SÁCH</a>
-        </div>
-        </form>
-      </div>
+     </span>
+                                        </div>
+                                    </div>
+      
+                         
+                                </div>
+                                <div class="border-top " >
+                                    <div class="card-body" style="text-align: center;">
+                                        <button  class="btn btn-primary" name="btn_them">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+  
+
+                    </div>
+                </div>
+                <!-- editor -->
+  
+
+            </div>
+
+    
+
     </div>
-  </body>
+
+  </div>
+
+  <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+
+  <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+  <script src="assets/extra-libs/sparkline/sparkline.js"></script>
+
+  <script src="dist/js/waves.js"></script>
+
+  <script src="dist/js/sidebarmenu.js"></script>
+
+  <script src="dist/js/custom.min.js"></script>
+
+  <script src="assets/libs/flot/excanvas.js"></script>
+  <script src="assets/libs/flot/jquery.flot.js"></script>
+  <script src="assets/libs/flot/jquery.flot.pie.js"></script>
+  <script src="assets/libs/flot/jquery.flot.time.js"></script>
+  <script src="assets/libs/flot/jquery.flot.stack.js"></script>
+  <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
+  <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+  <script src="dist/js/pages/chart/chart-page-init.js"></script>
+
+</body>
+
 </html>

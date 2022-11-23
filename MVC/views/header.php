@@ -57,7 +57,7 @@ function headers()
                     <ul class="nav">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="index.php?url=about">About</a></li>
-                        <li class=""><a href="index.php?url=dangkyxemxe">Đặt Lịch</a>
+                        <li class=""><a href="">Tin tức</a>
                         </li>
                         <li onclick="scrollWin()"id="dm"><a href="#">Loại Xe</a></li>
 
@@ -112,6 +112,7 @@ function headers()
             </div>
 
             <div class="hello-username fixed top-5 right-1">
+                <?php if(isset($_SESSION['username'])){ ?>
                 <marquee class="text-right" width="160px" direction="left" height="50px">
                     <h3 class="" style="color: #000;"> <?php
 
@@ -119,6 +120,7 @@ function headers()
                                                         echo isset($_SESSION['username']) ? 'Hello' . ' ' .  $_SESSION['username'] : "" ?>
                     </h3>
                 </marquee>
+                <?php }?>
 
             </div>
         </div>

@@ -1,5 +1,5 @@
 <?php 
-require './models/SanPham.php';
+require './models/User/SanPham.php';
 function hienThiSanPham()
 {
     

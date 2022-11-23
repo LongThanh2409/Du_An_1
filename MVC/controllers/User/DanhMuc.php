@@ -1,5 +1,5 @@
 <?php 
-require './models/DanhMuc.php';
+require './models/User/DanhMuc.php';
 function hienThiDanhMuc()
 {
     $dm_loai_xe = layDSDanhMuc();

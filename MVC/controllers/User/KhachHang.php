@@ -1,5 +1,5 @@
 <?php 
-require './models/KhachHang.php';
+require './models/User/KhachHang.php';
 // function hienThiSanPham()
 // {
 //     $ds_sp_xe = layDSSanPham();

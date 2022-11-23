@@ -1,43 +1,43 @@
 <?php 
 require './models/User/SanPham.php';
-function hienThiSanPham()
-{
+// function hienThiSanPham()
+// {
     
-    $ds_sp_xe = layDSSanPham();
-    $ds3_sp_xe = layDS3SanPham();
-    include('views/User/san_pham/danh_sach.php');
+//     $ds_sp_xe = layDSSanPham();
+//     $ds3_sp_xe = layDS3SanPham();
+//     include('views/User/san_pham/danh_sach.php');
    
-}
+// }
 function hienThi1SanPham()
 {
-    $dm_loai_xe = layDSDanhMuc();
-    $ds_sp_xe_cl = lay3SanPhamCungLoai();
-    $sp = lay1SanPham($_GET['ma_xe']);
+    // $dm_loai_xe = layDSDanhMuc();
+    // $ds_sp_xe_cl = lay3SanPhamCungLoai();
+    $sp = lay1SanPham();
   
-    include('views/User/san_pham/danh_sach_ct.php');
+    include('views/User/san_pham/san_pham_ct.php');
    
 }
-function hienThiSanPhamTheoDM()
-{
-    $sp_dm = laySanPhamTheoDM($_GET['ma_loai']);
+// function hienThiSanPhamTheoDM()
+// {
+//     $sp_dm = laySanPhamTheoDM($_GET['ma_loai']);
    
-    include('views/User/san_pham/san_pham_dm.php');
+//     include('views/User/san_pham/san_pham_dm.php');
    
-}
-function hienThiSanPhamTheoGio()
-{
-    $sp_gio = laySanPhamTheoGio($_GET['ma_gio']);
+// }
+// function hienThiSanPhamTheoGio()
+// {
+//     $sp_gio = laySanPhamTheoGio($_GET['ma_gio']);
    
-    include('views/User/san_pham/san_pham_gio.php');
+//     include('views/User/san_pham/san_pham_gio.php');
    
-}
-function hienThiKhungGio()
-{
-    $ds_gio = layKhungGio();
-    include('views/User/san_pham/danh_sach_gio.php');
+// }
+// function hienThiKhungGio()
+// {
+//     $ds_gio = layKhungGio();
+//     include('views/User/san_pham/danh_sach_gio.php');
    
    
-}
+// }
 // function timKiemSanPhams(){
     
 //     $ds_sp_xe = timKiemSanPham($_GET['key']);

@@ -28,7 +28,7 @@ function themMoiXe()
         $dong_co = $_POST['dong_co'];
      
       if($ten_xe != '' && $don_gia != '' && $ma_loai != '' &&  $_FILES['hinh']['name'] != '' && $thong_tin !='' && $giam_gia != '' && $so_km != '' && $xuat_xu != '' && $slots != '' && $dong_co != ''  &&  $_FILES['hinh1']['name'] != '' &&  $_FILES['hinh2']['name'] != '' &&  $_FILES['hinh3']['name'] != ''){
-        $sql = "INSERT INTO  xe(ten_xe,don_gia,ma_loai,hinh,thong_tin,giam_gia,so_km,xuat_xu,slots,dong_co,ma_gio,hinh1,hinh2,hinh3) VALUES ('$ten_xe','$don_gia','$ma_loai','$hinh','$thong_tin','$giam_gia','$so_km','$xuat_xu','$slots','$dong_co','$hinh1' , '$hinh2' , '$hinh3')";       
+        $sql = "INSERT INTO  xe(ten_xe,don_gia,ma_loai,hinh,thong_tin,giam_gia,so_km,xuat_xu,slots,dong_co,hinh1,hinh2,hinh3) VALUES ('$ten_xe','$don_gia','$ma_loai','$hinh','$thong_tin','$giam_gia','$so_km','$xuat_xu','$slots','$dong_co','$hinh1' , '$hinh2' , '$hinh3')";       
         $conn = getConnect();
         $statement = $conn->prepare($sql);
         $statement->execute();

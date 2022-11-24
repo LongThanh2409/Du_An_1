@@ -5,7 +5,7 @@ require('./controllers/Admin/xe.php');
 require('./controllers/Admin/loai_xe.php');
 require('./controllers/Admin/khach_hang.php');
 require('./controllers/Admin/dang_ky.php');
-require('./controllers/Admin/khung_gio.php');
+
 $url = isset($_GET['url']) ? $_GET['url'] : '/';
 
 switch ($url) {
@@ -51,23 +51,14 @@ switch ($url) {
         case 'xoa_khach_hang':
             xoaDSKH();
             break;   
-// KHUNG GIỜ
-    case  'ds_khung_gio':
-        hienThiKhungGio();
-        break;
-    case 'them_khung_gio':
-        formThemMoiKhungGio();
-        break;
-    case 'sua_khung_gio':
-            formSuaKhungGio();
-            break;   
-    case 'xoa_khung_gio':
-            xoaDSKG();
-            break;    
+ 
 //DANG_KY            
-    case 'ds_dang_ky':     
-        hienThiDangKy();       
-        break;     
+    case 'ds_dang_ky_0':     
+        hienThiDangKy_0();       
+        break;   
+    case 'ds_dang_ky_1':
+        hienThiDangKy_1(); 
+        break;   
     case 'sua_dang_ky' :
         formSuaDangKy();
         break;       

@@ -1,7 +1,7 @@
 <?php
 require_once('models/db.php');
 function layDSXe() {
-    $sql = "SELECT * FROM xe";
+    $sql = "SELECT * FROM xe ORDER BY ma_xe DESC";
     $xe = getData($sql, FETCH_ALL);
     return $xe;
 }

@@ -1,7 +1,7 @@
 <?php
 require_once('models/db.php');
 function layDSLoaiXe() {
-    $sql = "SELECT * FROM loai_xe";
+    $sql = "SELECT * FROM loai_xe ORDER BY ma_loai DESC";
     $loai_xe = getData($sql, FETCH_ALL);
     return $loai_xe;
 }

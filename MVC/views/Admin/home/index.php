@@ -88,7 +88,13 @@ session_start();
 
               </ul>
             </li>
-            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index2.php?url=ds_dang_ky" aria-expanded="false"><i class="mdi mdi-calendar-check"></i><span class="hide-menu">ĐẶT LỊCH</span></a></li>
+            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> ĐƠN ĐẶT</span></a>
+              <ul aria-expanded="false" class="collapse  first-level">
+                <li class="sidebar-item"><a href="index2.php?url=ds_dang_ky_1" class="sidebar-link"><i class="fa-solid fa-check"></i><span class="hide-menu">ĐÃ DUYỆT </span></a></li>
+                <li class="sidebar-item"><a href="index2.php?url=ds_dang_ky_0" class="sidebar-link"><i class="fa-solid fa-xmark"></i></i><span class="hide-menu">CHƯA DUYỆT</span></a></li>
+
+              </ul>
+            </li>
 
 
             </li>
@@ -161,7 +167,7 @@ session_start();
 
 
           <div class="col-md-6 col-lg-2.5 col-xlg-3">
-          <a href="index2.php?url=ds_dang_ky">
+          <a href="index2.php?url=ds_dang_ky_0">
             <div class="card card-hover">
               <div class="box bg-success text-center">
                 <h1 class="font-light text-white"><i class="mdi mdi-calendar-check"></i></h1>

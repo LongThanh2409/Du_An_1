@@ -4,6 +4,8 @@
     $password = $_POST['password'];
     $email = $_POST['email'];
     $level = $_POST['level'];
+    $ten_khach_hang = $_POST['ten_khach_hang'];
+    $so_dien_thoai = $_POST['so_dien_thoai'];
    if(!$username){
      $username_err = 'CHƯA NHẬP';
    }
@@ -15,6 +17,12 @@
    }
    if(!$level){
     $level_err  = 'CHƯA NHẬP';
+   }
+   if(!$ten_khach_hang){
+    $ten_khach_hang_err  = 'CHƯA NHẬP';
+   }
+     if(!$so_dien_thoai){
+    $so_dien_thoai_err  = 'CHƯA NHẬP';
    }
 
 }
@@ -107,7 +115,13 @@
 
               </ul>
             </li>
-            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index2.php?url=ds_dang_ky" aria-expanded="false"><i class="mdi mdi-calendar-check"></i><span class="hide-menu">ĐẶT LỊCH</span></a></li>
+            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> ĐƠN ĐẶT</span></a>
+              <ul aria-expanded="false" class="collapse  first-level">
+                <li class="sidebar-item"><a href="index2.php?url=ds_dang_ky_1" class="sidebar-link"><i class="fa-solid fa-check"></i><span class="hide-menu">ĐÃ DUYỆT </span></a></li>
+                <li class="sidebar-item"><a href="index2.php?url=ds_dang_ky_0" class="sidebar-link"><i class="fa-solid fa-xmark"></i></i><span class="hide-menu">CHƯA DUYỆT</span></a></li>
+
+              </ul>
+            </li>
 
 
             </li>
@@ -146,9 +160,18 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">TÊN KHÁCH HÀNG</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Khách Hàng" name="ten_khach_hang"  value = '<?= isset($ten_khach_hang) ? $ten_khach_hang : ''?>'>
+                                            <span style="color: red;">
+        <?php echo isset($ten_khach_hang_err) ?  $ten_khach_hang_err : ''; ?>
+     </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">USERNAME</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Tên Khách Hàng" name="username"  value = '<?= isset($username) ? $username : ''?>'>
+                                            <input type="text" class="form-control"  placeholder="Nhập Username" name="username"  value = '<?= isset($username) ? $username : ''?>'>
                                             <span style="color: red;">
         <?php echo isset($username_err) ?  $username_err : ''; ?>
      </span>
@@ -169,6 +192,15 @@
                                             <input type="email" class="form-control"  placeholder="Nhập Email" name="email"  value = '<?= isset($email) ? $email : ''?>'>
                                             <span style="color: red;">
         <?php echo isset($email_err) ?  $email_err : ''; ?>
+     </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">SỐ ĐIỆN THOẠI </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control"  placeholder="Nhập Số Điện Thoại" name="so_dien_thoai"  value = '<?= isset($so_dien_thoai) ? $so_dien_thoai : ''?>'>
+                                            <span style="color: red;">
+        <?php echo isset($so_dien_thoai_err) ?  $so_dien_thoai_err : ''; ?>
      </span>
                                         </div>
                                     </div>

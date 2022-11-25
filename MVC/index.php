@@ -16,20 +16,11 @@ $url = isset($_GET['url']) ? $_GET['url'] : '/';
 
 switch ($url) {
   case '/':
-   
- 
     TrangChuUser();
-
-
     break;
     case 'trang_chu':
-   
- 
       TrangChuUser();
-  
-  
       break;
- 
   case 'danh_sach_dm':
   hienThiDanhMuc();
     break;
@@ -42,9 +33,9 @@ switch ($url) {
     break;
     case 'list_san_pham':
    
-  //   hienThiSanPhamTheoGio();
-  //   break;
-  // case 'login':
+   hienThiSanPham();
+   break;
+  case 'login':
 
     logins();
     break;

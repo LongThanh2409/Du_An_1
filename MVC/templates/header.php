@@ -2,7 +2,7 @@
 
 
 <?php 
-
+session_start();
 function currency_format($number, $suffix = '$') {
   if (!empty($number)) {
       return number_format($number, 0, ',', '.') . "{$suffix}";
@@ -110,9 +110,16 @@ function currency_format($number, $suffix = '$') {
 
             </div>
           
-           <?php if(!isset($_SESSION['username'])){ ?>
-            <div class="login_btn"> <a href="index.php?url=login" class="btn btn-xs uppercase"  name="dangnhap">Login / Register</a> </div>
-            <?php } ?>
+           <?php if(!isset($_SESSION['username'])) {
+            echo' <div class="login_btn"> <a href="index.php?url=login" class="btn btn-xs uppercase"  >Login / Register</a> </div>
+            ';
+           } else {
+            echo ' <div class="login_btn"> <a href="" class="btn btn-xs uppercase"  >Hello '.$_SESSION['username'].'</a> </div>
+            ';
+           }
+            ?>
+           
+        
             
         
             <div>

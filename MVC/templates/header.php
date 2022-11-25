@@ -105,8 +105,10 @@
             </div>
           
            <?php if(!isset($_SESSION['username'])){ ?>
-            <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-bs-toggle="modal" name="dang_nhap" data-bs-dismiss="modal">Login / Register</a> </div>
+            <div class="login_btn"> <a href="index.php?url=login" class="btn btn-xs uppercase"  name="dangnhap">Login / Register</a> </div>
             <?php } ?>
+            
+        
             <div>
            
             </div>

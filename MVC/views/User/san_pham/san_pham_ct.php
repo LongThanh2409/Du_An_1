@@ -372,47 +372,42 @@ require_once "templates/header.php";
       <aside class="col-md-3">
         <div class="sidebar_widget">
           <div class="widget_heading">
-            <h5><i class="fa fa-calculator" aria-hidden="true"></i> Financing Calculator </h5>
+            <h5><i class="fa fa-calculator" aria-hidden="true"></i> Đăng Ký Đặt Lịch </h5>
           </div>
           <div class="financing_calculatoe">
-            <form action="#" method="get">
-              <div class="form-group">
-                <label class="form-label">Vehicle Price ($)</label>
-                <input class="form-control" type="text">
-              </div>
-              <div class="form-group">
-                <label class="form-label">Down Price ($)</label>
-                <input class="form-control" type="text">
-              </div>
-              <div class="form-group">
-                <label class="form-label">Interest Rate</label>
-                <div class="select">
-                  <select class="form-control select">
-                    <option>12%</option>
-                    <option>13%</option>
-                    <option>14%</option>
-                    <option>15%</option>
-                    <option>16%</option>
-                    <option>17%</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label">Period in Years</label>
-                <div class="select">
-                  <select class="form-control">
-                    <option>3 Year</option>
-                    <option>4 Year</option>
-                    <option>5 Year</option>
-                    <option>6 Year</option>
-                    <option>7 Year</option>
-                    <option>8 Year</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-block">Calculate</button>
-              </div>
+          <form name="them_khach_hang" action="" method="POST">
+                <table  cellpadding="10px" cellspacing="0">
+                    <!-- <tr>
+                        <td >Mã xe<br/><input type="hidden" value="" name="id_xe" id="id_xe"/></td>
+                    </tr>
+                    <tr>
+                        <td >Mã khách hàng<br/><input type="hidden" value="" name="id_kh" id="id_kh"/></td>
+                    </tr> -->
+                    <tr>
+                        <td >
+                            Tên khách hàng<br />
+                            <input type="text" value="" name="ten_khach_hang" id="ten_khach_hang">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >Email<br /><input type="emai;" value="" name="email" id="email"/></td>
+                    </tr>
+                    <tr>
+                        <td >Địa chỉ<br /><input type="text" value="" name="dia_chi" id="dia_chi" ></td>
+                    </tr>
+                    <tr>
+                        <td >Điện thoại<br /><input type="text" name="so_dien_thoai" id="so_dien_thoai" ></td>
+                    </tr>
+                    <tr>
+                        <td >Ngày Xem<br /><input type="date" name="ngay_xem" id="ngay_xem"></td>
+                    </tr>
+                    <tr>
+                        <td ><input type="submit"  class="btn-danger" value="Đặt Ngay" name="dat_xem_xe" id="submit"/>
+                        <a href="index.php">Về Trang Chủ</a>
+                        </td>
+                    </tr>
+                    
+                </table>
             </form>
           </div>
         </div>
@@ -811,7 +806,6 @@ require_once "templates/header.php";
         <h3 class="modal-title">Login</h3>
       </div>
       <div class="modal-body">
-        
           <div class="login_wrap">
 		  <div class="row">
             <div class="col-md-6 col-sm-6">

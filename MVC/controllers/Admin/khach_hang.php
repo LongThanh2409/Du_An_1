@@ -19,3 +19,4 @@ function xoaDSKH()
    xoaKhachHang();
    include('views/Admin/khach_hang/danh_sach.php');
  }
+

@@ -380,36 +380,37 @@ require_once "templates/header.php";
           <div class="financing_calculatoe">
           <form name="them_khach_hang" action="" method="POST">
                 <table  cellpadding="10px" cellspacing="0">
-                    <!-- <tr>
-                        <td >Mã xe<br/><input type="hidden" value="" name="id_xe" id="id_xe"/></td>
-                    </tr>
-                    <tr>
-                        <td >Mã khách hàng<br/><input type="hidden" value="" name="id_kh" id="id_kh"/></td>
-                    </tr> -->
                     <tr>
                         <td >
                             Tên khách hàng<br />
                             <input type="text" value="" name="ten_khach_hang" id="ten_khach_hang">
+                            <b><?php echo isset($error['ten_khach_hang']) ? $error['ten_khach_hang'] : "" ?></b>
                         </td>
                     </tr>
                     <tr>
                         <td >Email<br /><input type="emai;" value="" name="email" id="email"/></td>
-                    </tr>
-                    <tr>
-                        <td >Địa chỉ<br /><input type="text" value="" name="dia_chi" id="dia_chi" ></td>
+                        <b><?php echo isset($error['email']) ? $error['email'] : "" ?></b>
                     </tr>
                     <tr>
                         <td >Điện thoại<br /><input type="text" name="so_dien_thoai" id="so_dien_thoai" ></td>
+                        <b><?php echo isset($error['so_dien_thoai']) ? $error['so_dien_thoai'] : "" ?></b>
+                    </tr>
+                    <tr>
+                        <td >Địa chỉ<br /><input type="text" value="" name="dia_chi" id="dia_chi" ></td>
+                        <b><?php echo isset($error['dia_chi']) ? $error['dia_chi'] : "" ?></b>
                     </tr>
                     <tr>
                         <td >Ngày Xem<br /><input type="date" name="ngay_xem" id="ngay_xem"></td>
+                        <b><?php echo isset($error['ngay_xem']) ? $error['ngay_xem'] : "" ?></b>
+                    </tr>
+                    <tr>
+                        <td >Ghi Chú<br /><input type="textarea" name="ghi_chu" id="ghi_chu" ></td>
                     </tr>
                     <tr>
                         <td ><input type="submit"  class="btn-danger" value="Đặt Ngay" name="dat_xem_xe" id="submit"/>
                         <a href="index.php">Về Trang Chủ</a>
                         </td>
                     </tr>
-                    
                 </table>
             </form>
           </div>

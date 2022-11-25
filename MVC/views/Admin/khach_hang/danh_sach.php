@@ -85,7 +85,13 @@
 
               </ul>
             </li>
-            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index2.php?url=ds_dang_ky" aria-expanded="false"><i class="mdi mdi-calendar-check"></i><span class="hide-menu">ĐẶT LỊCH</span></a></li>
+            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> ĐƠN ĐẶT</span></a>
+              <ul aria-expanded="false" class="collapse  first-level">
+                <li class="sidebar-item"><a href="index2.php?url=ds_dang_ky_1" class="sidebar-link"><i class="fa-solid fa-check"></i><span class="hide-menu">ĐÃ DUYỆT </span></a></li>
+                <li class="sidebar-item"><a href="index2.php?url=ds_dang_ky_0" class="sidebar-link"><i class="fa-solid fa-xmark"></i></i><span class="hide-menu">CHƯA DUYỆT</span></a></li>
+
+              </ul>
+            </li>
 
 
             </li>
@@ -117,9 +123,11 @@
                                   <thead>
                                     <tr>
                                       <th scope="col">MÃ KH</th>
+                                      <th scope="col">TÊN KHÁCH HÀNG</th>
                                       <th scope="col">USERNAME</th>
                                       <th scope="col ">PASSWORD</th> 
-                                      <th scope="col ">EMAIL</th>    
+                                      <th scope="col ">EMAIL</th>   
+                                      <th scope="col ">SĐT</th>  
                                       <th scope="col ">LEVEL</th>    
                                       <th scope="col"></th>                 
                                     </tr>
@@ -128,9 +136,11 @@
                                   <?php foreach ($ds_kh as $key => $value) : ?>
                                     <tr>
                                       <th scope="row" style="padding-top: 35px;"><?= $value['ma_kh'] ?></th>
+                                      <td  style="padding-top: 35px;"><?= $value['ten_khach_hang'] ?></td>
                                       <td  style="padding-top: 35px;"><?= $value['username'] ?></td>
                                       <td  style="padding-top: 35px;"><?= $value['password'] ?></td>
                                       <td  style="padding-top: 35px;"><?= $value['email'] ?></td>
+                                      <td  style="padding-top: 35px;"><?= $value['so_dien_thoai'] ?></td>
                                       <td  style="padding-top: 35px;"><?= $value['level'] ?></td>
                                       <td  >
                                       <button class="btn_edit">

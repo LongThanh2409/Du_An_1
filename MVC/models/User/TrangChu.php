@@ -17,12 +17,12 @@ function layDS3SanPham()
 function login(){
 
 
-    if (isset($_POST['dang_nhap'])) {
+    if (isset($_POST['dangnhap'])) {
        
         $sql = "SELECT * FROM khach_hang";
         $user = getData($sql, FETCH_ALL);
         foreach ($user as $value) {
-            if (isset($_POST['dang_nhap'])) {
+            if (isset($_POST['dangnhap'])) {
                 $username = $_POST['username'];
                 $password = $_POST['password'];
                 // $password = password_hash($password, PASSWORD_DEFAULT);
@@ -52,8 +52,6 @@ function login(){
     function logout(){
         
            
-        
-         
             if(isset($_SESSION['username'])){
                unset($_SESSION['username']);
            }

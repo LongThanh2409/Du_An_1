@@ -6,69 +6,69 @@
 // // $item = getData($query2, FETCH_ALL);
 
 // $name = $email = $password = $password2 = $hinh_anh = '';
-if (isset($_POST['dangky'])) {
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $password2 = $_POST['password2'];
-    // $hinh_anh = './models/images_sp/' . $_FILES['avatar']['name'];
+// if (isset($_POST['dangky'])) {
+//     $username = $_POST['username'];
+//     $email = $_POST['email'];
+//     $password = $_POST['password'];
+//     $password2 = $_POST['password2'];
+//     // $hinh_anh = './models/images_sp/' . $_FILES['avatar']['name'];
 
 
-    $error = [];
+//     $error = [];
 
-    if (empty($username)) {
-        $error['username'] = 'Bạn chưa nhập tên';
-    }
-    if (empty($password)) {
-        $error['password'] = 'Bạn chưa nhập mật khẩu';
-    }
-    if (empty($password2)) {
-        $error['password2'] = 'Bạn chưa nhập lại mật khẩu';
-    }
-    if ($password != $password2 && $password2 != "") {
-        $error['password_lost'] = 'Mật khẩu không khớp';
-    }
-    if (empty($email)) {
-        $error['email'] = 'Bạn chưa nhập email';
-    }
-    // if (empty($avata)) {
-    //     $error['avata'] = 'Bạn chưa nhập avata';
-    // }
+//     if (empty($username)) {
+//         $error['username'] = 'Bạn chưa nhập tên';
+//     }
+//     if (empty($password)) {
+//         $error['password'] = 'Bạn chưa nhập mật khẩu';
+//     }
+//     if (empty($password2)) {
+//         $error['password2'] = 'Bạn chưa nhập lại mật khẩu';
+//     }
+//     if ($password != $password2 && $password2 != "") {
+//         $error['password_lost'] = 'Mật khẩu không khớp';
+//     }
+//     if (empty($email)) {
+//         $error['email'] = 'Bạn chưa nhập email';
+//     }
+//     // if (empty($avata)) {
+//     //     $error['avata'] = 'Bạn chưa nhập avata';
+//     // }
 
-    // foreach ($item as $value) { //lặp để kiểm tra dữ liệu nhập vào form và dữ liệu trong DB
-    //     if ($_POST['username'] == $value["username"]) { // kiểm tra xem userusername và password nhập vào có trùng với 
-    //         $error['trungtk'] = 'Email tài khoản này đã tồn tại';
-    //         break;
-    //     }
-    // }
+//     // foreach ($item as $value) { //lặp để kiểm tra dữ liệu nhập vào form và dữ liệu trong DB
+//     //     if ($_POST['username'] == $value["username"]) { // kiểm tra xem userusername và password nhập vào có trùng với 
+//     //         $error['trungtk'] = 'Email tài khoản này đã tồn tại';
+//     //         break;
+//     //     }
+//     // }
 
   
-    if (!($error)) {
-        $sql = "SELECT username FROM khach_hang where username = :username";
-        $conn = getConnect();
-        $stmt = $conn->prepare($sql);
-        $stmt->bindValue(':username', $username);
-        $stmt->execute();
+//     if (!($error)) {
+//         $sql = "SELECT username FROM khach_hang where username = :username";
+//         $conn = getConnect();
+//         $stmt = $conn->prepare($sql);
+//         $stmt->bindValue(':username', $username);
+//         $stmt->execute();
 
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+//         $user = $stmt->fetch(PDO::FETCH_ASSOC);
       
-        if ($user) {
-            $error['trungtk'] = 'Tài khoản này đã tồn tại';
-        } else {
-            // $password = password_hash($password, PASSWORD_DEFAULT);
-            $sql = $conn->prepare('
-                INSERT INTO khach_hang(username, password, email)
-                VALUES (:username, :password, :email)
-                ');
-            $sql->bindParam(':username', $username);
-            $sql->bindParam(':password', $password);
-            $sql->bindParam(':email', $email);
+//         if ($user) {
+//             $error['trungtk'] = 'Tài khoản này đã tồn tại';
+//         } else {
+//             // $password = password_hash($password, PASSWORD_DEFAULT);
+//             $sql = $conn->prepare('
+//                 INSERT INTO khach_hang(username, password, email)
+//                 VALUES (:username, :password, :email)
+//                 ');
+//             $sql->bindParam(':username', $username);
+//             $sql->bindParam(':password', $password);
+//             $sql->bindParam(':email', $email);
 
-            $sql->execute();
-            $sucss = 'Tạo Thành Công';
-        }
-    }
-}
+//             $sql->execute();
+//             $sucss = 'Tạo Thành Công';
+//         }
+//     }
+// }
 
 
 ?>

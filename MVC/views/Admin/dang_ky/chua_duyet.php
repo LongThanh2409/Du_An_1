@@ -1,5 +1,6 @@
-
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -51,7 +52,7 @@
           <ul class="navbar-nav float-right">
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="index.php?url=logout" onclick="return confirm('Bạn có chắc là muốn đăng xuất')" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="index.php?url=logout" name="dang_xuat" onclick="return confirm('Bạn có chắc là muốn đăng xuất')" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
 
             </li>
 
@@ -110,84 +111,64 @@
       <div class="page-breadcrumb">
         <div class="row">
           <div class="col-12 d-flex no-block align-items-center">
-            <h4 class="page-title">CHỈNH SỬA KHÁCH HÀNG</h4>
+            <h4 class="page-title">ĐƠN ĐẶT CHƯA DUYỆT</h4>
 
           </div>
         </div>
       </div>
-      <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="r" >
-                    <div class="col-md-6" style="margin: auto;"> 
-                        <div class="card">
-                            <form class="form-horizontal"  method="POST" enctype="multipart/form-data">
-                                <div class="card-body">
-                          
-                                    <div class="form-group row">
-                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Mã KH</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="fname" placeholder="Auto" readonly value="<?= $kh['ma_kh'] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">TÊN KHÁCH HÀNG</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Tên Khách Hàng" name="ten_khach_hang" value="<?= $kh['ten_khach_hang'] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">USERNAME</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập USERNAME" name="username" value="<?= $kh['username'] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">PASSWORD</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Mật Khẩu" name="password" value="<?= $kh['password'] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">EMAIL</label>
-                                        <div class="col-sm-9">
-                                            <input type="email" class="form-control"  placeholder="Nhập Email" name="email" value="<?= $kh['email'] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">SỐ ĐIỆN THOẠI</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Số Điện Thoại" name="so_dien_thoai" value="<?= $kh['so_dien_thoai'] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">LEVEL</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Level" name="level" value="<?= $kh['level'] ?>">
-                                        </div>
-                                    </div>
-                                
-      
-                         
-                                </div>
-                                <div class="border-top " >
-                                    <div class="card-body" style="text-align: center;">
-                                        <button  class="btn btn-primary" name="btn_sua">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-  
 
+      <div class="container-fluid">
+
+      <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                          
+                            <table class="table">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">MÃ ĐẶT </th>
+                                      <th scope="col">MÃ XE</th>
+                                      <th scope="col">MÃ KH</th>
+                                      <th scope="col ">TÊN KH</th> 
+                                      <th scope="col ">SĐT</th>  
+                                      <th scope="col ">ĐỊA CHỈ</th>    
+                                      <th scope="col ">NGÀY XEM</th>  
+                                      <th scope="col ">THỜI GIAN ĐẶT</th>    
+                                      <th scope="col ">TRẠNG THÁI</th>  
+                                      <th scope="col"></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  <?php foreach ($dk_0 as $key => $value) : ?>
+                                    <tr>
+                                      <th scope="row" style="padding-top: 35px;"><?= $value['ma_dat'] ?></th>
+                                      <td  style="padding-top: 35px;"><?= $value['ma_xe'] ?></td>
+                                      <td  style="padding-top: 35px;"><?= $value['ma_kh'] ?></td>
+                                      <td  style="padding-top: 35px;"><?= $value['ten_khach_hang'] ?></td>
+                                      <td  style="padding-top: 35px;"><?= $value['so_dien_thoai'] ?></td>
+                                      <td  style="padding-top: 35px;"><?= $value['dia_chi'] ?></td>
+                                      <td  style="padding-top: 35px;"><?= $value['ngay_xem'] ?></td>
+                                      <td  style="padding-top: 35px;"><?= $value['thoi_gian_dat'] ?></td>
+                                      <td  style="padding-top: 35px;"><?= $value['trang_thai'] ?></td>
+                                      <td  >
+                     
+              <button class="btn_duyet">
+              <a class="delete" href="index2.php?url=sua_dang_ky&ma_dat=<?php echo $value['ma_dat'] ?>" onclick="return confirm('Xác nhận sửa ?')">Duyệt</a>
+              </button>
+                                      </td>
+                                    </tr>
+                                    <?php endforeach ?>
+                                  
+                                  </tbody>
+                            </table>
+                        </div>
+                      
                     </div>
                 </div>
-                <!-- editor -->
-  
 
-            </div>
+      </div>
 
-    
+      </div>
 
     </div>
 

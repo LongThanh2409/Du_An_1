@@ -8,6 +8,7 @@ require_once "templates/header.php";
   <div class="container">
     <div class="listing_detail_head white-text div_zindex row">
       <div class="col-md-9">
+        <h3>Chi Tiết: </h3>
         <h2><?= $ten_xe ?></h2>
         <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> <?= $xuat_xu ?></span></div>
         <div class="add_compare">
@@ -19,8 +20,9 @@ require_once "templates/header.php";
       </div>
       <div class="col-md-3">
         <div class="price_info">
-          <p>$ <?= $don_gia_new = $don_gia-($don_gia*$giam_gia)/100 ?></p>
-          <p class="old_price">$ <?=$don_gia ?></p>
+          <?php $don_gia_new = $don_gia-($don_gia*$giam_gia)/100 ?>
+          <p> <?= currency_format($don_gia_new)  ?></p>
+          <p class="old_price"> <?=currency_format($don_gia) ?></p>
         </div>
       </div>
     </div>
@@ -29,7 +31,7 @@ require_once "templates/header.php";
 </section>
 <!-- /Listing-detail-header -->
 
-<section class="listing_other_info secondary-bg">
+<!-- <section class="listing_other_info secondary-bg">
   <div class="container">
     <div id="filter_toggle" class="search_other"> <i class="fa fa-filter" aria-hidden="true"></i> Search Car </div>
     <div id="other_info"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
@@ -40,7 +42,8 @@ require_once "templates/header.php";
       <button type="button" data-bs-toggle="modal" data-bs-target="#more_info"> <i class="fa fa-file-text-o" aria-hidden="true"></i> Request More Info </button>
     </div>
   </div>
-</section>
+</section> -->
+
 
 <!-- Filter-Form -->
 <section id="filter_form" class="inner-filter gray-bg">
@@ -182,13 +185,13 @@ require_once "templates/header.php";
             <!-- Tab panes -->
             <div class="tab-content" id="myTabContent"> 
               <!-- vehicle-overview -->
-              <div role="tabpanel" class="tab-pane active" id="home" aria-labelledby="home-tab">
+              <!-- <div role="tabpanel" class="tab-pane active" id="home" aria-labelledby="home-tab">
                 <h4>What is Lorem Ipsum?</h4>
                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                 <h4>What is Lorem Ipsum?</h4>
                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
-              </div>
+              </div> -->
               
               <!-- Technical-Specification -->
               <div role="tabpanel" class="tab-pane" id="Technical" aria-labelledby="Technical-tab">
@@ -347,7 +350,7 @@ require_once "templates/header.php";
         
           <!--Comment-Form-->
           <div class="comment_form">
-            <h6>Leave a Comment</h6>
+            <h6>Bình Luận</h6>
             <form action="#">
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="Full Name">
@@ -454,83 +457,16 @@ require_once "templates/header.php";
     
     <!--Similar-Cars-->
     <div class="similar_cars">
-      <h3>Similar Cars</h3>
+      <h3>Sản phẩm cùng loại</h3>
+     
       <div class="row">
+      <?php foreach($cung_loai as $value):
+        extract($value);
+        $link_ct = 'index.php?url=sanpham_chitiet&ma_xe='.$ma_xe.'&ma_loai='.$ma_loai.''; 
+        ?>
         <div class="col-md-3 grid_listing">
           <div class="product-listing-m gray-bg">
-            <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-3.jpg" class="img-fluid" alt="image" /> </a>
-              <div class="label_icon">New</div>
-              <div class="compare_item">
-                <div class="checkbox">
-                  <input type="checkbox" value="" id="compare13">
-                  <label for="compare13">Compare</label>
-                </div>
-              </div>
-            </div>
-            <div class="product-listing-content">
-              <h5><a href="#">Maserati QUATTROPORTE 1,6</a></h5>
-              <p class="list-price">$89,000</p>
-              <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-              <ul class="features_list">
-                <li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
-                <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-                <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-                <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 grid_listing">
-          <div class="product-listing-m gray-bg">
-            <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-1.jpg" class="img-fluid" alt="image" /> </a>
-              <div class="label_icon">New</div>
-              <div class="compare_item">
-                <div class="checkbox">
-                  <input type="checkbox" value="" id="compare20">
-                  <label for="compare20">Compare</label>
-                </div>
-              </div>
-            </div>
-            <div class="product-listing-content">
-              <h5><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a></h5>
-              <p class="list-price">$89,000</p>
-              <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-              <ul class="features_list">
-                <li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
-                <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-                <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-                <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 grid_listing">
-          <div class="product-listing-m gray-bg">
-            <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-2.jpg" class="img-fluid" alt="image" /> </a>
-              <div class="label_icon">Used</div>
-              <div class="compare_item">
-                <div class="checkbox">
-                  <input type="checkbox" value="" id="compare15">
-                  <label for="compare15">Compare</label>
-                </div>
-              </div>
-            </div>
-            <div class="product-listing-content">
-              <h5><a href="#">Maserati QUATTROPORTE 1,6</a></h5>
-              <p class="list-price">$89,000</p>
-              <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-              <ul class="features_list">
-                <li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
-                <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-                <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-                <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 grid_listing">
-          <div class="product-listing-m gray-bg">
-            <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-1.jpg" class="img-fluid" alt="image" /> </a>
+            <div class="product-listing-img"> <a href="<?= $link_ct ?>"><img src="<?= $hinh ?>" class="img-fluid" alt="image" /> </a>
               <div class="label_icon">Used</div>
               <div class="compare_item">
                 <div class="checkbox">
@@ -540,19 +476,21 @@ require_once "templates/header.php";
               </div>
             </div>
             <div class="product-listing-content">
-              <h5><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a></h5>
-              <p class="list-price">$89,000</p>
+              <h5><a href="<?= $link_ct ?>"><?= $ten_xe ?> </a></h5>
+              <p class="list-price"><?= $don_gia ?></p>
               <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
               <ul class="features_list">
-                <li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
+                <li><i class="fa fa-road" aria-hidden="true"></i><?= $so_km ?> km</li>
                 <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-                <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
+                <li><i class="fa fa-calendar" aria-hidden="true"></i>$dong_co</li>
                 <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
               </ul>
             </div>
           </div>
         </div>
+        <?php endforeach ?>
       </div>
+
     </div>
     <!--/Similar-Cars--> 
     
@@ -581,84 +519,7 @@ require_once "templates/header.php";
 
 
 <!--Footer -->
-<footer>
-  <div class="footer-top">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-6">
-          <h6>Top Categores</h6>
-          <ul>
-            <li><a href="#">Crossovers</a></li>
-            <li><a href="#">Hybrids</a></li>
-            <li><a href="#">Hybrid Cars</a></li>
-            <li><a href="#">Hybrid SUVs</a></li>
-            <li><a href="#">Concept Vehicles</a></li>
-          </ul>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <h6>About Us</h6>
-          <ul>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Hybrid Cars</a></li>
-            <li><a href="#">Cookies</a></li>
-            <li><a href="#">Trademarks</a></li>
-            <li><a href="#">Terms of use</a></li>
-          </ul>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <h6>Useful Links</h6>
-          <ul>
-            <li><a href="#">Our Partners</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Sitemap</a></li>
-            <li><a href="#">Investors</a></li>
-            <li><a href="#">Request a Quote</a></li>
-          </ul>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <h6>Subscribe Newsletter</h6>
-          <div class="newsletter-form">
-            <form action="#">
-              <div class="form-group">
-                <input type="email" class="form-control newsletter-input" required placeholder="Enter Email Address" />
-              </div>
-              <button type="submit" class="btn btn-block">Subscribe <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
-            </form>
-            <p class="subscribed-text">*We send great deals and latest auto news to our subscribed users very week.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="container">
-      <div class="row">
-        
-        <div class="col-md-6">
-          <p class="copy-right">Copyright &copy; 2022 CarForYou. All Rights Reserved</p>
-        </div>
-		<div class="col-md-6 text-right">
-          <div class="footer_widget">
-            <p>Download Our APP:</p>
-            <ul>
-              <li><a href="#"><i class="fa fa-android" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-apple" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-          <div class="footer_widget">
-            <p>Connect with Us:</p>
-            <ul>
-              <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+<?php require_once "templates/footer.php";?>
 <!-- /Footer--> 
 
 <!--Back to top-->

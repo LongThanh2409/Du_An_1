@@ -1,3 +1,9 @@
+<div class="preloader">
+    <div class="lds-ripple">
+      <div class="lds-pos"></div>
+      <div class="lds-pos"></div>
+    </div>
+  </div>
 <section id="banner" class="banner-section">
 
   <div class="container">
@@ -48,7 +54,7 @@
 
     <div class="section-header text-center">
 
-      <h2>Welcome <span>to CarForYou</span></h2>
+      <h2>Chào Mừng Đến Với <span> CarForYou</span></h2>
 
       <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
 
@@ -70,7 +76,7 @@
 
             <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.</p>
 
-            <a href="#" class="btn">View Listing<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
+            <a href="index.php?url=list_san_pham" class="btn">View Listing<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
 
         </div>
 
@@ -87,7 +93,7 @@
 
     <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.</p>
 
-    <a href="#" class="btn">View Listing<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
+    <a href="index.php?url=list_san_pham" class="btn">View Listing<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
 
 </div>
 
@@ -143,7 +149,7 @@
 
           <?php foreach($six_sp as $value): 
             extract($value);
-            $link_ct = 'index.php?url=sanpham_chitiet&ma_xe='.$ma_xe;  ?>
+            $link_ct = 'index.php?url=sanpham_chitiet&ma_xe='.$ma_xe.'&ma_loai='.$ma_loai.'';   ?>
           <div class="col-list-3">
 
             <div class="recent-car-list">
@@ -178,7 +184,7 @@
 
                 <h6><a href="#"><?=  $ten_xe?></a></h6>
 
-                <span class="price">$ <?= $don_gia?></span> 
+                <span class="price"> <?= currency_format($don_gia)?></span> 
 
               </div>
 
@@ -347,7 +353,7 @@
 
             <div class="price_info">
 
-              <p class="featured-price">$ <?=$don_gia ?></p>
+              <p class="featured-price"> <?=currency_format($don_gia)?></p>
 
               <div class="car-location"><span><i class="fa  fa-credit-card" aria-hidden="true"></i>  <?=$giam_gia ?> %</span></div>
 

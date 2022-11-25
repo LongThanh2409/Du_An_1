@@ -16,37 +16,26 @@ $url = isset($_GET['url']) ? $_GET['url'] : '/';
 
 switch ($url) {
   case '/':
-   
- 
     TrangChuUser();
-
-
     break;
     case 'trang_chu':
-   
- 
       TrangChuUser();
-  
-  
       break;
- 
   case 'danh_sach_dm':
-   
   hienThiDanhMuc();
-
     break;
-
   case 'sanpham_chitiet':
   hienThi1SanPham();
     break;
-  // case 'san_pham_dm':
+  case 'sanpham_danhmuc':
    
-  //   hienThiSanPhamTheoDM();
-  //   break;
-  // case 'san_pham_gio':
+    hienThiSanPhamTheoDM();
+    break;
+    case 'list_san_pham':
    
-  //   hienThiSanPhamTheoGio();
-  //   break;
+      hienThiSanPham();
+      break;
+
   // case 'login':
 
   //   logins();

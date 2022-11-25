@@ -1084,7 +1084,7 @@ nav.navbar {
 }
 
 .banner-section {
-    background-image: url(../images/banner-image.jpg);
+    background-image: url(../image/banner-image.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1404,7 +1404,7 @@ nav.navbar {
 }
 
 .fun-facts-section {
-    background: rgba(0, 0, 0, 0) url(../images/fun-facts-bg.jpg) repeat scroll center center;
+    background: rgba(0, 0, 0, 0) url(../image/fun-facts-bg.jpg) repeat scroll center center;
     padding: 100px 0;
     position: relative
 }
@@ -1633,7 +1633,7 @@ nav.navbar {
 }
 
 .testimonial-section {
-    background-image: url(../images/testimonial-bg.jpg)
+    background-image: url(../image/testimonial-bg.jpg)
 }
 
 .white-text h2 {
@@ -1674,7 +1674,7 @@ nav.navbar {
 }
 
 .testimonial-content::after {
-    background: rgba(0, 0, 0, 0) url(../images/testimonial-content-bg.jpg) repeat scroll 0 0/cover;
+    background: rgba(0, 0, 0, 0) url(../image/testimonial-content-bg.jpg) repeat scroll 0 0/cover;
     border-radius: 0 30px;
     content: "";
     height: 100%;
@@ -2252,7 +2252,7 @@ form .slider.slider-horizontal {
 }
 
 .facts_section_bg {
-    background: rgba(0, 0, 0, 0) url(../images/facts_bg.jpg) no-repeat scroll center center/cover;
+    background: rgba(0, 0, 0, 0) url(../image/facts_bg.jpg) no-repeat scroll center center/cover;
     bottom: 0;
     height: 100%;
     left: 0;
@@ -2352,7 +2352,7 @@ form .slider.slider-horizontal {
 
 #help {
     background-attachment: fixed;
-    background-image: url(../images/help_bg.jpg);
+    background-image: url(../image/help_bg.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -2360,7 +2360,7 @@ form .slider.slider-horizontal {
 }
 
 .page-header {
-    background-image: url(../images/listing-page-header-img.jpg);
+    background-image: url(../image/listing-page-header-img.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -2619,7 +2619,7 @@ form .slider.slider-horizontal {
     background-attachment: scroll;
     background-clip: border-box;
     background-color: rgba(0, 0, 0, 0);
-    background-image: url(../images/img_390x390.jpg) !important;
+    background-image: url(../image/img_390x390.jpg) !important;
     background-origin: padding-box;
     background-position: 0 0;
     background-repeat: no-repeat;
@@ -3077,7 +3077,7 @@ table.info-tabel tr td {
 }
 
 .contactus_page {
-    background-image: url(../images/contact-page-header-img.jpg)
+    background-image: url(../image/contact-page-header-img.jpg)
 }
 
 .contact_form {
@@ -3156,19 +3156,19 @@ table.info-tabel tr td {
 }
 
 .knowledge_base_faq {
-    background: rgba(0, 0, 0, 0) url(../images/knowledge_base_bg.jpg) no-repeat scroll 0 0/cover
+    background: rgba(0, 0, 0, 0) url(../image/knowledge_base_bg.jpg) no-repeat scroll 0 0/cover
 }
 
 .about_services_faq {
-    background: rgba(0, 0, 0, 0) url(../images/about_services_faq_bg.jpg) no-repeat scroll 0 0/cover
+    background: rgba(0, 0, 0, 0) url(../image/about_services_faq_bg.jpg) no-repeat scroll 0 0/cover
 }
 
 .support_faq {
-    background: rgba(0, 0, 0, 0) url(../images/support_faq_bg.jpg) no-repeat scroll 0 0/cover
+    background: rgba(0, 0, 0, 0) url(../image/support_faq_bg.jpg) no-repeat scroll 0 0/cover
 }
 
 .aboutus_page {
-    background-image: url(../images/aboutus-page-header-img.jpg)
+    background-image: url(../image/aboutus-page-header-img.jpg)
 }
 
 .about_img {
@@ -3336,7 +3336,7 @@ table.info-tabel tr td {
 }
 
 .page_404 {
-    background-image: url(../images/error404-page-header-img.jpg)
+    background-image: url(../image/error404-page-header-img.jpg)
 }
 
 .error_text_m {
@@ -3400,7 +3400,7 @@ table.info-tabel tr td {
 }
 
 .services_page {
-    background-image: url(../images/services-page-header-img.jpg)
+    background-image: url(../image/services-page-header-img.jpg)
 }
 
 .services_image {
@@ -3447,7 +3447,7 @@ table.info-tabel tr td {
 }
 
 .blog_page {
-    background-image: url(../images/blog-page-header-img.jpg)
+    background-image: url(../image/blog-page-header-img.jpg)
 }
 
 .our_blog {
@@ -3896,7 +3896,7 @@ table.info-tabel tr td {
 }
 
 .profile_page {
-    background-image: url(../images/profile-page-header-img.jpg)
+    background-image: url(../image/profile-page-header-img.jpg)
 }
 
 .inner_pages {
@@ -3917,7 +3917,7 @@ table.info-tabel tr td {
 
 .upload_newlogo {
     background-color: rgba(0, 0, 0, .8);
-    background-image: url(../images/change_logo.png);
+    background-image: url(../image/change_logo.png);
     background-position: center center;
     background-repeat: no-repeat;
     height: 100%;
@@ -4067,7 +4067,7 @@ table.info-tabel tr td {
 }
 
 .upload_more_img:after {
-    background-image: url(../images/addmore_img.png);
+    background-image: url(../image/addmore_img.png);
     background-position: center center;
     background-repeat: no-repeat;
     content: "";
@@ -4288,7 +4288,7 @@ table.info-tabel tr td {
 }
 
 .compare_page {
-    background-image: url(../images/compare-page-header-img.jpg)
+    background-image: url(../image/compare-page-header-img.jpg)
 }
 
 .compare_info table td,
@@ -4465,7 +4465,7 @@ table.info-tabel tr td {
 }
 
 .coming_soon_bg {
-    background-image: url(../images/coming_soon_bg.jpg);
+    background-image: url(../image/coming_soon_bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;

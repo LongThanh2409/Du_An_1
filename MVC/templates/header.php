@@ -1,7 +1,13 @@
 <body id="index1">
 
 
+<?php 
 
+function currency_format($number, $suffix = '$') {
+  if (!empty($number)) {
+      return number_format($number, 0, ',', '.') . "{$suffix}";
+  }
+}?>
 <!-- Start Switcher -->
 
 <div class="switcher-wrapper">	
@@ -142,7 +148,7 @@
 
         <ul class="nav navbar-nav">
 
-          <li class="dropdown"><a href="index.php?url=trang_chu" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Trang Chủ</a>
+          <li> <a href="index.php" >Trang Chủ</a>
 
           	 <!-- <ul class="dropdown-menu">
 
@@ -156,7 +162,7 @@
 
           </li>
 
-          <li><a href="about-us.html">Thông tin</a></li>
+          <li><a href="#">Thông tin</a></li>
 
           <li class="dropdown"><a href="#" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">Inventory</a>
 
@@ -254,9 +260,9 @@
 
           <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
 
-          <form action="#" method="get" id="header-search-form">
+          <form action="" method="get" id="header-search-form">
 
-            <input type="text" placeholder="Search..." class="form-control">
+            <input type="text" name="key" placeholder="Search..." class="form-control">
 
             <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 
@@ -288,9 +294,9 @@
 
         <ul class="nav navbar-nav">
 
-          <li class="dropdown"><a href="#" id="dropdownMenuButton8" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
+          <li ><a href="index.php"  >Home</a>
 
-          	 <ul class="dropdown-menu">
+          	 <!-- <ul class="dropdown-menu">
 
               <li><a href="index.html">Home Page 1</a></li>
 
@@ -298,7 +304,7 @@
 
 			  <li><a href="index-3.html">Home Page 3</a></li>
 
-            </ul>
+            </ul> -->
 
           </li>
 

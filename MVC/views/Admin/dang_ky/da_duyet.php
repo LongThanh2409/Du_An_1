@@ -1,5 +1,9 @@
 <?php
 session_start();
+   if(!isset($_SESSION['admin'])){
+    header('location:index.php');
+   }
+
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -50,12 +54,10 @@ session_start();
           </ul>
 
           <ul class="navbar-nav float-right">
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="index.php?url=logout" name="dang_xuat" onclick="return confirm('Bạn có chắc là muốn đăng xuất')" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic"  onclick="return confirm('Bạn có chắc là muốn đăng xuất')" href="index.php?url=logout" data-toggle="" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
 
             </li>
-
           </ul>
         </div>
       </nav>

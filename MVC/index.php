@@ -41,8 +41,7 @@ switch ($url) {
     hienThiSanPhamTheoDM();
     break;
     case 'list_san_pham':
-   
-    hienThiSanPhamTheoGio();
+     hienThiSanPhamTheoGio();
     break;
   case 'login':
 
@@ -53,7 +52,6 @@ switch ($url) {
     break;
   case 'dang_ky':
    dangkys();
-  //  require_once "./views/User/tai_khoan/dangky.php ";
     break;
   // case 'dangkyxemxe':
 

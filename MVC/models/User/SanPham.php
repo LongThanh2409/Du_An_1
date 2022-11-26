@@ -46,7 +46,8 @@ function lay1SanPham()
 {
     if(isset($_GET['ma_xe'])){
         $ma_xe = $_GET['ma_xe'];
-        $sql = "SELECT * FROM xe where ma_xe=".$ma_xe;
+        $sql = "SELECT * FROM xe where ma_xe=$ma_xe";
+        
         $sp_ct = getData($sql, FETCH_ONE);
         return $sp_ct;
     }

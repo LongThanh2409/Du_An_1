@@ -127,22 +127,23 @@ require_once "templates/header.php";
             <div><img src="<?= $hinh1 ?>" alt="image"></div>
             <div><img src="<?= $hinh2 ?>" alt="image"></div>
             <div><img src="<?= $hinh3 ?>" alt="image"></div>
-            <div><img src="assets/image/listing_img1.jpg" alt="image"></div>
-            <div><img src="assets/image/listing_img3.jpg" alt="image"></div>
-            <div><img src="assets/image/listing_img5.jpg" alt="image"></div>
-            <div><img src="assets/image/listing_img2.jpg" alt="image"></div>
-            <div><img src="assets/image/listing_img1.jpg" alt="image"></div>
+            <div><img src="<?= $hinh4 ?>" alt="image"></div>
+            <div><img src="<?= $hinh5 ?>" alt="image"></div>
+            <div><img src="<?= $hinh6 ?>" alt="image"></div>
+            <div><img src="<?= $hinh7 ?>" alt="image"></div>
+            <div><img src="<?= $hinh8 ?>" alt="image"></div>
+            
           </div>
           <div class="listing_images_slider_nav">
-          <div><img src="<?= $hinh ?>" alt="image"></div>
+            <div><img src="<?= $hinh ?>" alt="image"></div>
             <div><img src="<?= $hinh1 ?>" alt="image"></div>
             <div><img src="<?= $hinh2 ?>" alt="image"></div>
             <div><img src="<?= $hinh3 ?>" alt="image"></div>
-            <div><img src="assets/image/listing_img1.jpg" alt="image"></div>
-            <div><img src="assets/image/listing_img3.jpg" alt="image"></div>
-            <div><img src="assets/image/listing_img5.jpg" alt="image"></div>
-            <div><img src="assets/image/listing_img2.jpg" alt="image"></div>
-            <div><img src="assets/image/listing_img1.jpg" alt="image"></div>
+            <div><img src="<?= $hinh4 ?>" alt="image"></div>
+            <div><img src="<?= $hinh5 ?>" alt="image"></div>
+            <div><img src="<?= $hinh6 ?>" alt="image"></div>
+            <div><img src="<?= $hinh7 ?>" alt="image"></div>
+            <div><img src="<?= $hinh8 ?>" alt="image"></div>
           </div>
         </div>
         <div class="main_features">
@@ -341,12 +342,12 @@ require_once "templates/header.php";
           </div>
           
            <!--Vehicle-Video-->
-          <div class="video_wrap">
+          <!-- <div class="video_wrap">
             <h6>Watch Video </h6>
             <div class="video-box">
                <iframe class="mfp-iframe" src="https://www.youtube.com/embed/rqSoXtKMU3Q" allowfullscreen></iframe>
             </div>
-         </div>
+         </div> -->
         
           <!--Comment-Form-->
           <div class="comment_form">
@@ -400,7 +401,7 @@ require_once "templates/header.php";
                         <b><?php echo isset($error['dia_chi']) ? $error['dia_chi'] : "" ?></b>
                     </tr>
                     <tr>
-                        <td >Ngày Xem<br /><input type="date" name="ngay_xem" id="ngay_xem"></td>
+                        <td >Ngày Xem<br /><input type="datetime-local" name="ngay_xem" id="ngay_xem"></td>
                         <b><?php echo isset($error['ngay_xem']) ? $error['ngay_xem'] : "" ?></b>
                     </tr>
                     <tr>
@@ -415,7 +416,7 @@ require_once "templates/header.php";
             </form>
           </div>
         </div>
-        <div class="sidebar_widget">
+        <!-- <div class="sidebar_widget">
           <div class="widget_heading">
             <h5><i class="fa fa-address-card-o" aria-hidden="true"></i> Dealer Contact </h5>
           </div>
@@ -424,8 +425,8 @@ require_once "templates/header.php";
             <p><span>Email:</span> contact@example.com</p>
             <p><span>Phone:</span> +61-1234-5678-09</p>
             <a href="#" class="btn btn-xs">View Profile</a> </div>
-        </div>
-        <div class="sidebar_widget">
+        </div> -->
+        <!-- <div class="sidebar_widget">
           <div class="widget_heading">
             <h5><i class="fa fa-envelope" aria-hidden="true"></i> Message to Dealer</h5>
           </div>
@@ -443,7 +444,7 @@ require_once "templates/header.php";
               <input type="submit" value="Send Message" class="btn btn-block">
             </div>
           </form>
-        </div>
+        </div> -->
       </aside>
       <!--/Side-Bar--> 
       
@@ -502,11 +503,11 @@ require_once "templates/header.php";
     </div>
     <div class="brand-logo-list">
       <div id="popular_brands">
-        <div><a href="#"><img src="assets/images/brand-logo-1.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/brand-logo-2.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/brand-logo-3.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/brand-logo-4.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/brand-logo-5.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-1.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-2.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-3.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-4.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-5.png" class="img-fluid" alt="image"></a></div>
       </div>
     </div>
   </div>

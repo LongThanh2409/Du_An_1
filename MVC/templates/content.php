@@ -18,11 +18,11 @@
 
           <div class="banner_content">
 
-            <h1>Find the right car for you.</h1>
+            <h1>Tìm Chiếc Xe Phù Hợp Cho Bạn</h1>
 
-            <p>We have more than a thousand cars for you to choose. </p>
+            <p>Chúng tôi có hơn 100X Chiếc Xe Dành Cho Bạn. </p>
 
-            <a href="#" class="btn">Read More <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
+            <a href="#" class="btn">Đọc Thêm <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
 
         </div>
 
@@ -68,7 +68,7 @@
 
         <div class="looking-car">
 
-          <div class="looking-cat-image"> <img src="assets/images/car-img-03.png" alt="Image" /> </div>
+          <div class="looking-cat-image"> <img src="assets/image/car-img-03.png" alt="Image" /> </div>
 
           <div class="looking-car-content">
 
@@ -85,7 +85,7 @@
 
 <div class="looking-car">
 
-  <div class="looking-cat-image"> <img src="assets/images/car-img-03.png" alt="Image" /> </div>
+  <div class="looking-cat-image"> <img src="assets/image/car-img-03.png" alt="Image" /> </div>
 
   <div class="looking-car-content">
 
@@ -323,7 +323,7 @@
      
     <?php foreach($three_sp as $value):
       extract($value);
-      $link_ct = 'index.php?url=sanpham_chitiet&ma_xe='.$ma_xe;  
+      $link_ct = 'index.php?url=sanpham_chitiet&ma_xe='.$ma_xe.'&ma_loai='.$ma_loai.'';
       ?>
       <div class="col-list-3">
 
@@ -414,7 +414,7 @@
 
          <?php  foreach($six_sp as $value):
           extract($value);
-          $link_ct = 'index.php?url=sanpham_chitiet&ma_xe='.$ma_xe;  
+          $link_ct = 'index.php?url=sanpham_chitiet&ma_xe='.$ma_xe.'&ma_loai='.$ma_loai.''; 
           ?>
           <div class="trending-car-m">
 
@@ -447,7 +447,7 @@
 
 <section class="section-padding testimonial-section parallex-bg">
 
-  <div class="container div_zindex">
+  <!-- <div class="container div_zindex">
 
     <div class="section-header white-text text-center">
 
@@ -463,7 +463,7 @@
 
         <div class="testimonial-m">
 
-          <div class="testimonial-img"> <img src="assets/images/testimonial-img-1.jpg" alt="images" /> </div>
+          <div class="testimonial-img"> <img src="assets/image/testimonial-img-1.jpg" alt="images" /> </div>
 
           <div class="testimonial-content">
 
@@ -481,7 +481,7 @@
 
         <div class="testimonial-m">
 
-          <div class="testimonial-img"> <img src="assets/images/testimonial-img-2.jpg" alt="images" /> </div>
+          <div class="testimonial-img"> <img src="assets/image/testimonial-img-2.jpg" alt="images" /> </div>
 
           <div class="testimonial-content">
 
@@ -499,7 +499,7 @@
 
         <div class="testimonial-m">
 
-          <div class="testimonial-img"> <img src="assets/images/testimonial-img-2.jpg" alt="images" /> </div>
+          <div class="testimonial-img"> <img src="assets/image/testimonial-img-2.jpg" alt="images" /> </div>
 
           <div class="testimonial-content">
 
@@ -517,7 +517,7 @@
 
         <div class="testimonial-m">
 
-          <div class="testimonial-img"> <img src="assets/images/testimonial-img-1.jpg" alt="images" /> </div>
+          <div class="testimonial-img"> <img src="assets/image/testimonial-img-1.jpg" alt="images" /> </div>
 
           <div class="testimonial-content">
 
@@ -535,7 +535,7 @@
 
         <div class="testimonial-m">
 
-          <div class="testimonial-img"> <img src="assets/images/testimonial-img-2.jpg" alt="images" /> </div>
+          <div class="testimonial-img"> <img src="assets/image/testimonial-img-2.jpg" alt="images" /> </div>
 
           <div class="testimonial-content">
 
@@ -553,7 +553,7 @@
 
         <div class="testimonial-m">
 
-          <div class="testimonial-img"> <img src="assets/images/testimonial-img-3.jpg" alt="images" /> </div>
+          <div class="testimonial-img"> <img src="assets/image/testimonial-img-3.jpg" alt="images" /> </div>
 
           <div class="testimonial-content">
 
@@ -573,7 +573,7 @@
 
     </div>
 
-  </div>
+  </div> -->
 
   <!-- Dark Overlay-->
 
@@ -587,7 +587,7 @@
 
 <!--Blog -->
 
-<section class="section-padding">
+<!-- <section class="section-padding">
 
   <div class="container">
 
@@ -623,7 +623,7 @@
 
             </div>
 
-            <a href="#"><img src="assets/images/blog_img1.jpg" class="img-fluid" alt="image"></a>
+            <a href="#"><img src="assets/image/blog_img1.jpg" class="img-fluid" alt="image"></a>
 
             <ul>
 
@@ -671,7 +671,7 @@
 
             </div>
 
-            <a href="#"><img src="assets/images/blog_img2.jpg" class="img-fluid" alt="image"></a>
+            <a href="#"><img src="assets/image/blog_img2.jpg" class="img-fluid" alt="image"></a>
 
             <ul>
 
@@ -719,7 +719,7 @@
 
             </div>
 
-            <a href="#"><img src="assets/images/blog_img3.jpg" class="img-fluid" alt="image"></a>
+            <a href="#"><img src="assets/image/blog_img3.jpg" class="img-fluid" alt="image"></a>
 
             <ul>
 
@@ -749,7 +749,7 @@
 
   </div>
 
-</section>
+</section> -->
 
 <!-- /Blog--> 
 
@@ -771,19 +771,19 @@
 
       <div id="popular_brands">
 
-        <div><a href="#"><img src="assets/images/brand-logo-1.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-1.png" class="img-fluid" alt="image"></a></div>
 
-        <div><a href="#"><img src="assets/images/brand-logo-2.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-2.png" class="img-fluid" alt="image"></a></div>
 
-        <div><a href="#"><img src="assets/images/brand-logo-3.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-3.png" class="img-fluid" alt="image"></a></div>
 
-        <div><a href="#"><img src="assets/images/brand-logo-4.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-4.png" class="img-fluid" alt="image"></a></div>
 
-        <div><a href="#"><img src="assets/images/brand-logo-5.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-5.png" class="img-fluid" alt="image"></a></div>
 
-        <div><a href="#"><img src="assets/images/brand-logo-1.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-1.png" class="img-fluid" alt="image"></a></div>
 
-        <div><a href="#"><img src="assets/images/brand-logo-2.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-2.png" class="img-fluid" alt="image"></a></div>
 
       </div>
 

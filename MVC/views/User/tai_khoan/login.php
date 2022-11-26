@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -142,10 +145,10 @@
                 </div>
                 <div>
                 <?php echo isset($erorr) ? $erorr : "" ?>
-                    <?php echo isset($_POST['dangnhap']) ? $_SESSION['error'] : "" ?>
+                    <!-- <?php echo isset($_POST['dangnhap']) ? $_SESSION['error'] : "" ?> -->
                 </div>
                 <section>
-                    <button type="submit" name="dangnhap">Login</button>
+                    <button type="submit" name="dang_nhap">Login</button>
                
                     <a href="index.php?url=dang_ky">Register</a>
                 </section>

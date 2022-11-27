@@ -4,16 +4,14 @@
     $don_gia = $_POST['don_gia'];
    $ma_loai = $_POST['ma_loai'];
     $hinh =  $_FILES['hinh'];
-    $hinh1 =  $_FILES['hinh1'];
-    $hinh2 =  $_FILES['hinh2'];
-    $hinh3 =  $_FILES['hinh3'];
     $thong_tin = $_POST['thong_tin'];
     $giam_gia = $_POST['giam_gia'];
     $so_km = $_POST['so_km'];
     $xuat_xu = $_POST['xuat_xu'];
     $slots = $_POST['slots'];
     $dong_co = $_POST['dong_co'];
-
+    $file_name = uniqid() . $_FILES['hinh']['name'];
+    $ext = pathinfo($file_name, PATHINFO_EXTENSION);
    if(!$ten_xe){
     $ten_xe_err = 'CHƯA NHẬP';
    }
@@ -25,15 +23,6 @@
    }
    if(!$hinh['name']){
     $hinh_err = 'CHƯA NHẬP';
-   }
-   if(!$hinh1['name']){
-    $hinh1_err = 'CHƯA NHẬP';
-   }
-   if(!$hinh2['name']){
-    $hinh2_err = 'CHƯA NHẬP';
-   }
-   if(!$hinh3['name']){
-    $hinh3_err = 'CHƯA NHẬP';
    }
    if(!$thong_tin){
     $thong_tin_err ='CHƯA NHẬP';
@@ -53,8 +42,12 @@
    if(!$dong_co){
     $dong_co_err = 'CHƯA NHẬP';
    }
+   if($_FILES['hinh']['name'] != ''){
+    if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
+      $_SESSION['error'] = "File chỉ được có đuôi png,jpg,jpeg ";}
+  }
+   }
 
-}
 ?>
 
 <!DOCTYPE html>
@@ -151,7 +144,12 @@
 
               </ul>
             </li>
-
+            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-image"></i><span class="hide-menu">HÌNH PHỤ  </span></a>
+              <ul aria-expanded="false" class="collapse  first-level">
+                <li class="sidebar-item"><a href="index2.php?url=ds_hinh" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">DANH SÁCH </span></a></li>
+                <li class="sidebar-item"><a href="index2.php?url=them_hinh" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> THÊM MỚI </span></a></li>
+              </ul>
+            </li>
 
             </li>
 
@@ -257,6 +255,19 @@
      </span>
                                         </div>
                                     </div>
+                             
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Hình Chính</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" class="form-control"  name="hinh">
+                                            <span style="color: red;">
+        <?php echo isset($_SESSION['error']) ?  $_SESSION['error'] : ''; ?>
+     </span>
+                                            <span style="color: red;">
+        <?php echo isset($hinh_err) ?  $hinh_err : ''; ?>
+     </span>
+                                        </div>
+                                    </div>
                                     <div class="form-group row">
                                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Mã Loại</label>
                                         <div class="col-sm-9">
@@ -268,42 +279,6 @@
                 </select>
                                             <span style="color: red;">
         <?php echo isset($ma_loai_err) ?  $ma_loai_err : ''; ?>
-     </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Hình Chính</label>
-                                        <div class="col-sm-9">
-                                            <input type="file" class="form-control"  name="hinh">
-                                            <span style="color: red;">
-        <?php echo isset($hinh_err) ?  $hinh_err : ''; ?>
-     </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Hình Phụ 1</label>
-                                        <div class="col-sm-9">
-                                            <input type="file" class="form-control"  name="hinh1">
-                                            <span style="color: red;">
-        <?php echo isset($hinh1_err) ?  $hinh1_err : ''; ?>
-     </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Hình Phụ 2</label>
-                                        <div class="col-sm-9">
-                                            <input type="file" class="form-control"  name="hinh2">
-                                            <span style="color: red;">
-        <?php echo isset($hinh2_err) ?  $hinh2_err : ''; ?>
-     </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Hình Phụ 3</label>
-                                        <div class="col-sm-9">
-                                            <input type="file" class="form-control"  name="hinh3">
-                                            <span style="color: red;">
-        <?php echo isset($hinh3_err) ?  $hinh3_err : ''; ?>
      </span>
                                         </div>
                                     </div>

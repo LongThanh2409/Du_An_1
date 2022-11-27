@@ -2,12 +2,14 @@
   if (isset($_POST['btn_them'])) {
     $ten_loai = $_POST['ten_loai'];
     $hinh_logo =  $_FILES['hinh_logo'];
+ 
    if(!$ten_loai){
      $ten_loai_err = 'CHƯA NHẬP';
    }
    if(!$hinh_logo['name']){
     $hinh_logo_err = 'CHƯA NHẬP';
    }
+   
 
 }
 ?>
@@ -105,8 +107,13 @@
 
               </ul>
             </li>
-
-
+            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-image"></i><span class="hide-menu">HÌNH PHỤ  </span></a>
+              <ul aria-expanded="false" class="collapse  first-level">
+                <li class="sidebar-item"><a href="index2.php?url=ds_hinh" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">DANH SÁCH </span></a></li>
+                <li class="sidebar-item"><a href="index2.php?url=them_hinh" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> THÊM MỚI </span></a></li>
+              </ul>
+            </li>
+ 
             </li>
 
           </ul>
@@ -155,6 +162,9 @@
                                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Hình Ảnh</label>
                                         <div class="col-sm-9">
                                             <input type="file" class="form-control"  name="hinh_logo">
+                                            <span style="color: red;">
+        <?php echo isset($_SESSION['error']) ?  $_SESSION['error'] : ''; ?>
+     </span>
                                             <span style="color: red;">
         <?php echo isset($hinh_logo_err) ?  $hinh_logo_err : ''; ?>
      </span>

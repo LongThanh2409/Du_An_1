@@ -1,5 +1,6 @@
-
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -51,7 +52,7 @@
           <ul class="navbar-nav float-right">
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="index.php?url=logout" onclick="return confirm('Bạn có chắc là muốn đăng xuất')" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="index.php?url=logout" name="dang_xuat" onclick="return confirm('Bạn có chắc là muốn đăng xuất')" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
 
             </li>
 
@@ -115,119 +116,54 @@
       <div class="page-breadcrumb">
         <div class="row">
           <div class="col-12 d-flex no-block align-items-center">
-            <h4 class="page-title">CHỈNH SỬA XE</h4>
+            <h4 class="page-title">DANH SÁCH ẢNH PHỤ</h4>
 
           </div>
         </div>
       </div>
-      <div class="container-fluid">
-                <div class="r" >
-                    <div class="col-md-6" style="margin: auto;"> 
-                        <div class="card">
-                            <form class="form-horizontal"  method="POST" enctype="multipart/form-data">
-                                <div class="card-body">
-                          
-                                    <div class="form-group row">
-                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Mã Xe</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="fname" placeholder="Auto" readonly value="<?= $sua['ma_xe'] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Tên Xe</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Tên Xe" name="ten_xe" value="<?= $sua['ten_xe'] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Đơn Giá</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Đơn Giá" name="don_gia" value="<?= $sua['don_gia'] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Thông Tin</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Thông Tin" name="thong_tin" value="<?= $sua['thong_tin'] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Giảm Giá</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Giảm Giá" name="giam_gia" value="<?= $sua['giam_gia'] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Số KM</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Số KM" name="so_km" value="<?= $sua['so_km'] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Xuất Xứ</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Xuất Xứ" name="xuat_xu" value="<?= $sua['xuat_xu'] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Slots</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Slots" name="slots" value="<?= $sua['slots'] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Động Cơ</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Động Cơ" name="dong_co" value="<?= $sua['dong_co'] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Hình Chính</label>
-                                        <div class="col-sm-9">
-                                            <input type="file" class="form-control"  name="hinh">
-                                            <span style="color: red;">
-                                            <?php echo isset($_SESSION['error']) ?  $_SESSION['error'] : '';  ?>
-                                            </span>
-                                            <img src="<?= $sua['hinh'] ?>" alt="" width="20%">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Mã Loại</label>
-                                        <div class="col-sm-9">
-                                          <input type="text"  class="form-control" value="<?php echo $sua['ma_loai'] ?>"   readonly>
-                                        <select id="" name="ma_loai" class="form-control" >              
-                                        <option value="">Chọn</option>
-                    <?php foreach ($ds_lx as $value) : ?>  
-                    <option value="<?php echo $value['ma_loai'] ?>"><?php echo $value['ten_loai']; ?></option>
-                    <?php endforeach; ?>
-                </select>
-                
-             
-                                        </div>
-                                    </div>
-                             
-                                 
-                               
-      
-                         
-                                </div>
-                                <div class="border-top " >
-                                    <div class="card-body" style="text-align: center;">
-                                        <button  class="btn btn-primary" name="btn_sua">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-  
 
+      <div class="container-fluid">
+      <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                          
+                            <table class="table">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">ID ẢNH</th>
+                                      <th scope="col">MÃ XE</th>
+                                      <th scope="col">HÌNH 1</th>
+                           
+                                      <th scope="col"></th>
+                                      
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  <?php foreach ($ds_hinh as $key => $value) : ?>
+                                    <tr>
+                                      <th scope="row" style="padding-top: 50px;"><?= $value['id_anh'] ?></th>
+                                      <td style="padding-top: 50px;"><?= $value['ma_xe'] ?></td>
+                                      <td style="padding-top: 50px;"> <img src="<?= $value['hinh1'] ?>" alt="" width="30%"></td>                                   
+                                      <td>
+                                      <button class="btn_edit">
+                <a class="edit" href="index2.php?url=sua_hinh&id_anh=<?php echo $value['id_anh'] ?>">Sửa</a>
+              </button>
+              <button class="btn_delete">
+              <a class="delete" href="index2.php?url=xoa_hinh&id_anh=<?php echo $value['id_anh'] ?>" onclick="return confirm('bạn có muốn xóa')">Xóa</a>
+              </button>
+                                      </td>
+                                    </tr>
+                                    <?php endforeach ?>
+                                  
+                                  </tbody>
+                            </table>
+                        </div>
+                      
                     </div>
                 </div>
-                <!-- editor -->
-       
+      
 
-            </div>
-
-    
+      </div>
 
     </div>
 

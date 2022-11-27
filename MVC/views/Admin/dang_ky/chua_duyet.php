@@ -95,7 +95,12 @@ session_start();
 
               </ul>
             </li>
-
+            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-image"></i><span class="hide-menu">HÌNH PHỤ  </span></a>
+              <ul aria-expanded="false" class="collapse  first-level">
+                <li class="sidebar-item"><a href="index2.php?url=ds_hinh" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">DANH SÁCH </span></a></li>
+                <li class="sidebar-item"><a href="index2.php?url=them_hinh" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> THÊM MỚI </span></a></li>
+              </ul>
+            </li>
 
             </li>
 
@@ -133,6 +138,7 @@ session_start();
                                       <th scope="col ">SĐT</th>  
                                       <th scope="col ">ĐỊA CHỈ</th>    
                                       <th scope="col ">NGÀY XEM</th>  
+                                      <th scope="col">GHI CHÚ</th>
                                       <th scope="col ">THỜI GIAN ĐẶT</th>    
                                       <th scope="col ">TRẠNG THÁI</th>  
                                       <th scope="col"></th>
@@ -148,12 +154,13 @@ session_start();
                                       <td  style="padding-top: 35px;"><?= $value['so_dien_thoai'] ?></td>
                                       <td  style="padding-top: 35px;"><?= $value['dia_chi'] ?></td>
                                       <td  style="padding-top: 35px;"><?= $value['ngay_xem'] ?></td>
+                                      <td  style="padding-top: 35px;"><?= $value['ghi_chu'] ?></td>
                                       <td  style="padding-top: 35px;"><?= $value['thoi_gian_dat'] ?></td>
                                       <td  style="padding-top: 35px;"><?= $value['trang_thai'] ?></td>
                                       <td  >
                      
               <button class="btn_duyet">
-              <a class="delete" href="index2.php?url=sua_dang_ky&ma_dat=<?php echo $value['ma_dat'] ?>" onclick="return confirm('Xác nhận sửa ?')">Duyệt</a>
+              <a class="delete" href="index2.php?url=sua_dang_ky&ma_dat=<?php echo $value['ma_dat'] ?>" onclick="return confirm('Xác nhận duyệt ?')">Duyệt</a>
               </button>
                                       </td>
                                     </tr>

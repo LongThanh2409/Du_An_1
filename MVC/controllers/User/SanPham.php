@@ -13,10 +13,16 @@ function hienThi1SanPham()
     // $dm_loai_xe = layDSDanhMuc();
     // $ds_sp_xe_cl = lay3SanPhamCungLoai();
     $sp = lay1SanPham();
+    binhLuans();
+    // $albums =layanhSanPham();
+    $albums = layAnh();
+    $bl = binhLuan();
+    dat_xem();
     $cung_loai = SanPhamCungLoai4();
     include('views/User/san_pham/san_pham_ct.php');
    
 }
+
 function hienThiSanPhamTheoDM()
 {
  
@@ -25,7 +31,11 @@ function hienThiSanPhamTheoDM()
     include('views/User/danh_muc/sp_theo_dm.php');
    
 }
-
+// function themMoiBL(){
+   
+   
+//     include('views/User/san_pham/san_pham_ct.php');
+// }
 // function hienThiSanPhamTheoGio()
 // {
 //     $sp_gio = laySanPhamTheoGio($_GET['ma_gio']);

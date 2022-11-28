@@ -1,4 +1,5 @@
 <?php
+
 // function dkxemxe()
 // {
 //     if (isset($_POST['dat_btn'])) {
@@ -104,37 +105,100 @@ function dangky(){
         }
     }
 }
-function dat_xem(){
+function dat_xem() {
+   
     if (isset($_POST['dat_xem_xe'])) {
-                $ma_xe = $_GET['ma_xe'];
-
-                $ten_khach_hang = $_POST['ten_khach_hang'];
-                $email = $_POST['email'];
-                $dia_chi = $_POST['dia_chi'];
-                $so_dien_thoai=$_POST['so_dien_thoai'];
-                $ngay_xem=$_POST['ngay_xem'];
-                if (empty($ten_khach_hang)) {
-                    $error['ten_khach_hang'] = 'Bạn chưa nhập tên';
-                }
-                if (empty($email)) {
-                    $error['email'] = 'Bạn chưa nhập email';
-                }
-                if (empty($dia_chi)) {
-                    $error['dia-chi'] = 'Bạn chưa nhập địa chỉ';
-                }
-                if (empty($so_dien_thoai)) {
-                    $error['so_dien_thoai'] = 'Bạn chưa nhập số điện thoại';
-                }
-                if (empty($ngay_xem)) {
-                    $error['ngay_xem'] = 'Bạn chưa chọn ngày xem';
-                }
-                $sql = "INSERT INTO don(ma_dat,ma_xe, ma_kh, ten_khach_hang, so_dien_thoai, dia_chi, ngay_xem, thoi_gian_dat, trang_thai) VALUES ('$ma_xe','$ma_kh','$ten_khach_hang','$so_dien_thoai','$dia_chi','$ngay_xem',current_timestamp())";
-                $conn = getConnect();
-                $statement = $conn->prepare($sql);
-                $statement->execute();
-              
-    }
-                  
+        $ma_xe=$_GET['ma_xe'];
+        $ma_kh=$_SESSION['ma_kh'];
+        $ten_khach_hang = $_POST['ten_khach_hang'];
+        $so_dien_thoai = $_POST['so_dien_thoai'];
+        $email = $_POST['email'];
+        $dia_chi = $_POST['dia_chi'];
+        $ngay_xem = $_POST['ngay_xem'];
+        $ghi_chu = $_POST['ghi_chu'];
+        
+        $error = [];
+        if (empty($ten_khach_hang)) {
+            $error['ten_khach_hang'] = 'Bạn chưa nhập tên khách hàng';
+        }
+        if (empty($so_dien_thoai)) {
+            $error['so_dien_thoai'] = 'Bạn chưa nhập số điện thoại';
+        }
+        if (empty($ghi_chu)) {
+            $error['ghi_chu'] = 'Bạn chưa nhập ghi chú';
+        }
+        if (empty($dia_chi)) {
+            $error['dia_chi'] = 'Bạn chưa nhập địa chỉ';
+        }
+       
+        if (empty($email)) {
+            $error['email'] = 'Bạn chưa nhập email';
+        }
+        if (empty($ngay_xem)) {
+            $error['ngay_xem'] = 'Bạn chưa nhập ngày xem';
+        }
+      if($ten_khach_hang != '' && $so_dien_thoai != '' && $email != '' &&  $dia_chi !='' && $ngay_xem != '' && $ghi_chu !=''){
+        $sql = "INSERT INTO don(ma_xe,ma_kh,ten_khach_hang, so_dien_thoai, email, dia_chi, ngay_xem, ghi_chu, thoi_gian_dat) VALUES ('$ma_xe','$ma_kh','$ten_khach_hang','$so_dien_thoai','$email','$dia_chi','$ngay_xem','$ghi_chu',current_timestamp())";       
+        $conn = getConnect();
+        $statement = $conn->prepare($sql);
+        $statement->execute();
+       
+      }
+    $result = $this->execute(array($ma_xe,$ten_khach_hang,$so_dien_thoai,$email,$ghi_chu,$ngay_xem,$ghi_chu));
+    if($result)
+        return $this->getLastId();  
+    else
+        return false;
 }
+}
+function login(){
+
+    if (isset($_POST['dang_nhap'])) {
+       session_start();
+        $sql = "SELECT * FROM khach_hang";
+        $user = getData($sql, FETCH_ALL);
+        foreach ($user as $value) {
+            if (isset($_POST['dang_nhap'])) {
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                // $password = password_hash($password, PASSWORD_DEFAULT);
+    
+                // kiểm tra
+                if ($username == $value['username'] && $password == $value['password'] && $value['level'] == 1) {
+                 
+                    $_SESSION['admin'] = $value['username'];
+                    header('location:index2.php?url=ds_loai_xe');
+                } else if ($username == $value['username'] && $password == $value['password'] && $value['level'] == 2) {
+                    $_SESSION['ma_kh']= $value['ma_kh'];
+                    $_SESSION['username'] = $value['username'];
+                
+                  
+                    header('location:index.php');
+                } else {
+                    $_SESSION['error'] = "Tài khoản hoặc mật khẩu không đúng";
+                }
+            }
+            else{
+                $_SESSION['error_tk']="Tài khoản không đúng";
+            }             
+        }
+        
+    }
+    }
+    function logout(){
+       
+           session_start();
+            if(isset($_SESSION['username'])){
+               unset($_SESSION['username']);
+           }
+           if(isset($_SESSION['admin'])){
+               unset($_SESSION['admin']);
+           }
+           header('location:index.php');
+       
+         
+       
+        
+    }
 ?>
 

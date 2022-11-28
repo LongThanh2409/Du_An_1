@@ -123,29 +123,26 @@ require_once "templates/header.php";
       <div class="col-md-9">
         <div class="listing_images">
           <div class="listing_images_slider">
-            <div><img src="<?= $hinh ?>" alt="image"></div>
-            <div><img src="<?= $hinh1 ?>" alt="image"></div>
-            <div><img src="<?= $hinh2 ?>" alt="image"></div>
-            <div><img src="<?= $hinh3 ?>" alt="image"></div>
-            <div><img src="<?= $hinh4 ?>" alt="image"></div>
-            <div><img src="<?= $hinh5 ?>" alt="image"></div>
-            <div><img src="<?= $hinh6 ?>" alt="image"></div>
-            <div><img src="<?= $hinh7 ?>" alt="image"></div>
-            <div><img src="<?= $hinh8 ?>" alt="image"></div>
-            
+          <div><img src="<?php echo $hinh?>" alt="image"></div>
+          <?php foreach($albums as $key=> $values): ?>
+            <div><img src="<?php echo $values['hinh1']?>" alt="image"></div>
+            <?php endforeach ?>
           </div>
+
+
           <div class="listing_images_slider_nav">
-            <div><img src="<?= $hinh ?>" alt="image"></div>
-            <div><img src="<?= $hinh1 ?>" alt="image"></div>
-            <div><img src="<?= $hinh2 ?>" alt="image"></div>
-            <div><img src="<?= $hinh3 ?>" alt="image"></div>
-            <div><img src="<?= $hinh4 ?>" alt="image"></div>
-            <div><img src="<?= $hinh5 ?>" alt="image"></div>
-            <div><img src="<?= $hinh6 ?>" alt="image"></div>
-            <div><img src="<?= $hinh7 ?>" alt="image"></div>
-            <div><img src="<?= $hinh8 ?>" alt="image"></div>
+          <div><img src="<?php echo $hinh?>" alt="image"></div>
+          <?php foreach($albums as $key=> $values): ?>
+            <div><img src="<?php echo $values['hinh1']?>" alt="image"></div>
+            <?php endforeach ?>
+          
           </div>
         </div>
+
+
+        
+
+
         <div class="main_features">
           <ul>
             <li> <i class="fa fa-tachometer" aria-hidden="true"></i>
@@ -175,171 +172,7 @@ require_once "templates/header.php";
           </ul>
         </div>
         <div class="listing_more_info">
-          <div class="listing_detail_wrap"> 
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-              <li class="nav-item" role="presentation"><a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Vehicle Overview </a></li>
-              <li class="nav-item" role="presentation"><a class="nav-link" id="Technical-tab" data-bs-toggle="tab" href="#Technical" role="tab" aria-controls="Technical" aria-selected="true">Technical Specification</a></li>
-              <li class="nav-item" role="presentation"><a class="nav-link" id="Accessories-tab" data-bs-toggle="tab" href="#Accessories" role="tab" aria-controls="Accessories" aria-selected="true">Accessories</a></li>
-            </ul>
-            
-            <!-- Tab panes -->
-            <div class="tab-content" id="myTabContent"> 
-              <!-- vehicle-overview -->
-              <!-- <div role="tabpanel" class="tab-pane active" id="home" aria-labelledby="home-tab">
-                <h4>What is Lorem Ipsum?</h4>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                <h4>What is Lorem Ipsum?</h4>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
-              </div> -->
-              
-              <!-- Technical-Specification -->
-              <div role="tabpanel" class="tab-pane" id="Technical" aria-labelledby="Technical-tab">
-                <div class="table-responsive"> 
-                  <!--Basic-Info-Table-->
-                  <table>
-                    <thead>
-                      <tr>
-                        <th colspan="2">BASIC INFO</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Model Year</td>
-                        <td>2010</td>
-                      </tr>
-                      <tr>
-                        <td>No. of Owners</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <td>KMs Driven</td>
-                        <td>30,000</td>
-                      </tr>
-                      <tr>
-                        <td>Fuel Type</td>
-                        <td>Diesel</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  
-                  <!--Technical-Specification-Table-->
-                  <table>
-                    <thead>
-                      <tr>
-                        <th colspan="2">Technical Specification</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Engine Type</td>
-                        <td>TDCI Diesel Engine</td>
-                      </tr>
-                      <tr>
-                        <td>Engine Description</td>
-                        <td>1.5KW</td>
-                      </tr>
-                      <tr>
-                        <td>No. of Cylinders</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <td>Mileage-City</td>
-                        <td>22.4kmpl</td>
-                      </tr>
-                      <tr>
-                        <td>Mileage-Highway</td>
-                        <td>25.83kmpl</td>
-                      </tr>
-                      <tr>
-                        <td>Fuel Tank Capacity</td>
-                        <td>40 (Liters)</td>
-                      </tr>
-                      <tr>
-                        <td>Seating Capacity</td>
-                        <td>5</td>
-                      </tr>
-                      <tr>
-                        <td>Transmission Type</td>
-                        <td>Manual</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              
-              <!-- Accessories -->
-              <div role="tabpanel" class="tab-pane" id="Accessories" aria-labelledby="Accessories-tab"> 
-                <!--Accessories-->
-                <table>
-                  <thead>
-                    <tr>
-                      <th colspan="2">Accessories</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Air Conditioner</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>AntiLock Braking System</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>Power Steering</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>Power Windows</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>CD Player</td>
-                      <td><i class="fa fa-close" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>Leather Seats</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>Central Locking</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>Power Door Locks</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>Brake Assist</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>Driver Airbag</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>Passenger Airbag</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>Crash Sensor</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>Engine Check Warning</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>Automatic Headlamps</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+          
           
            <!--Vehicle-Video-->
           <!-- <div class="video_wrap">
@@ -350,25 +183,46 @@ require_once "templates/header.php";
          </div> -->
         
           <!--Comment-Form-->
+          
           <div class="comment_form">
             <h6>Bình Luận</h6>
-            <form action="#">
+           
+            <form  method="post">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Full Name">
+                <input type="text" name="full_name" class="form-control" placeholder="Full Name">
               </div>
+              
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email Address">
+                <textarea rows="5" name="content" class="form-control" placeholder="Comments"></textarea>
               </div>
+              <!-- <div class="form-group">
+                <b>Ngày :</b>
+              </div> -->
+              <?php if(isset($_SESSION['username'])){ ?> 
               <div class="form-group">
-                <textarea rows="5" class="form-control" placeholder="Comments"></textarea>
+                <input type="submit" name="btn_bl" class="btn" value="Submit Comment">
               </div>
-              <div class="form-group">
-                <input type="submit" class="btn" value="Submit Comment">
-              </div>
+              <?php } ?>
             </form>
+         
           </div>
-          <!--/Comment-Form--> 
+       
           
+          <!--/Comment-Form--> 
+    
+          <div>
+            <h5>List Bình Luận</h5>
+          <div class="form-group">
+            <?php foreach($bl as $value): ?>
+            <div style="margin-top:10px;  background-color: #eee;padding:10px" >
+            <strong class=""> User: <?= $value['User']  ?>  </strong> <br>
+             <span><?= $value['noi_dung'] ?></span>
+            </div>
+            <?php endforeach ?>
+              </div>
+          </div>
+
+
         </div>
       </div>
       
@@ -381,6 +235,13 @@ require_once "templates/header.php";
           <div class="financing_calculatoe">
           <form name="them_khach_hang" action="" method="POST">
                 <table  cellpadding="10px" cellspacing="0">
+                <tr>
+               
+                 
+                  <td >Ma_kh<br /><input type="text" value="<?= isset($_SESSION['ma_kh'])?$_SESSION['ma_kh']:"" ?>" name="ma_kh" id="ma_kh"/></td>
+
+                
+                    </tr>
                     <tr>
                         <td >
                             Tên khách hàng<br />
@@ -388,14 +249,16 @@ require_once "templates/header.php";
                             <b><?php echo isset($error['ten_khach_hang']) ? $error['ten_khach_hang'] : "" ?></b>
                         </td>
                     </tr>
+              
                     <tr>
-                        <td >Email<br /><input type="emai;" value="" name="email" id="email"/></td>
+                        <td >Email<br /><input type="email" value="" name="email" id="email"/></td>
                         <b><?php echo isset($error['email']) ? $error['email'] : "" ?></b>
                     </tr>
                     <tr>
                         <td >Điện thoại<br /><input type="text" name="so_dien_thoai" id="so_dien_thoai" ></td>
                         <b><?php echo isset($error['so_dien_thoai']) ? $error['so_dien_thoai'] : "" ?></b>
                     </tr>
+              
                     <tr>
                         <td >Địa chỉ<br /><input type="text" value="" name="dia_chi" id="dia_chi" ></td>
                         <b><?php echo isset($error['dia_chi']) ? $error['dia_chi'] : "" ?></b>
@@ -406,6 +269,7 @@ require_once "templates/header.php";
                     </tr>
                     <tr>
                         <td >Ghi Chú<br /><input type="textarea" name="ghi_chu" id="ghi_chu" ></td>
+                        <b><?php echo isset($error['ngay_xem']) ? $error['ngay_xem'] : "" ?></b>
                     </tr>
                     <tr>
                         <td ><input type="submit"  class="btn-danger" value="Đặt Ngay" name="dat_xem_xe" id="submit"/>
@@ -416,17 +280,17 @@ require_once "templates/header.php";
             </form>
           </div>
         </div>
-        <!-- <div class="sidebar_widget">
+         <div class="sidebar_widget">
           <div class="widget_heading">
-            <h5><i class="fa fa-address-card-o" aria-hidden="true"></i> Dealer Contact </h5>
+            <h5><i class="fa fa-address-card-o" aria-hidden="true"></i> Thông tin đặt xe </h5>
           </div>
           <div class="dealer_detail"> <img src="assets/images/dealer_img.jpg" alt="image">
             <p><span>Name:</span> Dealer Name</p>
             <p><span>Email:</span> contact@example.com</p>
             <p><span>Phone:</span> +61-1234-5678-09</p>
             <a href="#" class="btn btn-xs">View Profile</a> </div>
-        </div> -->
-        <!-- <div class="sidebar_widget">
+        </div> 
+         <!-- <div class="sidebar_widget">
           <div class="widget_heading">
             <h5><i class="fa fa-envelope" aria-hidden="true"></i> Message to Dealer</h5>
           </div>
@@ -444,7 +308,7 @@ require_once "templates/header.php";
               <input type="submit" value="Send Message" class="btn btn-block">
             </div>
           </form>
-        </div> -->
+        </div>  -->
       </aside>
       <!--/Side-Bar--> 
       

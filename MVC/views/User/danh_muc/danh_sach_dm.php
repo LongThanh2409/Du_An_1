@@ -45,11 +45,12 @@ require_once "templates/header.php";
      }
    
      extract($value);
+     $link_ds_xe = 'index.php?url=sanpham_danhmuc&ma_loai='.$ma_loai;
      ?>
       <div class="dealers_listing">
         <div class="row">
           <div class="col-sm-3 col-xs-4">
-            <div class="dealer_logo"> <a href="#"><img src="<?= $hinh_logo ?>" alt="image"></a> </div>
+            <div class="dealer_logo"> <a href="<?= $link_ds_xe?>"><img src="<?= $hinh_logo ?>" alt="image"></a> </div>
           </div>
           <div class="col-sm-6 col-xs-8">
             <div class="dealer_info">
@@ -59,7 +60,7 @@ require_once "templates/header.php";
             </div>
           </div>
           <div class="col-sm-3 col-xs-12">
-            <div class="view_profile"> <a href="#" class="btn btn-xs outline">Chi tiết</a>
+            <div class="view_profile"> <a href="<?= $link_ds_xe?>" class="btn btn-xs outline">Danh Sách Xe</a>
               <p> (<?= $total ?>) Xe</p>
             </div>
           </div>

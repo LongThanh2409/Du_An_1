@@ -7,7 +7,8 @@ function layDSSanPham()
 {
     if(isset($_GET['key'])&&($_GET['key']!="")){
         $key =$_GET['key'];
-        $sql = "SELECT * FROM xe WHERE ten_xe like '%$key%'";
+        $sql = "SELECT * FROM xe WHERE ten_xe  like '%$key%'"
+        .$sql ="SELECT * FROM loai_xe WHERE ten_loai  like '%$key%'" ;
         $list_sp = getData($sql, FETCH_ALL);
     }
    
@@ -45,20 +46,34 @@ function lay1SanPham()
 {
     if(isset($_GET['ma_xe'])){
         $ma_xe = $_GET['ma_xe'];
-        $sql = "SELECT * FROM xe where ma_xe=".$ma_xe;
+        $sql = "SELECT * FROM xe where ma_xe=$ma_xe";
+        
         $sp_ct = getData($sql, FETCH_ONE);
         return $sp_ct;
     }
     }
    
 // // out sản phẩm theo danh mục
-// function laySanPhamTheoDM($ma_loai)
-// {
-//     $sql = "SELECT * FROM  xe where 1 AND ma_loai= $ma_loai";
+function laySanPhamTheoDM($ma_loai)
+{
+    $sql = "SELECT * FROM  xe where 1 AND ma_loai= $ma_loai";
   
-//     $sp_dms = getData($sql, FETCH_ALL);
-//     return $sp_dms;
-// }
+    $sp_dms = getData($sql, FETCH_ALL);
+    return $sp_dms;
+}
+function SanPhamCungLoai4()
+{
+    if(isset($_GET['ma_loai']) && isset($_GET['ma_xe']) ){
+        $ma_loai = $_GET['ma_loai'];
+        $ma_xe = $_GET['ma_xe'];
+   
+    $sql = "SELECT * FROM  xe where 1 AND ma_loai= $ma_loai AND ma_xe <> $ma_xe limit 0,4";
+    $sp_cl = getData($sql, FETCH_ALL);
+    return $sp_cl;
+}
+   
+   
+}
 // // lấy sản phẩm theo khung giờ
 // function laySanPhamTheoGio()
 // {

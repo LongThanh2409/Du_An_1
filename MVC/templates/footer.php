@@ -1,6 +1,6 @@
 <footer>
 
-  <div class="footer-top">
+  <!-- <div class="footer-top">
 
     <div class="container">
 
@@ -94,7 +94,7 @@
 
     </div>
 
-  </div>
+  </div> -->
 
   <div class="footer-bottom">
 
@@ -447,7 +447,7 @@
 <!--Slider-JS--> 
 
 <script src="assets/js2/slick.min.js"></script> 
-
+ <script src="dist/js/custom.min.js"></script> 
 <script src="assets/js2/owl.carousel.min.js"></script>
 
 

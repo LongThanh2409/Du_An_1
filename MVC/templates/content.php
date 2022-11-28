@@ -1,3 +1,9 @@
+<div class="preloader">
+    <div class="lds-ripple">
+      <div class="lds-pos"></div>
+      <div class="lds-pos"></div>
+    </div>
+  </div>
 <section id="banner" class="banner-section">
 
   <div class="container">
@@ -12,11 +18,11 @@
 
           <div class="banner_content">
 
-            <h1>Find the right car for you.</h1>
+            <h1>Tìm Chiếc Xe Phù Hợp Cho Bạn</h1>
 
-            <p>We have more than a thousand cars for you to choose. </p>
+            <p>Chúng tôi có hơn 100X Chiếc Xe Dành Cho Bạn. </p>
 
-            <a href="#" class="btn">Read More <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
+            <a href="#" class="btn">Đọc Thêm <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
 
         </div>
 
@@ -48,7 +54,7 @@
 
     <div class="section-header text-center">
 
-      <h2>Welcome <span>to CarForYou</span></h2>
+      <h2>Chào Mừng Đến Với <span> CarForYou</span></h2>
 
       <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
 
@@ -62,7 +68,7 @@
 
         <div class="looking-car">
 
-          <div class="looking-cat-image"> <img src="assets/images/car-img-03.png" alt="Image" /> </div>
+          <div class="looking-cat-image"> <img src="assets/image/car-img-03.png" alt="Image" /> </div>
 
           <div class="looking-car-content">
 
@@ -70,7 +76,7 @@
 
             <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.</p>
 
-            <a href="#" class="btn">View Listing<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
+            <a href="index.php?url=list_san_pham" class="btn">View Listing<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
 
         </div>
 
@@ -79,7 +85,7 @@
 
 <div class="looking-car">
 
-  <div class="looking-cat-image"> <img src="assets/images/car-img-03.png" alt="Image" /> </div>
+  <div class="looking-cat-image"> <img src="assets/image/car-img-03.png" alt="Image" /> </div>
 
   <div class="looking-car-content">
 
@@ -87,7 +93,7 @@
 
     <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.</p>
 
-    <a href="#" class="btn">View Listing<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
+    <a href="index.php?url=list_san_pham" class="btn">View Listing<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
 
 </div>
 
@@ -143,7 +149,7 @@
 
           <?php foreach($six_sp as $value): 
             extract($value);
-            $link_ct = 'index.php?url=sanpham_chitiet&ma_xe='.$ma_xe;  ?>
+            $link_ct = 'index.php?url=sanpham_chitiet&ma_xe='.$ma_xe.'&ma_loai='.$ma_loai.'';   ?>
           <div class="col-list-3">
 
             <div class="recent-car-list">
@@ -178,7 +184,7 @@
 
                 <h6><a href="#"><?=  $ten_xe?></a></h6>
 
-                <span class="price">$ <?= $don_gia?></span> 
+                <span class="price"> <?= currency_format($don_gia)?></span> 
 
               </div>
 
@@ -317,7 +323,7 @@
      
     <?php foreach($three_sp as $value):
       extract($value);
-      $link_ct = 'index.php?url=sanpham_chitiet&ma_xe='.$ma_xe;  
+      $link_ct = 'index.php?url=sanpham_chitiet&ma_xe='.$ma_xe.'&ma_loai='.$ma_loai.'';
       ?>
       <div class="col-list-3">
 
@@ -347,7 +353,7 @@
 
             <div class="price_info">
 
-              <p class="featured-price">$ <?=$don_gia ?></p>
+              <p class="featured-price"> <?=currency_format($don_gia)?></p>
 
               <div class="car-location"><span><i class="fa  fa-credit-card" aria-hidden="true"></i>  <?=$giam_gia ?> %</span></div>
 
@@ -408,7 +414,7 @@
 
          <?php  foreach($six_sp as $value):
           extract($value);
-          $link_ct = 'index.php?url=sanpham_chitiet&ma_xe='.$ma_xe;  
+          $link_ct = 'index.php?url=sanpham_chitiet&ma_xe='.$ma_xe.'&ma_loai='.$ma_loai.''; 
           ?>
           <div class="trending-car-m">
 
@@ -441,7 +447,7 @@
 
 <section class="section-padding testimonial-section parallex-bg">
 
-  <div class="container div_zindex">
+  <!-- <div class="container div_zindex">
 
     <div class="section-header white-text text-center">
 
@@ -457,7 +463,7 @@
 
         <div class="testimonial-m">
 
-          <div class="testimonial-img"> <img src="assets/images/testimonial-img-1.jpg" alt="images" /> </div>
+          <div class="testimonial-img"> <img src="assets/image/testimonial-img-1.jpg" alt="images" /> </div>
 
           <div class="testimonial-content">
 
@@ -475,7 +481,7 @@
 
         <div class="testimonial-m">
 
-          <div class="testimonial-img"> <img src="assets/images/testimonial-img-2.jpg" alt="images" /> </div>
+          <div class="testimonial-img"> <img src="assets/image/testimonial-img-2.jpg" alt="images" /> </div>
 
           <div class="testimonial-content">
 
@@ -493,7 +499,7 @@
 
         <div class="testimonial-m">
 
-          <div class="testimonial-img"> <img src="assets/images/testimonial-img-2.jpg" alt="images" /> </div>
+          <div class="testimonial-img"> <img src="assets/image/testimonial-img-2.jpg" alt="images" /> </div>
 
           <div class="testimonial-content">
 
@@ -511,7 +517,7 @@
 
         <div class="testimonial-m">
 
-          <div class="testimonial-img"> <img src="assets/images/testimonial-img-1.jpg" alt="images" /> </div>
+          <div class="testimonial-img"> <img src="assets/image/testimonial-img-1.jpg" alt="images" /> </div>
 
           <div class="testimonial-content">
 
@@ -529,7 +535,7 @@
 
         <div class="testimonial-m">
 
-          <div class="testimonial-img"> <img src="assets/images/testimonial-img-2.jpg" alt="images" /> </div>
+          <div class="testimonial-img"> <img src="assets/image/testimonial-img-2.jpg" alt="images" /> </div>
 
           <div class="testimonial-content">
 
@@ -547,7 +553,7 @@
 
         <div class="testimonial-m">
 
-          <div class="testimonial-img"> <img src="assets/images/testimonial-img-3.jpg" alt="images" /> </div>
+          <div class="testimonial-img"> <img src="assets/image/testimonial-img-3.jpg" alt="images" /> </div>
 
           <div class="testimonial-content">
 
@@ -567,7 +573,7 @@
 
     </div>
 
-  </div>
+  </div> -->
 
   <!-- Dark Overlay-->
 
@@ -581,7 +587,7 @@
 
 <!--Blog -->
 
-<section class="section-padding">
+<!-- <section class="section-padding">
 
   <div class="container">
 
@@ -617,7 +623,7 @@
 
             </div>
 
-            <a href="#"><img src="assets/images/blog_img1.jpg" class="img-fluid" alt="image"></a>
+            <a href="#"><img src="assets/image/blog_img1.jpg" class="img-fluid" alt="image"></a>
 
             <ul>
 
@@ -665,7 +671,7 @@
 
             </div>
 
-            <a href="#"><img src="assets/images/blog_img2.jpg" class="img-fluid" alt="image"></a>
+            <a href="#"><img src="assets/image/blog_img2.jpg" class="img-fluid" alt="image"></a>
 
             <ul>
 
@@ -713,7 +719,7 @@
 
             </div>
 
-            <a href="#"><img src="assets/images/blog_img3.jpg" class="img-fluid" alt="image"></a>
+            <a href="#"><img src="assets/image/blog_img3.jpg" class="img-fluid" alt="image"></a>
 
             <ul>
 
@@ -743,7 +749,7 @@
 
   </div>
 
-</section>
+</section> -->
 
 <!-- /Blog--> 
 
@@ -765,19 +771,19 @@
 
       <div id="popular_brands">
 
-        <div><a href="#"><img src="assets/images/brand-logo-1.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-1.png" class="img-fluid" alt="image"></a></div>
 
-        <div><a href="#"><img src="assets/images/brand-logo-2.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-2.png" class="img-fluid" alt="image"></a></div>
 
-        <div><a href="#"><img src="assets/images/brand-logo-3.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-3.png" class="img-fluid" alt="image"></a></div>
 
-        <div><a href="#"><img src="assets/images/brand-logo-4.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-4.png" class="img-fluid" alt="image"></a></div>
 
-        <div><a href="#"><img src="assets/images/brand-logo-5.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-5.png" class="img-fluid" alt="image"></a></div>
 
-        <div><a href="#"><img src="assets/images/brand-logo-1.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-1.png" class="img-fluid" alt="image"></a></div>
 
-        <div><a href="#"><img src="assets/images/brand-logo-2.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-2.png" class="img-fluid" alt="image"></a></div>
 
       </div>
 

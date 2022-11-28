@@ -1,29 +1,31 @@
 <?php 
 require './models/User/SanPham.php';
-// function hienThiSanPham()
-// {
+function hienThiSanPham()
+{
     
-//     $ds_sp_xe = layDSSanPham();
-//     $ds3_sp_xe = layDS3SanPham();
-//     include('views/User/san_pham/danh_sach.php');
+    $ds_sp_xe = layDSSanPham();
+    
+    include('views/User/san_pham/list_san_pham.php');
    
-// }
+}
 function hienThi1SanPham()
 {
     // $dm_loai_xe = layDSDanhMuc();
     // $ds_sp_xe_cl = lay3SanPhamCungLoai();
     $sp = lay1SanPham();
-  
+    $cung_loai = SanPhamCungLoai4();
     include('views/User/san_pham/san_pham_ct.php');
    
 }
-// function hienThiSanPhamTheoDM()
-// {
-//     $sp_dm = laySanPhamTheoDM($_GET['ma_loai']);
+function hienThiSanPhamTheoDM()
+{
+ 
+    $sp_dm = laySanPhamTheoDM($_GET['ma_loai']);
    
-//     include('views/User/san_pham/san_pham_dm.php');
+    include('views/User/danh_muc/sp_theo_dm.php');
    
-// }
+}
+
 // function hienThiSanPhamTheoGio()
 // {
 //     $sp_gio = laySanPhamTheoGio($_GET['ma_gio']);

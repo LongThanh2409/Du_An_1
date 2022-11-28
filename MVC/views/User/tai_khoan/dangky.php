@@ -1,74 +1,78 @@
  <?php
 
-// session_start();
+session_start();
 
-// $query2 = "select * from khach_hang";
-// // $item = getData($query2, FETCH_ALL);
 
 // $name = $email = $password = $password2 = $hinh_anh = '';
-if (isset($_POST['dangky'])) {
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $password2 = $_POST['password2'];
-    // $hinh_anh = './models/images_sp/' . $_FILES['avatar']['name'];
+// if (isset($_POST['dangky'])) {
+//     $ten_khach_hang = $_POST['ten_khach_hang'];
+//     $username = $_POST['username'];
+//     $email = $_POST['email'];
+//     $so_dien_thoai = $_POST['so_dien_thoai'];
+//     $password = $_POST['password'];
+//     $password2 = $_POST['password2'];
 
 
-    $error = [];
 
-    if (empty($username)) {
-        $error['username'] = 'Bạn chưa nhập tên';
-    }
-    if (empty($password)) {
-        $error['password'] = 'Bạn chưa nhập mật khẩu';
-    }
-    if (empty($password2)) {
-        $error['password2'] = 'Bạn chưa nhập lại mật khẩu';
-    }
-    if ($password != $password2 && $password2 != "") {
-        $error['password_lost'] = 'Mật khẩu không khớp';
-    }
-    if (empty($email)) {
-        $error['email'] = 'Bạn chưa nhập email';
-    }
-    // if (empty($avata)) {
-    //     $error['avata'] = 'Bạn chưa nhập avata';
-    // }
+//     $error = [];
+//     if (empty($ten_khach_hang)) {
+//         $error['ten_khach_hang'] = 'Bạn chưa nhập tên';
+//     }
+//     if (empty($username)) {
+//         $error['username'] = 'Bạn chưa nhập tên';
+//     }
+//     if (empty($password)) {
+//         $error['password'] = 'Bạn chưa nhập mật khẩu';
+//     }
+//     if (empty($password2)) {
+//         $error['password2'] = 'Bạn chưa nhập lại mật khẩu';
+//     }
+//     if ($password != $password2 && $password2 != "") {
+//         $error['password_lost'] = 'Mật khẩu không khớp';
+//     }
+//     if (empty($email)) {
+//         $error['email'] = 'Bạn chưa nhập email';
+//     }
+//     if (empty($so_dien_thoai)) {
+//         $error['so_dien_thoai'] = 'Bạn chưa nhập số điện thoại';
+//     }
+    
+    
 
-    // foreach ($item as $value) { //lặp để kiểm tra dữ liệu nhập vào form và dữ liệu trong DB
-    //     if ($_POST['username'] == $value["username"]) { // kiểm tra xem userusername và password nhập vào có trùng với 
-    //         $error['trungtk'] = 'Email tài khoản này đã tồn tại';
-    //         break;
-    //     }
-    // }
+//     // foreach ($item as $value) { //lặp để kiểm tra dữ liệu nhập vào form và dữ liệu trong DB
+//     //     if ($_POST['username'] == $value["username"]) { // kiểm tra xem userusername và password nhập vào có trùng với 
+//     //         $error['trungtk'] = 'Email tài khoản này đã tồn tại';
+//     //         break;
+//     //     }
+//     // }
 
   
-    if (!($error)) {
-        $sql = "SELECT username FROM khach_hang where username = :username";
-        $conn = getConnect();
-        $stmt = $conn->prepare($sql);
-        $stmt->bindValue(':username', $username);
-        $stmt->execute();
+//     if (!($error)) {
+//         $sql = "SELECT username FROM khach_hang where username = :username";
+//         $conn = getConnect();
+//         $stmt = $conn->prepare($sql);
+//         $stmt->bindValue(':username', $username);
+//         $stmt->execute();
 
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+//         $user = $stmt->fetch(PDO::FETCH_ASSOC);
       
-        if ($user) {
-            $error['trungtk'] = 'Tài khoản này đã tồn tại';
-        } else {
-            // $password = password_hash($password, PASSWORD_DEFAULT);
-            $sql = $conn->prepare('
-                INSERT INTO khach_hang(username, password, email)
-                VALUES (:username, :password, :email)
-                ');
-            $sql->bindParam(':username', $username);
-            $sql->bindParam(':password', $password);
-            $sql->bindParam(':email', $email);
-
-            $sql->execute();
-            $sucss = 'Tạo Thành Công';
-        }
-    }
-}
+//         if ($user) {
+//             $error['trungtk'] = 'Tài khoản này đã tồn tại';
+//         } else {
+//             $sql = $conn->prepare('
+//                 INSERT INTO khach_hang(ten_khach_hang,username, password, email,so_dien_thoai)
+//                 VALUES (:ten_khach_hang,:username, :password, :email,:so_dien_thoai)
+//                 ');
+//             $sql->bindParam(':ten_khach_hang', $ten_khach_hang);
+//             $sql->bindParam(':username', $username);
+//             $sql->bindParam(':password', $password);
+//             $sql->bindParam(':email', $email);
+//             $sql->bindParam(':so_dien_thoai', $so_dien_thoai);
+//             $sql->execute();
+//             $sucss = 'Tạo Thành Công';
+//         }
+//     }
+// }
 
 
 ?>
@@ -198,20 +202,25 @@ if (isset($_POST['dangky'])) {
             </div>
             <h1>Sign Up</h1>
             <div>
+                <label for="ten_khach_hang">Tên Khách Hàng</label>
+                <input type="text" name="ten_khach_hang" id="ten_khach_hang">
+                <b><?php echo isset($error['ten_khach_hang']) ? $error['ten_khach_hang'] : "" ?></b>
+            </div>
+            <div>
                 <label for="username">Username:</label>
-                <input type="text" name="username" id="username" placeholder=" ">
+                <input type="text" name="username" id="username" >
                 <b><?php echo isset($error['username']) ? $error['username'] : "" ?></b>
                 <b><?php echo isset($error['trungtk']) ? $error['trungtk'] : "" ?></b>
             </div>
-            <!-- <div class="mb-3">
-                    <label for="avata" class="form-label">Avata:</label>
-                    <input class="form-control" name='avatar' type="file" id="avata">
-                    <b></b>
-                </div> -->
             <div>
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email">
                 <b><?php echo isset($error['email']) ? $error['email'] : "" ?></b>
+            </div>
+            <div>
+                <label for="so_dien_thoai">Số Điện Thoại</label>
+                <input type="text" name="so_dien_thoai" id="so_dien_thoai">
+                <b><?php echo isset($error['so_dien_thoai']) ? $error['so_dien_thoai'] : "" ?></b>
             </div>
             <div>
                 <label for="password">Password:</label>
@@ -228,9 +237,7 @@ if (isset($_POST['dangky'])) {
                 <span><i class="fa-solid fa-eye"></i>
                 </span>
                 <span>Hiển thị mật khẩu ?</span>
-               
             </div>
-
             <button type="submit" name="dangky">Register</button>
             <footer>Already a member? <a href="index.php?url=login">Login here</a></footer>
         </form>

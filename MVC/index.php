@@ -31,37 +31,36 @@ switch ($url) {
       break;
  
   case 'danh_sach_dm':
-   
   hienThiDanhMuc();
-
     break;
-
   case 'sanpham_chitiet':
   hienThi1SanPham();
     break;
-  // case 'san_pham_dm':
+  case 'sanpham_danhmuc':
    
-  //   hienThiSanPhamTheoDM();
-  //   break;
-  // case 'san_pham_gio':
-   
-  //   hienThiSanPhamTheoGio();
-  //   break;
-  // case 'login':
+    hienThiSanPhamTheoDM();
+    break;
+    case 'list_san_pham':
+     hienThiSanPhamTheoGio();
+    break;
+  case 'login':
 
-  //   logins();
-  //   break;
-  // case 'logout':
-  //   logouts();
-  //   break;
-  // case 'dang_ky':
-  //   require_once "./views/User/tai_khoan/dangky.php";
-  //   break;
+    logins();
+    break;
+  case 'logout':
+    logouts();
+    break;
+  case 'dang_ky':
+   dangkys();
+    break;
   // case 'dangkyxemxe':
 
   //   dangkyxem();
   //   // require_once "./views/User/dangkyxemxe/dkxemxe.php ";
   //   break;
+  default:
+  echo 'Đường dẫn không tồn tại';
+  break;
 }
 
 ?>

@@ -1,4 +1,5 @@
 <?php
+
 // function dkxemxe()
 // {
 //     if (isset($_POST['dat_btn'])) {
@@ -31,32 +32,23 @@
 //     $sql = "SELECT * FROM khach_hang";
 //     $kh = getData($sql , FETCH_ALL);
 //     return $kh;
-// }
-
-function themKhachHangDat($ma_xe,$ma_kh,$ten_khach_hang,$dia_chi,$so_dien_thoai,$email,$ngay_xem) {
-        $query = "INSERT INTO don(ma_xe,ma_kh,ten_khach_hang,dia_chi,so_dien_thoai,email,ngay_xem,thoi_gian_dat) ";
-        $query.= "VALUES(?,?,?,?,?,?,?,?)";
-        $this->setQuery($query);
-        $result = $this->execute(array($ma_xe,$ma_kh,$ten_khach_hang,$dia_chi,$so_dien_thoai,$email,$ngay_xem));
-        if($result)
-            return $this->getLastId();  //If query execute successful, the system will return lastID in table khach_hang
-        else
-
-            return false;
-}
-
-            
+// }          
 function dangky(){
+    $name = $email = $password = $password2 = $hinh_anh = '';
     if (isset($_POST['dangky'])) {
+        $ten_khach_hang = $_POST['ten_khach_hang'];
         $username = $_POST['username'];
         $email = $_POST['email'];
+        $so_dien_thoai = $_POST['so_dien_thoai'];
         $password = $_POST['password'];
         $password2 = $_POST['password2'];
-        // $hinh_anh = './models/images_sp/' . $_FILES['avatar']['name'];
+    
     
     
         $error = [];
-    
+        if (empty($ten_khach_hang)) {
+            $error['ten_khach_hang'] = 'Bạn chưa nhập tên';
+        }
         if (empty($username)) {
             $error['username'] = 'Bạn chưa nhập tên';
         }
@@ -72,9 +64,11 @@ function dangky(){
         if (empty($email)) {
             $error['email'] = 'Bạn chưa nhập email';
         }
-        // if (empty($avata)) {
-        //     $error['avata'] = 'Bạn chưa nhập avata';
-        // }
+        if (empty($so_dien_thoai)) {
+            $error['so_dien_thoai'] = 'Bạn chưa nhập số điện thoại';
+        }
+        
+        
     
         // foreach ($item as $value) { //lặp để kiểm tra dữ liệu nhập vào form và dữ liệu trong DB
         //     if ($_POST['username'] == $value["username"]) { // kiểm tra xem userusername và password nhập vào có trùng với 
@@ -96,21 +90,66 @@ function dangky(){
             if ($user) {
                 $error['trungtk'] = 'Tài khoản này đã tồn tại';
             } else {
-                // $password = password_hash($password, PASSWORD_DEFAULT);
                 $sql = $conn->prepare('
-                    INSERT INTO khach_hang(username, password, email)
-                    VALUES (:username, :password, :email)
+                    INSERT INTO khach_hang(ten_khach_hang,username, password, email,so_dien_thoai)
+                    VALUES (:ten_khach_hang,:username, :password, :email,:so_dien_thoai)
                     ');
+                $sql->bindParam(':ten_khach_hang', $ten_khach_hang);
                 $sql->bindParam(':username', $username);
                 $sql->bindParam(':password', $password);
                 $sql->bindParam(':email', $email);
-    
+                $sql->bindParam(':so_dien_thoai', $so_dien_thoai);
                 $sql->execute();
                 $sucss = 'Tạo Thành Công';
             }
         }
     }
-    
+}
+function dat_xem() {
+    session_start();
+    if (isset($_POST['dat_xem_xe'])) {
+        $ma_xe=$_GET['ma_xe'];
+        $ma_kh=$_SESSION['ma_kh'];
+        $ten_khach_hang = $_POST['ten_khach_hang'];
+        $so_dien_thoai = $_POST['so_dien_thoai'];
+        $email = $_POST['email'];
+        $dia_chi = $_POST['dia_chi'];
+        $ngay_xem = $_POST['ngay_xem'];
+        $ghi_chu = $_POST['ghi_chu'];
+        
+        $error = [];
+        if (empty($ten_khach_hang)) {
+            $error['ten_khach_hang'] = 'Bạn chưa nhập tên khách hàng';
+        }
+        if (empty($so_dien_thoai)) {
+            $error['so_dien_thoai'] = 'Bạn chưa nhập số điện thoại';
+        }
+        if (empty($ghi_chu)) {
+            $error['ghi_chu'] = 'Bạn chưa nhập ghi chú';
+        }
+        if (empty($dia_chi)) {
+            $error['dia_chi'] = 'Bạn chưa nhập địa chỉ';
+        }
+       
+        if (empty($email)) {
+            $error['email'] = 'Bạn chưa nhập email';
+        }
+        if (empty($ngay_xem)) {
+            $error['ngay_xem'] = 'Bạn chưa nhập ngày xem';
+        }
+      if($ten_khach_hang != '' && $so_dien_thoai != '' && $email != '' &&  $dia_chi !='' && $ngay_xem != '' && $ghi_chu !=''){
+        $sql = "INSERT INTO don(ma_xe,ma_kh,ten_khach_hang, so_dien_thoai, email, dia_chi, ngay_xem, ghi_chu, thoi_gian_dat) VALUES ('$ma_xe','$ma_kh','$ten_khach_hang','$so_dien_thoai','$email','$dia_chi','$ngay_xem','$ghi_chu',current_timestamp())";       
+        $conn = getConnect();
+        $statement = $conn->prepare($sql);
+        $statement->execute();
+       
+      }
+    $result = $this->execute(array($ma_xe,$ten_khach_hang,$so_dien_thoai,$email,$ghi_chu,$ngay_xem,$ghi_chu));
+    if($result)
+        return $this->getLastId();  
+    else
+        return false;
+}
 }
 function login(){
 session_start();
@@ -132,8 +171,8 @@ session_start();
                 } else if ($username == $value['username'] && $password == $value['password'] && $value['level'] == 2) {
                     $_SESSION['ma_kh']= $value['ma_kh'];
                     $_SESSION['username'] = $value['username'];
-                   
-                 
+                
+                  
                     header('location:index.php?url=trang_chu');
                 } else {
                     $_SESSION['error'] = "Tài khoản hoặc mật khẩu không đúng";

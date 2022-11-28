@@ -16,25 +16,34 @@ $url = isset($_GET['url']) ? $_GET['url'] : '/';
 
 switch ($url) {
   case '/':
+   
+ 
     TrangChuUser();
+
+
     break;
     case 'trang_chu':
+   
+ 
       TrangChuUser();
+  
+  
       break;
+ 
   case 'danh_sach_dm':
   hienThiDanhMuc();
     break;
   case 'sanpham_chitiet':
   hienThi1SanPham();
+  dang_ky_xem_xe();
     break;
   case 'sanpham_danhmuc':
    
     hienThiSanPhamTheoDM();
     break;
     case 'list_san_pham':
-   
-   hienThiSanPham();
-   break;
+     hienThiSanPhamTheoGio();
+    break;
   case 'login':
 
     logins();
@@ -47,8 +56,8 @@ switch ($url) {
     break;
   // case 'dangkyxemxe':
 
-  //   dangkyxem();
-  //   // require_once "./views/User/dangkyxemxe/dkxemxe.php ";
+  //   // dang_ky_xem_xe();
+  //   require_once "./views/User/dangkyxemxe/dkxemxe.php ";
   //   break;
   default:
   echo 'Đường dẫn không tồn tại';

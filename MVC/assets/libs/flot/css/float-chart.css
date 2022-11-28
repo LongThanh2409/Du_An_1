@@ -53,7 +53,7 @@ File: scss
 }
 .btn_edit a , .btn_delete a {
   color: wheat;
- 
+  padding: 5px 21px;
 }
 .btn_edit a:hover{
   color: wheat;

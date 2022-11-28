@@ -173,17 +173,17 @@ function currency_format($number, $suffix = '$') {
 
           <li><a href="#">Thông tin</a></li>
 
-          <li class="dropdown"><a href="#" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">Inventory</a>
+          <li class="dropdowns"><a href="index.php?url=list_san_pham" id="dropdownMenuButton2">Danh Sách Xe</a>
 
             <ul class="dropdown-menu">
 
-              <li><a href="listing-grid.html">Grid Style</a></li>
+              <!-- <li><a href="listing-grid.html">Grid Style</a></li>
 
               <li><a href="listing-classic.html">Classic Style</a></li>
 
               <li><a href="listing-detail.html">Detail Page Style 1</a></li>
 
-              <li><a href="listing-detail-2.html">Detail Page Style 2</a></li>
+              <li><a href="listing-detail-2.html">Detail Page Style 2</a></li> -->
 
             </ul>
 
@@ -245,18 +245,15 @@ function currency_format($number, $suffix = '$') {
 
           <ul>
 
-            <li class="dropdown dropdown-toggle"> <a href="#" class="dropdown-toggle" id="dropdownMenuButton6" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <?= isset($_SESSION['username'])?$_SESSION['username']:"" ?> <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+            <li class="dropdown dropdown-toggle"> <a href="#" class="dropdown-toggle" id="dropdownMenuButton6" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <?= isset($_SESSION['username'])?$_SESSION['username']:"Tên Đăng Nhập" ?> <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 
               <ul  class="dropdown-menu" aria-labelledby="dropdownMenuButton6">
 
-                <li><a class="dropdown-item" href="profile-settings.html">Profile Settings</a></li>
-
-                <li><a class="dropdown-item" href="my-vehicles.html">My Vehicles</a></li>
-
-                <li><a class="dropdown-item" href="post-vehicle.html">Post a Vehicle</a></li>
-
-                <li><a class="dropdown-item" onclick="return confirm('Bạn có chắc là muốn đăng xuất')"  name="dang_xuat" href="index.php?url=logout">Sign Out</a></li>
-
+                
+                <li><a class="dropdown-item" href="post-vehicle.html">Xe Của Tôi</a></li>
+                <?php if(isset($_SESSION['username'])){?>
+                <li><a class="dropdown-item" onclick="return confirm('Bạn có chắc là muốn đăng xuất')"  name="dang_xuat" href="index.php?url=logout">Đăng Xuất</a></li>
+                <?php }?>
               </ul>
 
             </li>
@@ -271,9 +268,9 @@ function currency_format($number, $suffix = '$') {
 
           <form action="" method="get" id="header-search-form">
 
-            <input type="text" name="key" placeholder="Search..." class="form-control">
+            <input type="search" name="key" placeholder="Search..." class="form-control">
 
-            <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+            <!-- <button  type="submit"><i class="fa fa-search" aria-hidden="true"></i></button> -->
 
           </form>
 

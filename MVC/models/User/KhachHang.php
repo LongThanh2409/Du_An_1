@@ -147,7 +147,7 @@ session_start();
     }
     }
     function logout(){
-        
+        session_start();
            
             if(isset($_SESSION['username'])){
                unset($_SESSION['username']);

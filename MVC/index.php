@@ -35,6 +35,7 @@ switch ($url) {
     break;
   case 'sanpham_chitiet':
   hienThi1SanPham();
+  dang_ky_xem_xe();
     break;
   case 'sanpham_danhmuc':
    
@@ -55,8 +56,8 @@ switch ($url) {
     break;
   // case 'dangkyxemxe':
 
-  //   dangkyxem();
-  //   // require_once "./views/User/dangkyxemxe/dkxemxe.php ";
+  //   // dang_ky_xem_xe();
+  //   require_once "./views/User/dangkyxemxe/dkxemxe.php ";
   //   break;
   default:
   echo 'Đường dẫn không tồn tại';

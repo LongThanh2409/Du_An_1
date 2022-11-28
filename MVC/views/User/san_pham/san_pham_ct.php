@@ -381,6 +381,13 @@ require_once "templates/header.php";
           <div class="financing_calculatoe">
           <form name="them_khach_hang" action="" method="POST">
                 <table  cellpadding="10px" cellspacing="0">
+                <tr>
+                <?php if (isset($_SESSION['ma_kh'])):?>
+                  <?php $ma_khs = isset($_SESSION['ma_kh']); ?>
+                  <td >Ma_kh<br /><input type="text" value="<?php echo $ma_khs ?>" name="ma_kh" id="ma_kh"/></td>
+<?php endif;?>
+                
+                    </tr>
                     <tr>
                         <td >
                             Tên khách hàng<br />
@@ -388,14 +395,16 @@ require_once "templates/header.php";
                             <b><?php echo isset($error['ten_khach_hang']) ? $error['ten_khach_hang'] : "" ?></b>
                         </td>
                     </tr>
+              
                     <tr>
-                        <td >Email<br /><input type="emai;" value="" name="email" id="email"/></td>
+                        <td >Email<br /><input type="email" value="" name="email" id="email"/></td>
                         <b><?php echo isset($error['email']) ? $error['email'] : "" ?></b>
                     </tr>
                     <tr>
                         <td >Điện thoại<br /><input type="text" name="so_dien_thoai" id="so_dien_thoai" ></td>
                         <b><?php echo isset($error['so_dien_thoai']) ? $error['so_dien_thoai'] : "" ?></b>
                     </tr>
+              
                     <tr>
                         <td >Địa chỉ<br /><input type="text" value="" name="dia_chi" id="dia_chi" ></td>
                         <b><?php echo isset($error['dia_chi']) ? $error['dia_chi'] : "" ?></b>
@@ -406,6 +415,7 @@ require_once "templates/header.php";
                     </tr>
                     <tr>
                         <td >Ghi Chú<br /><input type="textarea" name="ghi_chu" id="ghi_chu" ></td>
+                        <b><?php echo isset($error['ngay_xem']) ? $error['ngay_xem'] : "" ?></b>
                     </tr>
                     <tr>
                         <td ><input type="submit"  class="btn-danger" value="Đặt Ngay" name="dat_xem_xe" id="submit"/>
@@ -416,17 +426,17 @@ require_once "templates/header.php";
             </form>
           </div>
         </div>
-        <!-- <div class="sidebar_widget">
+         <div class="sidebar_widget">
           <div class="widget_heading">
-            <h5><i class="fa fa-address-card-o" aria-hidden="true"></i> Dealer Contact </h5>
+            <h5><i class="fa fa-address-card-o" aria-hidden="true"></i> Thông tin đặt xe </h5>
           </div>
           <div class="dealer_detail"> <img src="assets/images/dealer_img.jpg" alt="image">
             <p><span>Name:</span> Dealer Name</p>
             <p><span>Email:</span> contact@example.com</p>
             <p><span>Phone:</span> +61-1234-5678-09</p>
             <a href="#" class="btn btn-xs">View Profile</a> </div>
-        </div> -->
-        <!-- <div class="sidebar_widget">
+        </div> 
+         <div class="sidebar_widget">
           <div class="widget_heading">
             <h5><i class="fa fa-envelope" aria-hidden="true"></i> Message to Dealer</h5>
           </div>
@@ -444,7 +454,7 @@ require_once "templates/header.php";
               <input type="submit" value="Send Message" class="btn btn-block">
             </div>
           </form>
-        </div> -->
+        </div> 
       </aside>
       <!--/Side-Bar--> 
       

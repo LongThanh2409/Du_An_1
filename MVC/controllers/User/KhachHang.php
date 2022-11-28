@@ -30,19 +30,11 @@ function dangkys(){
     include('views/User/tai_khoan/dangky.php');
    dangky();
 }
-// function dangkyxem(){
-
-//    $sp = lay1SanPham($_GET['ma_xe']);
-//    $one_gio = lay1KhungGio($_GET['ma_gio']);
-//    $kh = layDSKhachHang();
-//    dkxemxe();
- 
-//    include('views/User/dangkyxemxe/dkxemxe.php');
-//  }
 function dang_ky_xem_xe(){
-    $kh = layDSKhachHang();
+    // $kh = layDSKhachHang();
     include('views/User/san_pham/san_pham_ct.php');
     dat_xem();
 }
+
 
 ?>

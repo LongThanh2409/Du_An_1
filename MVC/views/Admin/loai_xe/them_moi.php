@@ -167,7 +167,7 @@ if(!isset($_SESSION['admin'])){
                                         <div class="col-sm-9">
                                             <input type="file" class="form-control"  name="hinh_logo">
                                             <span style="color: red;">
-        <?php echo isset($_SESSION['error']) ?  $_SESSION['error'] : ''; ?>
+        <?php echo isset($_SESSION['error1']) ?  $_SESSION['error1'] : ''; ?>
      </span>
                                             <span style="color: red;">
         <?php echo isset($hinh_logo_err) ?  $hinh_logo_err : ''; ?>

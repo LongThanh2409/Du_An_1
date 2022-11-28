@@ -1,15 +1,20 @@
 
-<<<<<<< HEAD
-<!DOCTYPE html>
-=======
+
+
+
 <?php
 session_start();
    if(!isset($_SESSION['admin'])){
     header('location:index.php');
    }
-
+   if (isset($_POST['btn_sua'])) {
+    $file_name = uniqid() . $_FILES['hinh_logo']['name'];
+    $ext = pathinfo($file_name, PATHINFO_EXTENSION);
+    if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
+      $_SESSION['error2'] = "File chỉ được có đuôi png,jpg,jpeg ";}
+   }
 ?><!DOCTYPE html>
->>>>>>> 74f0882469a0e871e5bf398f2955963ea379394c
+
 <html dir="ltr" lang="en">
 
 <head>
@@ -156,7 +161,7 @@ session_start();
                                         <div class="col-sm-9">
                                             <input type="file" class="form-control"  name="hinh_logo">
                                             <span style="color: red;">
-                                            <?php echo isset($_SESSION['error']) ?  $_SESSION['error'] : '';  ?>
+                                            <?php echo isset($_SESSION['error2']) ?  $_SESSION['error2'] : '';  ?>
                                             </span>
                                             <img src="<?= $sua['hinh_logo'] ?>" alt="" width="20%">
                                       

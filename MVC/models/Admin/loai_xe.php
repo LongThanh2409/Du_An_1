@@ -19,7 +19,7 @@ function themMoiLoaiXe()
         $ext = pathinfo($file_name, PATHINFO_EXTENSION);
         if($ten_loai != '' && $_FILES['hinh_logo']['name'] != '' ){
             if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
-                $_SESSION['error'] = "File chỉ được có đuôi png,jpg,jpeg ";
+                $_SESSION['error1'] = "File chỉ được có đuôi png,jpg,jpeg ";
              } else{
                 $sql = "INSERT INTO  loai_xe(ten_loai , hinh_logo) VALUES ('$ten_loai' , '$hinh_logo')";      
                 $conn = getConnect();
@@ -61,7 +61,7 @@ function suaLoaiXe()
             header('Location:index2.php?url=ds_loai_xe');
         }else{
             if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
-                $_SESSION['error'] = "File chỉ được có đuôi png,jpg,jpeg ";
+                $_SESSION['error2'] = "File chỉ được có đuôi png,jpg,jpeg ";
              } else{
                 $sql = "UPDATE loai_xe SET  ten_loai='$ten_loai',hinh_logo='$hinh_logo' WHERE  ma_loai  =$ma_loai";
                 $conn = getConnect();

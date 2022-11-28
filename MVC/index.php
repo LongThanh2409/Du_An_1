@@ -35,14 +35,14 @@ switch ($url) {
     break;
   case 'sanpham_chitiet':
   hienThi1SanPham();
-  dang_ky_xem_xe();
+  // dang_ky_xem_xe();
     break;
   case 'sanpham_danhmuc':
    
     hienThiSanPhamTheoDM();
     break;
     case 'list_san_pham':
-     hienThiSanPhamTheoGio();
+     hienThiSanPham();
     break;
   case 'login':
 

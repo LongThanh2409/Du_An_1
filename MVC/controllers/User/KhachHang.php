@@ -11,7 +11,7 @@ require './models/User/KhachHang.php';
 // {
 //     $sp = lay1SanPham($_GET['ma_xe']);
    
-//     include('views/User/san_pham/danh_sach_ct.php');
+//     include('views/User/san_pham/danh_sach_cts.php');
    
 // }
 function logins()
@@ -21,20 +21,20 @@ function logins()
    
 }
 function logouts(){
-  
+    logout();
    include('views/User/tai_khoan/logout.php');
-   logout();
+
    
 }
 function dangkys(){
     include('views/User/tai_khoan/dangky.php');
    dangky();
 }
-function dang_ky_xem_xe(){
-    // $kh = layDSKhachHang();
-    include('views/User/san_pham/san_pham_ct.php');
-    dat_xem();
-}
+// function dang_ky_xem_xe(){
+//     // $kh = layDSKhachHang();
+//     include('views/User/san_pham/san_pham_ct.php');
+  
+// }
 
 
 ?>

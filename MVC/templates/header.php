@@ -2,7 +2,7 @@
 
 
 <?php 
-// session_start();
+session_start();
 function currency_format($number, $suffix = '$') {
   if (!empty($number)) {
       return number_format($number, 0, ',', '.') . "{$suffix}";
@@ -114,6 +114,7 @@ function currency_format($number, $suffix = '$') {
             echo' <div class="login_btn"> <a href="index.php?url=login" class="btn btn-xs uppercase"  >Login / Register</a> </div>
             ';
            } else {
+           
             echo ' <div class="login_btn"> <a href="" class="btn btn-xs uppercase"  >Hello '.$_SESSION['username'].'</a> </div>
             ';
            }
@@ -268,9 +269,9 @@ function currency_format($number, $suffix = '$') {
 
           <form action="" method="get" id="header-search-form">
 
-            <input type="search" name="key" placeholder="Search..." class="form-control">
+            <input type="text" name="key" placeholder="Search..." class="form-control">
 
-            <!-- <button  type="submit"><i class="fa fa-search" aria-hidden="true"></i></button> -->
+            <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 
           </form>
 

@@ -123,32 +123,26 @@ require_once "templates/header.php";
       <div class="col-md-9">
         <div class="listing_images">
           <div class="listing_images_slider">
-          <?php foreach($albums as $key=> $values): 
-         
-           ?>
-            <div><img src="<?= $values['hinh1']?>" alt="image"></div>
-           <?php echo $values['hinh1'] ?>
-            <!-- <div><img src="<?= $hinh2 ?>" alt="image"></div>
-            <div><img src="<?= $hinh3 ?>" alt="image"></div>
-            <div><img src="<?= $hinh4 ?>" alt="image"></div>
-            <div><img src="<?= $hinh5 ?>" alt="image"></div>
-            <div><img src="<?= $hinh6 ?>" alt="image"></div>
-            <div><img src="<?= $hinh7 ?>" alt="image"></div>
-            <div><img src="<?= $hinh8 ?>" alt="image"></div> -->
+          <div><img src="<?php echo $hinh?>" alt="image"></div>
+          <?php foreach($albums as $key=> $values): ?>
+            <div><img src="<?php echo $values['hinh1']?>" alt="image"></div>
             <?php endforeach ?>
           </div>
+
+
           <div class="listing_images_slider_nav">
+          <div><img src="<?php echo $hinh?>" alt="image"></div>
+          <?php foreach($albums as $key=> $values): ?>
+            <div><img src="<?php echo $values['hinh1']?>" alt="image"></div>
+            <?php endforeach ?>
           
-            <div><img src="<?= $hinh1 ?>" alt="image"></div>
-            <!-- <div><img src="<?= $hinh2 ?>" alt="image"></div>
-            <div><img src="<?= $hinh3 ?>" alt="image"></div>
-            <div><img src="<?= $hinh4 ?>" alt="image"></div>
-            <div><img src="<?= $hinh5 ?>" alt="image"></div>
-            <div><img src="<?= $hinh6 ?>" alt="image"></div>
-            <div><img src="<?= $hinh7 ?>" alt="image"></div>
-            <div><img src="<?= $hinh8 ?>" alt="image"></div> -->
           </div>
         </div>
+
+
+        
+
+
         <div class="main_features">
           <ul>
             <li> <i class="fa fa-tachometer" aria-hidden="true"></i>
@@ -189,7 +183,7 @@ require_once "templates/header.php";
          </div> -->
         
           <!--Comment-Form-->
-          <?php if(isset($_SESSION['username'])){ ?> 
+          
           <div class="comment_form">
             <h6>Bình Luận</h6>
            
@@ -204,15 +198,15 @@ require_once "templates/header.php";
               <!-- <div class="form-group">
                 <b>Ngày :</b>
               </div> -->
-              
+              <?php if(isset($_SESSION['username'])){ ?> 
               <div class="form-group">
                 <input type="submit" name="btn_bl" class="btn" value="Submit Comment">
               </div>
-              
+              <?php } ?>
             </form>
          
           </div>
-          <?php } ?>
+       
           
           <!--/Comment-Form--> 
     
@@ -242,10 +236,10 @@ require_once "templates/header.php";
           <form name="them_khach_hang" action="" method="POST">
                 <table  cellpadding="10px" cellspacing="0">
                 <tr>
-                <?php if (isset($_SESSION['ma_kh'])):?>
-                  <?php $ma_khs = isset($_SESSION['ma_kh']); ?>
-                  <td >Ma_kh<br /><input type="text" value="<?php echo $ma_khs ?>" name="ma_kh" id="ma_kh"/></td>
-<?php endif;?>
+               
+                 
+                  <td >Ma_kh<br /><input type="text" value="<?= isset($_SESSION['ma_kh'])?$_SESSION['ma_kh']:"" ?>" name="ma_kh" id="ma_kh"/></td>
+
                 
                     </tr>
                     <tr>
@@ -296,7 +290,7 @@ require_once "templates/header.php";
             <p><span>Phone:</span> +61-1234-5678-09</p>
             <a href="#" class="btn btn-xs">View Profile</a> </div>
         </div> 
-         <div class="sidebar_widget">
+         <!-- <div class="sidebar_widget">
           <div class="widget_heading">
             <h5><i class="fa fa-envelope" aria-hidden="true"></i> Message to Dealer</h5>
           </div>
@@ -314,7 +308,7 @@ require_once "templates/header.php";
               <input type="submit" value="Send Message" class="btn btn-block">
             </div>
           </form>
-        </div> 
+        </div>  -->
       </aside>
       <!--/Side-Bar--> 
       

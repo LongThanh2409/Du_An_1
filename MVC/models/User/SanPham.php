@@ -5,11 +5,10 @@
         // out all sp
         function layDSSanPham()
         {
-            if (isset($_GET['key']) && ($_GET['key']!= "")) {
+            if (isset($_GET['key']) && ($_GET['key'] != "")) {
                 $key = $_GET['key'];
-                echo $key;
                 $sql = "SELECT * FROM xe WHERE ten_xe  like '%$key%'";
-                // $sql .= "SELECT * FROM loai_xe WHERE ten_loai  like '%$key%'";
+                $sql .= "SELECT * FROM loai_xe WHERE ten_loai  like '%$key%'";
                 $list_sp = getData($sql, FETCH_ALL);
             } else {
                 $key = "";
@@ -51,16 +50,31 @@
                 return $sp_ct;
             }
         }
-        function layanhSanPham()
-        {
+        // function layanhSanPham()
+        // {
+        //     if (isset($_GET['ma_xe'])) {
+
+        //         $ma_xe = $_GET['ma_xe'];
+        //         $sql = "SELECT * FROM xe  WHERE ma_xe= $ma_xe";
+        //         $car = getData($sql, FETCH_ONE);
+
+
+        //         $albums = (explode(",",$car['Ablum']));
+                
+        //         return $albums;
+        //     }
+        // }
+        function layAnh(){
             if (isset($_GET['ma_xe'])) {
-
                 $ma_xe = $_GET['ma_xe'];
-                $sql = "SELECT * FROM hinh  WHERE ma_xe= $ma_xe
-        ";
+              
+                    $sql = "SELECT * FROM hinh  WHERE ma_xe= $ma_xe";
+                    $sp_ct = getData($sql, FETCH_ALL);
+                    return $sp_ct;
+                
+               
+               
 
-                $sp_cts = getData($sql, FETCH_ONE);
-                return $sp_cts;
             }
         }
         function binhLuans()
@@ -71,7 +85,7 @@
                 
                 $ma_xe = $_GET['ma_xe'];
                 if ($full_name != "" && $content != "") {
-                    $sql = "INSERT INTO  binh_luan VALUES (null, '$full_name','$content',current_timestamp(), 10, '$ma_xe')";
+                    $sql = "INSERT INTO  binh_luan VALUES (null, '$full_name','$content',current_timestamp(), 5, '$ma_xe')";
                     $conn = getConnect();
                     $statement = $conn->prepare($sql);
                     $statement->execute();

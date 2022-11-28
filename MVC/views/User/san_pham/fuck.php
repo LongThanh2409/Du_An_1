@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,26 +40,7 @@
         }
     }
     
-   function layanhSanPham()
-   {
-       
-          
-          
-           $sql = "SELECT * FROM xe WHERE ma_xe=27";
-          
-           $sp_cts = getData($sql, FETCH_ONE);
-           return $sp_cts;
-       }
-    
-    $albums = layanhSanPham();
-   
-    $list = (explode(",",$albums['Ablum']));
-    print_r($list);
-    foreach($list as $value): 
-     ?>
-
-        <img width ="300px" height="200" src="<?= $value ?>" alt="">
-    <?php endforeach ?>
+?>
    
 </body>
-</html>
+</html> -->

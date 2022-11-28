@@ -106,7 +106,7 @@ function dangky(){
     }
 }
 function dat_xem() {
-    session_start();
+   
     if (isset($_POST['dat_xem_xe'])) {
         $ma_xe=$_GET['ma_xe'];
         $ma_kh=$_SESSION['ma_kh'];
@@ -152,9 +152,9 @@ function dat_xem() {
 }
 }
 function login(){
-session_start();
+
     if (isset($_POST['dang_nhap'])) {
-       
+       session_start();
         $sql = "SELECT * FROM khach_hang";
         $user = getData($sql, FETCH_ALL);
         foreach ($user as $value) {
@@ -173,7 +173,7 @@ session_start();
                     $_SESSION['username'] = $value['username'];
                 
                   
-                    header('location:index.php?url=trang_chu');
+                    header('location:index.php');
                 } else {
                     $_SESSION['error'] = "Tài khoản hoặc mật khẩu không đúng";
                 }
@@ -186,8 +186,8 @@ session_start();
     }
     }
     function logout(){
-        session_start();
-           
+       
+           session_start();
             if(isset($_SESSION['username'])){
                unset($_SESSION['username']);
            }

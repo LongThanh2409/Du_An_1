@@ -16,6 +16,7 @@ function themMoiXe()
 {
 
     if (isset($_POST['btn_them'])) {
+ 
         $ten_xe = $_POST['ten_xe'];
         $don_gia = $_POST['don_gia'];
        $ma_loai = $_POST['ma_loai'];
@@ -28,17 +29,28 @@ function themMoiXe()
         $dong_co = $_POST['dong_co'];
         $file_name = uniqid() . $_FILES['hinh']['name'];
         $ext = pathinfo($file_name, PATHINFO_EXTENSION);
+        $files = $_FILES['hinh1'];
+        $file_names = $files['name'];        
+ 
       if($ten_xe != '' && $don_gia != '' && $ma_loai != '' &&  $_FILES['hinh']['name'] != '' && $thong_tin !='' && $giam_gia != '' && $so_km != '' && $xuat_xu != '' && $slots != '' && $dong_co != '' ){
         if ($ext == 'png' || $ext == 'jpg' || $ext == 'jpeg') {
-      
-        $sql = "INSERT INTO  xe(ten_xe,don_gia,ma_loai,hinh,thong_tin,giam_gia,so_km,xuat_xu,slots,dong_co) VALUES ('$ten_xe','$don_gia','$ma_loai','$hinh','$thong_tin','$giam_gia','$so_km','$xuat_xu','$slots','$dong_co')";         
-        $conn = getConnect();
-        $statement = $conn->prepare($sql);
-        $statement->execute();
-        move_uploaded_file($_FILES["hinh"]["tmp_name"], 'assets/images/img_data/' . $_FILES["hinh"]["name"]);
-        header('Location:index2.php?url=ds_xe');
+          foreach($file_names as $key => $value){ 
+            move_uploaded_file($files["tmp_name"][$key], 'assets/images/img_data/' . $value);
+        $sql = "INSERT INTO  xe(ten_xe,don_gia,ma_loai,hinh,thong_tin,giam_gia,so_km,xuat_xu,slots,dong_co) VALUES ('$ten_xe','$don_gia','$ma_loai','$hinh','$thong_tin','$giam_gia','$so_km','$xuat_xu','$slots','$dong_co');
+           
+        INSERT INTO  hinh(ma_xe,hinh1) VALUES (LAST_INSERT_ID(),'assets/images/img_data/$value'); 
+          
+         ";      
+         
+            }           
+            $conn = getConnect();
+            $statement = $conn->prepare($sql);
+            $statement->execute();
+            move_uploaded_file($_FILES["hinh"]["tmp_name"], 'assets/images/img_data/' . $_FILES["hinh"]["name"]);      
+          header('Location:index2.php?url=ds_xe');    
        }
       }
+
     }
 }
 function suaXe(){

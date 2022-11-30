@@ -1,7 +1,12 @@
 <?php
 require_once('models/db.php');
 function layDSHinh() {
-    $sql = "SELECT * FROM hinh ORDER BY id_anh DESC";
+    $sql = "SELECT * FROM hinh ORDER BY id_anh DESC ";
+    $hinh = getData($sql, FETCH_ALL);
+    return $hinh;
+}
+function layHinh1() {
+    $sql = "SELECT hinh1 FROM hinh  ";
     $hinh = getData($sql, FETCH_ALL);
     return $hinh;
 }
@@ -10,27 +15,15 @@ function layMotHinh($id_anh) {
     $hinh = getData($sql, FETCH_ONE);
     return $hinh;
 }
-function themMoiHinh()
+function MocTenXe()
 {
-    if (isset($_POST['btn_them'])) {
-        $ma_xe =  $_POST['ma_xe'];
-    
-        if(isset($_FILES['hinh1']) && $ma_xe != ''){
-            $files = $_FILES['hinh1'];
-            $file_names = $files['name'];        
-            foreach($file_names as $key => $value){
-             move_uploaded_file($files["tmp_name"][$key], 'assets/images/img_data/' . $value);
-             $sql = "INSERT INTO  hinh(hinh1,ma_xe) VALUES ('assets/images/img_data/$value' , '$ma_xe')";       
-             $conn = getConnect();
-            $statement = $conn->prepare($sql);
-            $statement->execute();
-            header('Location:index2.php?url=ds_hinh');
-            }
-        }
-       }    
-     
-    }
 
+  $sql = "SELECT xe.ten_xe,xe.ma_xe
+  FROM xe,hinh
+  WHERE xe.ma_xe = hinh.ma_xe";
+    $xe1 = getData($sql, FETCH_ALL);
+    return $xe1;
+}
 function xoaHinh()
 {
     $id_anh = $_GET['id_anh'];

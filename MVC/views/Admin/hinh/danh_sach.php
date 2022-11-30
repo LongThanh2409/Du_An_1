@@ -98,7 +98,7 @@ session_start();
             <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-image"></i><span class="hide-menu">HÌNH PHỤ  </span></a>
               <ul aria-expanded="false" class="collapse  first-level">
                 <li class="sidebar-item"><a href="index2.php?url=ds_hinh" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">DANH SÁCH </span></a></li>
-                <li class="sidebar-item"><a href="index2.php?url=them_hinh" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> THÊM MỚI </span></a></li>
+       
               </ul>
             </li>
 
@@ -131,7 +131,7 @@ session_start();
                                   <thead>
                                     <tr>
                                       <th scope="col">ID ẢNH</th>
-                                      <th scope="col">MÃ XE</th>
+                                      <th scope="col">TÊN XE</th>
                                       <th scope="col">HÌNH 1</th>
                            
                                       <th scope="col"></th>
@@ -140,10 +140,22 @@ session_start();
                                   </thead>
                                   <tbody>
                                   <?php foreach ($ds_hinh as $key => $value) : ?>
+                                    
                                     <tr>
                                       <th scope="row" style="padding-top: 50px;"><?= $value['id_anh'] ?></th>
-                                      <td style="padding-top: 50px;"><?= $value['ma_xe'] ?></td>
-                                      <td style="padding-top: 50px;"> <img src="<?= $value['hinh1'] ?>" alt="" width="30%"></td>                                   
+                                      <td style="padding-top: 50px;">
+                                      <?php foreach ($xe1 as $key => $value1) : ?>
+                                        <?php if($value['ma_xe'] == $value1['ma_xe']): ?>
+                                      <?= $value1['ten_xe'] ?>
+                                      <?php endif ?>
+                                      <?php endforeach ?> 
+                                    </td>
+                                     
+                                      <td style="padding-top: 50px;"> 
+                                  
+                                      <img src="<?= $value['hinh1'] ?>" alt="" width="30%">
+                               
+                                     </td>                                   
                                       <td>
                                       <button class="btn_edit">
                 <a class="edit" href="index2.php?url=sua_hinh&id_anh=<?php echo $value['id_anh'] ?>">Sửa</a>
@@ -153,8 +165,9 @@ session_start();
               </button>
                                       </td>
                                     </tr>
-                                    <?php endforeach ?>
-                                  
+                                
+                                   <?php endforeach ?> 
+                                
                                   </tbody>
                             </table>
                         </div>

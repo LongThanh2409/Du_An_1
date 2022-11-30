@@ -2,18 +2,7 @@
 
 
 
-<?php
-session_start();
-   if(!isset($_SESSION['admin'])){
-    header('location:index.php');
-   }
-   if (isset($_POST['btn_sua'])) {
-    $file_name = uniqid() . $_FILES['hinh_logo']['name'];
-    $ext = pathinfo($file_name, PATHINFO_EXTENSION);
-    if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
-      $_SESSION['error2'] = "File chỉ được có đuôi png,jpg,jpeg ";}
-   }
-?><!DOCTYPE html>
+<!DOCTYPE html>
 
 <html dir="ltr" lang="en">
 
@@ -111,7 +100,7 @@ session_start();
             <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-image"></i><span class="hide-menu">HÌNH PHỤ  </span></a>
               <ul aria-expanded="false" class="collapse  first-level">
                 <li class="sidebar-item"><a href="index2.php?url=ds_hinh" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">DANH SÁCH </span></a></li>
-                <li class="sidebar-item"><a href="index2.php?url=them_hinh" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> THÊM MỚI </span></a></li>
+           
               </ul>
             </li>
 

@@ -2,13 +2,11 @@
 require('models/Admin/hinh.php');
 function hienThiHinh() {
     $ds_hinh = layDSHinh(); 
+    $ds_hinh1 = layHinh1();
+    $xe1 = MocTenXe();
     include('views/Admin/hinh/danh_sach.php');
 }
-function formThemMoiHinh(){
-    $ds_xe = layDSXe(); 
-    themMoiHinh();
-    include('views/Admin/hinh/them_moi.php');
-}
+
 function xoaDSHinh()
  { 
    xoaHinh();

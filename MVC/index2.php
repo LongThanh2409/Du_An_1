@@ -55,9 +55,7 @@ switch ($url) {
       case 'ds_hinh':
         hienThiHinh();
         break;
-      case 'them_hinh':
-        formThemMoiHinh();
-        break;
+   
       case 'sua_hinh':
         formSuaHinh();
         break;

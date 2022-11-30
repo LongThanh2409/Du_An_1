@@ -131,7 +131,7 @@ if(!isset($_SESSION['admin'])){
             <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-image"></i><span class="hide-menu">HÌNH PHỤ  </span></a>
               <ul aria-expanded="false" class="collapse  first-level">
                 <li class="sidebar-item"><a href="index2.php?url=ds_hinh" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">DANH SÁCH </span></a></li>
-                <li class="sidebar-item"><a href="index2.php?url=them_hinh" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> THÊM MỚI </span></a></li>
+           
               </ul>
             </li>
 

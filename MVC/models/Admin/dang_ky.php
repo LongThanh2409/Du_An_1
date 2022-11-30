@@ -4,11 +4,34 @@ function layDSDK_0() {
     $sql = "SELECT * FROM don WHERE trang_thai= 0";
     $dk = getData($sql, FETCH_ALL);
     return $dk;
+    
 }
+
 function layDSDK_1() {
   $sql = "SELECT * FROM don WHERE trang_thai= 1";
   $dk = getData($sql, FETCH_ALL);
   return $dk;
+  
+}
+
+function MocKH()
+{ 
+  $sql = "SELECT khach_hang.ten_khach_hang,khach_hang.ma_kh
+  FROM khach_hang,don
+  WHERE khach_hang.ma_kh = don.ma_kh ";
+
+    $kh1 = getData($sql, FETCH_ALL);
+    return $kh1;
+}
+
+function MocXe()
+{
+
+  $sql = "SELECT xe.ten_xe,xe.ma_xe
+  FROM xe,don
+  WHERE xe.ma_xe = don.ma_xe ";
+    $xe1 = getData($sql, FETCH_ALL);
+    return $xe1;
 }
 function suaDangKy()
 {  

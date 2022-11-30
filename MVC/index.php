@@ -1,11 +1,12 @@
 <?php
 require_once "models/db.php";
 
-
+session_start();
 require('./controllers/User/SanPham.php');
 require('./controllers/User/DanhMuc.php');
 require('./controllers/User/KhachHang.php');
 require('./controllers/User/TrangChu.php');
+require('./controllers/User/DatLich.php');
 
 
 
@@ -45,7 +46,7 @@ switch ($url) {
      hienThiSanPham();
     break;
   case 'login':
-
+   
     logins();
     break;
   case 'logout':
@@ -53,6 +54,9 @@ switch ($url) {
     break;
   case 'dang_ky':
    dangkys();
+    break;
+    case 'ds_dat_lich';
+    HienThiDSDatLich();
     break;
   // case 'dangkyxemxe':
 

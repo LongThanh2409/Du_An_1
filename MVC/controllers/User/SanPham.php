@@ -4,7 +4,7 @@ function hienThiSanPham()
 {
     
     $ds_sp_xe = layDSSanPham();
-    
+    $dm_loai_xe = lay5DSDanhMuc();
     include('views/User/san_pham/list_san_pham.php');
    
 }
@@ -17,6 +17,7 @@ function hienThi1SanPham()
     // $albums =layanhSanPham();
     $albums = layAnh();
     $bl = binhLuan();
+    
     dat_xem();
     $cung_loai = SanPhamCungLoai4();
     include('views/User/san_pham/san_pham_ct.php');

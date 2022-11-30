@@ -1,12 +1,12 @@
 <?php
 require_once('models/db.php');
 function layDSDK_0() {
-    $sql = "SELECT * FROM dat_lich WHERE trang_thai= 0";
+    $sql = "SELECT * FROM don WHERE trang_thai= 0";
     $dk = getData($sql, FETCH_ALL);
     return $dk;
 }
 function layDSDK_1() {
-  $sql = "SELECT * FROM dat_lich WHERE trang_thai= 1";
+  $sql = "SELECT * FROM don WHERE trang_thai= 1";
   $dk = getData($sql, FETCH_ALL);
   return $dk;
 }
@@ -16,7 +16,7 @@ function suaDangKy()
    
   $trang_thai = '1';
         $ma_dat = $_GET['ma_dat'];
-        $sql = "UPDATE dat_lich SET trang_thai='$trang_thai' WHERE  ma_dat  =$ma_dat";
+        $sql = "UPDATE don SET trang_thai='$trang_thai' WHERE  ma_dat  =$ma_dat";
         $conn = getConnect();
         $statement = $conn->prepare($sql);
         $statement->execute();
@@ -26,7 +26,7 @@ function suaDangKy()
 function xoaDangKy()
 {  
     $ma_dat = $_GET['ma_dat'];   
-        $sql = "DELETE FROM dat_lich WHERE ma_dat=$ma_dat ";
+        $sql = "DELETE FROM don WHERE ma_dat=$ma_dat ";
         $conn = getConnect();
         $statement = $conn->prepare($sql);
         $statement->execute();

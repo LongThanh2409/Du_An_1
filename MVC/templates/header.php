@@ -2,15 +2,16 @@
 
 
 <?php 
-session_start();
-function currency_format($number, $suffix = '$') {
+
+function currency_format($number, $suffix = 'VND') {
   if (!empty($number)) {
-      return number_format($number, 0, ',', '.') . "{$suffix}";
+      return number_format($number, 0, ',', '.') . ' '. "{$suffix}";
   }
 }?>
 <!-- Start Switcher -->
 
-<div class="switcher-wrapper">	
+
+
 
     <div class="demo_changer">
 
@@ -110,7 +111,8 @@ function currency_format($number, $suffix = '$') {
 
             </div>
           
-           <?php if(!isset($_SESSION['username'])) {
+           <?php 
+           if(!isset($_SESSION['username'])) {
             echo' <div class="login_btn"> <a href="index.php?url=login" class="btn btn-xs uppercase"  >Login / Register</a> </div>
             ';
            } else {
@@ -249,9 +251,13 @@ function currency_format($number, $suffix = '$') {
             <li class="dropdown dropdown-toggle"> <a href="#" class="dropdown-toggle" id="dropdownMenuButton6" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <?= isset($_SESSION['username'])?$_SESSION['username']:"Tên Đăng Nhập" ?> <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 
               <ul  class="dropdown-menu" aria-labelledby="dropdownMenuButton6">
-
+                <?php
                 
-                <li><a class="dropdown-item" href="post-vehicle.html">Xe Của Tôi</a></li>
+              
+                $link_dl= "index.php?url=ds_dat_lich&ma_kh=".$_SESSION['ma_kh']
+                 ?>
+                
+                <li><a class="dropdown-item" href="<?= $link_dl ?>">Xe Của Tôi</a></li>
                 <?php if(isset($_SESSION['username'])){?>
                 <li><a class="dropdown-item" onclick="return confirm('Bạn có chắc là muốn đăng xuất')"  name="dang_xuat" href="index.php?url=logout">Đăng Xuất</a></li>
                 <?php }?>

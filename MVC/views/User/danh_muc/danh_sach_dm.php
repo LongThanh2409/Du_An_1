@@ -2,11 +2,14 @@
 require_once "templates/head.php";
 require_once "templates/header.php";
 ?>
+
+
+
 <section class="page-header profile_page">
      <div class="container">
     <div class="page-header_wrap">
       <div class="page-heading">
-        <h1>Danh Sách Danh Mục</h1>
+        <h1>Danh Sách Hãng Xe</h1>
       </div>
       <ul class="coustom-breadcrumb">
         <li><a href="#">Home</a></li>

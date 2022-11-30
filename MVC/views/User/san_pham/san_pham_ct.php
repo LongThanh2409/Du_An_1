@@ -235,30 +235,8 @@ require_once "templates/header.php";
           <div class="financing_calculatoe">
           <form name="them_khach_hang" action="" method="POST">
                 <table  cellpadding="10px" cellspacing="0">
-                <tr>
-               
-                 
-                  <td >Ma_kh<br /><input type="text" value="<?= isset($_SESSION['ma_kh'])?$_SESSION['ma_kh']:"" ?>" name="ma_kh" id="ma_kh"/></td>
-
-                
-                    </tr>
-                    <tr>
-                        <td >
-                            Tên khách hàng<br />
-                            <input type="text" value="" name="ten_khach_hang" id="ten_khach_hang">
-                            <b><?php echo isset($error['ten_khach_hang']) ? $error['ten_khach_hang'] : "" ?></b>
-                        </td>
-                    </tr>
-              
-                    <tr>
-                        <td >Email<br /><input type="email" value="" name="email" id="email"/></td>
-                        <b><?php echo isset($error['email']) ? $error['email'] : "" ?></b>
-                    </tr>
-                    <tr>
-                        <td >Điện thoại<br /><input type="text" name="so_dien_thoai" id="so_dien_thoai" ></td>
-                        <b><?php echo isset($error['so_dien_thoai']) ? $error['so_dien_thoai'] : "" ?></b>
-                    </tr>
-              
+                <h2><b><?php echo isset($suc) ? $suc: "" ?></b> </h2>
+                <input type="hidden" name="ma_kh" id="">
                     <tr>
                         <td >Địa chỉ<br /><input type="text" value="" name="dia_chi" id="dia_chi" ></td>
                         <b><?php echo isset($error['dia_chi']) ? $error['dia_chi'] : "" ?></b>
@@ -271,11 +249,22 @@ require_once "templates/header.php";
                         <td >Ghi Chú<br /><input type="textarea" name="ghi_chu" id="ghi_chu" ></td>
                         <b><?php echo isset($error['ngay_xem']) ? $error['ngay_xem'] : "" ?></b>
                     </tr>
-                    <tr>
-                        <td ><input type="submit"  class="btn-danger" value="Đặt Ngay" name="dat_xem_xe" id="submit"/>
-                        <a href="index.php">Về Trang Chủ</a>
-                        </td>
-                    </tr>
+                   <?php if(isset($_SESSION['username'])){
+                   echo' <tr>
+                    <td ><input type="submit"  class="btn-danger" value="Đặt Ngay" name="dat_xem_xe" id="submit"/>
+                    <a href="index.php">Về Trang Chủ</a>
+                    </td>
+                </tr>';
+                  }else{
+                   echo' <tr>
+                    <td >
+                    <p style="color:gray;">Bạn Cần Đăng Nhập Để Thực Hiện Đặt Xe</p>
+                    <a href="index.php">Về Trang Chủ</a></a>
+                    </td>
+                </tr>';
+                  
+                  }
+                   ?>
                 </table>
             </form>
           </div>

@@ -7,6 +7,10 @@ function hienThiLoaiXe() {
 }
 function formThemMoiLoaiXe(){
     themMoiLoaiXe();
+//     session_start();
+// if(!isset($_SESSION['admin'])){
+//  header('location:index.php');
+// }
     include('views/Admin/loai_xe/them_moi.php');
 }
 function xoaDSLX()

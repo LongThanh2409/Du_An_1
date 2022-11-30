@@ -3,16 +3,19 @@
 
 
 <?php
-session_start();
-   if(!isset($_SESSION['admin'])){
-    header('location:index.php');
-   }
+// session_start();
+//    if(!isset($_SESSION['admin'])){
+//     header('location:index.php');
+//    }
    if (isset($_POST['btn_sua'])) {
     $file_name = uniqid() . $_FILES['hinh_logo']['name'];
     $ext = pathinfo($file_name, PATHINFO_EXTENSION);
     if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
-      $_SESSION['error2'] = "File chỉ được có đuôi png,jpg,jpeg ";}
-   }
+      $_SESSION['error2'] = "File chỉ được có đuôi png,jpg,jpeg ";
+   } 
+  }
+   
+   
 ?><!DOCTYPE html>
 
 <html dir="ltr" lang="en">

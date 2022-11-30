@@ -449,6 +449,7 @@
 <script src="assets/js2/slick.min.js"></script> 
  <script src="dist/js/custom.min.js"></script> 
 <script src="assets/js2/owl.carousel.min.js"></script>
+<script src="assets/libs/jquery/dist/jquery.min.js"></script>
 
 
 

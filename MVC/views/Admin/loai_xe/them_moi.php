@@ -1,4 +1,5 @@
 <?php
+
   if (isset($_POST['btn_them'])) {
     $ten_loai = $_POST['ten_loai'];
     $hinh_logo =  $_FILES['hinh_logo'];
@@ -12,10 +13,7 @@
    
 
 }
-session_start();
-if(!isset($_SESSION['admin'])){
- header('location:index.php');
-}
+
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">

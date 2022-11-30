@@ -1,5 +1,14 @@
 <?php
-
+ if (isset($_POST['dang_nhap'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    if(empty($username)){
+        $error['username'] = "Bạn chưa nhập tài khoản";
+    }
+    if(empty($password)){
+        $error['password'] = "Bạn chưa nhập mật khẩu";
+    }
+ }
 ?>
 <!DOCTYPE html>
 <html>
@@ -126,10 +135,12 @@
                 <div>
                     <label for="username">Username:</label>
                     <input type="text" name="username" id="username">
+                    <label style="color:red" for=""><?= isset($error['username'])?$error['username']:"" ?></label>
                 </div>
                 <div>
                     <label for="password">Password:</label>
                     <input type="password" name="password" id="password">
+                    <label style="color:red" for=""><?= isset($error['password'])?$error['password']:"" ?></label>
                 </div>
                 <div id="show">
                     <span><i class="fas fa-eye"></i>

@@ -13,7 +13,7 @@ require_once "templates/header.php";
         <h1>Danh Sách Xe</h1>
       </div>
       <ul class="coustom-breadcrumb">
-        <li><a href="#">Home</a></li>
+        <li><a href="index.php?url=trang_chu">Home</a></li>
         <li>Danh Sách Xe</li>
       </ul>
     </div>
@@ -103,7 +103,7 @@ require_once "templates/header.php";
             </p>
           
           </div>
-          <div class="result-sorting-by">
+          <!-- <div class="result-sorting-by">
             <p>Sort by:</p>
             <form action="#" method="post">
               <div class="form-group select sorting-select">
@@ -114,7 +114,7 @@ require_once "templates/header.php";
                 </select>
               </div>
             </form>
-          </div>
+          </div> -->
         </div>
         <div class="row">
           
@@ -162,7 +162,7 @@ require_once "templates/header.php";
       
       <!--Side-Bar-->
       <aside class="col-md-3 col-md-pull-9">
-        <div class="sidebar_widget sidebar_search_wrap">
+        <!-- <div class="sidebar_widget sidebar_search_wrap">
           <div class="widget_heading">
             <h5><i class="fa fa-filter" aria-hidden="true"></i> Find Your Dream Car </h5>
           </div>
@@ -234,44 +234,30 @@ require_once "templates/header.php";
               </div>
             </form>
           </div>
-        </div>
+        </div> -->
         <div class="sidebar_widget sell_car_quote">
           <div class="white-text div_zindex text-center">
-            <h3>Sell Your Car</h3>
-            <p>Request a quote and sell your car now!</p>
-            <a href="#" class="btn">Request a Quote <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
+            <h3>Xem Xe Của Bạn</h3>
+            <p> </p>
+            <a href="index.php?url=ds_dat_lich" class="btn">Xem Ngay<span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
           <div class="dark-overlay"></div>
         </div>
         <div class="sidebar_widget">
           <div class="widget_heading">
-            <h5><i class="fa fa-car" aria-hidden="true"></i> Recently Listed Cars</h5>
+            <h5><i class="fa fa-car" aria-hidden="true"></i> Danh mục xe</h5>
           </div>
           <div class="recent_addedcars">
             <ul>
+              <?php foreach($dm_loai_xe as $value):
+                extract($value);
+                ?>
               <li class="gray-bg">
-                <div class="recent_post_img"> <a href="#"><img src="assets/images/post_200x200_1.jpg" alt="image"></a> </div>
-                <div class="recent_post_title"> <a href="#">Ford Shelby GT350</a>
-                  <p class="widget_price">$92,000</p>
+                <div class="recent_post_img"> <a href="#"><img src="<?= $hinh_logo ?>" alt="image"></a> </div>
+                <div class="recent_post_title"> <a href="#"><?= $ten_loai ?></a>
+                
                 </div>
               </li>
-              <li class="gray-bg">
-                <div class="recent_post_img"> <a href="#"><img src="assets/images/post_200x200_2.jpg" alt="image"></a> </div>
-                <div class="recent_post_title"> <a href="#">BMW 535i</a>
-                  <p class="widget_price">$92,000</p>
-                </div>
-              </li>
-              <li class="gray-bg">
-                <div class="recent_post_img"> <a href="#"><img src="assets/images/post_200x200_3.jpg" alt="image"></a> </div>
-                <div class="recent_post_title"> <a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a>
-                  <p class="widget_price">$92,000</p>
-                </div>
-              </li>
-              <li class="gray-bg">
-                <div class="recent_post_img"> <a href="#"><img src="assets/images/post_200x200_4.jpg" alt="image"></a> </div>
-                <div class="recent_post_title"> <a href="#">Ford Shelby GT350 </a>
-                  <p class="widget_price">$92,000</p>
-                </div>
-              </li>
+              <?php endforeach ?>
             </ul>
           </div>
         </div>

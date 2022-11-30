@@ -9,7 +9,7 @@ require_once "templates/header.php";
         <h1>Car Listing</h1>
       </div>
       <ul class="coustom-breadcrumb">
-        <li><a href="#">Home</a></li>
+        <li><a href="index.php?url=trang_chu">Home</a></li>
         <li>Car Listing</li>
       </ul>
     </div>
@@ -88,13 +88,13 @@ require_once "templates/header.php";
 	   </div>
         <div class="result-sorting-wrapper">
           <div class="sorting-count">
-          <!-- <?php foreach($sp_dm as $value):
+         <?php foreach($sp_dm as $value):
               $tatols = count($sp_dm); ?>
                <?php endforeach ?>
-            <p>Tổng Xe <?= $tatols ?> </p> -->
+            <p>Tổng Xe <?= $tatols ?> </p> 
             
           </div>
-          <div class="result-sorting-by">
+          <!-- <div class="result-sorting-by">
             <p>Sort by:</p>
             <form action="#" method="post">
               <div class="form-group select sorting-select">
@@ -107,7 +107,7 @@ require_once "templates/header.php";
                 </select>
               </div>
             </form>
-          </div>
+          </div> -->
         </div>
        <?php foreach($sp_dm as $value):
        $tatol = count($sp_dm);
@@ -153,7 +153,7 @@ require_once "templates/header.php";
       </div>
       
       <!--Side-Bar-->
-      <aside class="col-md-3 col-md-pull-9">
+      <!-- <aside class="col-md-3 col-md-pull-9">
         <div class="sidebar_widget sidebar_search_wrap">
           <div class="widget_heading">
             <h5><i class="fa fa-filter" aria-hidden="true"></i> Find Your Dream Car </h5>
@@ -268,7 +268,7 @@ require_once "templates/header.php";
             </ul>
           </div>
         </div>
-      </aside>
+      </aside> -->
       <!--/Side-Bar--> 
     </div>
   </div>
@@ -283,11 +283,11 @@ require_once "templates/header.php";
     </div>
     <div class="brand-logo-list">
       <div id="popular_brands">
-        <div><a href="#"><img src="assets/images/brand-logo-1.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/brand-logo-2.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/brand-logo-3.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/brand-logo-4.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/brand-logo-5.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-1.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-2.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-3.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-4.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#"><img src="assets/image/brand-logo-5.png" class="img-fluid" alt="image"></a></div>
       </div>
     </div>
   </div>

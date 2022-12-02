@@ -134,10 +134,7 @@ session_start();
                                   <thead>
                                     <tr>
                                       <th scope="col">MÃ ĐẶT </th>
-                                      <th scope="col">TÊN XE</th>
-                                      <th scope="col">TÊN KHÁCH HÀNG</th>                               
-                                      <th scope="col ">ĐỊA CHỈ</th>    
-                                      <th scope="col ">NGÀY XEM</th>  
+                   
                                       <th scope="col ">THỜI GIAN ĐẶT</th>    
                                       <th scope="col ">TRẠNG THÁI</th>  
                                       <th scope="col"></th>
@@ -151,24 +148,7 @@ session_start();
                                     <tr>
                                       <th scope="row" style="padding-top: 35px;"><?= $value['ma_dat'] ?></th>
                                   
-                                      <td  style="padding-top: 35px;"> 
-                                      <?php foreach ($xe1 as $key => $value2) : ?>
-                                        <?php if($value2['ma_xe'] == $value['ma_xe']): ?>
-                                      <?= $value2['ten_xe'] ?>
-                                      <?php endif ?>
-                                      <?php endforeach ?></td>     
-                                                                                                                   
-                                      <td  style="padding-top: 35px;">
-                                      <?php foreach ($kh1 as $key => $value1) : ?>
-                                        <?php if($value1['ma_kh'] == $value['ma_kh']): ?>
-                                      <?= $value1['ten_khach_hang'] ?>
-                                      <?php endif ?>
-                                      <?php endforeach ?>
-                                    </td>
-                                   
-                                      <td  style="padding-top: 35px;"><?= $value['dia_chi'] ?></td>
-                                      <td  style="padding-top: 35px;"><?= $value['ngay_xem'] ?></td>
-
+                                  
                                       <td  style="padding-top: 35px;"><?= $value['thoi_gian_dat'] ?></td>
                                       <td  style="padding-top: 35px;"><?php 
                                          if($value['trang_thai'] == 1){
@@ -178,7 +158,7 @@ session_start();
                                       <td  >
                      
                                       <button class="btn_delete">
-                     <a class="delete" href="index2.php?url=xoa_dang_ky&ma_dat=<?php echo $value['ma_dat'] ?>" onclick="return confirm('Xác nhận xóa ?')">Xóa</a>
+                                      <a class="delete" href="index2.php?url=ct_1&ma_dat=<?php echo $value['ma_dat'] ?>" >Chi Tiết</a>
                      </button>
                                       </td>
                                     </tr>

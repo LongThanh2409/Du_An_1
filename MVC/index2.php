@@ -66,6 +66,12 @@ switch ($url) {
     case 'ds_dang_ky_0':     
         hienThiDangKy_0();       
         break;   
+        case 'ct_0':     
+            chiTietDangKy_0();       
+            break;   
+            case 'ct_1':     
+                chiTietDangKy_1();        
+                break; 
     case 'ds_dang_ky_1':
         hienThiDangKy_1(); 
         break;   

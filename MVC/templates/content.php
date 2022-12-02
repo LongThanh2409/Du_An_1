@@ -22,7 +22,7 @@
 
             <p>Chúng tôi có hơn 100X Chiếc Xe Dành Cho Bạn. </p>
 
-            <a href="#" class="btn">Đọc Thêm <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
+            <a href="index.php?url=list_san_pham" class="btn">Danh Sách Sản Phẩm <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
 
         </div>
 
@@ -66,24 +66,11 @@
 
       <div class="col-lg-6 col-sm-6">
 
-        <div class="looking-car">
-
-          <div class="looking-cat-image"> <img src="assets/image/car-img-03.png" alt="Image" /> </div>
-
-          <div class="looking-car-content">
-
-            <h3>Looking <span>New Car?</span></h3>
-
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.</p>
-
-            <a href="index.php?url=list_san_pham" class="btn">View Listing<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
-
-        </div>
-
+       
       </div>
       <div class="col-lg-6 col-sm-6">
 
-<div class="looking-car">
+<!-- <div class="looking-car">
 
   <div class="looking-cat-image"> <img src="assets/image/car-img-03.png" alt="Image" /> </div>
 
@@ -95,7 +82,7 @@
 
     <a href="index.php?url=list_san_pham" class="btn">View Listing<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
 
-</div>
+</div> -->
 
 </div>
 
@@ -182,7 +169,7 @@
 
               <div class="car-title-m">
 
-                <h6><a href="#"><?=  $ten_xe?></a></h6>
+                <h6><a href="<?= $link_ct ?>"><?=  $ten_xe?></a></h6>
 
                 <span class="price"> <?= currency_format($don_gia)?></span> 
 
@@ -190,7 +177,7 @@
 
               <div class="inventory_info_m">
 
-                 <p>On the other hand, we denounce with righteous indignation and dislike.</p>
+                 <p><?= $thong_tin ?></p>
 
               </div>
 
@@ -248,7 +235,12 @@
 
           <div class="cell">
 
-            <h2><i class="fa fa-car" aria-hidden="true"></i>200+</h2>
+          <?php
+            foreach($total_xe as $value){
+              $total_xes = count($total_xe);
+            }
+            ?>
+            <h2><i class="fa fa-car" aria-hidden="true"></i><?= $total_xes ?>+</h2>
 
             <p>Chiếc xe</p>
 
@@ -263,10 +255,14 @@
         <div class="fun-facts-m">
 
           <div class="cell">
+            <?php
+            foreach($total_don as $value){
+              $total_dons = count($total_don);
+            }
+            ?>
+            <h2><i class="fa fa-car" aria-hidden="true"></i><?= $total_dons ?></h2>
 
-            <h2><i class="fa fa-car" aria-hidden="true"></i>100+</h2>
-
-            <p>Đã Được Bán</p>
+            <p>Đã ĐƯợc Đặt</p>
 
           </div>
 

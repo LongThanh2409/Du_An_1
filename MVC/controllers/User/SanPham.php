@@ -18,7 +18,7 @@ function hienThi1SanPham()
     // $albums =layanhSanPham();
     $albums = layAnh();
     $bl = binhLuan();
-    
+    $thong_tin_kh = thongTinKhachHang();
     dat_xem();
     // $khachHang= MocKH();
     // $xe= MocXe();

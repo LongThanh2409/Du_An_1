@@ -15,12 +15,12 @@ require_once "templates/header.php";
           $tatol_xe = count($ds_xe_dat);
           ?>
         <?php endforeach ?>
-          <h5 class="uppercase underline">Xe đã Đặt <span>(<?=  $tatol_xe?>  XE)</span></h5>
+          <h5 class="uppercase underline">Xe đã Đặt <span>(<?= isset($tatol_xe)?$tatol_xe:"" ?>  XE)</span></h5>
           <div class="my_vehicles_list">
         
             <ul class="vehicle_listing">
             <?php
-       
+    
 
             foreach($ds_xe_dat as $value):
               extract($value);

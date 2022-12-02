@@ -14,22 +14,39 @@ function layDSDK_1() {
   
 }
 
-function MocKH()
+function MocKH_0()
 { 
   $sql = "SELECT khach_hang.ten_khach_hang,khach_hang.ma_kh
   FROM khach_hang,don
-  WHERE khach_hang.ma_kh = don.ma_kh ";
+  WHERE khach_hang.ma_kh = don.ma_kh  AND trang_thai = 0";
+
+    $kh1 = getData($sql, FETCH_ALL);
+    return $kh1;
+}function MocKH_1()
+{ 
+  $sql = "SELECT khach_hang.ten_khach_hang,khach_hang.ma_kh
+  FROM khach_hang,don
+  WHERE khach_hang.ma_kh = don.ma_kh AND trang_thai = 1";
 
     $kh1 = getData($sql, FETCH_ALL);
     return $kh1;
 }
 
-function MocXe()
+function MocXe_0()
 {
 
   $sql = "SELECT xe.ten_xe,xe.ma_xe
   FROM xe,don
-  WHERE xe.ma_xe = don.ma_xe ";
+  WHERE xe.ma_xe = don.ma_xe  AND trang_thai = 0";
+    $xe1 = getData($sql, FETCH_ALL);
+    return $xe1;
+}
+function MocXe_1()
+{
+
+  $sql = "SELECT xe.ten_xe,xe.ma_xe
+  FROM xe,don
+  WHERE xe.ma_xe = don.ma_xe  AND trang_thai = 1";
     $xe1 = getData($sql, FETCH_ALL);
     return $xe1;
 }

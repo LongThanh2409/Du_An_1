@@ -1,9 +1,18 @@
 <?php
-session_start();
-   if(!isset($_SESSION['admin'])){
-    header('location:index.php');
+  if (isset($_POST['btn_them'])) {
+    $ten_loai = $_POST['ten_loai'];
+    $hinh_logo =  $_FILES['hinh_logo'];
+ 
+   if(!$ten_loai){
+     $ten_loai_err = 'CHƯA NHẬP';
    }
-    
+   if(!$hinh_logo['name']){
+    $hinh_logo_err = 'CHƯA NHẬP';
+   }
+   
+
+}
+
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -102,10 +111,10 @@ session_start();
             <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-image"></i><span class="hide-menu">HÌNH PHỤ  </span></a>
               <ul aria-expanded="false" class="collapse  first-level">
                 <li class="sidebar-item"><a href="index2.php?url=ds_hinh" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">DANH SÁCH </span></a></li>
-               
+       
               </ul>
             </li>
-
+ 
             </li>
 
           </ul>
@@ -120,60 +129,111 @@ session_start();
       <div class="page-breadcrumb">
         <div class="row">
           <div class="col-12 d-flex no-block align-items-center">
-            <h4 class="page-title">ĐƠN ĐẶT CHƯA DUYỆT</h4>
+            <h4 class="page-title">CHI TIẾT ĐĂNG KÝ</h4>
 
           </div>
         </div>
       </div>
-
       <div class="container-fluid">
-
-      <div class="row">
-                    <div class="col-12">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="r" >
+                    <div class="col-md-6" style="margin: auto;"> 
                         <div class="card">
+                            <form class="form-horizontal"  method="POST" enctype="multipart/form-data">
+                                <div class="card-body">
                           
-                            <table class="table">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">MÃ ĐẶT </th>                                
-                                      <th scope="col ">THỜI GIAN ĐẶT</th>    
-                                      <th scope="col ">TRẠNG THÁI</th>  
-                                      <th scope="col"></th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                  <?php foreach ($dk_0 as $key => $value) : ?>
-                                 
-                           
-                                    <tr>
-                                      <th scope="row" style="padding-top: 35px;"><?= $value['ma_dat'] ?></th>
-                                   
-                                      <td  style="padding-top: 35px;"><?= $value['thoi_gian_dat'] ?></td>
-                                      <td  style="padding-top: 35px;"><?php  if($value['trang_thai'] == 0){
+                                    <div class="form-group row">
+                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Mã Đặt</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="fname" placeholder="<?= $ct['ma_dat'] ?>" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Tên Xe</label>
+                                        <div class="col-sm-9">
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['ten_xe'] ?>" readonly>
+                                      
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Tên Khách Hàng</label>
+                                        <div class="col-sm-9">
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['ten_khach_hang'] ?>" readonly>
+                                      
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Địa Chỉ</label>
+                                        <div class="col-sm-9">
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['dia_chi'] ?>" readonly>
+                                      
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Ngày Xem</label>
+                                        <div class="col-sm-9">
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['ngay_xem'] ?>" readonly>
+                                      
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Thời Gian Đặt</label>
+                                        <div class="col-sm-9">
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['thoi_gian_dat'] ?>" readonly>
+                                      
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Ghi Chú</label>
+                                        <div class="col-sm-9">
+                                        <textarea name="" id="" cols="43" rows="5" readonly><?= $ct['ghi_chu'] ?></textarea>
+                                        
+                                      
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Trạng Thái</label>
+                                        <div class="col-sm-9">
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?php  if($ct['trang_thai'] == 0){
                                             echo 'Chưa Duyệt';
-                                         } ?></td>
-                                      <td >
-                     
-              <button class="btn_duyet">
-              <a class="delete" href="index2.php?url=ct_0&ma_dat=<?php echo $value['ma_dat'] ?>" >Chi Tiết</a>
-              </button>
-                                      </td>
-                                    </tr>
-                                
-                               
-                                    <?php endforeach ?>
-                                  
-                                   
-                                  </tbody>
-                            </table>
+                                         } ?>" readonly>
+                                      
+                                        </div>
+                                    </div>
+                             
+                             
+      
+                         
+                                </div>
+                                <div class="border-top " >
+                                    <div class="card-body" style="text-align: center;">
+                                    <a style="color: white; " name="btn_duyet" class="delete" href="index2.php?url=sua_dang_ky&ma_dat=<?php echo $value['ma_dat'] ?>" onclick="return confirm('Xác nhận duyệt ?')">
+                                        <button  class="btn btn-primary" name="btn_duyet">
+                                      Duyệt
+                                        </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                      
+  
+
                     </div>
                 </div>
+                <!-- editor -->
+  
 
-      </div>
+            </div>
 
-      </div>
+    
 
     </div>
 

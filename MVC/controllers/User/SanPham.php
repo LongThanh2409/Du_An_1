@@ -1,5 +1,6 @@
 <?php 
 require './models/User/SanPham.php';
+require './maill/sendmail.php';
 function hienThiSanPham()
 {
     
@@ -19,6 +20,8 @@ function hienThi1SanPham()
     $bl = binhLuan();
     
     dat_xem();
+    // $khachHang= MocKH();
+    // $xe= MocXe();
     $cung_loai = SanPhamCungLoai4();
     include('views/User/san_pham/san_pham_ct.php');
    

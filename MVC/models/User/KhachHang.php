@@ -137,7 +137,7 @@ function login(){
                 // kiểm tra
                 if ($username == $value['username'] && $password == $value['password'] && $value['level'] == 1) {
                  
-                    $_SESSION['admin'] = $value['username'];
+                    $_SESSION['admin'] = $value['username'];                    
                     header('location:index2.php?url=ds_loai_xe');
                 } else if ($username == $value['username'] && $password_md5 == $value['password'] && $value['level'] == 2) {
                     $_SESSION['ma_kh']= $value['ma_kh'];

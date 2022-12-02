@@ -22,6 +22,7 @@ function chiTietDangKy_1() {
     include('views/Admin/dang_ky/chitiet_1.php');
 }
 function formSuaDangKy(){
+   
     suaDangKy();
     include('views/Admin/dang_ky/chitiet_0.php');
  }

@@ -91,7 +91,7 @@ require_once "templates/header.php";
          <?php foreach($sp_dm as $value):
               $tatols = count($sp_dm); ?>
                <?php endforeach ?>
-            <p>Tổng Xe <?= $tatols ?> </p> 
+            <p>Tổng Xe <?= isset($tatols)?$tatols:""  ?> </p> 
             
           </div>
           <!-- <div class="result-sorting-by">

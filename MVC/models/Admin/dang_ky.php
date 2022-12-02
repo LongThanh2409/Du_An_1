@@ -1,5 +1,6 @@
 <?php
 require_once('models/db.php');
+require_once "maill/sendmail.php";
 function layDSDK_0() {
     $sql = "SELECT * FROM don WHERE trang_thai= 0";
     $dk = getData($sql, FETCH_ALL);
@@ -30,6 +31,12 @@ function suaDangKy()
           $conn = getConnect();
           $statement = $conn->prepare($sql);
           $statement->execute();
+          $tieude="Thong Bao Dat Xe Thanh Cong";
+        $noidung="<p>Đơn Đặt Xem Xe Của Bạn Đã Được Duyệt Thành Công'</p><br>";
+                  session_start();
+        $maildatxe=$_SESSION['email'];
+        $mail= new Mailer();
+        $mail->datXe($tieude,$noidung,$maildatxe); 
           header('Location:index2.php?url=ds_dang_ky_1');
         }
 

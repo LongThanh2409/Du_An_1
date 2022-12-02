@@ -98,15 +98,7 @@ function dat_xem() {
       
         $error = [];
       
-        if (empty($ghi_chu)) {
-            $error['ghi_chu'] = 'Bạn chưa nhập ghi chú';
-        }
-        if (empty($dia_chi)) {
-            $error['dia_chi'] = 'Bạn chưa nhập địa chỉ';
-        }
-        if (empty($ngay_xem)) {
-            $error['ngay_xem'] = 'Bạn chưa nhập ngày xem';
-        }
+        
       if( $dia_chi !='' && $ngay_xem != '' && $ghi_chu !=''){
         $sql = "INSERT INTO don(ma_xe,ma_kh,dia_chi, ngay_xem, ghi_chu, thoi_gian_dat) VALUES ('$ma_xe','$ma_kh','$dia_chi','$ngay_xem','$ghi_chu',current_timestamp())";       
         $conn = getConnect();

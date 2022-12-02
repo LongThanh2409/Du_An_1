@@ -1,6 +1,6 @@
  <?php
 
-    session_start();
+    
     if (isset($_POST['dangky'])) {
         $ten_khach_hang = $_POST['ten_khach_hang'];
         $username = $_POST['username'];

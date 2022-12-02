@@ -64,6 +64,11 @@
         //         return $albums;
         //     }
         // }
+        function thongTinKhachHang(){
+            $sql = "SELECT * FROM khach_hang ";
+            $thong_tin_kh = getData($sql, FETCH_ONE);
+            return $thong_tin_kh;
+        }
         function layAnh(){
             if (isset($_GET['ma_xe'])) {
                 $ma_xe = $_GET['ma_xe'];
@@ -77,6 +82,7 @@
 
             }
         }
+
         function binhLuans()
         {
             if (isset($_POST['btn_bl'])) {

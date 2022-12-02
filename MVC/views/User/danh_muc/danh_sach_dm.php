@@ -25,11 +25,18 @@ require_once "templates/header.php";
 <!--Dealers-list-->
 <section class="inner_pages">
   <div class="container">
-    <!-- <div class="result-sorting-wrapper">
+    <div class="result-sorting-wrapper">
       <div class="sorting-count">
-        <p>1 - 6 <span>of 50 Results for your search.</span></p>
+      <?php foreach($dm_loai_xe as $value):
+        
+          $total_dm = count($dm_loai_xe);
+         ?>
+    
+   <?php endforeach ?>
+
+        <p>Số Danh Mục : <?= $total_dm ?></p>
       </div>
-      <div class="result-sorting-by">
+      <!-- <div class="result-sorting-by">
         <p>Sort by:</p>
         <form action="#" method="post">
           <div class="form-group select sorting-select">
@@ -39,8 +46,8 @@ require_once "templates/header.php";
             </select>
           </div>
         </form>
-      </div>
-    </div> -->
+      </div> -->
+    </div>
     <div class="dealers_list_wrap">
      <?php foreach($dm_loai_xe as $value): 
      foreach($sl_xe as $values){
@@ -58,8 +65,7 @@ require_once "templates/header.php";
           <div class="col-sm-6 col-xs-8">
             <div class="dealer_info">
               <h5><a href="#"><?= $ten_loai ?> </a></h5>
-              <p>P.1225 N Broadway Ave<br>
-                Oklahoma City, OK  1234-5678-090</p>
+             
             </div>
           </div>
           <div class="col-sm-3 col-xs-12">

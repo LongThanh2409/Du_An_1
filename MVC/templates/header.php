@@ -1,6 +1,11 @@
-<body id="index1">
+<body id="index1 ">
 
-
+<div class="preloader">
+    <div class="lds-ripple">
+      <div class="lds-pos"></div>
+      <div class="lds-pos"></div>
+    </div>
+  </div>
 <?php 
 
 function currency_format($number, $suffix = 'VND') {
@@ -9,7 +14,6 @@ function currency_format($number, $suffix = 'VND') {
   }
 }?>
 <!-- Start Switcher -->
-
 
 
 
@@ -71,7 +75,7 @@ function currency_format($number, $suffix = 'VND') {
 
         <div class="col-sm-3 col-md-2">
 
-          <div class="logo"> <a href="index.html"><img src="assets/images/logo.png" alt="image"/></a> </div>
+          <div class="logo"> <a href="index.html"><img src="assets/image/logo.png" alt="image"/></a> </div>
 
         </div>
 
@@ -194,10 +198,11 @@ function currency_format($number, $suffix = 'VND') {
 
           <li class="dropdown"><a href="#" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">Danh Mục</a>
 
-            <ul class="dropdown-menu">
+            <ul class="flex dropdown-menu ">
 
               <li><a href="index.php?url=danh_sach_dm">Danh sách danh mục</a></li>
-
+              <li><a href="index.php?url=danh_sach_dm">Danh sách danh mục</a></li>
+              <li><a href="index.php?url=danh_sach_dm">Danh sách danh mục</a></li>
            
 
             </ul>
@@ -253,8 +258,13 @@ function currency_format($number, $suffix = 'VND') {
               <ul  class="dropdown-menu" aria-labelledby="dropdownMenuButton6">
                 <?php
                 
-              
-                $link_dl= "index.php?url=ds_dat_lich&ma_kh=".$_SESSION['ma_kh']
+              if(isset($_SESSION['ma_kh'])){
+                $ma_kh = $_SESSION['ma_kh'];
+              }
+              else{
+              $ma_kh = "";
+             }
+                $link_dl= "index.php?url=ds_dat_lich&ma_kh=".$ma_kh
                  ?>
                 
                 <li><a class="dropdown-item" href="<?= $link_dl ?>">Xe Của Tôi</a></li>

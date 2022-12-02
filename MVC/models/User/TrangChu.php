@@ -13,5 +13,14 @@ function layDS3SanPham()
     return $list_3sp;
 }
 
-
+function soDonDaDat(){
+    $sql = "SELECT * FROM don";
+    $total_don = getData($sql, FETCH_ALL);
+    return $total_don;
+  }
+  function soXeDangCo(){
+$sql = "SELECT * FROM xe";
+$total_xe = getData($sql, FETCH_ALL);
+return $total_xe;
+}
 

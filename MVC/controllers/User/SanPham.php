@@ -17,7 +17,7 @@ function hienThi1SanPham()
     // $albums =layanhSanPham();
     $albums = layAnh();
     $bl = binhLuan();
-    
+    $thong_tin_kh = thongTinKhachHang();
     dat_xem();
     $cung_loai = SanPhamCungLoai4();
     include('views/User/san_pham/san_pham_ct.php');

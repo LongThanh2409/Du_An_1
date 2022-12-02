@@ -1,7 +1,29 @@
 <?php
 require_once "templates/head.php";
 require_once "templates/header.php";
+if(isset($_POST['dat_xem_xe'])){
+  $dia_chi = $_POST['dia_chi'];
+  $ngay_xem = $_POST['ngay_xem'];
+  $ghi_chu = $_POST['ghi_chu'];
+if (empty($ghi_chu)) {
+  $error['ghi_chu'] = 'Bạn chưa nhập ghi chú';
+}
+if (empty($dia_chi)) {
+  $error['dia_chi'] = 'Bạn chưa nhập địa chỉ';
+}
+if (empty($ngay_xem)) {
+  $error['ngay_xem'] = 'Bạn chưa nhập ngày xem';
+}
+else{
+  echo "<script>
+  alert('Đăng ký thành công');
+  </script>";
+}
+}
 ?>
+<script>
+
+</script>
 <!-- Listing-detail-header -->
 <?php extract($sp) ?>
 <section class="listing_detail_header">
@@ -238,16 +260,25 @@ require_once "templates/header.php";
                 <h2><b><?php echo isset($suc) ? $suc: "" ?></b> </h2>
                 <input type="hidden" name="ma_kh" id="">
                     <tr>
-                        <td >Địa chỉ<br /><input type="text" value="" name="dia_chi" id="dia_chi" ></td>
-                        <b><?php echo isset($error['dia_chi']) ? $error['dia_chi'] : "" ?></b>
+                        <td >Địa chỉ<br /><input type="text" value="<?php echo isset($dia_chi)!="" ? $dia_chi : "" ?>" name="dia_chi" id="dia_chi" placeholder="">
+                        <br>
+                        <b class="mt-4 underline" style="color: red;"> <?php echo isset($error['dia_chi']) ? $error['dia_chi'] : "" ?> </b>
+                      </td>
+                      
                     </tr>
                     <tr>
-                        <td >Ngày Xem<br /><input type="datetime-local" name="ngay_xem" id="ngay_xem"></td>
-                        <b><?php echo isset($error['ngay_xem']) ? $error['ngay_xem'] : "" ?></b>
+                        <td >Ngày Xem<br /><input type="datetime-local" name="ngay_xem" id="ngay_xem">
+                        <br>
+                        <b class="mt-4 underline" style="color: red;"><?php echo isset($error['ngay_xem']) ? $error['ngay_xem'] : "" ?></b>
+                      </td> 
+                       
                     </tr>
                     <tr>
-                        <td >Ghi Chú<br /><input type="textarea" name="ghi_chu" id="ghi_chu" ></td>
-                        <b><?php echo isset($error['ngay_xem']) ? $error['ngay_xem'] : "" ?></b>
+                        <td >Ghi Chú<br /><input type="textarea" value="<?php echo isset($ghi_chu)!="" ? $ghi_chu : "" ?>" name="ghi_chu" id="ghi_chu" placeholder="" >
+                        <br>
+                        <b class="mt-4 underline" style="color: red;"><?php echo isset($error['ghi_chu']) ? $error['ghi_chu'] : "" ?></b>
+                      </td>
+                       
                     </tr>
                    <?php if(isset($_SESSION['username'])){
                    echo' <tr>
@@ -273,11 +304,16 @@ require_once "templates/header.php";
           <div class="widget_heading">
             <h5><i class="fa fa-address-card-o" aria-hidden="true"></i> Thông tin đặt xe </h5>
           </div>
-          <div class="dealer_detail"> <img src="assets/images/dealer_img.jpg" alt="image">
-            <p><span>Name:</span> Dealer Name</p>
-            <p><span>Email:</span> contact@example.com</p>
-            <p><span>Phone:</span> +61-1234-5678-09</p>
-            <a href="#" class="btn btn-xs">View Profile</a> </div>
+         
+          <div class="dealer_detail"> 
+            <!-- <img src="assets/images/dealer_img.jpg" alt="image"> -->
+        
+            <p><span>Tên khách hàng:</span> <?= $thong_tin_kh['ten_khach_hang'] ?></p>
+            <p><span>Email:</span><?= $thong_tin_kh['ten_khach_hang'] ?></p>
+            <p><span>Số Điện Thoại:</span> <?= $thong_tin_kh['ten_khach_hang'] ?></p>
+            <a href="index.php?url=ds_dat_lich" class="btn btn-xs">View Profile</a>
+           </div>
+          
         </div> 
          <!-- <div class="sidebar_widget">
           <div class="widget_heading">

@@ -196,13 +196,12 @@ function currency_format($number, $suffix = 'VND') {
 
           </li>
 
-          <li class="dropdown"><a href="#" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">Danh Mục</a>
+          <li class="dropdown"><a href="index.php?url=danh_sach_dm" id="dropdownMenuButton3"  aria-expanded="false">Danh Mục</a>
 
             <ul class="flex dropdown-menu ">
 
-              <li><a href="index.php?url=danh_sach_dm">Danh sách danh mục</a></li>
-              <li><a href="index.php?url=danh_sach_dm">Danh sách danh mục</a></li>
-              <li><a href="index.php?url=danh_sach_dm">Danh sách danh mục</a></li>
+              <!-- <li><a href="">Danh sách danh mục</a></li> -->
+              
            
 
             </ul>
@@ -250,33 +249,34 @@ function currency_format($number, $suffix = 'VND') {
 	  <div class="header_wrap">
 
         <div class="user_login">
-
+        <?php
+                    if(isset($_SESSION['ma_kh'])){
+                      $ma_kh = $_SESSION['ma_kh'];
+                    }
+                    else{
+                    $ma_kh = "";
+                   }
+                      $link_dl= "index.php?url=ds_dat_lich&ma_kh=".$ma_kh
+                       ?>
           <ul>
 
             <li class="dropdown dropdown-toggle"> <a href="#" class="dropdown-toggle" id="dropdownMenuButton6" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <?= isset($_SESSION['username'])?$_SESSION['username']:"Tên Đăng Nhập" ?> <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-
-              <ul  class="dropdown-menu" aria-labelledby="dropdownMenuButton6">
-                <?php
+            
+              <ul   class="dropdown-menu" aria-labelledby="dropdownMenuButton6">
+               
                 
-              if(isset($_SESSION['ma_kh'])){
-                $ma_kh = $_SESSION['ma_kh'];
-              }
-              else{
-              $ma_kh = "";
-             }
-                $link_dl= "index.php?url=ds_dat_lich&ma_kh=".$ma_kh
-                 ?>
+      
                 
                 <li><a class="dropdown-item" href="<?= $link_dl ?>">Xe Của Tôi</a></li>
                 <?php if(isset($_SESSION['username'])){?>
                 <li><a class="dropdown-item" onclick="return confirm('Bạn có chắc là muốn đăng xuất')"  name="dang_xuat" href="index.php?url=logout">Đăng Xuất</a></li>
-                <?php }?>
+              
               </ul>
-
+             
             </li>
 
           </ul>
-
+          <?php }?>
         </div>
 
         <div class="header_search">

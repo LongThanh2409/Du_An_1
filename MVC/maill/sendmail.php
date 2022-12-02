@@ -44,7 +44,7 @@ try {
     $mail->Body    = $noidung;
  
     $mail->send();
-    echo 'Mail đã được gửi thành công';
+    // echo 'Mail đã được gửi thành công';
 } catch (Exception $e) {
     echo "Không thể gủi mail . Có lỗi xảy ra : {$mail->ErrorInfo}";
 }

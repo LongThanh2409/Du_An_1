@@ -104,7 +104,14 @@ function dat_xem() {
         $conn = getConnect();
         $statement = $conn->prepare($sql);
         $statement->execute();
-        $suc= " Đặt lịch thành công";
+       
+        $tieude="Thong Bao Dat Xe Thanh Cong";
+        $noidung="<p>Cảm ơn quý khách đã đặt hàng với địa chỉ:'.$dia_chi.'</p><br>
+                  <p>Ngày Giờ xem xe:'.$ngay_xem.'</p><br>
+                  <p>Ghi chú đính kèm: '.$ghi_chu.'</p>";
+        $maildatxe=$_SESSION['email'];
+        $mail= new Mailer();
+        $mail->datXe($tieude,$noidung,$maildatxe); 
       }
     // $result = $this->execute(array($ma_xe,$ma_kh,$ten_khach_hang,$so_dien_thoai,$email,$ghi_chu,$ngay_xem,$ghi_chu));
     // if($result)
@@ -135,7 +142,8 @@ function login(){
                 } else if ($username == $value['username'] && $password_md5 == $value['password'] && $value['level'] == 2) {
                     $_SESSION['ma_kh']= $value['ma_kh'];
                     $_SESSION['username'] = $value['username'];
-                
+                    $_SESSION['email'] = $value['email'];
+                    $_SESSION['ten_khach_hang'] = $value['ten_khach_hang'];
                   
                     header('location:index.php');
                 } else {

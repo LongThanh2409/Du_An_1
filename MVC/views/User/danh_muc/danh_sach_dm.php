@@ -48,11 +48,10 @@ require_once "templates/header.php";
         </form>
       </div> -->
     </div>
+    
     <div class="dealers_list_wrap">
      <?php foreach($dm_loai_xe as $value): 
-     foreach($sl_xe as $values){
-      $total = count($sl_xe);
-     }
+     
    
      extract($value);
      $link_ds_xe = 'index.php?url=sanpham_danhmuc&ma_loai='.$ma_loai;
@@ -70,7 +69,7 @@ require_once "templates/header.php";
           </div>
           <div class="col-sm-3 col-xs-12">
             <div class="view_profile"> <a href="<?= $link_ds_xe?>" class="btn btn-xs outline">Danh Sách Xe</a>
-              <!-- <p> (<?= $total ?>) Xe</p> -->
+              <!-- <p> (<?= $total_xe_dm ?>) Xe</p> -->
             </div>
           </div>
         </div>

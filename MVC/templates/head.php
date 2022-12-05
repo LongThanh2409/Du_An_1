@@ -182,5 +182,12 @@
                 opacity: 0;
             }
         }
-      
+      #price{
+        border: 1px solid red;
+        width: 80px;
+        border-radius: 5px;
+        background-color: red;
+        color: #FFF;
+        margin-left: 10px;
+    }
     </style>

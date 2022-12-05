@@ -58,6 +58,12 @@ switch ($url) {
     case 'ds_dat_lich';
     HienThiDSDatLich();
     break;
+    case 'thong_tin';
+    include "views/User/menu/thong_tin.php";
+    break;
+   
+   
+   
   // case 'dangkyxemxe':
 
   //   // dang_ky_xem_xe();

@@ -271,7 +271,7 @@
                                     <div class="form-group row">
                                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Ảnh phụ  </label>
                                         <div class="col-sm-9">
-                                            <input type="file" class="form-control"  name="hinh1[]" multiple="multiple">
+                                            <input type="file" class="form-control"   name="hinh1[]" multiple="multiple">
        
                                         </div>
   </div>

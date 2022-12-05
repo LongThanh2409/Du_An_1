@@ -117,11 +117,11 @@ function currency_format($number, $suffix = 'VND') {
           
            <?php 
            if(!isset($_SESSION['username'])) {
-            echo' <div class="login_btn"> <a href="index.php?url=login" class="btn btn-xs uppercase"  >Login / Register</a> </div>
+            echo' <div class="login_btn"> <a href="index.php?url=login" class="btn btn-xs uppercase"  >Đăng Nhập / Đăng Ký</a> </div>
             ';
            } else {
            
-            echo ' <div class="login_btn"> <a href="" class="btn btn-xs uppercase"  >Hello '.$_SESSION['username'].'</a> </div>
+            echo ' <div class="login_btn"> <a  class="btn btn-xs uppercase"  >Hello ->'.$_SESSION['username'].'</a> </div>
             ';
            }
             ?>
@@ -178,7 +178,7 @@ function currency_format($number, $suffix = 'VND') {
 
           </li>
 
-          <li><a href="#">Thông tin</a></li>
+          <li><a href="index.php?url=thong_tin">Thông tin</a></li>
 
           <li class="dropdowns"><a href="index.php?url=list_san_pham" id="dropdownMenuButton2">Danh Sách Xe</a>
 
@@ -207,7 +207,7 @@ function currency_format($number, $suffix = 'VND') {
             </ul>
 
           </li>
-
+<!-- 
           <li class="dropdown"><a href="#" id="dropdownMenuButton4" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
 
             <ul class="dropdown-menu">
@@ -226,8 +226,8 @@ function currency_format($number, $suffix = 'VND') {
 
             </ul>
 
-          </li>
-
+          </li> -->
+<!-- 
           <li class="dropdown"><a href="#" id="dropdownMenuButton5" data-bs-toggle="dropdown" aria-expanded="false">News</a>
 
             <ul class="dropdown-menu">
@@ -240,7 +240,7 @@ function currency_format($number, $suffix = 'VND') {
 
             </ul>
 
-          </li>
+          </li> -->
 
         </ul>
 
@@ -283,7 +283,7 @@ function currency_format($number, $suffix = 'VND') {
 
           <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
 
-          <form action="" method="get" id="header-search-form">
+          <form action="index.php?url=list_san_pham" method="get" id="header-search-form">
 
             <input type="text" name="key" placeholder="Search..." class="form-control">
 

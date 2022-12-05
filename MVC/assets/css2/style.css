@@ -1330,7 +1330,16 @@ nav.navbar {
 
 .inventory_info_m p {
     color: #9e9e9e;
-    line-height: 22px
+    line-height: 22px;
+    width: 350px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 25px;
+    -webkit-line-clamp: 2;
+    height: 50px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
 }
 
 .blog-info-box .share_article {
@@ -2462,7 +2471,9 @@ form .slider.slider-horizontal {
 }
 
 .result-sorting-by form {
-    display: inline-block
+    /* display: inline-block */
+    display: flex;
+    
 }
 
 .sorting-select {
@@ -6411,4 +6422,38 @@ table.info-tabel tr td {
     #filter_form2 {
         margin: 16px 0
     }
+}
+/* Giới thiệu */
+.gioithieu1{
+    display: flex;
+    gap: 5rem;
+}
+ .gioithieu1 .item-img{
+    width: 400px;
+    margin-top: 30px;
+    
+}
+.gioithieu1 .item-img img{
+    width: 100%;
+    
+    animation: example 7s infinite ease-in-out;
+}
+@keyframes example {
+    35%, 100% {
+        transform: scale(1);
+    }
+    10% {
+        transform: rotateX(360deg) scale(1);
+    }
+}
+.gioithieu1 .item-text p{
+    margin-top: 2rem;
+    font-size: 20px;
+    
+    text-shadow:1.5px 0 red ;
+}
+.content p{
+    margin-top: 4rem;
+    line-height: 35px;
+    font-size: 20px;
 }

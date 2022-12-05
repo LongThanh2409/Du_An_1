@@ -4,7 +4,7 @@ require './maill/sendmail.php';
 function hienThiSanPham()
 {
     
-    $ds_sp_xe = layDSSanPham();
+      $ds_sp_xe = layDSSanPham();
     $dm_loai_xe = lay5DSDanhMuc();
     include('views/User/san_pham/list_san_pham.php');
    
@@ -35,6 +35,7 @@ function hienThiSanPhamTheoDM()
     include('views/User/danh_muc/sp_theo_dm.php');
    
 }
+
 // function themMoiBL(){
    
    

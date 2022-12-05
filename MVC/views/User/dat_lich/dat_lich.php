@@ -1,11 +1,18 @@
 <?php
 require_once "templates/head.php";
 require_once "templates/header.php";
+if(isset($_POST['trang_thai'])){
+$trang_thai = $_POST['trang_thais'];
+}
+else{
+  $trang_thai = "";
+}
 ?>
 
 <div class="row text-center" >
 
 <div class="col-md-10 col-sm-8 mx-auto">
+
 <?php if(isset($_SESSION['username'])){?>
 
  
@@ -22,12 +29,33 @@ require_once "templates/header.php";
        ?>
     
           <h5 class="uppercase underline">Xe đã Đặt <span>(<?= isset($tatol_xe)?$tatol_xe:"" ?>  XE)</span></h5>
+          <div class="result-sorting-wrapper">
+          
+          <div class="result-sorting-by">
+           
+            <form action="" method="post">
+              <div class="form-group select sorting-select">
+               
+                <select class="form-control " name="trang_thais">
+                  <option selected  value="3" <?php if($trang_thai == 3){echo "selected";} ?>>Tất Cả</option>
+                  <option  value="0" <?php if($trang_thai == 0){echo "selected";} ?>  >Chưa Duyệt</option>
+                  <option   value="1" <?php if($trang_thai == 1){echo "selected";} ?>>Đã Duyệt</option>
+             
+                
+                </select>
+              
+              </div>
+       
+              <div><input type="submit" name="trang_thai" id="price" value="Tìm"></div>
+            </form>
+          </div>
+        </div>
           <div class="my_vehicles_list">
         
             <ul class="vehicle_listing">
             <?php
-    
-            
+  
+       
             foreach($ds_xe_dat as $value):
               extract($value);
             
@@ -47,6 +75,7 @@ require_once "templates/header.php";
                   <div class="clearfix"></div>
                   <!-- <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div> -->
               </li>
+           
               <?php  endforeach ?>
             </ul>
       

@@ -2,7 +2,7 @@
 
 
     // session_start();
-    
+
 
     if (isset($_POST['dangky'])) {
         $ten_khach_hang = $_POST['ten_khach_hang'];
@@ -31,10 +31,9 @@
         }
         if (empty($so_dien_thoai)) {
             $error['so_dien_thoai'] = 'Bạn chưa nhập số điện thoại';
+        } else {
+            $error['succ'] = " Đăng ký thành công";
         }
-        else{
-        $error['succ']= " Đăng ký thành công";
-    }
     }
 
     // $name = $email = $password = $password2 = $hinh_anh = '';
@@ -112,183 +111,253 @@
     ?>
 
 
- <!DOCTYPE html>
+ <!DOCTYPE HTML>
  <html lang="en">
 
  <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="https://www.phptutorial.net/app/css/style.css">
-     <title>Register</title>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-     <link rel="shortcut icon" href="images/logo.png" />
+     <title>Online Login Form Responsive Widget Template :: w3layouts</title>
+     <!-- Meta tag Keywords -->
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     <meta name="keywords" content="Online Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+     <!--   
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script> -->
+     <!-- Meta tag Keywords -->
+     <!-- css files -->
+     <!-- <script src="dist/js/custom.min.js"></script> -->
+     <link rel="stylesheet" href="assets/css2/login.css" type="text/css" media="all" /> <!-- Style-CSS -->
+     <link rel="stylesheet" href="assets/css2/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+     <!-- //css files -->
+     <!-- online-fonts -->
+     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+     <link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&amp;subset=latin-ext" rel="stylesheet">
+     <!-- //online-fonts -->
+
      <style>
-         @-webkit-keyframes spin {
-             0% {
-                 -webkit-transform: rotate(0deg);
-             }
+         /* .preloader {
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            position: fixed;
+            z-index: 99999;
+            background: #fff;
+        }
 
-             100% {
-                 -webkit-transform: rotate(360deg);
-             }
-         }
+        .lds-ripple {
+            display: inline-block;
+            position: relative;
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            top: calc(50% - 3.5px);
+            left: calc(50% - 3.5px);
+        }
 
-         @keyframes spin {
-             0% {
-                 transform: rotate(0deg);
-             }
+        .lds-ripple .lds-pos {
+            position: absolute;
+            border: 2px solid #2962FF;
+            opacity: 1;
+            border-radius: 50%;
+            -webkit-animation: lds-ripple 1s cubic-bezier(0, 0.1, 0.5, 1) infinite;
+            animation: lds-ripple 1s cubic-bezier(0, 0.1, 0.5, 1) infinite;
+        }
 
-             100% {
-                 transform: rotate(360deg);
-             }
-         }
+        .lds-ripple .lds-pos:nth-child(2) {
+            -webkit-animation-delay: -0.5s;
+            animation-delay: -0.5s;
+        }
 
-         /* Add animation to "page content" */
-         .animate-bottom {
+        @-webkit-keyframes lds-ripple {
+            0% {
+                top: 28px;
+                left: 28px;
+                width: 0;
+                height: 0;
+                opacity: 0;
+            }
+
+            5% {
+                top: 28px;
+                left: 28px;
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+
+            100% {
+                top: -1px;
+                left: -1px;
+                width: 58px;
+                height: 58px;
+                opacity: 0;
+            }
+        }
+
+        @keyframes lds-ripple {
+            0% {
+                top: 28px;
+                left: 28px;
+                width: 0;
+                height: 0;
+                opacity: 0;
+            }
+
+            5% {
+                top: 28px;
+                left: 28px;
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+
+            100% {
+                top: -1px;
+                left: -1px;
+                width: 58px;
+                height: 58px;
+                opacity: 0;
+            }
+        }
+ 
+
+       */
+         .pom-agile {
              position: relative;
-             -webkit-animation-name: animatebottom;
-             -webkit-animation-duration: 0.5s;
-             animation-name: animatebottom;
-             animation-duration: 0.5s
          }
 
-         @-webkit-keyframes animatebottom {
-             from {
-                 bottom: -100px;
-                 opacity: 0
-             }
+         .error {
 
-             to {
-                 bottom: 0px;
-                 opacity: 1
-             }
-         }
-
-         @keyframes animatebottom {
-             from {
-                 bottom: -100px;
-                 opacity: 0
-             }
-
-             to {
-                 bottom: 0;
-                 opacity: 1
-             }
-         }
-
-         #myDiv {
-             display: none;
-             text-align: center;
-         }
-
-         #sucss h2 {
-             color: aqua;
-         }
-
-         #show {
-             text-align: right;
-             cursor: pointer;
-         }
-
-         body {
-             width: 100vw;
-             height: 100vh;
-             object-fit: cover;
-             object-position: center;
-             background-image: url('https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?cs=srgb&dl=pexels-mike-b-120049.jpg&fm=jpg');
-             background-size: 100% 100%;
-             background-repeat: no-repeat;
-             opacity: background-image 0.1;
-
-         }
-
-         form {
-             opacity: 0.9;
-         }
-
-         main>form {
-             margin: 5rem auto;
-             width: 52rem;
-         }
-
-         button {
-             width: 10rem;
-         }
-
-         label {
+             position: absolute;
              text-align: left;
+             left: 68%;
+             margin-top: -2.6rem;
+
          }
+
+         .error h2 {
+             color: #FFF;
+             font-size: 20px;
+             font-weight: 500;
+         }
+         .wthree-pro{
+            display: flex;
+            justify-content: space-around;
+           
+        }
+        .wthree-pro h2 a{
+            color: #FFF;
+           
+        }
+
+       
      </style>
+
  </head>
 
- <body onload="myFunction()" style="margin:0;">
+ <body>
 
-     <div id="loader"></div>
-
-     <div style="display:none;" id="myDiv" class="animate-bottom">
-         <main>
-             <form action="" method="post">
-                 <div id="sucss">
-                     <h2><b><?php echo isset($error['succ']) ? $error['succ'] : "" ?></b> </h2>
-                 </div>
-                 <h1>Sign Up</h1>
-                 <div>
-                     <label for="ten_khach_hang">Tên Khách Hàng</label>
-                     <input type="text" name="ten_khach_hang" id="ten_khach_hang">
-                     <b style="color:red"><?php echo isset($error['ten_khach_hang']) ? $error['ten_khach_hang'] : "" ?></b>
-                 </div>
-                 <div>
-                     <label for="username">Username:</label>
-                     <input type="text" name="username" id="username">
-                     <b style="color:red"><?php echo isset($error['username']) ? $error['username'] : "" ?></b>
-                     <b style="color:red"><?php echo isset($error['trungtk']) ? $error['trungtk'] : "" ?></b>
-                 </div>
-                 <div>
-                     <label for="email">Email:</label>
-                     <input type="email" name="email" id="email">
-                     <b style="color:red"><?php echo isset($error['email']) ? $error['email'] : "" ?></b>
-                 </div>
-                 <div>
-                     <label for="so_dien_thoai">Số Điện Thoại</label>
-                     <input type="text" name="so_dien_thoai" id="so_dien_thoai">
-                     <b style="color:red"><?php echo isset($error['so_dien_thoai']) ? $error['so_dien_thoai'] : "" ?></b>
-                 </div>
-                 <div>
-                     <label for="password">Password:</label>
-                     <input type="password" name="password" id="password" class="show1">
-                     <b style="color:red"><?php echo isset($error['password']) ? $error['password'] : "" ?></b>
-                 </div>
-                 <div>
-                     <label for="password2">Password Again:</label>
-                     <input type="password" name="password2" id="password2" class="show2">
-                     <b style="color:red"><?php echo isset($error['password2']) ? $error['password2'] : "" ?></b>
-                     <b style="color:red"><?php echo isset($error['password_lost']) ? $error['password_lost'] : "" ?></b>
-                 </div>
-                 <div id="show">
-                     <span><i class="fa-solid fa-eye"></i>
-                     </span>
-                     <span>Hiển thị mật khẩu ?</span>
-                 </div>
-                 <button type="submit" name="dangky">Register</button>
-                 <footer>Already a member? <a href="index.php?url=login">Login here</a></footer>
-             </form>
-         </main>
+     <!-- main -->
+     <div class="preloader">
+         <div class="lds-ripple">
+             <div class="lds-pos"></div>
+             <div class="lds-pos"></div>
+         </div>
      </div>
 
-     <script>
-         var myVar;
+     <div class="center-container">
+         <!--header-->
+         <div class="header-w3l">
+             <h1>Đăng Ký</h1>
+          
+         </div>
+         <!--//header-->
+         <div class="main-content-agile">
+             <div class="sub-main-w3">
+                 <div class="wthree-pro">
+                 <h2>  <a href="index.php?url=login">Đăng Nhập</a></h2>
+                 <h2>Đăng Ký</h2>
+                 </div>
+                 <form action="" method="post">
 
-         function myFunction() {
-             myVar = setTimeout(showPage, 1000);
-         }
+                     <div class="pom-agile">
+                         <input placeholder="Tên Khách Hàng" name="ten_khach_hang" class="user" type="text">
+                         <span class="icon1"><i class="fa fa-user" aria-hidden="true"></i></span>
 
-         function showPage() {
-             document.getElementById("loader").style.display = "none";
-             document.getElementById("myDiv").style.display = "block";
-         }
-     </script>
+                     </div>
+
+                     <div class="error">
+                         <h2> <?= isset($error['ten_khach_hang']) ? $error['ten_khach_hang'] : "" ?></h2>
+                     </div>
+
+                    
+
+                     <div class="pom-agile">
+                         <input placeholder="Tên Đăng Nhập" name="username" class="user" type="text">
+
+                         <span class="icon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+                     </div>
+                     <div class="error">
+                         <h2> <?= isset($error['username']) ? $error['username'] : "" ?></h2>
+                     </div>
+                     <div class="pom-agile">
+                         <input placeholder="Email" name="email" class="user" type="email">
+                         <span class="icon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                        
+                     </div>
+                     <div class="error">
+                         <h2> <?= isset($error['email']) ? $error['email'] : "" ?></h2>
+                     </div>
+                     <div class="pom-agile">
+                         <input placeholder="Số điện thoại" name="so_dien_thoai" class="user" type="tel">
+                         <span class="icon1"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                       
+                     </div>
+                     <div class="error">
+                         <h2> <?= isset($error['so_dien_thoai']) ? $error['so_dien_thoai'] : "" ?></h2>
+                     </div>
+                     <div class="pom-agile">
+                         <input placeholder="Mật Khẩu" class="show1" name="password" class="user" type="password">
+                         <span class="icon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                     </div>
+                     <div class="error">
+                         <h2> <?= isset($error['password']) ? $error['password'] : "" ?></h2>
+                     </div>
+                     <div class="pom-agile">
+                         <input placeholder="Nhập Lại Mật Khẩu" name="password2" class="show2" class="pass" type="password">
+                         <span id="show" class="icon2"><i class="fa fa-unlock" aria-hidden="true"></i></span>
+
+                     </div>
+                     <div class="error">
+                         <h2> <?= isset($error['password2']) ? $error['password2'] : "" ?></h2>
+                     </div>
+                     <div class="error">
+                         <h2> <?= isset($error['password_lost']) ? $error['password_lost'] : "" ?></h2>
+                     </div>
+                     <div class="sub-w3l">
+
+                         <div class="right-w3l">
+                             <input type="submit" value="Đăng Ký" name="dangky">
+                         </div>
+                     </div>
+                 </form>
+             </div>
+         </div>
+         <!--//main-->
+         <!--footer-->
+
+     </div>
 
  </body>
+
+
  <script>
      var passField = document.querySelector(".show1");
      var passField2 = document.querySelector(".show2");

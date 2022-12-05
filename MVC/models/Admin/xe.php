@@ -50,13 +50,13 @@ function themMoiXe()
         $file_names = $files['name'];        
  
       if($ten_xe != '' && $don_gia != '' && $ma_loai != '' &&  $_FILES['hinh']['name'] != '' && $thong_tin !='' && $giam_gia != '' && $so_km != '' && $xuat_xu != '' && $slots != '' && $dong_co != '' ){
-<<<<<<< HEAD
+
         if ($ext == 'png' || $ext == 'jpg' || $ext == 'jpeg') {      
-=======
+
         if ($ext == 'png' || $ext == 'jpg' || $ext == 'jpeg' || $ext =='webp' || $ext =='jfif') {
           foreach($file_names as $key => $value){ 
             move_uploaded_file($files["tmp_name"][$key], 'assets/images/img_data/' . $value);
->>>>>>> 1d2c13c4e0713229e99b8dc363436de04e7e1942
+
         $sql = "INSERT INTO  xe(ten_xe,don_gia,ma_loai,hinh,thong_tin,giam_gia,so_km,xuat_xu,slots,dong_co) VALUES ('$ten_xe','$don_gia','$ma_loai','$hinh','$thong_tin','$giam_gia','$so_km','$xuat_xu','$slots','$dong_co');
         ";
           $conn = getConnect();
@@ -83,6 +83,8 @@ function themMoiXe()
       }
 
     }
+  }
+}
 
 function suaXe(){
     if (isset($_POST['btn_sua'])) {

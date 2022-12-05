@@ -2,9 +2,26 @@
 require_once('models/db.php');
 function layDSXe()
 {
-  $sql = "SELECT * FROM xe ORDER BY ma_xe DESC";
-  $xe = getData($sql, FETCH_ALL);
-  return $xe;
+  if(isset($_POST['btn_chon'])){
+    $btn_loc = $_POST['btn_loc'];
+  if($btn_loc !=""){
+    $sql = "SELECT * FROM xe where ma_loai = $btn_loc";
+    $xe = getData($sql, FETCH_ALL);
+    return $xe;
+  }
+  else{
+    $sql = "SELECT * FROM xe where 1 order by ma_xe desc";
+    $xe = getData($sql, FETCH_ALL);
+    return $xe;
+  }
+   
+  }
+  else{
+    $sql = "SELECT * FROM xe where 1 order by ma_xe desc";
+    $xe = getData($sql, FETCH_ALL);
+    return $xe;
+  }
+ 
 }
 function layMotXe($ma_xe)
 {
@@ -33,26 +50,34 @@ function themMoiXe()
         $file_names = $files['name'];        
  
       if($ten_xe != '' && $don_gia != '' && $ma_loai != '' &&  $_FILES['hinh']['name'] != '' && $thong_tin !='' && $giam_gia != '' && $so_km != '' && $xuat_xu != '' && $slots != '' && $dong_co != '' ){
-        if ($ext == 'png' || $ext == 'jpg' || $ext == 'jpeg') {
-          foreach($file_names as $key => $value){ 
-            move_uploaded_file($files["tmp_name"][$key], 'assets/images/img_data/' . $value);
+        if ($ext == 'png' || $ext == 'jpg' || $ext == 'jpeg') {      
         $sql = "INSERT INTO  xe(ten_xe,don_gia,ma_loai,hinh,thong_tin,giam_gia,so_km,xuat_xu,slots,dong_co) VALUES ('$ten_xe','$don_gia','$ma_loai','$hinh','$thong_tin','$giam_gia','$so_km','$xuat_xu','$slots','$dong_co');
-           
-        INSERT INTO  hinh(ma_xe,hinh1) VALUES (LAST_INSERT_ID(),'assets/images/img_data/$value'); 
-          
-         ";      
+        ";
+          $conn = getConnect();
+          $statement = $conn->prepare($sql);
+          $statement->execute();
+          $last_id = $conn->lastInsertId();
+        foreach($file_names as $key => $value){ 
+          $img = 'assets/images/img_data/' . $value ;
+          $sql = " INSERT INTO  hinh(ma_xe,hinh1) VALUES ('$last_id','$img')";
+          $conn = getConnect();
+          $statement = $conn->prepare($sql);
+          $statement->execute();     
+          move_uploaded_file($files["tmp_name"][$key], 'assets/images/img_data/' . $value); 
+        }
+      
+        move_uploaded_file($_FILES["hinh"]["tmp_name"], 'assets/images/img_data/' . $_FILES["hinh"]["name"]);     
+       ;
+
          
             }           
-            $conn = getConnect();
-            $statement = $conn->prepare($sql);
-            $statement->execute();
-            move_uploaded_file($_FILES["hinh"]["tmp_name"], 'assets/images/img_data/' . $_FILES["hinh"]["name"]);      
+           
           header('Location:index2.php?url=ds_xe');    
        }
       }
 
     }
-}
+
 function suaXe(){
     if (isset($_POST['btn_sua'])) {
       $ma_xe = $_GET['ma_xe'];

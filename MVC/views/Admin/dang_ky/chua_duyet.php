@@ -1,9 +1,9 @@
 <?php
 session_start();
-   if(!isset($_SESSION['admin'])){
-    header('location:index.php');
-   }
-    
+if (!isset($_SESSION['admin'])) {
+  header('location:index.php');
+}
+
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -55,8 +55,8 @@ session_start();
 
           <ul class="navbar-nav float-right">
 
-          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic"  onclick="return confirm('Bạn có chắc là muốn đăng xuất')" href="index.php?url=logout" data-toggle="" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" onclick="return confirm('Bạn có chắc là muốn đăng xuất')" href="index.php?url=logout" data-toggle="" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
 
             </li>
 
@@ -96,13 +96,13 @@ session_start();
               <ul aria-expanded="false" class="collapse  first-level">
                 <li class="sidebar-item"><a href="index2.php?url=ds_dang_ky_1" class="sidebar-link"><i class="fa-solid fa-check"></i><span class="hide-menu">ĐÃ DUYỆT </span></a></li>
                 <li class="sidebar-item"><a href="index2.php?url=ds_dang_ky_0" class="sidebar-link"><i class="fa-solid fa-xmark"></i></i><span class="hide-menu">CHƯA DUYỆT</span></a></li>
-
+                <li class="sidebar-item"><a href="index2.php?url=ds_dang_ky_2" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i></i><span class="hide-menu">HỦY ĐƠN</span></a></li>
               </ul>
             </li>
-            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-image"></i><span class="hide-menu">HÌNH PHỤ  </span></a>
+            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-image"></i><span class="hide-menu">HÌNH PHỤ </span></a>
               <ul aria-expanded="false" class="collapse  first-level">
                 <li class="sidebar-item"><a href="index2.php?url=ds_hinh" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">DANH SÁCH </span></a></li>
-               
+
               </ul>
             </li>
 
@@ -128,54 +128,75 @@ session_start();
 
       <div class="container-fluid">
 
-      <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                          
-                            <table class="table">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">MÃ ĐẶT </th>                                
-                                      <th scope="col ">THỜI GIAN ĐẶT</th>    
-                                      <th scope="col ">TRẠNG THÁI</th>  
-                                      <th scope="col"></th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                  <?php foreach ($dk_0 as $key => $value) : ?>
-                                 
-                           
-                                    <tr>
-                                      <th scope="row" style="padding-top: 35px;"><?= $value['ma_dat'] ?></th>
-                                   
-                                      <td  style="padding-top: 35px;"><?= $value['thoi_gian_dat'] ?></td>
-                                      <td  style="padding-top: 35px;"><?php  if($value['trang_thai'] == 0){
-                                            echo 'Chưa Duyệt';
-                                         } ?></td>
-                                      <td >
-                     
-              <button class="btn_duyet">
-              <a class="delete" href="index2.php?url=ct_0&ma_dat=<?php echo $value['ma_dat'] ?>" >Chi Tiết</a>
-              </button>
-                                      </td>
-                                    </tr>
-                                
-                               
-                                    <?php endforeach ?>
-                                  
-                                   
-                                  </tbody>
-                            </table>
-                        </div>
-                      
-                    </div>
-                </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
 
-      </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">MÃ ĐẶT </th>
+                    <th scope="col">TÊN KHÁCH HÀNG</th>
+                    <th scope="col">TÊN XE</th>
+                    <th scope="col ">THỜI GIAN ĐẶT</th>
+                    <th scope="col ">TRẠNG THÁI</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php foreach ($dk_0 as $key => $value) : ?>
+
+
+                    <tr>
+                      <th scope="row" style="padding-top: 35px;"><?= $value['ma_dat'] ?></th>
+                      <td style="padding-top: 35px;">
+                        <?php foreach ($ct1 as $value1) : ?>
+
+                        <?php endforeach ?>
+                        <?php
+                        if (isset($value1['ten_khach_hang'])) {
+                          echo $value1['ten_khach_hang'];
+                        }
+                        ?>
+                      </td>
+                      <td style="padding-top: 35px;">
+                        <?php
+                        if (isset($value1['ten_xe'])) {
+                          echo $value1['ten_xe'];
+                        }
+                        ?>
+
+                      </td>
+                      <td style="padding-top: 35px;"><?= $value['thoi_gian_dat'] ?></td>
+                      <td style="padding-top: 35px;"><?php if ($value['trang_thai'] == 0) {
+                                                        echo 'Chưa Duyệt';
+                                                      } ?></td>
+                      <td>
+
+                        <button class="btn_duyet">
+                          <a class="delete" href="index2.php?url=ct_0&ma_dat=<?php echo $value['ma_dat'] ?>">Chi Tiết</a>
+                        </button>
+               
+
+                      </td>
+                    </tr>
+
+
+                  <?php endforeach ?>
+
+
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
 
       </div>
 
     </div>
+
+  </div>
 
   </div>
 

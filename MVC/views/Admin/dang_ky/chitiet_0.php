@@ -1,16 +1,14 @@
 <?php
-  if (isset($_POST['btn_them'])) {
-    $ten_loai = $_POST['ten_loai'];
-    $hinh_logo =  $_FILES['hinh_logo'];
- 
-   if(!$ten_loai){
-     $ten_loai_err = 'CHƯA NHẬP';
-   }
-   if(!$hinh_logo['name']){
-    $hinh_logo_err = 'CHƯA NHẬP';
-   }
-   
+if (isset($_POST['btn_them'])) {
+  $ten_loai = $_POST['ten_loai'];
+  $hinh_logo =  $_FILES['hinh_logo'];
 
+  if (!$ten_loai) {
+    $ten_loai_err = 'CHƯA NHẬP';
+  }
+  if (!$hinh_logo['name']) {
+    $hinh_logo_err = 'CHƯA NHẬP';
+  }
 }
 
 ?>
@@ -64,8 +62,8 @@
 
           <ul class="navbar-nav float-right">
 
-          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic"  onclick="return confirm('Bạn có chắc là muốn đăng xuất')" href="index.php?url=logout" data-toggle="" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" onclick="return confirm('Bạn có chắc là muốn đăng xuất')" href="index.php?url=logout" data-toggle="" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
 
             </li>
 
@@ -105,16 +103,16 @@
               <ul aria-expanded="false" class="collapse  first-level">
                 <li class="sidebar-item"><a href="index2.php?url=ds_dang_ky_1" class="sidebar-link"><i class="fa-solid fa-check"></i><span class="hide-menu">ĐÃ DUYỆT </span></a></li>
                 <li class="sidebar-item"><a href="index2.php?url=ds_dang_ky_0" class="sidebar-link"><i class="fa-solid fa-xmark"></i></i><span class="hide-menu">CHƯA DUYỆT</span></a></li>
+                <li class="sidebar-item"><a href="index2.php?url=ds_dang_ky_2" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i></i><span class="hide-menu">HỦY ĐƠN</span></a></li>
+              </ul>
+            </li>
+            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-image"></i><span class="hide-menu">HÌNH PHỤ </span></a>
+              <ul aria-expanded="false" class="collapse  first-level">
+                <li class="sidebar-item"><a href="index2.php?url=ds_hinh" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">DANH SÁCH </span></a></li>
 
               </ul>
             </li>
-            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-image"></i><span class="hide-menu">HÌNH PHỤ  </span></a>
-              <ul aria-expanded="false" class="collapse  first-level">
-                <li class="sidebar-item"><a href="index2.php?url=ds_hinh" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">DANH SÁCH </span></a></li>
-       
-              </ul>
-            </li>
- 
+
             </li>
 
           </ul>
@@ -135,105 +133,110 @@
         </div>
       </div>
       <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="r" >
-                    <div class="col-md-6" style="margin: auto;"> 
-                        <div class="card">
-                            <form class="form-horizontal"  method="POST" enctype="multipart/form-data">
-                                <div class="card-body">
-                          
-                                    <div class="form-group row">
-                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Mã Đặt</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="fname" placeholder="<?= $ct['ma_dat'] ?>" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Tên Xe</label>
-                                        <div class="col-sm-9">
-                                    
-                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['ten_xe'] ?>" readonly>
-                                      
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Tên Khách Hàng</label>
-                                        <div class="col-sm-9">
-                                    
-                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['ten_khach_hang'] ?>" readonly>
-                                      
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Địa Chỉ</label>
-                                        <div class="col-sm-9">
-                                    
-                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['dia_chi'] ?>" readonly>
-                                      
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Ngày Xem</label>
-                                        <div class="col-sm-9">
-                                    
-                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['ngay_xem'] ?>" readonly>
-                                      
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Thời Gian Đặt</label>
-                                        <div class="col-sm-9">
-                                    
-                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['thoi_gian_dat'] ?>" readonly>
-                                      
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Ghi Chú</label>
-                                        <div class="col-sm-9">
-                                        <textarea name="" id="" cols="43" rows="5" readonly><?= $ct['ghi_chu'] ?></textarea>
-                                        
-                                      
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Trạng Thái</label>
-                                        <div class="col-sm-9">
-                                    
-                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?php  if($ct['trang_thai'] == 0){
-                                            echo 'Chưa Duyệt';
-                                         } ?>" readonly>
-                                      
-                                        </div>
-                                    </div>
-                             
-                             
-      
-                         
-                                </div>
-                                <div class="border-top " >
-                                    <div class="card-body" style="text-align: center;">
-                                    <a style="color: white; " name="btn_duyet" class="delete" href="index2.php?url=sua_dang_ky&ma_dat=<?php echo $value['ma_dat'] ?>" onclick="return confirm('Xác nhận duyệt ?')">
-                                        <button  class="btn btn-primary" name="btn_duyet">
-                                      Duyệt
-                                        </button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-  
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="r">
+          <div class="col-md-6" style="margin: auto;">
+            <div class="card">
+              <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+                <div class="card-body">
+
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Mã Đặt</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="fname" placeholder="<?= $ct['ma_dat'] ?>" readonly>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="lname" class="col-sm-3 text-right control-label col-form-label">Tên Xe</label>
+                    <div class="col-sm-9">
+
+                      <input type="text" class="form-control" placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['ten_xe'] ?>" readonly>
 
                     </div>
-                </div>
-                <!-- editor -->
-  
+                  </div>
+                  <div class="form-group row">
+                    <label for="lname" class="col-sm-3 text-right control-label col-form-label">Tên Khách Hàng</label>
+                    <div class="col-sm-9">
 
+                      <input type="text" class="form-control" placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['ten_khach_hang'] ?>" readonly>
+
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="lname" class="col-sm-3 text-right control-label col-form-label">Địa Chỉ</label>
+                    <div class="col-sm-9">
+
+                      <input type="text" class="form-control" placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['dia_chi'] ?>" readonly>
+
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="lname" class="col-sm-3 text-right control-label col-form-label">Ngày Xem</label>
+                    <div class="col-sm-9">
+
+                      <input type="text" class="form-control" placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['ngay_xem'] ?>" readonly>
+
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="lname" class="col-sm-3 text-right control-label col-form-label">Thời Gian Đặt</label>
+                    <div class="col-sm-9">
+
+                      <input type="text" class="form-control" placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['thoi_gian_dat'] ?>" readonly>
+
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="lname" class="col-sm-3 text-right control-label col-form-label">Ghi Chú</label>
+                    <div class="col-sm-9">
+                      <textarea name="" id="" cols="43" rows="5" readonly><?= $ct['ghi_chu'] ?></textarea>
+
+
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="lname" class="col-sm-3 text-right control-label col-form-label">Trạng Thái</label>
+                    <div class="col-sm-9">
+
+                      <input type="text" class="form-control" placeholder="Nhập Tên Loại" name="ten_loai" value="<?php if ($ct['trang_thai'] == 0) {
+                                                                                                                    echo 'Chưa Duyệt';
+                                                                                                                  } ?>" readonly>
+
+                    </div>
+                  </div>
+
+
+
+
+                </div>
+                <div class="border-top ">
+                  <div class="card-body" style="text-align: center;">
+                    <a style="color: white; " name="btn_duyet" class="delete" href="index2.php?url=sua_dang_ky&ma_dat=<?php echo $value['ma_dat'] ?>" onclick="return confirm('Xác nhận duyệt ?')">
+                      <button class="btn btn-primary" name="btn_duyet">
+                        Duyệt
+                      </button>
+                    </a>
+                    <a style="color: white; " name="btn_duyet1" class="delete" href="index2.php?url=huy_don&ma_dat=<?php echo $value['ma_dat'] ?>" onclick="return confirm('Xác nhận hủy ?')">
+                      <button class="btn btn-primary" name="btn_duyet1">
+                        Hủy Đơn
+                      </button>
+                      </a>
+                  </div>
+                </div>
+              </form>
             </div>
 
-    
+
+          </div>
+        </div>
+        <!-- editor -->
+
+
+      </div>
+
+
 
     </div>
 

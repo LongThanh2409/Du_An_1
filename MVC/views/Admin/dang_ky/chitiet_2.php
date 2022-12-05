@@ -1,55 +1,19 @@
 <?php
   if (isset($_POST['btn_them'])) {
-    $ten_xe = $_POST['ten_xe'];
-    $don_gia = $_POST['don_gia'];
-   $ma_loai = $_POST['ma_loai'];
-    $hinh =  $_FILES['hinh'];
-    $thong_tin = $_POST['thong_tin'];
-    $giam_gia = $_POST['giam_gia'];
-    $so_km = $_POST['so_km'];
-    $xuat_xu = $_POST['xuat_xu'];
-    $slots = $_POST['slots'];
-    $dong_co = $_POST['dong_co'];
-    $file_name = uniqid() . $_FILES['hinh']['name'];
-    $ext = pathinfo($file_name, PATHINFO_EXTENSION);
-   if(!$ten_xe){
-    $ten_xe_err = 'CHƯA NHẬP';
+    $ten_loai = $_POST['ten_loai'];
+    $hinh_logo =  $_FILES['hinh_logo'];
+ 
+   if(!$ten_loai){
+     $ten_loai_err = 'CHƯA NHẬP';
    }
-   if(!$don_gia){
-    $don_gia_err = 'CHƯA NHẬP';
+   if(!$hinh_logo['name']){
+    $hinh_logo_err = 'CHƯA NHẬP';
    }
-   if(!$ma_loai){
-     $ma_loai_err ='CHƯA NHẬP';
-   }
-   if(!$hinh['name']){
-    $hinh_err = 'CHƯA NHẬP';
-   }
-   if(!$thong_tin){
-    $thong_tin_err ='CHƯA NHẬP';
-   }
-   if(!$giam_gia){
-    $giam_gia_err = 'CHƯA NHẬP';
-   }
-   if(!$so_km){
-    $so_km_err = 'CHƯA NHẬP';
-   }
-   if(!$xuat_xu){
-    $xuat_xu_err = 'CHƯA NHẬP';
-   }
-   if(!$slots){
-    $slots_err = 'CHƯA NHẬP';
-   }
-   if(!$dong_co){
-    $dong_co_err = 'CHƯA NHẬP';
-   }
-   if($_FILES['hinh']['name'] != ''){
-    if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
-      $_SESSION['error'] = "File chỉ được có đuôi png,jpg,jpeg ";}
-  }
-   }
+   
+
+}
 
 ?>
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -100,8 +64,8 @@
 
           <ul class="navbar-nav float-right">
 
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="index.php?url=logout" onclick="return confirm('Bạn có chắc là muốn đăng xuất')" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic"  onclick="return confirm('Bạn có chắc là muốn đăng xuất')" href="index.php?url=logout" data-toggle="" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
 
             </li>
 
@@ -147,10 +111,10 @@
             <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-image"></i><span class="hide-menu">HÌNH PHỤ  </span></a>
               <ul aria-expanded="false" class="collapse  first-level">
                 <li class="sidebar-item"><a href="index2.php?url=ds_hinh" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">DANH SÁCH </span></a></li>
-             
+       
               </ul>
             </li>
-
+ 
             </li>
 
           </ul>
@@ -165,12 +129,15 @@
       <div class="page-breadcrumb">
         <div class="row">
           <div class="col-12 d-flex no-block align-items-center">
-            <h4 class="page-title">THÊM MỚI XE</h4>
+            <h4 class="page-title">ĐƠN ĐẶT ĐÃ HỦY</h4>
 
           </div>
         </div>
       </div>
       <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
                 <div class="r" >
                     <div class="col-md-6" style="margin: auto;"> 
                         <div class="card">
@@ -178,123 +145,81 @@
                                 <div class="card-body">
                           
                                     <div class="form-group row">
-                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Mã Xe</label>
+                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Mã Đặt</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="fname" placeholder="Auto" readonly>
+                                            <input type="text" class="form-control" id="fname" placeholder="<?= $ct['ma_dat'] ?>" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Tên Xe</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Tên Xe" name="ten_xe"  value = '<?= isset($ten_xe) ? $ten_xe : ''?>'>
-                                            <span style="color: red;">
-        <?php echo isset($ten_xe_err) ?  $ten_xe_err : ''; ?>
-     </span>
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['ten_xe'] ?>" readonly>
+                                      
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Đơn Giá</label>
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Tên Khách Hàng</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Đơn Giá" name="don_gia"  value = '<?= isset($don_gia) ? $don_gia : ''?>'>
-                                            <span style="color: red;">
-        <?php echo isset($don_gia_err) ?  $don_gia_err : ''; ?>
-     </span>
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['ten_khach_hang'] ?>" readonly>
+                                      
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Thông Tin</label>
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Địa Chỉ</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Thông Tin" name="thong_tin"  value = '<?= isset($thong_tin) ? $thong_tin : ''?>'>
-                                            <span style="color: red;">
-        <?php echo isset($thong_tin_err) ?  $thong_tin_err : ''; ?>
-     </span>
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['dia_chi'] ?>" readonly>
+                                      
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Giảm Giá</label>
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Ngày Xem</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Giảm Giá" name="giam_gia"  value = '<?= isset($giam_gia) ? $giam_gia : ''?>'>
-                                            <span style="color: red;">
-        <?php echo isset($giam_gia_err) ?  $giam_gia_err : ''; ?>
-     </span>
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['ngay_xem'] ?>" readonly>
+                                      
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Số KM</label>
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Thời Gian Đặt</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Số KM" name="so_km"  value = '<?= isset($so_km) ? $so_km : ''?>'>
-                                            <span style="color: red;">
-        <?php echo isset($so_km_err) ?  $so_km_err : ''; ?>
-     </span>
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['thoi_gian_dat'] ?>" readonly>
+                                      
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Xuất Xứ</label>
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Ghi Chú</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Xuất Xứ" name="xuat_xu"  value = '<?= isset($xuat_xu) ? $xuat_xu : ''?>'>
-                                            <span style="color: red;">
-        <?php echo isset($xuat_xu_err) ?  $xuat_xu_err : ''; ?>
-     </span>
+                                        <textarea name="" id="" cols="43" rows="5" readonly><?= $ct['ghi_chu'] ?></textarea>
+                                        
+                                      
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Slots</label>
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Trạng Thái</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Slots" name="slots"  value = '<?= isset($slots) ? $slots : ''?>'>
-                                            <span style="color: red;">
-        <?php echo isset($slots_err) ?  $slots_err : ''; ?>
-     </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Động Cơ</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Động Cơ" name="dong_co"  value = '<?= isset($dong_co) ? $dong_co : ''?>'>
-                                            <span style="color: red;">
-        <?php echo isset($dong_co_err) ?  $dong_co_err : ''; ?>
-     </span>
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?php  if($ct['trang_thai'] == 2  ){
+                                            echo 'Đã Hủy';
+                                         } ?>" readonly>
+                                      
                                         </div>
                                     </div>
                              
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Hình Chính</label>
-                                        <div class="col-sm-9">
-                                            <input type="file" class="form-control"  name="hinh">
-                                            <span style="color: red;">
-        <?php echo isset($_SESSION['error']) ?  $_SESSION['error'] : ''; ?>
-     </span>
-                                            <span style="color: red;">
-        <?php echo isset($hinh_err) ?  $hinh_err : ''; ?>
-     </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Ảnh phụ  </label>
-                                        <div class="col-sm-9">
-                                            <input type="file" class="form-control"  name="hinh1[]" multiple="multiple">
-       
-                                        </div>
-  </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Mã Loại</label>
-                                        <div class="col-sm-9">
-                                        <select id="" name="ma_loai" class="form-control" >
-                    <option value="">Chọn</option>
-                    <?php foreach ($ds_lx as $value) : ?>
-                    <option value="<?php echo $value['ma_loai'] ?>"><?php echo $value['ten_loai']; ?></option>
-                    <?php endforeach; ?>
-                </select>
-                                            <span style="color: red;">
-        <?php echo isset($ma_loai_err) ?  $ma_loai_err : ''; ?>
-     </span>
-                                        </div>
-                                    </div>
+                             
       
                          
                                 </div>
                                 <div class="border-top " >
                                     <div class="card-body" style="text-align: center;">
-                                        <button  class="btn btn-primary" name="btn_them">Submit</button>
+                                    <a style="color: wheat;"  name="btn_delete" class="delete" href="index2.php?url=xoa_dang_ky_2&ma_dat=<?php echo $value['ma_dat'] ?>" onclick="return confirm('Xác nhận xóa ?')">
+                                        <button  class="btn btn-primary" name="btn_delete">
+                                      Xóa
+                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </form>

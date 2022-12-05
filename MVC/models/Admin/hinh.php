@@ -1,9 +1,24 @@
 <?php
 require_once('models/db.php');
 function layDSHinh() {
-    $sql = "SELECT * FROM hinh ORDER BY id_anh DESC ";
-    $hinh = getData($sql, FETCH_ALL);
-    return $hinh;
+    if(isset($_POST['btn_chon'])){
+        $btn_loc = $_POST['btn_loc'];
+      if($btn_loc !=""){
+        $sql = "SELECT * FROM hinh where ma_xe = $btn_loc";
+        $hinh = getData($sql, FETCH_ALL);
+        return $hinh;
+      }
+      else{
+        $sql = "SELECT * FROM hinh ORDER BY id_anh DESC ";
+        $hinh = getData($sql, FETCH_ALL);
+        return $hinh;
+      }
+    }
+    else{
+        $sql = "SELECT * FROM hinh ORDER BY id_anh DESC ";
+        $hinh = getData($sql, FETCH_ALL);
+        return $hinh;
+      }
 }
 function layHinh1() {
     $sql = "SELECT hinh1 FROM hinh  ";

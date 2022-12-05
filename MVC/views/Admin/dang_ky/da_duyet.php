@@ -94,7 +94,7 @@ session_start();
               <ul aria-expanded="false" class="collapse  first-level">
                 <li class="sidebar-item"><a href="index2.php?url=ds_dang_ky_1" class="sidebar-link"><i class="fa-solid fa-check"></i><span class="hide-menu">ĐÃ DUYỆT </span></a></li>
                 <li class="sidebar-item"><a href="index2.php?url=ds_dang_ky_0" class="sidebar-link"><i class="fa-solid fa-xmark"></i></i><span class="hide-menu">CHƯA DUYỆT</span></a></li>
-
+                <li class="sidebar-item"><a href="index2.php?url=ds_dang_ky_2" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i></i><span class="hide-menu">HỦY ĐƠN</span></a></li>
               </ul>
             </li>
             <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-image"></i><span class="hide-menu">HÌNH PHỤ  </span></a>
@@ -129,12 +129,12 @@ session_start();
       <div class="row">
                     <div class="col-12">
                         <div class="card">
-                          
                         <table class="table">
                                   <thead>
                                     <tr>
-                                      <th scope="col">MÃ ĐẶT </th>
-                   
+                                      <th scope="col">MÃ ĐẶT </th>         
+                                      <th scope="col">TÊN KHÁCH HÀNG</th>     
+                                      <th scope="col">TÊN XE</th>                  
                                       <th scope="col ">THỜI GIAN ĐẶT</th>    
                                       <th scope="col ">TRẠNG THÁI</th>  
                                       <th scope="col"></th>
@@ -142,13 +142,28 @@ session_start();
                                   </thead>
                                   <tbody>
                                   <?php foreach ($dk_1 as $key => $value) : ?>
-                             
-                                    
-                                  
+                                 
+                           
                                     <tr>
                                       <th scope="row" style="padding-top: 35px;"><?= $value['ma_dat'] ?></th>
-                                  
-                                  
+                                      <td  style="padding-top: 35px;">
+                                      <?php foreach ($ct1 as $value1) : ?>
+                                
+                                      <?php endforeach ?>
+                                      <?php                                
+                                      if(isset($value1['ten_khach_hang']) ){
+                                                 echo $value1['ten_khach_hang'] ;        
+                                      }
+                                      ?>
+                                    </td>
+                                    <td  style="padding-top: 35px;">
+                                   <?php
+                                        if(isset($value1['ten_xe']) ){
+                                          echo $value1['ten_xe'] ;        
+                               }
+                               ?>
+                              
+                                  </td>
                                       <td  style="padding-top: 35px;"><?= $value['thoi_gian_dat'] ?></td>
                                       <td  style="padding-top: 35px;"><?php 
                                          if($value['trang_thai'] == 1){

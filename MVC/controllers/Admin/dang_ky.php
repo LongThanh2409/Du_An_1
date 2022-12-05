@@ -36,6 +36,7 @@ function chiTietDangKy_2() {
     include('views/Admin/dang_ky/chitiet_2.php');
 }
 function formSuaDangKy(){
+   
     suaDangKy();
     include('views/Admin/dang_ky/chitiet_0.php');
  }

@@ -50,7 +50,13 @@ function themMoiXe()
         $file_names = $files['name'];        
  
       if($ten_xe != '' && $don_gia != '' && $ma_loai != '' &&  $_FILES['hinh']['name'] != '' && $thong_tin !='' && $giam_gia != '' && $so_km != '' && $xuat_xu != '' && $slots != '' && $dong_co != '' ){
+<<<<<<< HEAD
         if ($ext == 'png' || $ext == 'jpg' || $ext == 'jpeg') {      
+=======
+        if ($ext == 'png' || $ext == 'jpg' || $ext == 'jpeg' || $ext =='webp' || $ext =='jfif') {
+          foreach($file_names as $key => $value){ 
+            move_uploaded_file($files["tmp_name"][$key], 'assets/images/img_data/' . $value);
+>>>>>>> 1d2c13c4e0713229e99b8dc363436de04e7e1942
         $sql = "INSERT INTO  xe(ten_xe,don_gia,ma_loai,hinh,thong_tin,giam_gia,so_km,xuat_xu,slots,dong_co) VALUES ('$ten_xe','$don_gia','$ma_loai','$hinh','$thong_tin','$giam_gia','$so_km','$xuat_xu','$slots','$dong_co');
         ";
           $conn = getConnect();
@@ -105,7 +111,7 @@ function suaXe(){
         move_uploaded_file($_FILES["hinh"]["tmp_name"], 'assets/images/img_data/' . $_FILES["hinh"]["name"]);
         header('Location:index2.php?url=ds_xe');
       }else{
-        if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
+        if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg' && $ext !='webp' && $ext !='JFIF') {
           $_SESSION['error'] = "File chỉ được có đuôi png,jpg,jpeg ";
        }else{
         $sql = "UPDATE xe SET ten_xe = '$ten_xe' , don_gia='$don_gia',ma_loai='$ma_loai',hinh='$hinh',thong_tin='$thong_tin',giam_gia='$giam_gia',so_km='$so_km',xuat_xu='$xuat_xu',slots='$slots',dong_co='$dong_co' WHERE ma_xe = $ma_xe";       
@@ -125,7 +131,7 @@ function suaXe(){
         move_uploaded_file($_FILES["hinh"]["tmp_name"], 'assets/images/img_data/' . $_FILES["hinh"]["name"]);
         header('Location:index2.php?url=ds_xe');
       }else{
-        if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
+        if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg' && $ext !='webp' && $ext !='JFIF') {
           $_SESSION['error'] = "File chỉ được có đuôi png,jpg,jpeg ";
        }else{
         $sql = "UPDATE xe SET ten_xe = '$ten_xe' , don_gia='$don_gia',hinh='$hinh',thong_tin='$thong_tin',giam_gia='$giam_gia',so_km='$so_km',xuat_xu='$xuat_xu',slots='$slots',dong_co='$dong_co' WHERE ma_xe = $ma_xe";       
@@ -205,5 +211,5 @@ function xoaXe()
   $conn = getConnect();
   $statement = $conn->prepare($sql);
   $statement->execute();
-  header('Location:index2.php?url=ds_xe');
+   header('Location:index2.php?url=ds_xe');
 }

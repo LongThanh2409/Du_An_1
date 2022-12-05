@@ -65,9 +65,12 @@
         //     }
         // }
         function thongTinKhachHang(){
-            $sql = "SELECT * FROM khach_hang ";
+           if(isset($_SESSION['ma_kh'])){
+                $ma_kh = $_SESSION['ma_kh'];
+            $sql = "SELECT * FROM khach_hang where ma_kh=$ma_kh ";
             $thong_tin_kh = getData($sql, FETCH_ONE);
             return $thong_tin_kh;
+           }
         }
         function layAnh(){
             if (isset($_GET['ma_xe'])) {

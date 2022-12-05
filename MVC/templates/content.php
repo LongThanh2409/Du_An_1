@@ -84,6 +84,7 @@
 
 </div> -->
 
+
 </div>
 
     </div>
@@ -104,7 +105,7 @@
 
     <div class="section-header text-center">
 
-      <h2>Find the Best <span>CarForYou</span></h2>
+      <h2>TÌM CHIẾC XE PHÙ HỢP CHO BẠN </h2>
 
       <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
 
@@ -260,7 +261,7 @@
               $total_dons = count($total_don);
             }
             ?>
-            <h2><i class="fa fa-car" aria-hidden="true"></i><?= $total_dons ?></h2>
+            <h2><i class="fa fa-car" aria-hidden="true"></i><?= isset($total_dons)? $total_dons:""  ?></h2>
 
             <p>Đã ĐƯợc Đặt</p>
 

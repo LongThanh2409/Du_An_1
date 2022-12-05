@@ -1,10 +1,9 @@
  <?php
 
-<<<<<<< HEAD
+
     // session_start();
-=======
     
->>>>>>> c0441802ec771b5c8d7f3af9a232f25299254303
+
     if (isset($_POST['dangky'])) {
         $ten_khach_hang = $_POST['ten_khach_hang'];
         $username = $_POST['username'];

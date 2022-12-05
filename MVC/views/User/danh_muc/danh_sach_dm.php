@@ -70,7 +70,7 @@ require_once "templates/header.php";
           </div>
           <div class="col-sm-3 col-xs-12">
             <div class="view_profile"> <a href="<?= $link_ds_xe?>" class="btn btn-xs outline">Danh Sách Xe</a>
-              <p> (<?= $total ?>) Xe</p>
+              <!-- <p> (<?= $total ?>) Xe</p> -->
             </div>
           </div>
         </div>

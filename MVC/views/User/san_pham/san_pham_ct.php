@@ -16,7 +16,7 @@ if (empty($ngay_xem)) {
 }
 else{
   echo "<script>
-  alert('Đăng ký thành công');
+  alert('Đăng ký thành công, Vui lòng kiểm tra email');
   </script>";
 }
 }
@@ -308,10 +308,10 @@ else{
           <div class="dealer_detail"> 
             <!-- <img src="assets/images/dealer_img.jpg" alt="image"> -->
         
-            <p><span>Tên khách hàng:</span> <?= $thong_tin_kh['ten_khach_hang'] ?></p>
-            <p><span>Email:</span><?= $thong_tin_kh['ten_khach_hang'] ?></p>
-            <p><span>Số Điện Thoại:</span> <?= $thong_tin_kh['ten_khach_hang'] ?></p>
-            <a href="index.php?url=ds_dat_lich" class="btn btn-xs">View Profile</a>
+            <p><span>Tên khách hàng:</span> <?= isset($thong_tin_kh['ten_khach_hang'])? $thong_tin_kh['ten_khach_hang']:"" ?></p>
+            <p><span>Email:</span><?= isset($thong_tin_kh['email'])? $thong_tin_kh['email']:"" ?></p>
+            <p><span>Số Điện Thoại:</span> <?= isset($thong_tin_kh['so_dien_thoai'])? $thong_tin_kh['so_dien_thoai']:"" ?></p>
+            <a href="index.php?url=ds_dat_lich&ma_kh= <?= $ma_kh ?> "class="btn btn-xs">View Profile</a>
            </div>
           
         </div> 

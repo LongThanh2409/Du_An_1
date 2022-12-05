@@ -2,6 +2,7 @@
 require('models/Admin/xe.php');
 
 function hienThiXe() {
+    $ds_lx = layDSLoaiXe(); 
     $ds_xe = layDSXe(); 
     include('views/Admin/xe/danh_sach.php');
 }

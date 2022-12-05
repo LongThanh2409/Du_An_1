@@ -69,19 +69,30 @@ switch ($url) {
         case 'ct_0':     
             chiTietDangKy_0();       
             break;   
-            case 'ct_1':     
-                chiTietDangKy_1();        
-                break; 
+         case 'ct_1':     
+            chiTietDangKy_1();        
+            break; 
+        case 'ct_2':     
+            chiTietDangKy_2();        
+            break; 
     case 'ds_dang_ky_1':
         hienThiDangKy_1(); 
         break;   
+        case 'ds_dang_ky_2':
+            hienThiDangKy_2(); 
+            break;  
     case 'sua_dang_ky' :
         formSuaDangKy();
         break;       
-    case 'xoa_dang_ky' :
-        xoaDSDK();
+        case 'huy_don' :
+            formHuyDon();
+            break; 
+    case 'xoa_dang_ky_1' :
+        xoaDSDK_1();
         break;
-
+        case 'xoa_dang_ky_2' :
+            xoaDSDK_2();
+            break;
 
     default:
         echo 'Đường dẫn không tồn tại';

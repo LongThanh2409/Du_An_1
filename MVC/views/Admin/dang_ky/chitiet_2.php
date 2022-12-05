@@ -1,6 +1,18 @@
-
 <?php
-session_start();
+  if (isset($_POST['btn_them'])) {
+    $ten_loai = $_POST['ten_loai'];
+    $hinh_logo =  $_FILES['hinh_logo'];
+ 
+   if(!$ten_loai){
+     $ten_loai_err = 'CHƯA NHẬP';
+   }
+   if(!$hinh_logo['name']){
+    $hinh_logo_err = 'CHƯA NHẬP';
+   }
+   
+
+}
+
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -52,8 +64,8 @@ session_start();
 
           <ul class="navbar-nav float-right">
 
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="index.php?url=logout" name="dang_xuat" onclick="return confirm('Bạn có chắc là muốn đăng xuất')" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic"  onclick="return confirm('Bạn có chắc là muốn đăng xuất')" href="index.php?url=logout" data-toggle="" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
 
             </li>
 
@@ -96,13 +108,13 @@ session_start();
                 <li class="sidebar-item"><a href="index2.php?url=ds_dang_ky_2" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i></i><span class="hide-menu">HỦY ĐƠN</span></a></li>
               </ul>
             </li>
-            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-image"></i><span class="hide-menu">HÌNH PHỤ </span></a>
+            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-image"></i><span class="hide-menu">HÌNH PHỤ  </span></a>
               <ul aria-expanded="false" class="collapse  first-level">
                 <li class="sidebar-item"><a href="index2.php?url=ds_hinh" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">DANH SÁCH </span></a></li>
-
+       
               </ul>
             </li>
-
+ 
             </li>
 
           </ul>
@@ -117,86 +129,111 @@ session_start();
       <div class="page-breadcrumb">
         <div class="row">
           <div class="col-12 d-flex no-block align-items-center">
-            <h4 class="page-title">DANH SÁCH ẢNH PHỤ</h4>
+            <h4 class="page-title">ĐƠN ĐẶT ĐÃ HỦY</h4>
 
           </div>
         </div>
       </div>
-
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-            <form action="" method="POST">
-                        <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Mã Loại</label>
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="r" >
+                    <div class="col-md-6" style="margin: auto;"> 
+                        <div class="card">
+                            <form class="form-horizontal"  method="POST" enctype="multipart/form-data">
+                                <div class="card-body">
+                          
+                                    <div class="form-group row">
+                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Mã Đặt</label>
                                         <div class="col-sm-9">
-                                        <select  id="" name="btn_loc" class="form-control" >
-                    <option value="">Chọn</option>
-                    <?php foreach ($ds_xe as $value) : ?>
-                      <?php if(isset($_POST['btn_chon'])){
-  $btn_loc = $_POST['btn_loc'];
-}else{
-  $btn_loc = $_POST['btn_loc'];
-} ?>
-                    <option <?php if($btn_loc== $value['ma_xe']){echo "selected";} ?> value="<?php echo $value['ma_xe'] ?>"><?php echo $value['ten_xe']; ?></option>
-                    <?php endforeach; ?>
-                </select>
-                    <input type="submit" name="btn_chon" id="" class="gui">
+                                            <input type="text" class="form-control" id="fname" placeholder="<?= $ct['ma_dat'] ?>" readonly>
                                         </div>
                                     </div>
-                                    </form>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">ID ẢNH</th>
-                    <th scope="col">TÊN XE</th>
-                    <th scope="col">HÌNH 1</th>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Tên Xe</label>
+                                        <div class="col-sm-9">
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['ten_xe'] ?>" readonly>
+                                      
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Tên Khách Hàng</label>
+                                        <div class="col-sm-9">
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['ten_khach_hang'] ?>" readonly>
+                                      
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Địa Chỉ</label>
+                                        <div class="col-sm-9">
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['dia_chi'] ?>" readonly>
+                                      
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Ngày Xem</label>
+                                        <div class="col-sm-9">
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['ngay_xem'] ?>" readonly>
+                                      
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Thời Gian Đặt</label>
+                                        <div class="col-sm-9">
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?= $ct['thoi_gian_dat'] ?>" readonly>
+                                      
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Ghi Chú</label>
+                                        <div class="col-sm-9">
+                                        <textarea name="" id="" cols="43" rows="5" readonly><?= $ct['ghi_chu'] ?></textarea>
+                                        
+                                      
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Trạng Thái</label>
+                                        <div class="col-sm-9">
+                                    
+                                            <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai" value="<?php  if($ct['trang_thai'] == 2  ){
+                                            echo 'Đã Hủy';
+                                         } ?>" readonly>
+                                      
+                                        </div>
+                                    </div>
+                             
+                             
+      
+                         
+                                </div>
+                                <div class="border-top " >
+                                    <div class="card-body" style="text-align: center;">
+                                    <a style="color: wheat;"  name="btn_delete" class="delete" href="index2.php?url=xoa_dang_ky_2&ma_dat=<?php echo $value['ma_dat'] ?>" onclick="return confirm('Xác nhận xóa ?')">
+                                        <button  class="btn btn-primary" name="btn_delete">
+                                      Xóa
+                                        </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+  
 
-                    <th scope="col"></th>
+                    </div>
+                </div>
+                <!-- editor -->
+  
 
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php foreach ($ds_hinh as $key => $value) : ?>
-
-                    <tr>
-                      <th scope="row" style="padding-top: 50px;"><?= $value['id_anh'] ?></th>
-                      <td style="padding-top: 50px;">
-                        <?php foreach ($xe1 as $key => $value1) : ?>
-
-                        <?php endforeach ?>
-                        <?php if(isset($value1['ten_xe'])) : ?>
-                                      <?= $value1['ten_xe'] ?>
-                                      <?php endif ?>
-                      </td>
-
-                      <td style="padding-top: 50px;">
-
-                        <img src="<?= $value['hinh1'] ?>" alt="" width="30%">
-
-                      </td>
-                      <td>
-                        <button class="btn_edit">
-                          <a class="edit" href="index2.php?url=sua_hinh&id_anh=<?php echo $value['id_anh'] ?>">Sửa</a>
-                        </button>
-                        <button class="btn_delete">
-                          <a class="delete" href="index2.php?url=xoa_hinh&id_anh=<?php echo $value['id_anh'] ?>" onclick="return confirm('bạn có muốn xóa')">Xóa</a>
-                        </button>
-                      </td>
-                    </tr>
-
-                  <?php endforeach ?>
-
-                </tbody>
-              </table>
             </div>
 
-          </div>
-        </div>
-
-
-      </div>
+    
 
     </div>
 

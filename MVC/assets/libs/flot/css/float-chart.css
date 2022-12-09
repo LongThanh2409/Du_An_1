@@ -78,18 +78,16 @@ File: scss
   border-radius: 7px;
  
 }
-.form-control{
-  width: 200px;
-}
+
 .gui{
   border: none;
   width: 70px;
   height: 40px;
 }
-.form-group{
+/* .form-group{
   padding-right: 300px;
-  padding-top: 50px;
+  
 }
 .col-sm-9{
   text-align: center;
-}
+} */

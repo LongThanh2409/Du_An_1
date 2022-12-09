@@ -126,7 +126,7 @@ require_once "templates/header.php";
             </div> -->
           </div>
           <div class="product-listing-content">
-            <h5><a href="#"><?= $ten_xe ?></a></h5>
+            <h5><a href="<?= $link_ct?>"><?= $ten_xe ?></a></h5>
             <p class="list-price">$<?= $don_gia ?></p>
             <ul>
               <li><i class="fa fa-road" aria-hidden="true"></i><?= $so_km ?> km</li>
@@ -276,7 +276,7 @@ require_once "templates/header.php";
 <!-- /Listing--> 
 
 <!--Brands-->
-<section class="brand-section gray-bg">
+<!-- <section class="brand-section gray-bg">
   <div class="container">
     <div class="brand-hadding">
       <h5>Popular Brands</h5>
@@ -291,7 +291,7 @@ require_once "templates/header.php";
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- /Brands--> 
 <!-- footer -->
 <?php

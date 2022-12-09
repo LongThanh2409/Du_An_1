@@ -63,7 +63,7 @@ require_once "templates/header.php";
           </div>
           <div class="col-sm-6 col-xs-8">
             <div class="dealer_info">
-              <h5><a href="#"><?= $ten_loai ?> </a></h5>
+              <h5><a href="<?= $link_ds_xe?>"><?= $ten_loai ?> </a></h5>
              
             </div>
           </div>

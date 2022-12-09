@@ -12,7 +12,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 class Mailer{
 
-public function datXe($tieude,$noidung,$maildatxe){
+public function datXe($tieude,$noidung,$img,$maildatxe){
     $mail= new PHPMailer(true);
 try {
     //Server settings
@@ -42,6 +42,7 @@ try {
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject =$tieude;
     $mail->Body    = $noidung;
+    $mail->Body .= "<img src='$img'><br>";
  
     $mail->send();
     // echo 'Mail đã được gửi thành công';

@@ -75,7 +75,7 @@ function currency_format($number, $suffix = 'VND') {
 
         <div class="col-sm-3 col-md-2">
 
-          <div class="logo"> <a href="index.html"><img src="assets/image/logo.png" alt="image"/></a> </div>
+          <div class="logo"> <a href="index.php"><img src="assets/image/logo.png" alt="image"/></a> </div>
 
         </div>
 
@@ -283,7 +283,7 @@ function currency_format($number, $suffix = 'VND') {
 
           <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
 
-          <form action="index.php?url=list_san_pham" method="get" id="header-search-form">
+          <form action="index.php?url=list_san_pham" method="post" id="header-search-form">
 
             <input type="text" name="key" placeholder="Search..." class="form-control">
 

@@ -1,25 +1,43 @@
 <?php
+
+
+
 require_once "templates/head.php";
 require_once "templates/header.php";
-if(isset($_POST['dat_xem_xe'])){
-  $dia_chi = $_POST['dia_chi'];
+
+
+date_default_timezone_set("Asia/Ho_Chi_Minh");
+$time = date('m/d/Y H:i');
+if (isset($_POST['dat_xem_xe'])) {
+ 
   $ngay_xem = $_POST['ngay_xem'];
   $ghi_chu = $_POST['ghi_chu'];
-if (empty($ghi_chu)) {
-  $error['ghi_chu'] = 'Bạn chưa nhập ghi chú';
+
+ $error=[];
+ 
+  if (empty($ghi_chu)) {
+    $error['ghi_chu'] = 'Bạn chưa nhập ghi chú';
+  }
+
+  if (empty($ngay_xem)) {
+    $error['ngay_xem'] = 'Bạn chưa nhập ngày xem';
+  }
+  if(strtotime($ngay_xem)<= strtotime($time) && $ngay_xem!="" && strtotime($ngay_xem)>=0){
+    $error['ngay_xem1'] = 'Ngày xem đã qua';
+    echo "ALO";
+  }
+  if(!$error){
+    echo "<script>
+    alert('Đăng ký thành công, Vui lòng kiểm tra email');
+    </script>";
+  }
+
+ 
+   
+  
+  
 }
-if (empty($dia_chi)) {
-  $error['dia_chi'] = 'Bạn chưa nhập địa chỉ';
-}
-if (empty($ngay_xem)) {
-  $error['ngay_xem'] = 'Bạn chưa nhập ngày xem';
-}
-else{
-  echo "<script>
-  alert('Đăng ký thành công, Vui lòng kiểm tra email');
-  </script>";
-}
-}
+
 ?>
 <script>
 
@@ -34,7 +52,7 @@ else{
         <h2><?= $ten_xe ?></h2>
         <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> <?= $xuat_xu ?></span></div>
         <div class="add_compare">
-         
+
           <div class="share_vehicle">
             <p>Share: <a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a> <a href="#"></a> </p>
           </div>
@@ -42,9 +60,9 @@ else{
       </div>
       <div class="col-md-3">
         <div class="price_info">
-          <?php $don_gia_new = $don_gia-($don_gia*$giam_gia)/100 ?>
+          <?php $don_gia_new = $don_gia - ($don_gia * $giam_gia) / 100 ?>
           <p> <?= currency_format($don_gia_new)  ?></p>
-          <p class="old_price"> <?=currency_format($don_gia) ?></p>
+          <p class="old_price"> <?= currency_format($don_gia) ?></p>
         </div>
       </div>
     </div>
@@ -71,9 +89,9 @@ else{
 <section id="filter_form" class="inner-filter gray-bg">
   <div class="container">
     <h3>Find Your Dream Car <span>(Easy search from here)</span></h3>
-    
-      <form action="#" method="get">
-	  <div class="row">
+
+    <form action="#" method="get">
+      <div class="row">
         <div class="form-group col-md-3 col-sm-6 black_input">
           <div class="select">
             <select class="form-control">
@@ -116,7 +134,7 @@ else{
         </div>
         <div class="form-group col-md-6 col-sm-6 black_input">
           <label class="form-label">Price Range ($)</label>
-          <input id="price_range" type="text" class="span2" value="" data-slider-min="50" data-slider-max="6000" data-slider-step="5" data-slider-value="[1000,5000]"/>
+          <input id="price_range" type="text" class="span2" value="" data-slider-min="50" data-slider-max="6000" data-slider-step="5" data-slider-value="[1000,5000]" />
         </div>
         <div class="form-group col-md-3 col-sm-6 black_input">
           <div class="select">
@@ -130,50 +148,50 @@ else{
         <div class="form-group col-md-3 col-sm-6">
           <button type="submit" class="btn btn-block"><i class="fa fa-search" aria-hidden="true"></i> Search Car </button>
         </div>
-		 </div>
-      </form>
-   
+      </div>
+    </form>
+
   </div>
 </section>
-<!-- /Filter-Form --> 
+<!-- /Filter-Form -->
 
 <!--Listing-detail-->
 <section class="listing-detail">
   <div class="container">
     <div class="row">
-        
+
       <div class="col-md-9">
         <div class="listing_images">
           <div class="listing_images_slider">
-          <div><img src="<?php echo $hinh?>" alt="image"></div>
-          <?php foreach($albums as $key=> $values): ?>
-            <div><img src="<?php echo $values['hinh1']?>" alt="image"></div>
+            <div><img src="<?php echo $hinh ?>" alt="image"></div>
+            <?php foreach ($albums as $key => $values) : ?>
+              <div><img src="<?php echo $values['hinh1'] ?>" alt="image"></div>
             <?php endforeach ?>
           </div>
 
 
           <div class="listing_images_slider_nav">
-          <div><img src="<?php echo $hinh?>" alt="image"></div>
-          <?php foreach($albums as $key=> $values): ?>
-            <div><img src="<?php echo $values['hinh1']?>" alt="image"></div>
+            <div><img src="<?php echo $hinh ?>" alt="image"></div>
+            <?php foreach ($albums as $key => $values) : ?>
+              <div><img src="<?php echo $values['hinh1'] ?>" alt="image"></div>
             <?php endforeach ?>
-          
+
           </div>
         </div>
 
 
-        
+
 
 
         <div class="main_features">
           <ul>
             <li> <i class="fa fa-tachometer" aria-hidden="true"></i>
               <h5><?= $so_km ?></h5>
-              <p>Total Kilometres</p>
+              <p>Tổng Số Km</p>
             </li>
             <li> <i class="fa fa-calendar" aria-hidden="true"></i>
               <h5><?= $xuat_xu ?></h5>
-              <p>Reg.Year</p>
+              <p>Năm sản xuất</p>
             </li>
             <li> <i class="fa fa-cogs" aria-hidden="true"></i>
               <h5>Diesel</h5>
@@ -194,60 +212,60 @@ else{
           </ul>
         </div>
         <div class="listing_more_info">
-          
-          
-           <!--Vehicle-Video-->
-          <!-- <div class="video_wrap">
-            <h6>Watch Video </h6>
+
+
+          <!--Vehicle-Video-->
+          <div class="video_wrap">
+            <h6>Thông Tin Chi Tiết </h6>
             <div class="video-box">
-               <iframe class="mfp-iframe" src="https://www.youtube.com/embed/rqSoXtKMU3Q" allowfullscreen></iframe>
+              <p><?= $thong_tin ?></p>
             </div>
-         </div> -->
-        
+          </div>
+
           <!--Comment-Form-->
-          
+
           <div class="comment_form">
             <h6>Bình Luận</h6>
-           
-            <form  method="post">
+
+            <form method="post">
               <div class="form-group">
                 <input type="text" name="full_name" class="form-control" placeholder="Full Name">
               </div>
-              
+
               <div class="form-group">
                 <textarea rows="5" name="content" class="form-control" placeholder="Comments"></textarea>
               </div>
               <!-- <div class="form-group">
                 <b>Ngày :</b>
               </div> -->
-              <?php if(isset($_SESSION['username'])){ ?> 
-              <div class="form-group">
-                <input type="submit" name="btn_bl" class="btn" value="Submit Comment">
-              </div>
+              <?php if (isset($_SESSION['username'])) { ?>
+                <div class="form-group">
+                  <input type="submit" name="btn_bl" class="btn" value="Submit Comment">
+                </div>
               <?php } ?>
             </form>
-         
+
           </div>
-       
-          
-          <!--/Comment-Form--> 
-    
+
+
+          <!--/Comment-Form-->
+
           <div>
             <h5>List Bình Luận</h5>
-          <div class="form-group">
-            <?php foreach($bl as $value): ?>
-            <div style="margin-top:10px;  background-color: #eee;padding:10px" >
-            <strong class=""> User: <?= $value['User']  ?>  </strong> <br>
-             <span><?= $value['noi_dung'] ?></span>
+            <div class="form-group">
+              <?php foreach ($bl as $value) : ?>
+                <div style="margin-top:10px;  background-color: #eee;padding:10px">
+                  <strong class=""> Tên Bình Luận: <?= $value['User']  ?> </strong> <br>
+                  <span> <b>Nội Dung: </b> <?= $value['noi_dung'] ?></span>
+                </div>
+              <?php endforeach ?>
             </div>
-            <?php endforeach ?>
-              </div>
           </div>
 
 
         </div>
       </div>
-      
+
       <!--Side-Bar-->
       <aside class="col-md-3">
         <div class="sidebar_widget">
@@ -255,67 +273,67 @@ else{
             <h5><i class="fa fa-calculator" aria-hidden="true"></i> Đăng Ký Đặt Lịch </h5>
           </div>
           <div class="financing_calculatoe">
-          <form name="them_khach_hang" action="" method="POST">
-                <table  cellpadding="10px" cellspacing="0">
-                <h2><b><?php echo isset($suc) ? $suc: "" ?></b> </h2>
+            <form name="them_khach_hang" action="" method="POST">
+              <table cellpadding="10px" cellspacing="0">
+                <h2><b><?php echo isset($suc) ? $suc : "" ?></b> </h2>
                 <input type="hidden" name="ma_kh" id="">
-                    <tr>
-                        <td >Địa chỉ<br /><input type="text" value="<?php echo isset($dia_chi)!="" ? $dia_chi : "" ?>" name="dia_chi" id="dia_chi" placeholder="">
+                <!-- <tr>
+                        <td >Địa chỉ<br /><input type="text" value="<?php echo isset($dia_chi) != "" ? $dia_chi : "" ?>" name="dia_chi" id="dia_chi" placeholder="">
                         <br>
                         <b class="mt-4 underline" style="color: red;"> <?php echo isset($error['dia_chi']) ? $error['dia_chi'] : "" ?> </b>
                       </td>
                       
-                    </tr>
-                    <tr>
-                        <td >Ngày Xem<br /><input type="datetime-local" name="ngay_xem" id="ngay_xem">
-                        <br>
-                        <b class="mt-4 underline" style="color: red;"><?php echo isset($error['ngay_xem']) ? $error['ngay_xem'] : "" ?></b>
-                      </td> 
-                       
-                    </tr>
-                    <tr>
-                        <td >Ghi Chú<br /><input type="textarea" value="<?php echo isset($ghi_chu)!="" ? $ghi_chu : "" ?>" name="ghi_chu" id="ghi_chu" placeholder="" >
-                        <br>
-                        <b class="mt-4 underline" style="color: red;"><?php echo isset($error['ghi_chu']) ? $error['ghi_chu'] : "" ?></b>
-                      </td>
-                       
-                    </tr>
-                   <?php if(isset($_SESSION['username'])){
-                   echo' <tr>
+                    </tr> -->
+                <tr>
+                  <td>Ngày Xem<br /><input type="datetime-local" name="ngay_xem" value="<?php echo isset($ngay_xem) != "" ? $ngay_xem : "" ?>" id="ngay_xem">
+                    <br>
+                    <b class="mt-4 underline" style="color: red;"><?php echo isset($error['ngay_xem']) ? $error['ngay_xem'] : "" ?></b>
+                    <b class="mt-4 underline" style="color: red;"><?php echo isset($error['ngay_xem1']) ? $error['ngay_xem1'] : "" ?></b>
+                  </td>
+
+                </tr>
+                <tr>
+                  <td>Ghi Chú<br /><input type="textarea" value="<?php echo isset($ghi_chu) != "" ? $ghi_chu : "" ?>" name="ghi_chu" id="ghi_chu" placeholder="">
+                    <br>
+                    <b class="mt-4 underline" style="color: red;"><?php echo isset($error['ghi_chu']) ? $error['ghi_chu'] : "" ?></b>
+                  </td>
+
+                </tr>
+                <?php if (isset($_SESSION['username'])) {
+                  echo ' <tr>
                     <td ><input type="submit"  class="btn-danger" value="Đặt Ngay" name="dat_xem_xe" id="submit"/>
                     <a href="index.php">Về Trang Chủ</a>
                     </td>
                 </tr>';
-                  }else{
-                   echo' <tr>
+                } else {
+                  echo ' <tr>
                     <td >
                     <p style="color:gray;">Bạn Cần Đăng Nhập Để Thực Hiện Đặt Xe</p>
                     <a href="index.php">Về Trang Chủ</a></a>
                     </td>
                 </tr>';
-                  
-                  }
-                   ?>
-                </table>
+                }
+                ?>
+              </table>
             </form>
           </div>
         </div>
-         <div class="sidebar_widget">
+        <div class="sidebar_widget">
           <div class="widget_heading">
             <h5><i class="fa fa-address-card-o" aria-hidden="true"></i> Thông tin đặt xe </h5>
           </div>
-         
-          <div class="dealer_detail"> 
+
+          <div class="dealer_detail">
             <!-- <img src="assets/images/dealer_img.jpg" alt="image"> -->
-        
-            <p><span>Tên khách hàng:</span> <?= isset($thong_tin_kh['ten_khach_hang'])? $thong_tin_kh['ten_khach_hang']:"" ?></p>
-            <p><span>Email:</span><?= isset($thong_tin_kh['email'])? $thong_tin_kh['email']:"" ?></p>
-            <p><span>Số Điện Thoại:</span> <?= isset($thong_tin_kh['so_dien_thoai'])? $thong_tin_kh['so_dien_thoai']:"" ?></p>
-            <a href="index.php?url=ds_dat_lich&ma_kh= <?= $ma_kh ?> "class="btn btn-xs">View Profile</a>
-           </div>
-          
-        </div> 
-         <!-- <div class="sidebar_widget">
+
+            <p><span>Tên khách hàng:</span> <?= isset($thong_tin_kh['ten_khach_hang']) ? $thong_tin_kh['ten_khach_hang'] : "" ?></p>
+            <p><span>Email:</span><?= isset($thong_tin_kh['email']) ? $thong_tin_kh['email'] : "" ?></p>
+            <p><span>Số Điện Thoại:</span> <?= isset($thong_tin_kh['so_dien_thoai']) ? $thong_tin_kh['so_dien_thoai'] : "" ?></p>
+            <a href="index.php?url=ds_dat_lich&ma_kh= <?= $ma_kh ?> " class="btn btn-xs">View Profile</a>
+          </div>
+
+        </div>
+        <!-- <div class="sidebar_widget">
           <div class="widget_heading">
             <h5><i class="fa fa-envelope" aria-hidden="true"></i> Message to Dealer</h5>
           </div>
@@ -335,57 +353,57 @@ else{
           </form>
         </div>  -->
       </aside>
-      <!--/Side-Bar--> 
-      
+      <!--/Side-Bar-->
+
     </div>
     <div class="space-20"></div>
     <div class="divider"></div>
-    
+
     <!--Similar-Cars-->
     <div class="similar_cars">
       <h3>Sản phẩm cùng loại</h3>
-     
+
       <div class="row">
-      <?php foreach($cung_loai as $value):
-        extract($value);
-        $link_ct = 'index.php?url=sanpham_chitiet&ma_xe='.$ma_xe.'&ma_loai='.$ma_loai.''; 
+        <?php foreach ($cung_loai as $value) :
+          extract($value);
+          $link_ct = 'index.php?url=sanpham_chitiet&ma_xe=' . $ma_xe . '&ma_loai=' . $ma_loai . '';
         ?>
-        <div class="col-md-3 grid_listing">
-          <div class="product-listing-m gray-bg">
-            <div class="product-listing-img"> <a href="<?= $link_ct ?>"><img src="<?= $hinh ?>" class="img-fluid" alt="image" /> </a>
-              <div class="label_icon">Used</div>
-              <div class="compare_item">
-                <div class="checkbox">
-                  <input type="checkbox" value="" id="compare16">
-                  <label for="compare16">Compare</label>
+          <div class="col-md-3 grid_listing">
+            <div class="product-listing-m gray-bg">
+              <div class="product-listing-img"> <a href="<?= $link_ct ?>"><img src="<?= $hinh ?>" class="img-fluid" alt="image" /> </a>
+                <div class="label_icon">Used</div>
+                <div class="compare_item">
+                  <div class="checkbox">
+                    <input type="checkbox" value="" id="compare16">
+                    <label for="compare16">Compare</label>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="product-listing-content">
-              <h5><a href="<?= $link_ct ?>"><?= $ten_xe ?> </a></h5>
-              <p class="list-price"><?= $don_gia ?></p>
-              <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-              <ul class="features_list">
-                <li><i class="fa fa-road" aria-hidden="true"></i><?= $so_km ?> km</li>
-                <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-                <li><i class="fa fa-calendar" aria-hidden="true"></i>$dong_co</li>
-                <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              </ul>
+              <div class="product-listing-content">
+                <h5><a href="<?= $link_ct ?>"><?= $ten_xe ?> </a></h5>
+                <p class="list-price"><?=currency_format($don_gia)  ?></p>
+                <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
+                <ul class="features_list">
+                  <li><i class="fa fa-road" aria-hidden="true"></i><?= $so_km ?> km</li>
+                  <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
+                  <li><i class="fa fa-calendar" aria-hidden="true"></i>$dong_co</li>
+                  <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
         <?php endforeach ?>
       </div>
 
     </div>
-    <!--/Similar-Cars--> 
-    
+    <!--/Similar-Cars-->
+
   </div>
 </section>
-<!--/Listing-detail--> 
+<!--/Listing-detail-->
 
 <!--Brands-->
-<section class="brand-section gray-bg">
+<!-- <section class="brand-section gray-bg">
   <div class="container">
     <div class="brand-hadding">
       <h5>Popular Brands</h5>
@@ -400,17 +418,17 @@ else{
       </div>
     </div>
   </div>
-</section>
-<!-- /Brands--> 
+</section> -->
+<!-- /Brands-->
 
 
 <!--Footer -->
-<?php require_once "templates/footer.php";?>
-<!-- /Footer--> 
+<?php require_once "templates/footer.php"; ?>
+<!-- /Footer-->
 
 <!--Back to top-->
 <div id="back-top" class="back-top"> <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>
-<!--/Back to top--> 
+<!--/Back to top-->
 
 <!--Schedule-Test-Drive -->
 <div class="modal fade" id="schedule">
@@ -448,7 +466,7 @@ else{
     </div>
   </div>
 </div>
-<!--/Schedule-Test-Drive --> 
+<!--/Schedule-Test-Drive -->
 
 <!--Make-Offer -->
 <div class="modal fade" id="make_offer">
@@ -483,7 +501,7 @@ else{
     </div>
   </div>
 </div>
-<!--/Make-Offer --> 
+<!--/Make-Offer -->
 
 <!--Email-to-Friend -->
 <div class="modal fade" id="email_friend">
@@ -515,7 +533,7 @@ else{
     </div>
   </div>
 </div>
-<!--/Email-to-Friend --> 
+<!--/Email-to-Friend -->
 
 <!--Request-More-Info -->
 <div class="modal fade" id="more_info">
@@ -547,7 +565,7 @@ else{
     </div>
   </div>
 </div>
-<!--/Request-More-Info --> 
+<!--/Request-More-Info -->
 
 <!--Login-Form -->
 <div class="modal fade" id="loginform">
@@ -558,8 +576,8 @@ else{
         <h3 class="modal-title">Login</h3>
       </div>
       <div class="modal-body">
-          <div class="login_wrap">
-		  <div class="row">
+        <div class="login_wrap">
+          <div class="row">
             <div class="col-md-6 col-sm-6">
               <form action="#" method="get">
                 <div class="form-group">
@@ -579,7 +597,8 @@ else{
             </div>
             <div class="col-md-6 col-sm-6">
               <h6 class="gray_text">Login the Quick Way</h6>
-              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Login with Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Login with Google+</a> </div>
+              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Login with Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Login with Google+</a>
+            </div>
             <div class="mid_divider"></div>
           </div>
         </div>
@@ -591,7 +610,7 @@ else{
     </div>
   </div>
 </div>
-<!--/Login-Form --> 
+<!--/Login-Form -->
 
 <!--Register-Form -->
 <div class="modal fade" id="signupform">
@@ -602,9 +621,9 @@ else{
         <h3 class="modal-title">Sign Up</h3>
       </div>
       <div class="modal-body">
-        
-          <div class="signup_wrap">
-		  <div class="row">
+
+        <div class="signup_wrap">
+          <div class="row">
             <div class="col-md-6 col-sm-6">
               <form action="#" method="get">
                 <div class="form-group">
@@ -630,7 +649,8 @@ else{
             </div>
             <div class="col-md-6 col-sm-6">
               <h6 class="gray_text">Login the Quick Way</h6>
-              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Login with Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Login with Google+</a> </div>
+              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Login with Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Login with Google+</a>
+            </div>
             <div class="mid_divider"></div>
           </div>
         </div>
@@ -641,7 +661,7 @@ else{
     </div>
   </div>
 </div>
-<!--/Register-Form --> 
+<!--/Register-Form -->
 
 <!--Forgot-password-Form -->
 <div class="modal fade" id="forgotpassword">
@@ -674,22 +694,23 @@ else{
     </div>
   </div>
 </div>
-<!--/Forgot-password-Form --> 
+<!--/Forgot-password-Form -->
 
-<!-- Scripts --> 
+<!-- Scripts -->
 <script src="assets/js2/jquery.min.js"></script>
-<script src="assets/js2/bootstrap.min.js"></script> 
-<script src="assets/js2/interface.js"></script> 
+<script src="assets/js2/bootstrap.min.js"></script>
+<script src="assets/js2/interface.js"></script>
 <script src="assets/js2/31f5977fdc.js"></script>
 <!--Switcher-->
 <script src="assets/switcher/js2/switcher.js"></script>
-<!--bootstrap-slider-JS--> 
-<script src="assets/js2/bootstrap-slider.min.js"></script> 
-<!--Slider-JS--> 
-<script src="assets/js2/slick.min.js"></script> 
+<!--bootstrap-slider-JS-->
+<script src="assets/js2/bootstrap-slider.min.js"></script>
+<!--Slider-JS-->
+<script src="assets/js2/slick.min.js"></script>
 <script src="assets/js2/owl.carousel.min.js"></script>
 
 </body>
 
 <!-- Mirrored from themes.webmasterdriver.net/carforyou/demo/listing-detail-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Nov 2022 12:37:20 GMT -->
+
 </html>

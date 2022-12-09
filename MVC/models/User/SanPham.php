@@ -6,8 +6,8 @@
         function layDSSanPham()
         {
           
-            if (isset($_GET['key']) && ($_GET['key'] != "")) {
-                $key = $_GET['key'];
+            if (isset($_POST['key']) && ($_POST['key'] != "")) {
+                $key = $_POST['key'];
                 $sql = "SELECT * FROM xe WHERE ten_xe  like '%$key%'";
                 
                 $list_sp = getData($sql, FETCH_ALL);
@@ -113,10 +113,10 @@
             if (isset($_POST['btn_bl'])) {
                 $full_name = $_POST['full_name'];
                 $content = $_POST['content'];
-
+                $ma_kh = $_SESSION['ma_kh'];
                 $ma_xe = $_GET['ma_xe'];
                 if ($full_name != "" && $content != "") {
-                    $sql = "INSERT INTO  binh_luan VALUES (null, '$full_name','$content',current_timestamp(), 5, '$ma_xe')";
+                    $sql = "INSERT INTO  binh_luan VALUES (null, '$full_name','$content',current_timestamp(), '$ma_kh', '$ma_xe')";
                     $conn = getConnect();
                     $statement = $conn->prepare($sql);
                     $statement->execute();

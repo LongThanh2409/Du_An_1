@@ -11,6 +11,13 @@
         $so_dien_thoai = $_POST['so_dien_thoai'];
         $password = $_POST['password'];
         $password2 = $_POST['password2'];
+        $sql = "SELECT * FROM khach_hang  ";
+        $user = getData($sql, FETCH_ALL);
+        foreach ($user as $value) {
+            if ($username == $value['username']) {
+                $error['username1'] = 'Tên đăng nhập đã tồn tại';
+            }
+        }
         if (empty($ten_khach_hang)) {
             $error['ten_khach_hang'] = 'Bạn chưa nhập tên';
         }
@@ -32,7 +39,7 @@
         if (empty($so_dien_thoai)) {
             $error['so_dien_thoai'] = 'Bạn chưa nhập số điện thoại';
         } else {
-            $error['succ'] = " Đăng ký thành công";
+            $sucss = " Đăng ký thành công";
         }
     }
 
@@ -247,17 +254,17 @@
              font-size: 20px;
              font-weight: 500;
          }
-         .wthree-pro{
-            display: flex;
-            justify-content: space-around;
-           
-        }
-        .wthree-pro h2 a{
-            color: #FFF;
-           
-        }
 
-       
+         .wthree-pro {
+             display: flex;
+             justify-content: space-around;
+
+         }
+
+         .wthree-pro h2 a {
+             color: #FFF;
+
+         }
      </style>
 
  </head>
@@ -275,15 +282,19 @@
      <div class="center-container">
          <!--header-->
          <div class="header-w3l">
+
              <h1>Đăng Ký</h1>
-          
+         </div class="header-w3l">
+         <h1><?= isset($sucss) ? $sucss : "" ?></h1>
+         <div>
+
          </div>
          <!--//header-->
          <div class="main-content-agile">
              <div class="sub-main-w3">
                  <div class="wthree-pro">
-                 <h2>  <a href="index.php?url=login">Đăng Nhập</a></h2>
-                 <h2>Đăng Ký</h2>
+                     <h2> <a href="index.php?url=login">Đăng Nhập</a></h2>
+                     <h2>Đăng Ký</h2>
                  </div>
                  <form action="" method="post">
 
@@ -297,7 +308,7 @@
                          <h2> <?= isset($error['ten_khach_hang']) ? $error['ten_khach_hang'] : "" ?></h2>
                      </div>
 
-                    
+
 
                      <div class="pom-agile">
                          <input placeholder="Tên Đăng Nhập" name="username" class="user" type="text">
@@ -306,11 +317,12 @@
                      </div>
                      <div class="error">
                          <h2> <?= isset($error['username']) ? $error['username'] : "" ?></h2>
+                         <h2> <?= isset($error['username1']) ? $error['username1'] : "" ?></h2>
                      </div>
                      <div class="pom-agile">
                          <input placeholder="Email" name="email" class="user" type="email">
                          <span class="icon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                        
+
                      </div>
                      <div class="error">
                          <h2> <?= isset($error['email']) ? $error['email'] : "" ?></h2>
@@ -318,7 +330,7 @@
                      <div class="pom-agile">
                          <input placeholder="Số điện thoại" name="so_dien_thoai" class="user" type="tel">
                          <span class="icon1"><i class="fa fa-phone" aria-hidden="true"></i></span>
-                       
+
                      </div>
                      <div class="error">
                          <h2> <?= isset($error['so_dien_thoai']) ? $error['so_dien_thoai'] : "" ?></h2>

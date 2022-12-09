@@ -52,15 +52,13 @@ function themMoiXe()
  
       if($ten_xe != '' && $don_gia != '' && $ma_loai != '' &&  $_FILES['hinh']['name'] != '' && $thong_tin !='' && $giam_gia != '' && $so_km != '' && $xuat_xu != '' && $slots != '' && $dong_co != '' ){
 
-<<<<<<< HEAD
-=======
         if ($ext == 'png' || $ext == 'jpg' || $ext == 'jpeg') {      
 
         if ($ext == 'png' || $ext == 'jpg' || $ext == 'jpeg' || $ext =='webp' || $ext =='jfif') {
           foreach($file_names as $key => $value){ 
             move_uploaded_file($files["tmp_name"][$key], 'assets/images/img_data/' . $value);
 
->>>>>>> 9e79e0d7707f0de1d6cc9f3bcde56cb664370506
+
         $sql = "INSERT INTO  xe(ten_xe,don_gia,ma_loai,hinh,thong_tin,giam_gia,so_km,xuat_xu,slots,dong_co) VALUES ('$ten_xe','$don_gia','$ma_loai','$hinh','$thong_tin','$giam_gia','$so_km','$xuat_xu','$slots','$dong_co');
         ";
           $conn = getConnect();
@@ -88,41 +86,39 @@ function themMoiXe()
     
     
 
-<<<<<<< HEAD
-=======
     }
   }
 }
 
-function suaXe(){
-    if (isset($_POST['btn_sua'])) {
-      $ma_xe = $_GET['ma_xe'];
-        $ten_xe = $_POST['ten_xe'];
-        $don_gia = $_POST['don_gia'];
-       $ma_loai = $_POST['ma_loai'];
-        $hinh = 'assets/images/img_data/' . $_FILES['hinh']['name'];
-        $thong_tin = $_POST['thong_tin'];
-        $giam_gia = $_POST['giam_gia'];
-        $so_km = $_POST['so_km'];
-        $xuat_xu = $_POST['xuat_xu'];
-        $slots = $_POST['slots'];
-        $dong_co = $_POST['dong_co'];
-        $file_name = uniqid() . $_FILES['hinh']['name'];
-        $ext = pathinfo($file_name, PATHINFO_EXTENSION);
-        if(!$ma_loai){
-         $_SESSION['error1'] ='CHƯA NHẬP';
->>>>>>> d62d8269005d6351a7bcf8f73245b0a2112d29ec
-        }
-        $conn = getConnect();
-        $statement = $conn->prepare($sql);
-        $statement->execute();
-        move_uploaded_file($_FILES["hinh"]["tmp_name"], 'assets/images/img_data/' . $_FILES["hinh"]["name"]);
-        header('Location:index2.php?url=ds_xe');
-      }
-    }
-  }
-}
->>>>>>> 9e79e0d7707f0de1d6cc9f3bcde56cb664370506
+// function suaXe(){
+//     if (isset($_POST['btn_sua'])) {
+//       $ma_xe = $_GET['ma_xe'];
+//         $ten_xe = $_POST['ten_xe'];
+//         $don_gia = $_POST['don_gia'];
+//        $ma_loai = $_POST['ma_loai'];
+//         $hinh = 'assets/images/img_data/' . $_FILES['hinh']['name'];
+//         $thong_tin = $_POST['thong_tin'];
+//         $giam_gia = $_POST['giam_gia'];
+//         $so_km = $_POST['so_km'];
+//         $xuat_xu = $_POST['xuat_xu'];
+//         $slots = $_POST['slots'];
+//         $dong_co = $_POST['dong_co'];
+//         $file_name = uniqid() . $_FILES['hinh']['name'];
+//         $ext = pathinfo($file_name, PATHINFO_EXTENSION);
+//         if(!$ma_loai){
+//          $_SESSION['error1'] ='CHƯA NHẬP';
+
+//         }
+//         $conn = getConnect();
+//         $statement = $conn->prepare($sql);
+//         $statement->execute();
+//         move_uploaded_file($_FILES["hinh"]["tmp_name"], 'assets/images/img_data/' . $_FILES["hinh"]["name"]);
+//         header('Location:index2.php?url=ds_xe');
+//       }
+//     }
+//   }
+// }
+
 function suaXe()
 {
   if (isset($_POST['btn_sua'])) {

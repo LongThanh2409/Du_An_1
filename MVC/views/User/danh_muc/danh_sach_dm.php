@@ -34,7 +34,7 @@ require_once "templates/header.php";
     
    <?php endforeach ?>
 
-        <p>Số Danh Mục : <?= $total_dm ?></p>
+        <p>Số Danh Mục : <?= isset($total_dm)? $total_dm:"0" ?></p>
       </div>
       <!-- <div class="result-sorting-by">
         <p>Sort by:</p>

@@ -241,7 +241,7 @@
               $total_xes = count($total_xe);
             }
             ?>
-            <h2><i class="fa fa-car" aria-hidden="true"></i><?= $total_xes ?>+</h2>
+            <h2><i class="fa fa-car" aria-hidden="true"></i><?=isset($total_xes)?$total_xes:"0"  ?>+</h2>
 
             <p>Chiếc xe</p>
 
@@ -261,7 +261,7 @@
               $total_dons = count($total_don);
             }
             ?>
-            <h2><i class="fa fa-car" aria-hidden="true"></i><?= isset($total_dons)? $total_dons:""  ?></h2>
+            <h2><i class="fa fa-car" aria-hidden="true"></i><?= isset($total_dons)? $total_dons:"0"  ?></h2>
 
             <p>Đã ĐƯợc Đặt</p>
 

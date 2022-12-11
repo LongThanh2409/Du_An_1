@@ -44,11 +44,14 @@ function suaDangKy()
           $statement->execute();
          header('Location:index2.php?url=ds_dang_ky_1');
           $tieude="Thong Bao Lich Dat Cua Ban Da Duoc Duyet";
-        $noidung="<p>Đơn Đặt Xem Xe Của Bạn Đã Được Duyệt Thành Công'</p><br>";
+        $noidung="<p>Đơn Đặt Xem Xe Của Bạn Đã Được Duyệt Thành Công'</p><br>
+        <i>Địa Điểm Xem Xe:Số 1 Trịnh Văn Bô, Nam Từ Liêm, Hà Nội </i>
+        ";
                   session_start();
+                  $img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ5JCUzFAXE1HGBTp7pvcw4WrK-wcLAjDYgA&usqp=CAU";
         $maildatxe=$_SESSION['email'];
         $mail= new Mailer();
-        $mail->datXe($tieude,$noidung,$maildatxe); 
+        $mail->datXe($tieude,$noidung,$img,$maildatxe); 
           header('Location:index2.php?url=ds_dang_ky_1');
         }
 
@@ -64,11 +67,12 @@ function huyDon()
           $statement = $conn->prepare($sql);
           $statement->execute();
           $tieude="Thong Bao Lich Dat Cua Ban Da Bi Huy";
-          $noidung="<p>Đơn Đặt Xem Xe Của Bạn Đã Bị Hủy do một số vấn đề liên quan'</p><br>";
+          $noidung="<p>Đơn Đặt Xem Xe Của Bạn Đã Bị Hủy do một số vấn đề liên quan</p><br>";
                     session_start();
+                    $img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ5JCUzFAXE1HGBTp7pvcw4WrK-wcLAjDYgA&usqp=CAU";
           $maildatxe=$_SESSION['email'];
           $mail= new Mailer();
-          $mail->datXe($tieude,$noidung,$maildatxe); 
+          $mail->datXe($tieude,$noidung,$img,$maildatxe); 
           header('Location:index2.php?url=ds_dang_ky_2');
         }
 

@@ -24,7 +24,7 @@ if (isset($_POST['dat_xem_xe'])) {
   }
   if(strtotime($ngay_xem)<= strtotime($time) && $ngay_xem!="" && strtotime($ngay_xem)>=0){
     $error['ngay_xem1'] = 'Ngày xem đã qua';
-    echo "ALO";
+  
   }
   if(!$error){
     echo "<script>

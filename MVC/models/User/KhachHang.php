@@ -111,6 +111,7 @@ function dangky()
 }
 function dat_xem()
 {
+    date_default_timezone_set("Asia/Ho_Chi_Minh");
     $time = date('d/m/Y');
     if (isset($_POST['dat_xem_xe'])) {
 
@@ -128,8 +129,9 @@ function dat_xem()
         if (empty($ngay_xem)) {
             $error['ngay_xem'] = 'Bạn chưa nhập ngày xem';
         }
-        if (strtotime($ngay_xem) < strtotime($time)) {
+        if (strtotime($ngay_xem) <= strtotime($time) && $ngay_xem != "") {
             $error['ngay_xem1'] = 'Ngày xem đã qua';
+        
         }
 
         if (!$error) {
@@ -139,18 +141,18 @@ function dat_xem()
             $statement->execute();
 
 
-         
+
 
             $tieude = "Thong Bao Dat Lich Thanh Cong";
             $noidung = "<h1>Cảm ơn quý khách đã đặt hàng </h1><br>
                   <h3>Ngày Giờ xem xe:$ngay_xem</h3><br>
                   <h3>Ghi chú đính kèm: $ghi_chu</h3>";
-                  $img ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ5JCUzFAXE1HGBTp7pvcw4WrK-wcLAjDYgA&usqp=CAU";
-               $noidung .= " <h3>Địa Điểm</h3>";
+            $img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ5JCUzFAXE1HGBTp7pvcw4WrK-wcLAjDYgA&usqp=CAU";
+            $noidung .= " <h3>Địa Điểm</h3>";
 
             $maildatxe = $_SESSION['email'];
             $mail = new Mailer();
-            $mail->datXe($tieude, $noidung,$img, $maildatxe);
+            $mail->datXe($tieude, $noidung, $img, $maildatxe);
         }
         // $result = $this->execute(array($ma_xe,$ma_kh,$ten_khach_hang,$so_dien_thoai,$email,$ghi_chu,$ngay_xem,$ghi_chu));
         // if($result)

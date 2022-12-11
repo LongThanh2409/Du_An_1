@@ -2,7 +2,7 @@
   if (isset($_POST['btn_them'])) {
     $ten_xe = $_POST['ten_xe'];
     $don_gia = $_POST['don_gia'];
-   $ma_loai = $_POST['ma_loai'];
+    $ma_loai = $_POST['ma_loai'];
     $hinh =  $_FILES['hinh'];
   
     $thong_tin = $_POST['thong_tin'];

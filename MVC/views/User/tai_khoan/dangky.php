@@ -17,30 +17,34 @@
             if ($username == $value['username']) {
                 $error['username1'] = 'Tên đăng nhập đã tồn tại';
             }
+            if (empty($ten_khach_hang)) {
+                $error['ten_khach_hang'] = 'Bạn chưa nhập tên';
+            }
+            if (empty($username)) {
+                $error['username'] = 'Bạn chưa nhập tên';
+            }
+            if (empty($password)) {
+                $error['password'] = 'Bạn chưa nhập mật khẩu';
+            }
+            if (empty($password2)) {
+                $error['password2'] = 'Bạn chưa nhập lại mật khẩu';
+            }
+            if ($password != $password2 && $password2 != "") {
+                $error['password_lost'] = 'Mật khẩu không khớp';
+            }
+            if (empty($email)) {
+                $error['email'] = 'Bạn chưa nhập email';
+            }
+            if (empty($so_dien_thoai)) {
+                $error['so_dien_thoai'] = 'Bạn chưa nhập số điện thoại';
+            } 
+            if(!$error){
+               
+                    $error['thanh_cong'] = " Đăng ký thành công";
+                
+            }
         }
-        if (empty($ten_khach_hang)) {
-            $error['ten_khach_hang'] = 'Bạn chưa nhập tên';
-        }
-        if (empty($username)) {
-            $error['username'] = 'Bạn chưa nhập tên';
-        }
-        if (empty($password)) {
-            $error['password'] = 'Bạn chưa nhập mật khẩu';
-        }
-        if (empty($password2)) {
-            $error['password2'] = 'Bạn chưa nhập lại mật khẩu';
-        }
-        if ($password != $password2 && $password2 != "") {
-            $error['password_lost'] = 'Mật khẩu không khớp';
-        }
-        if (empty($email)) {
-            $error['email'] = 'Bạn chưa nhập email';
-        }
-        if (empty($so_dien_thoai)) {
-            $error['so_dien_thoai'] = 'Bạn chưa nhập số điện thoại';
-        } else {
-            $sucss = " Đăng ký thành công";
-        }
+        
     }
 
     // $name = $email = $password = $password2 = $hinh_anh = '';
@@ -285,7 +289,7 @@
 
              <h1>Đăng Ký</h1>
          </div class="header-w3l">
-         <h1><?= isset($sucss) ? $sucss : "" ?></h1>
+         <h1><?= isset($error['thanh_cong']) ? $error['thanh_cong'] : "" ?></h1>
          <div>
 
          </div>

@@ -40,6 +40,7 @@ else{
                   <option selected  value="3" <?php if($trang_thai == 3){echo "selected";} ?>>Tất Cả</option>
                   <option  value="0" <?php if($trang_thai == 0){echo "selected";} ?>  >Chưa Duyệt</option>
                   <option   value="1" <?php if($trang_thai == 1){echo "selected";} ?>>Đã Duyệt</option>
+                  <option   value="2" <?php if($trang_thai == 2){echo "selected";} ?>>Từ Chối</option>
              
                 
                 </select>
@@ -69,8 +70,11 @@ else{
                 if($trang_thai==0){
                 echo 'Chưa duyệt';
                 }
+                elseif($trang_thai ==1){
+                  echo "Đã Duyệt";
+                }
                 else{
-                echo "Đã Duyệt";}
+                echo "Bị Từ Chối";}
                 ?></a>
                   <div class="clearfix"></div>
                   <!-- <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div> -->
@@ -79,7 +83,7 @@ else{
               <?php  endforeach ?>
             </ul>
       
-            <div class="pagination">
+            <!-- <div class="pagination">
               <ul>
                 <li class="current">1</li>
                 <li><a href="#">2</a></li>
@@ -87,7 +91,7 @@ else{
                 <li><a href="#">4</a></li>
                 <li><a href="#">5</a></li>
               </ul>
-            </div>
+            </div> -->
           </div>
          
         </div>

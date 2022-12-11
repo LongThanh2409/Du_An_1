@@ -43,7 +43,7 @@ function suaDangKy()
           $statement = $conn->prepare($sql);
           $statement->execute();
          header('Location:index2.php?url=ds_dang_ky_1');
-          $tieude="Thong Bao Dat Xe Thanh Cong";
+          $tieude="Thong Bao Lich Dat Cua Ban Da Duoc Duyet";
         $noidung="<p>Đơn Đặt Xem Xe Của Bạn Đã Được Duyệt Thành Công'</p><br>";
                   session_start();
         $maildatxe=$_SESSION['email'];
@@ -63,6 +63,12 @@ function huyDon()
           $conn = getConnect();
           $statement = $conn->prepare($sql);
           $statement->execute();
+          $tieude="Thong Bao Lich Dat Cua Ban Da Bi Huy";
+          $noidung="<p>Đơn Đặt Xem Xe Của Bạn Đã Bị Hủy do một số vấn đề liên quan'</p><br>";
+                    session_start();
+          $maildatxe=$_SESSION['email'];
+          $mail= new Mailer();
+          $mail->datXe($tieude,$noidung,$maildatxe); 
           header('Location:index2.php?url=ds_dang_ky_2');
         }
 

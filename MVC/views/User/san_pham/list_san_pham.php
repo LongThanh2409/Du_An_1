@@ -108,17 +108,16 @@ if (isset($_POST['price'])) {
           </div>
           <div class="result-sorting-by ">
             <!-- <p>Sort by:</p> -->
-            <form action="" method="post">
+            <form action="index.php?url=list_san_pham" method="post">
               <div class="form-group select sorting-select">
                 <select class="form-control " name="prices">
-                  <option value="">Giá Tiền</option>
+                  <option >Giá Tiền</option>
                   <option value="500000000" <?= isset($prices) == 500000000 ? "selected" : "" ?>>Dưới 500tr</option>
                   <option value="1000000000" <?= isset($prices) == 1000000000 ? "selected" : "" ?>>Dưới 1Tỉ</option>
                   <option value="3" <?= isset($prices) == 3 ? "selected" : "" ?>>1Tỉ trở lên</option>
                   <option value="4" <?= isset($prices) == 4 ? "selected" : "" ?>>Tất Cả</option>
                 </select>
-               
-
+              
               </div>
               <div><input type="submit" name="price" id="price" value="Tìm"></div>
             </form>
@@ -158,7 +157,7 @@ if (isset($_POST['price'])) {
             </div>
           <?php endforeach ?>
         </div>
-        <div class="pagination">
+        <!-- <div class="pagination">
           <ul>
             <li class="current">1</li>
             <li><a href="#">2</a></li>
@@ -166,7 +165,7 @@ if (isset($_POST['price'])) {
             <li><a href="#">4</a></li>
             <li><a href="#">5</a></li>
           </ul>
-        </div>
+        </div> -->
       </div>
 
       <!--Side-Bar-->
@@ -280,7 +279,7 @@ if (isset($_POST['price'])) {
 <!--/Listing-grid-view-->
 
 <!--Brands-->
-<section class="brand-section gray-bg">
+<!-- <section class="brand-section gray-bg">
   <div class="container">
     <div class="brand-hadding">
       <h5>Popular Brands</h5>
@@ -295,7 +294,7 @@ if (isset($_POST['price'])) {
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- /Brands-->
 
 <?php

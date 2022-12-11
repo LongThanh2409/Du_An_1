@@ -5,6 +5,7 @@ function TrangChuUser(){
     $six_sp=  layDS6SanPham();
     $total_don = soDonDaDat();
     $total_xe = soXeDangCo();
+    
    login();
 
     include "./templates/layout.php";

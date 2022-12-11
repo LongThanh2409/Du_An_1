@@ -38,12 +38,19 @@ function themMoiLoaiXe()
 function xoaLoaiXe()
 {
     $ma_loai = $_GET['ma_loai'];
+<<<<<<< HEAD
 
     $sql1 = "DELETE FROM xe WHERE ma_loai = $ma_loai  ";
     $conn = getConnect();
     $statement = $conn->prepare($sql1);
     $statement->execute();
     
+=======
+    $sql1 = "DELETE FROM xe WHERE ma_loai=$ma_loai";
+    $conn = getConnect();
+    $statement = $conn->prepare($sql1);
+    $statement->execute();
+>>>>>>> 67e381bb65f8f0ce1bb85ecbe934b4542d17d275
     $sql = "DELETE FROM loai_xe WHERE ma_loai=$ma_loai";
     $conn = getConnect();
     $statement = $conn->prepare($sql);

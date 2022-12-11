@@ -241,7 +241,7 @@
               $total_xes = count($total_xe);
             }
             ?>
-            <h2><i class="fa fa-car" aria-hidden="true"></i><?= $total_xes ?>+</h2>
+            <h2><i class="fa fa-car" aria-hidden="true"></i><?=isset($total_xes)?$total_xes:"0"  ?>+</h2>
 
             <p>Chiếc xe</p>
 
@@ -261,7 +261,7 @@
               $total_dons = count($total_don);
             }
             ?>
-            <h2><i class="fa fa-car" aria-hidden="true"></i><?= isset($total_dons)? $total_dons:""  ?></h2>
+            <h2><i class="fa fa-car" aria-hidden="true"></i><?= isset($total_dons)? $total_dons:"0"  ?></h2>
 
             <p>Đã ĐƯợc Đặt</p>
 
@@ -311,7 +311,7 @@
 
       <h2>Xe Nổi Bật <span>Ưu Đãi đặc Biệt</span></h2>
 
-      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>
+      <p>Car For You với phương châm "Đồng hành cùng xu hướng của bạn" sẽ là nơi mua sắm an toàn và uy tín, bởi chúng tôi luôn đề cao tiêu chí mang đến cho quý khách những sản phẩm chất lượng nhất với giá cả luôn phải chăng. </p>
 
     </div>
 
@@ -399,7 +399,7 @@
 
       <h2>Xu Hướng <span>Xe Của Năm Nay</span></h2>
 
-      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>
+      <p>Car For You với phương châm "Đồng hành cùng xu hướng của bạn" sẽ là nơi mua sắm an toàn và uy tín, bởi chúng tôi luôn đề cao tiêu chí mang đến cho quý khách những sản phẩm chất lượng nhất với giá cả luôn phải chăng. </p>
 
     </div>
 
@@ -754,7 +754,7 @@
 
 <!--Brands-->
 
-<section class="brand-section gray-bg">
+<!-- <section class="brand-section gray-bg">
 
   <div class="container">
 
@@ -788,7 +788,7 @@
 
   </div>
 
-</section>
+</section> -->
 
 <!-- /Brands--> 
 

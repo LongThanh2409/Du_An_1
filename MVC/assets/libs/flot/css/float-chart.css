@@ -84,8 +84,18 @@ File: scss
   width: 70px;
   height: 40px;
 }
+<<<<<<< HEAD
 .form-controlone{
    border: 1px solid gray;
    width: 200px;
    height: 50px;
 }
+=======
+/* .form-group{
+  padding-right: 300px;
+  
+}
+.col-sm-9{
+  text-align: center;
+} */
+>>>>>>> 67e381bb65f8f0ce1bb85ecbe934b4542d17d275

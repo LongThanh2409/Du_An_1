@@ -57,6 +57,7 @@ function themMoiXe()
         if ($ext == 'png' || $ext == 'jpg' || $ext == 'jpeg' || $ext =='webp' || $ext =='jfif') {
    
 
+
         $sql = "INSERT INTO  xe(ten_xe,don_gia,ma_loai,hinh,thong_tin,giam_gia,so_km,xuat_xu,slots,dong_co) VALUES ('$ten_xe','$don_gia','$ma_loai','$hinh','$thong_tin','$giam_gia','$so_km','$xuat_xu','$slots','$dong_co');
         ";
           $conn = getConnect();
@@ -75,12 +76,14 @@ function themMoiXe()
         move_uploaded_file($_FILES["hinh"]["tmp_name"], 'assets/images/img_data/' . $_FILES["hinh"]["name"]);     
        ;
 
-         
+       header('Location:index2.php?url=ds_xe');    
             }           
            
-          header('Location:index2.php?url=ds_xe');    
+       
        }
       }
+    
+    
 
     }
   
@@ -88,6 +91,38 @@ function themMoiXe()
 
 
 
+<<<<<<< HEAD
+=======
+// function suaXe(){
+//     if (isset($_POST['btn_sua'])) {
+//       $ma_xe = $_GET['ma_xe'];
+//         $ten_xe = $_POST['ten_xe'];
+//         $don_gia = $_POST['don_gia'];
+//        $ma_loai = $_POST['ma_loai'];
+//         $hinh = 'assets/images/img_data/' . $_FILES['hinh']['name'];
+//         $thong_tin = $_POST['thong_tin'];
+//         $giam_gia = $_POST['giam_gia'];
+//         $so_km = $_POST['so_km'];
+//         $xuat_xu = $_POST['xuat_xu'];
+//         $slots = $_POST['slots'];
+//         $dong_co = $_POST['dong_co'];
+//         $file_name = uniqid() . $_FILES['hinh']['name'];
+//         $ext = pathinfo($file_name, PATHINFO_EXTENSION);
+//         if(!$ma_loai){
+//          $_SESSION['error1'] ='CHƯA NHẬP';
+
+//         }
+//         $conn = getConnect();
+//         $statement = $conn->prepare($sql);
+//         $statement->execute();
+//         move_uploaded_file($_FILES["hinh"]["tmp_name"], 'assets/images/img_data/' . $_FILES["hinh"]["name"]);
+//         header('Location:index2.php?url=ds_xe');
+//       }
+//     }
+//   }
+// }
+
+>>>>>>> 67e381bb65f8f0ce1bb85ecbe934b4542d17d275
 function suaXe()
 {
   if (isset($_POST['btn_sua'])) {
@@ -213,14 +248,24 @@ function suaXe()
 function xoaXe()
 {
   $ma_xe = $_GET['ma_xe'];
+<<<<<<< HEAD
   $sql2 = "DELETE FROM don WHERE ma_xe=$ma_xe ";
+=======
+  $sql2 = "DELETE FROM don WHERE ma_xe=$ma_xe";
+>>>>>>> 67e381bb65f8f0ce1bb85ecbe934b4542d17d275
   $conn = getConnect();
   $statement = $conn->prepare($sql2);
   $statement->execute();
   $sql1 = "DELETE FROM hinh WHERE ma_xe=$ma_xe";
+<<<<<<< HEAD
   $conn = getConnect();
   $statement = $conn->prepare($sql1);
   $statement->execute();
+=======
+    $conn = getConnect();
+    $statement = $conn->prepare($sql1);
+   $statement->execute();
+>>>>>>> 67e381bb65f8f0ce1bb85ecbe934b4542d17d275
   $sql = "DELETE FROM xe WHERE ma_xe=$ma_xe";
   $conn = getConnect();
   $statement = $conn->prepare($sql);

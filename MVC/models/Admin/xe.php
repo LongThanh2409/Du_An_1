@@ -49,8 +49,14 @@ function themMoiXe()
         $ext = pathinfo($file_name, PATHINFO_EXTENSION);
         $files = $_FILES['hinh1'];
         $file_names = $files['name'];        
- 
-      if($ten_xe != '' && $don_gia != '' && $ma_loai != '' &&  $_FILES['hinh']['name'] != '' && $thong_tin !='' && $giam_gia != '' && $so_km != '' && $xuat_xu != '' && $slots != '' && $dong_co != '' ){
+        $sql = "SELECT * FROM xe ";
+        $xe = getData($sql, FETCH_ALL);
+        foreach ($xe as $value) {
+            if ($ten_xe == $value['ten_xe']) {
+                $error['ten_xe'] = 'Tên xe đã tồn tại';
+            }
+        }
+      if($ten_xe != '' && $don_gia != '' && $ma_loai != '' &&  $_FILES['hinh']['name'] != '' && $thong_tin !='' && $giam_gia != '' && $so_km != '' && $xuat_xu != '' && $slots != '' && $dong_co != '' && !$error['ten_xe']){
 
     
 

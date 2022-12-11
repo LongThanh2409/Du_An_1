@@ -3,7 +3,13 @@
   if (isset($_POST['btn_them'])) {
     $ten_loai = $_POST['ten_loai'];
     $hinh_logo =  $_FILES['hinh_logo'];
- 
+    $sql = "SELECT * FROM loai_xe  ";
+    $loai = getData($sql, FETCH_ALL);
+    foreach ($loai as $value) {
+        if ($ten_loai == $value['ten_loai']) {
+            $error['loai'] = 'Tên loại đã tồn tại';
+        }
+    }
    if(!$ten_loai){
      $ten_loai_err = 'CHƯA NHẬP';
    }
@@ -163,6 +169,9 @@
                                             <input type="text" class="form-control"  placeholder="Nhập Tên Loại" name="ten_loai"  value = '<?= isset($ten_loai) ? $ten_loai : ''?>'>
                                             <span style="color: red;">
         <?php echo isset($ten_loai_err) ?  $ten_loai_err : ''; ?>
+     </span>
+     <span style="color: red;">
+        <?php echo isset( $error['loai']) ?   $error['loai'] : ''; ?>
      </span>
                                         </div>
                                     </div>

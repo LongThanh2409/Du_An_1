@@ -21,7 +21,14 @@ function themMoiKH()
         $level = $_POST['level'];
         $ten_khach_hang = $_POST['ten_khach_hang'];
         $so_dien_thoai = $_POST['so_dien_thoai'];
-        if ($username != '' && $password != '' && $email != '' && $level != '' && $ten_khach_hang != '' && $so_dien_thoai != ''  ) {
+        $sql = "SELECT * FROM khach_hang  ";
+        $user = getData($sql, FETCH_ALL);
+        foreach ($user as $value) {
+            if ($username == $value['username']) {
+                $error['username1'] = 'Tên đăng nhập đã tồn tại';
+            }
+        }
+        if ($username != '' && $password != '' && $email != '' && $level != '' && $ten_khach_hang != '' && $so_dien_thoai != '' && !$error['username1']  ) {
             $sql = "INSERT INTO  khach_hang(ten_khach_hang, username,password,email, so_dien_thoai, level) VALUES ( '$ten_khach_hang','$username' , '$password','$email','$so_dien_thoai', '$level')";
             $conn = getConnect();
             $statement = $conn->prepare($sql);

@@ -17,7 +17,14 @@ function themMoiLoaiXe()
         $hinh_logo = 'assets/images/img_logo/' . $_FILES['hinh_logo']['name'];
         $file_name = uniqid() . $_FILES['hinh_logo']['name'];
         $ext = pathinfo($file_name, PATHINFO_EXTENSION);
-        if($ten_loai != '' && $_FILES['hinh_logo']['name'] != '' ){
+        $sql = "SELECT * FROM loai_xe  ";
+        $loai = getData($sql, FETCH_ALL);
+        foreach ($loai as $value) {
+            if ($ten_loai == $value['ten_loai']) {
+                $error['loai'] = 'Tên loại đã tồn tại';
+            }
+        }
+        if($ten_loai != '' && $_FILES['hinh_logo']['name'] != '' && !$error['loai'] ){
             if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
                 $_SESSION['error1'] = "File chỉ được có đuôi png,jpg,jpeg ";
              } else{
@@ -43,7 +50,7 @@ function xoaLoaiXe()
     $conn = getConnect();
     $statement = $conn->prepare($sql1);
     $statement->execute();
-
+    
     $sql = "DELETE FROM loai_xe WHERE ma_loai=$ma_loai";
     $conn = getConnect();
     $statement = $conn->prepare($sql);
@@ -58,15 +65,15 @@ function suaLoaiXe()
         $hinh_logo = 'assets/images/img_logo/' . $_FILES['hinh_logo']['name'];
         $file_name = uniqid() . $_FILES['hinh_logo']['name'];
         $ext = pathinfo($file_name, PATHINFO_EXTENSION);
-      
+    
   
-        if($_FILES['hinh_logo']['name'] == ''){
+        if($_FILES['hinh_logo']['name'] == '' ){
             $sql = "UPDATE loai_xe SET  ten_loai='$ten_loai' WHERE  ma_loai  =$ma_loai";
             $conn = getConnect();
             $statement = $conn->prepare($sql);
             $statement->execute();
             header('Location:index2.php?url=ds_loai_xe');
-        }else{
+        }else {
             if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
                 $_SESSION['error2'] = "File chỉ được có đuôi png,jpg,jpeg ";
              } else{

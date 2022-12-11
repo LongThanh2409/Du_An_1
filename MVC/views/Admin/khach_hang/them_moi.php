@@ -6,6 +6,14 @@
     $level = $_POST['level'];
     $ten_khach_hang = $_POST['ten_khach_hang'];
     $so_dien_thoai = $_POST['so_dien_thoai'];
+    $sql = "SELECT * FROM khach_hang  ";
+    $user = getData($sql, FETCH_ALL);
+    foreach ($user as $value) {
+        if ($username == $value['username']) {
+            $error['username1'] = 'Tên đăng nhập đã tồn tại';
+        }
+    }
+
    if(!$username){
      $username_err = 'CHƯA NHẬP';
    }
@@ -191,6 +199,9 @@ if(!isset($_SESSION['admin'])){
                                             <input type="text" class="form-control"  placeholder="Nhập Username" name="username"  value = '<?= isset($username) ? $username : ''?>'>
                                             <span style="color: red;">
         <?php echo isset($username_err) ?  $username_err : ''; ?>
+     </span>
+     <span style="color: red;">
+        <?php echo isset( $error['username1']) ?  $error['username1'] : ''; ?>
      </span>
                                         </div>
                                     </div>

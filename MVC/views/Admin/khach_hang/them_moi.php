@@ -135,7 +135,12 @@ if(!isset($_SESSION['admin'])){
            
               </ul>
             </li>
-
+            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-sharp fa-solid fa-comments"></i></i><span class="hide-menu">BÌNH LUẬN  </span></a>
+              <ul aria-expanded="false" class="collapse  first-level">
+                <li class="sidebar-item"><a href="index2.php?url=ds_bl" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">DANH SÁCH </span></a></li>
+             
+              </ul>
+            </li>
             </li>
 
           </ul>
@@ -210,7 +215,7 @@ if(!isset($_SESSION['admin'])){
                                     <div class="form-group row">
                                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">SỐ ĐIỆN THOẠI </label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Số Điện Thoại" name="so_dien_thoai"  value = '<?= isset($so_dien_thoai) ? $so_dien_thoai : ''?>'>
+                                            <input  pattern="[0-9]{10}" type="tel" class="form-control"  placeholder="Nhập Số Điện Thoại" name="so_dien_thoai"  value = '<?= isset($so_dien_thoai) ? $so_dien_thoai : ''?>'>
                                             <span style="color: red;">
         <?php echo isset($so_dien_thoai_err) ?  $so_dien_thoai_err : ''; ?>
      </span>
@@ -219,7 +224,7 @@ if(!isset($_SESSION['admin'])){
                                     <div class="form-group row">
                                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">LEVEL</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Level" name="level"  value = '<?= isset($level) ? $level : ''?>'>
+                                            <input type="number" min="1" max="2" class="form-control"  placeholder="Nhập Level" name="level"  value = '<?= isset($level) ? $level : ''?>'>
                                             <span style="color: red;">
         <?php echo isset($level_err) ?  $level_err : ''; ?>
      </span>

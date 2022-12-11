@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 ?>
@@ -102,6 +101,12 @@ session_start();
 
               </ul>
             </li>
+            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-sharp fa-solid fa-comments"></i></i><span class="hide-menu">BÌNH LUẬN  </span></a>
+              <ul aria-expanded="false" class="collapse  first-level">
+                <li class="sidebar-item"><a href="index2.php?url=ds_bl" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">DANH SÁCH </span></a></li>
+             
+              </ul>
+            </li>
 
             </li>
 
@@ -127,25 +132,7 @@ session_start();
         <div class="row">
           <div class="col-12">
             <div class="card">
-            <form action="" method="POST">
-                        <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Mã Loại</label>
-                                        <div class="col-sm-9">
-                                        <select  id="" name="btn_loc" class="form-control" >
-                    <option value="">Chọn</option>
-                    <?php foreach ($ds_xe as $value) : ?>
-                      <?php if(isset($_POST['btn_chon'])){
-  $btn_loc = $_POST['btn_loc'];
-}else{
-  $btn_loc = $_POST['btn_loc'];
-} ?>
-                    <option <?php if($btn_loc== $value['ma_xe']){echo "selected";} ?> value="<?php echo $value['ma_xe'] ?>"><?php echo $value['ten_xe']; ?></option>
-                    <?php endforeach; ?>
-                </select>
-                    <input type="submit" name="btn_chon" id="" class="gui">
-                                        </div>
-                                    </div>
-                                    </form>
+         
               <table class="table">
                 <thead>
                   <tr>
@@ -162,13 +149,17 @@ session_start();
 
                     <tr>
                       <th scope="row" style="padding-top: 50px;"><?= $value['id_anh'] ?></th>
+                   
                       <td style="padding-top: 50px;">
                         <?php foreach ($xe1 as $key => $value1) : ?>
-
+                          
                         <?php endforeach ?>
                         <?php if(isset($value1['ten_xe'])) : ?>
                                       <?= $value1['ten_xe'] ?>
                                       <?php endif ?>
+                                     
+                                  
+                                      
                       </td>
 
                       <td style="padding-top: 50px;">

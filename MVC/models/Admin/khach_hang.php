@@ -50,6 +50,10 @@ function suaKH()
 function xoaKhachHang()
 {
     $ma_kh = $_GET['ma_kh'];
+    $sql1 = "DELETE FROM don WHERE ma_kh=$ma_kh";
+    $conn = getConnect();
+    $statement = $conn->prepare($sql1);
+    $statement->execute();
     $sql = "DELETE FROM khach_hang WHERE ma_kh=$ma_kh";
     $conn = getConnect();
     $statement = $conn->prepare($sql);

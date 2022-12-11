@@ -4,6 +4,7 @@
     $don_gia = $_POST['don_gia'];
    $ma_loai = $_POST['ma_loai'];
     $hinh =  $_FILES['hinh'];
+  
     $thong_tin = $_POST['thong_tin'];
     $giam_gia = $_POST['giam_gia'];
     $so_km = $_POST['so_km'];
@@ -12,6 +13,7 @@
     $dong_co = $_POST['dong_co'];
     $file_name = uniqid() . $_FILES['hinh']['name'];
     $ext = pathinfo($file_name, PATHINFO_EXTENSION);
+  
    if(!$ten_xe){
     $ten_xe_err = 'CHƯA NHẬP';
    }
@@ -23,7 +25,9 @@
    }
    if(!$hinh['name']){
     $hinh_err = 'CHƯA NHẬP';
+    $hinh1_err = 'CHƯA NHẬP';
    }
+ 
    if(!$thong_tin){
     $thong_tin_err ='CHƯA NHẬP';
    }
@@ -46,6 +50,7 @@
     if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
       $_SESSION['error'] = "File chỉ được có đuôi png,jpg,jpeg ";}
   }
+
    }
 
 ?>
@@ -150,6 +155,12 @@
              
               </ul>
             </li>
+            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-sharp fa-solid fa-comments"></i></i><span class="hide-menu">BÌNH LUẬN  </span></a>
+              <ul aria-expanded="false" class="collapse  first-level">
+                <li class="sidebar-item"><a href="index2.php?url=ds_bl" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">DANH SÁCH </span></a></li>
+             
+              </ul>
+            </li>
 
             </li>
 
@@ -195,7 +206,7 @@
                                     <div class="form-group row">
                                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Đơn Giá</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Đơn Giá" name="don_gia"  value = '<?= isset($don_gia) ? $don_gia : ''?>'>
+                                            <input type="number" min="1" class="form-control"  placeholder="Nhập Đơn Giá" name="don_gia"  value = '<?= isset($don_gia) ? $don_gia : ''?>'>
                                             <span style="color: red;">
         <?php echo isset($don_gia_err) ?  $don_gia_err : ''; ?>
      </span>
@@ -213,7 +224,7 @@
                                     <div class="form-group row">
                                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Giảm Giá</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Giảm Giá" name="giam_gia"  value = '<?= isset($giam_gia) ? $giam_gia : ''?>'>
+                                            <input type="number" min="1" class="form-control"  placeholder="Nhập Giảm Giá" name="giam_gia"  value = '<?= isset($giam_gia) ? $giam_gia : ''?>'>
                                             <span style="color: red;">
         <?php echo isset($giam_gia_err) ?  $giam_gia_err : ''; ?>
      </span>
@@ -222,7 +233,7 @@
                                     <div class="form-group row">
                                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Số KM</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Số KM" name="so_km"  value = '<?= isset($so_km) ? $so_km : ''?>'>
+                                            <input type="number" min="1" class="form-control"  placeholder="Nhập Số KM" name="so_km"  value = '<?= isset($so_km) ? $so_km : ''?>'>
                                             <span style="color: red;">
         <?php echo isset($so_km_err) ?  $so_km_err : ''; ?>
      </span>
@@ -240,7 +251,7 @@
                                     <div class="form-group row">
                                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Slots</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control"  placeholder="Nhập Slots" name="slots"  value = '<?= isset($slots) ? $slots : ''?>'>
+                                            <input type="number" min="0" class="form-control"  placeholder="Nhập Slots" name="slots"  value = '<?= isset($slots) ? $slots : ''?>'>
                                             <span style="color: red;">
         <?php echo isset($slots_err) ?  $slots_err : ''; ?>
      </span>
@@ -272,7 +283,12 @@
                                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Ảnh phụ  </label>
                                         <div class="col-sm-9">
                                             <input type="file" class="form-control"   name="hinh1[]" multiple="multiple">
-       
+                                            <span style="color: red;">
+        <?php echo isset($hinh1_err) ?  $hinh1_err : ''; ?>
+     </span>
+     <span style="color: red;">
+        <?php echo isset($_SESSION['error1']) ?  $_SESSION['error1'] : ''; ?>
+     </span>
                                         </div>
   </div>
                                     <div class="form-group row">

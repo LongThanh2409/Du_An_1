@@ -6,6 +6,7 @@ require('./controllers/Admin/loai_xe.php');
 require('./controllers/Admin/khach_hang.php');
 require('./controllers/Admin/dang_ky.php');
 require('./controllers/Admin/hinh.php');
+require('./controllers/Admin/binh_luan.php');
 $url = isset($_GET['url']) ? $_GET['url'] : '/';
 
 switch ($url) {
@@ -20,6 +21,7 @@ switch ($url) {
         formThemMoiLoaiXe();
         break;
     case 'xoa_loai_xe':
+      
         xoaDSLX();
         break;
     case 'sua_loai_xe':
@@ -61,7 +63,14 @@ switch ($url) {
         break;
       case 'xoa_hinh': 
         xoaDSHinh();
-        break;   
+        break;  
+//BINH LUAN
+    case 'ds_bl':
+        hienThiBL();
+        break;    
+        case 'xoa_bl':
+            xoaDSBL();
+          break; 
 //DANG_KY            
     case 'ds_dang_ky_0':     
         hienThiDangKy_0();       

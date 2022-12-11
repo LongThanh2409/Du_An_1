@@ -1,4 +1,10 @@
+<?php
+session_start();
+   if(!isset($_SESSION['admin'])){
+    header('location:index.php');
+   }
 
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -50,7 +56,7 @@
           <ul class="navbar-nav float-right">
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="index.php?url=logout" onclick="return confirm('Bạn có chắc là muốn đăng xuất')" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic"  onclick="return confirm('Bạn có chắc là muốn đăng xuất')" href="index.php?url=logout" data-toggle="" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
 
             </li>
 
@@ -96,7 +102,7 @@
             <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-image"></i><span class="hide-menu">HÌNH PHỤ  </span></a>
               <ul aria-expanded="false" class="collapse  first-level">
                 <li class="sidebar-item"><a href="index2.php?url=ds_hinh" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">DANH SÁCH </span></a></li>
-          
+      
               </ul>
             </li>
             <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-sharp fa-solid fa-comments"></i></i><span class="hide-menu">BÌNH LUẬN  </span></a>
@@ -121,7 +127,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">DANH SÁCH XE</h4>
+                        <h4 class="page-title">DANH SÁCH BÌNH LUẬN</h4>
                      
                     </div>
                 </div>
@@ -130,62 +136,27 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                          <form action="" method="POST">
-                        <div class="form-group row one">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Mã Loại</label>
-                                        <div class="col-sm-9">
-                                        <select  id="" name="btn_loc" class="form-controlone" >
-                    <option value="">Chọn</option>
-               <?php if(isset($_POST['btn_chon'])){
-  $btn_loc = $_POST['btn_loc'];
-}else{
-  $btn_loc = $_POST['btn_loc'];
-} ?>
-                    <?php foreach ($ds_lx as $value) : ?>
-                    <option <?php if($btn_loc== $value['ma_loai']){echo "selected";} ?> value="<?php echo $value['ma_loai'] ?>"><?php echo $value['ten_loai']; ?></option>
-                    <?php endforeach; ?>
-                </select>
-                    <input type="submit" name="btn_chon" id="" class="gui">
-                                        </div>
-                                    </div>
-                                    </form>
+                  
                             <table class="table">
                                   <thead>
                                     <tr>
-                                      <th scope="col">MÃ XE</th>
-                                      <th scope="col">TÊN XE</th>
-                                      <th scope="col">ĐƠN GIÁ</th>  
-                                      <th scope="col">MÃ LOẠI</th>      
-                                      <th scope="col">HÌNH</th>  
-                                      <th scope="col">THÔNG TIN</th>   
-                                      <th scope="col">GIẢM GIÁ</th>   
-                                      <th scope="col">SÔ KM</th>   
-                                      <th scope="col">XUẤT XỨ</th>   
-                                      <th scope="col">SLOST</th>   
-                                      <th scope="col">ĐỘNG CƠ</th>    
-                                      <th scope="col"></th>                          
+                                      <th scope="col">MÃ BÌNH LUẬN </th>
+                                      <th scope="col">USER</th>
+                                      <th scope="col" >THỜI GIAN BÌNH LUẬN</th>         
+                                      <th scope="col ">NỘI DUNG</th>                        
                                     </tr>
                                   </thead>
                                   <tbody>
-                                  <?php foreach ($ds_xe as $key => $value) : ?>
-                                    <tr >
-                                      <th scope="row" style="padding-top: 60px;"><?= $value['ma_xe'] ?></th>
-                                      <td style="padding-top: 60px;"><?= $value['ten_xe'] ?></td>                                    
-                                      <td style="padding-top: 60px;"><?= $value['don_gia'] ?></td>
-                                      <td style="padding-top: 60px;"><?= $value['ma_loai'] ?></td>
-                                      <td style="padding-top: 60px;"> <img src="<?= $value['hinh'] ?>" alt="" width="100%"></td>
-                                      <td style="padding-top: 60px;"><?= $value['thong_tin'] ?></td>
-                                      <td style="padding-top: 60px;"><?= $value['giam_gia'] ?></td>
-                                      <td style="padding-top: 60px;"><?= $value['so_km'] ?></td>
-                                      <td style="padding-top: 60px;"><?= $value['xuat_xu'] ?></td>
-                                      <td style="padding-top: 60px;"><?= $value['slots'] ?></td>
-                                      <td style="padding-top: 60px;"><?= $value['dong_co'] ?></td>
+                                  <?php foreach ($ds_bl as $key => $value) : ?>
+                                    <tr>
+                                      <th scope="row"><?= $value['id_bl'] ?></th>
+                                      <td><?= $value['User'] ?></td>
+                                      <td><?= $value['thoi_gian_bl'] ?> </td>\
+                                      <td><?= $value['noi_dung'] ?> </td>
                                       <td> 
-                                      <button class="btn_edit">
-                <a class="edit" href="index2.php?url=sua_xe&ma_xe=<?php echo $value['ma_xe'] ?>">Sửa</a>
-              </button>
+               
               <button class="btn_delete">
-              <a class="delete" href="index2.php?url=xoa_xe&ma_xe=<?php echo $value['ma_xe'] ?>" onclick="return confirm('bạn có muốn xóa')">Xóa</a>
+              <a class="delete" href="index2.php?url=xoa_bl&id_bl=<?php echo $value['id_bl'] ?>" onclick="return confirm('bạn có muốn xóa')">Xóa</a>
               </button>
                                       </td>
                                     </tr>

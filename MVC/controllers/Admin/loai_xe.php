@@ -16,7 +16,9 @@ function formThemMoiLoaiXe(){
 function xoaDSLX()
  { 
    xoaLoaiXe();
+
     include('views/Admin/loai_xe/danh_sach.php');
+
  }
  function formSuaLoaiXe(){
     $sua=  layMotLoaiXe($_GET['ma_loai']);

@@ -151,7 +151,7 @@ session_start();
                                     <tr>
                                       <th scope="row"><?= $value['id_bl'] ?></th>
                                       <td><?= $value['User'] ?></td>
-                                      <td><?= $value['thoi_gian_bl'] ?> </td>\
+                                      <td><?= $value['thoi_gian_bl'] ?> </td>
                                       <td><?= $value['noi_dung'] ?> </td>
                                       <td> 
                

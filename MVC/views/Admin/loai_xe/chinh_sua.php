@@ -2,7 +2,7 @@
 
 
 
-<<<<<<< HEAD
+
 <?php
 // session_start();
 //    if(!isset($_SESSION['admin'])){
@@ -18,9 +18,9 @@
    
    
 ?><!DOCTYPE html>
-=======
-<!DOCTYPE html>
->>>>>>> 937c5bcfee65df6286168e643ea080ffe00d2253
+
+
+
 
 <html dir="ltr" lang="en">
 

@@ -14,6 +14,13 @@
     $file_name = uniqid() . $_FILES['hinh']['name'];
     $ext = pathinfo($file_name, PATHINFO_EXTENSION);
   
+    $sql = "SELECT * FROM xe ";
+    $xe = getData($sql, FETCH_ALL);
+    foreach ($xe as $value) {
+        if ($ten_xe == $value['ten_xe']) {
+            $error['ten_xe'] = 'Tên xe đã tồn tại';
+        }
+    }
    if(!$ten_xe){
     $ten_xe_err = 'CHƯA NHẬP';
    }
@@ -200,6 +207,9 @@
                                             <input type="text" class="form-control"  placeholder="Nhập Tên Xe" name="ten_xe"  value = '<?= isset($ten_xe) ? $ten_xe : ''?>'>
                                             <span style="color: red;">
         <?php echo isset($ten_xe_err) ?  $ten_xe_err : ''; ?>
+     </span>
+                                          <span style="color: red;">
+        <?php echo isset($error['ten_xe']) ?   $error['ten_xe'] : ''; ?>
      </span>
                                         </div>
                                     </div>

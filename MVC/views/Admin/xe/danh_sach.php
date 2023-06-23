@@ -27,7 +27,7 @@
       <nav class="navbar top-navbar navbar-expand-md navbar-dark">
         <div class="navbar-header" data-logobg="skin5">
           <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
-          <a class="navbar-brand" href="index2.php">
+          <a class="navbar-brand" href="index.php">
             <b class="logo-icon p-l-10">
               <img src="assets/images/logo-icon.png" alt="homepage" class="light-logo" />
             </b>
@@ -175,7 +175,7 @@
                                       <td style="padding-top: 60px;"><?= $value['ma_loai'] ?></td>
                                       <td style="padding-top: 60px;"> <img src="<?= $value['hinh'] ?>" alt="" width="100%"></td>
                                       <td style="padding-top: 60px;"><?= $value['thong_tin'] ?></td>
-                                      <td style="padding-top: 60px;"><?= $value['giam_gia'] ?></td>
+                                      <td style="padding-top: 60px;"><?=($value['don_gia']-($value['don_gia']*$value['giam_gia'])/100) . '('.($value['giam_gia'])."%".')' ?></td>
                                       <td style="padding-top: 60px;"><?= $value['so_km'] ?></td>
                                       <td style="padding-top: 60px;"><?= $value['xuat_xu'] ?></td>
                                       <td style="padding-top: 60px;"><?= $value['slots'] ?></td>

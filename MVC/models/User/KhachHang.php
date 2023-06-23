@@ -180,7 +180,10 @@ function login()
                 if ($username == $value['username'] && $password == $value['password'] && $value['level'] == 1) {
 
                     $_SESSION['admin'] = $value['username'];
-                    header('location:index2.php?url=ds_loai_xe');
+                     $_SESSION['username'] = $value['username'];
+                     $_SESSION['ma_kh'] = $value['ma_kh'];
+                     $_SESSION['email'] = $value['email'];
+                    header('location:index.php');
                 } else if ($username == $value['username'] && $password_md5 == $value['password'] && $value['level'] == 2) {
                     $_SESSION['ma_kh'] = $value['ma_kh'];
                     $_SESSION['username'] = $value['username'];
@@ -200,7 +203,7 @@ function login()
 function logout()
 {
 
-    if (isset($_SESSION['username']) && isset($_SESSION['ma_kh'])) {
+    if (isset($_SESSION['username']) || isset($_SESSION['ma_kh'])) {
         unset($_SESSION['username']);
         unset($_SESSION['ma_kh']);
     }

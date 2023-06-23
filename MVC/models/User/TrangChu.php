@@ -8,7 +8,7 @@ function layDS6SanPham()
 }
 function layDS3SanPham()
 {
-    $sql = "SELECT * FROM xe where 1 order by ma_xe desc limit 0,3";
+    $sql = "SELECT * FROM xe where 1 order by giam_gia desc limit 0,3";
     $list_3sp = getData($sql, FETCH_ALL);
     return $list_3sp;
 }

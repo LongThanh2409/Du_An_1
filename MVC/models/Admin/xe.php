@@ -126,7 +126,7 @@ function suaXe()
         move_uploaded_file($_FILES["hinh"]["tmp_name"], 'assets/images/img_data/' . $_FILES["hinh"]["name"]);
         header('Location:index2.php?url=ds_xe');
       } else {
-        if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg' && $ext != 'webp' && $ext != 'JFIF') {
+        if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg' && $ext != 'webp' && $ext != 'jfif') {
           $_SESSION['error'] = "File chỉ được có đuôi png,jpg,jpeg ";
         } else {
           $sql = "UPDATE xe SET ten_xe = '$ten_xe' , don_gia='$don_gia',ma_loai='$ma_loai',hinh='$hinh',thong_tin='$thong_tin',giam_gia='$giam_gia',so_km='$so_km',xuat_xu='$xuat_xu',slots='$slots',dong_co='$dong_co' WHERE ma_xe = $ma_xe";
@@ -146,7 +146,7 @@ function suaXe()
         move_uploaded_file($_FILES["hinh"]["tmp_name"], 'assets/images/img_data/' . $_FILES["hinh"]["name"]);
         header('Location:index2.php?url=ds_xe');
       } else {
-        if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg' && $ext != 'webp' && $ext != 'JFIF') {
+        if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg' && $ext != 'webp' && $ext != 'jfif') {
           $_SESSION['error'] = "File chỉ được có đuôi png,jpg,jpeg ";
         } else {
           $sql = "UPDATE xe SET ten_xe = '$ten_xe' , don_gia='$don_gia',hinh='$hinh',thong_tin='$thong_tin',giam_gia='$giam_gia',so_km='$so_km',xuat_xu='$xuat_xu',slots='$slots',dong_co='$dong_co' WHERE ma_xe = $ma_xe";
@@ -223,7 +223,10 @@ function suaXe()
 function xoaXe()
 {
   $ma_xe = $_GET['ma_xe'];
-
+  $sql2 = "DELETE FROM binh_luan WHERE ma_xe=$ma_xe";
+  $conn = getConnect();
+  $statement = $conn->prepare($sql2);
+ $statement->execute();
  
   $sql1 = "DELETE FROM hinh WHERE ma_xe=$ma_xe";
     $conn = getConnect();

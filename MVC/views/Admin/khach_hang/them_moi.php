@@ -71,7 +71,7 @@ if(!isset($_SESSION['admin'])){
       <nav class="navbar top-navbar navbar-expand-md navbar-dark">
         <div class="navbar-header" data-logobg="skin5">
           <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
-          <a class="navbar-brand" href="index2.php">
+          <a class="navbar-brand" href="index.php">
             <b class="logo-icon p-l-10">
               <img src="assets/images/logo-icon.png" alt="homepage" class="light-logo" />
             </b>

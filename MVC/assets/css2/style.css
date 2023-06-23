@@ -2611,7 +2611,8 @@ form .slider.slider-horizontal {
 
 .recent_post_title {
     float: right;
-    padding: 4px 10px;
+    /* padding: 4px 10px; */
+    padding: 35px;
     width: 66%
 }
 

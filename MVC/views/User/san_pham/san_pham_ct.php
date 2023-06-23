@@ -53,9 +53,9 @@ if (isset($_POST['dat_xem_xe'])) {
         <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> <?= $xuat_xu ?></span></div>
         <div class="add_compare">
 
-          <div class="share_vehicle">
+          <!-- <div class="share_vehicle">
             <p>Share: <a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a> <a href="#"></a> </p>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="col-md-3">
@@ -193,14 +193,14 @@ if (isset($_POST['dat_xem_xe'])) {
               <h5><?= $xuat_xu ?></h5>
               <p>Năm sản xuất</p>
             </li>
-            <li> <i class="fa fa-cogs" aria-hidden="true"></i>
+            <!-- <li> <i class="fa fa-cogs" aria-hidden="true"></i>
               <h5>Diesel</h5>
               <p>Loại Dầu</p>
             </li>
             <li> <i class="fa fa-power-off" aria-hidden="true"></i>
               <h5>Automatic</h5>
               <p>Bộ Chuyển Đổi</p>
-            </li>
+            </li> -->
             <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
               <h5><?= $dong_co ?></h5>
               <p>Mã Lực</p>
@@ -240,7 +240,7 @@ if (isset($_POST['dat_xem_xe'])) {
               </div> -->
               <?php if (isset($_SESSION['username'])) { ?>
                 <div class="form-group">
-                  <input type="submit" name="btn_bl" class="btn" value="Submit Comment">
+                  <input type="submit" name="btn_bl" class="btn" value="Gửi Bình Luận">
                 </div>
               <?php } ?>
             </form>
@@ -256,7 +256,8 @@ if (isset($_POST['dat_xem_xe'])) {
               <?php foreach ($bl as $value) : ?>
                 <div style="margin-top:10px;  background-color: #eee;padding:10px">
                   <strong class=""> Tên Bình Luận: <?= $value['User']  ?> </strong> <br>
-                  <span> <b>Nội Dung: </b> <?= $value['noi_dung'] ?></span>
+                  <span> <b>Nội Dung: </b> <?= $value['noi_dung'] ?></span> <br>
+                  <i> Thời gian:<?= $value['thoi_gian_bl'] ?></i>
                 </div>
               <?php endforeach ?>
             </div>
@@ -329,7 +330,7 @@ if (isset($_POST['dat_xem_xe'])) {
             <p><span>Tên khách hàng:</span> <?= isset($thong_tin_kh['ten_khach_hang']) ? $thong_tin_kh['ten_khach_hang'] : "" ?></p>
             <p><span>Email:</span><?= isset($thong_tin_kh['email']) ? $thong_tin_kh['email'] : "" ?></p>
             <p><span>Số Điện Thoại:</span> <?= isset($thong_tin_kh['so_dien_thoai']) ? $thong_tin_kh['so_dien_thoai'] : "" ?></p>
-            <a href="index.php?url=ds_dat_lich&ma_kh= <?= $ma_kh ?> " class="btn btn-xs">View Profile</a>
+            <a href="index.php?url=ds_dat_lich&ma_kh= <?= $ma_kh ?> " class="btn btn-xs">Xe Đã Đặt</a>
           </div>
 
         </div>
@@ -371,18 +372,18 @@ if (isset($_POST['dat_xem_xe'])) {
           <div class="col-md-3 grid_listing">
             <div class="product-listing-m gray-bg">
               <div class="product-listing-img"> <a href="<?= $link_ct ?>"><img src="<?= $hinh ?>" class="img-fluid" alt="image" /> </a>
-                <div class="label_icon">Used</div>
+                <!-- <div class="label_icon">Used</div>
                 <div class="compare_item">
                   <div class="checkbox">
                     <input type="checkbox" value="" id="compare16">
                     <label for="compare16">Compare</label>
                   </div>
-                </div>
+                </div> -->
               </div>
               <div class="product-listing-content">
                 <h5><a href="<?= $link_ct ?>"><?= $ten_xe ?> </a></h5>
                 <p class="list-price"><?=currency_format($don_gia)  ?></p>
-                <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
+                <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> <?= $xuat_xu ?></span></div>
                 <ul class="features_list">
                   <li><i class="fa fa-road" aria-hidden="true"></i><?= $so_km ?> km</li>
                   <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>

@@ -119,7 +119,8 @@ function currency_format($number, $suffix = 'VND') {
            if(!isset($_SESSION['username'])) {
             echo' <div class="login_btn"> <a href="index.php?url=login" class="btn btn-xs uppercase"  >Đăng Nhập / Đăng Ký</a> </div>
             ';
-           } else {
+           }
+         else {
            
             echo ' <div class="login_btn"> <a  class="btn btn-xs uppercase"  >Hello ->'.$_SESSION['username'].'</a> </div>
             ';
@@ -128,9 +129,11 @@ function currency_format($number, $suffix = 'VND') {
            
         
             
-        
+         
             <div>
-           
+           <p><?php if(isset($_SESSION['username']) && isset($_SESSION['admin'])){
+          echo "<a href='index2.php'>Trang Admin </a>";
+          } ?></p>
             </div>
           </div>
 

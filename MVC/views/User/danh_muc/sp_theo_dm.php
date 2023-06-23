@@ -6,11 +6,11 @@ require_once "templates/header.php";
   <div class="container">
     <div class="page-header_wrap">
       <div class="page-heading">
-        <h1>Car Listing</h1>
+        <h1>Sản Phẩm Theo Danh Mục</h1>
       </div>
       <ul class="coustom-breadcrumb">
         <li><a href="index.php?url=trang_chu">Home</a></li>
-        <li>Car Listing</li>
+        <li>Sản Phẩm Danh Mục</li>
       </ul>
     </div>
   </div>

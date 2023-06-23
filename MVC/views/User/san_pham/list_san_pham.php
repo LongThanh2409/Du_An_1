@@ -130,6 +130,7 @@ if (isset($_POST['price'])) {
           foreach ($ds_sp_xe as $value) :
             extract($value);
             $link_ct = 'index.php?url=sanpham_chitiet&ma_xe=' . $ma_xe . '&ma_loai=' . $ma_loai . '';
+            $link_dl= "index.php?url=ds_dat_lich&ma_kh=".$ma_kh;
           ?>
             <div class="col-md-4 grid_listing">
               <div class="product-listing-m gray-bg">
@@ -247,7 +248,7 @@ if (isset($_POST['price'])) {
           <div class="white-text div_zindex text-center">
             <h3>Xem Xe Của Bạn</h3>
             <p> </p>
-            <a href="" class="btn">Xem Ngay<span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+            <a href="<?= $link_dl ?>" class="btn">Xem Ngay<span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
           </div>
           <div class="dark-overlay"></div>
         </div>

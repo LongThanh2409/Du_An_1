@@ -106,7 +106,7 @@
 
         <div class="col-md-6">
 
-          <p class="copy-right">Copyright &copy; 2022 CarForYou. All Rights Reserved</p>
+          <p class="copy-right">Địa Chỉ:Số 2 Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</p>
 
         </div>
 
@@ -114,7 +114,7 @@
 
           <div class="footer_widget">
 
-            <p>Download Our APP:</p>
+            <p>Car For You</p>
 
             <ul>
 
@@ -128,7 +128,7 @@
 
           <div class="footer_widget">
 
-            <p>Connect with Us:</p>
+            <p>Liên Hệ Qua:</p>
 
             <ul>
 
@@ -445,11 +445,11 @@
 <script src="assets/js2/bootstrap-slider.min.js"></script> 
 
 <!--Slider-JS--> 
-
-<script src="assets/js2/slick.min.js"></script> 
+<!-- 
+<script src="assets/js2/slick.min.js"></script>  -->
  <script src="dist/js/custom.min.js"></script> 
-<script src="assets/js2/owl.carousel.min.js"></script>
-<script src="assets/libs/jquery/dist/jquery.min.js"></script>
+<!-- <script src="assets/js2/owl.carousel.min.js"></script>
+<script src="assets/libs/jquery/dist/jquery.min.js"></script> -->
 
 
 
